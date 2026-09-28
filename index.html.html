@@ -198,147 +198,226 @@ function buildDefaultProducts(){
  addRange("Flyers","Printing","piece",0,30," in");
  return rows;
 }
-/* =========================================================   SUPABASE INITIALIZATION========================================================= */function cloudConfigured(){    return (        SUPABASE_URL &&        SUPABASE_URL.startsWith("https://") &&        SUPABASE_ANON_KEY &&        SUPABASE_ANON_KEY.length > 20    );}function initializeSupabase(){    if(!cloudConfigured()){        console.error(            "Supabase configuration is missing."        );        updateCloudStatus(false);        return false;    }    if(        !window.supabase ||        typeof window.supabase.createClient !== "function"    ){        console.error(            "Supabase JS library did not load."        );        updateCloudStatus(false);        return false;    }    try{        supabaseClient =            window.supabase.createClient(                SUPABASE_URL,                SUPABASE_ANON_KEY            );        console.log(            "Supabase initialized successfully."        );        return true;    }catch(error){        console.error(            "Supabase initialization failed:",            error        );        supabaseClient = null;        updateCloudStatus(false);        return false;    }}function updateCloudStatus(connected){    const el =        document.getElementById("cloudStatus");    if(!el)return;    if(connected){        el.innerText =            "☁ Cloud Connected";        el.className =            "cloud-status connected";    }else{        el.innerText =            "☁ Cloud Disconnected";        el.className =            "cloud-status disconnected";    }}/* =========================================================   INITIALIZATION========================================================= */document.addEventListener(    "DOMContentLoaded",    async function(){        updateDate();        setToday();        initializeSupabase();        await loadCloudData();    });/* =========================================================   LOAD CLOUD DATA========================================================= */async function loadCloudData(){    if(!supabaseClient){        initializeSupabase();    }    if(!supabaseClient){        alert(            "Supabase is not connected."        );        return;    }    try{        const [            productResult,            quoteResult,            settingsResult        ] = await Promise.all([            supabaseClient                .from("products")                .select("*")                .order("id"),            supabaseClient                .from("quotations")                .select("*")                .order(                    "created_at",                    {                        ascending:false                    }                ),            supabaseClient                .from("settings")                .select("*")                .eq("id",1)                .maybeSingle()        ]);        if(productResult.error)            throw productResult.error;        if(quoteResult.error)            throw quoteResult.error;        if(settingsResult.error)            throw settingsResult.error;        products =            productResult.data || [];        /*
-         * Ensure the requested product/size catalog exists.
-         * Existing rows are preserved; only missing exact Product + Size rows are added.
-         */
-        const requiredDefaults = buildDefaultProducts();
-        const existingKeys = new Set(products.map(function(p){
-            return getProductNameKey(p.name) + "|" + String(p.size || "").trim().toLowerCase();
-        }));
-        const missingDefaults = requiredDefaults.filter(function(p){
-            const key = getProductNameKey(p.name) + "|" + String(p.size || "").trim().toLowerCase();
-            return !existingKeys.has(key);
-        });
-        if(missingDefaults.length){
-            const { data: addedDefaults, error: defaultError } = await supabaseClient
-                .from("products")
-                .insert(missingDefaults)
-                .select("*");
-            if(defaultError) throw defaultError;
-            products = products.concat(addedDefaults || []);
-        }
-        /*         * Create default products         * if the database is empty.         */        if(!products.length){
-            const defaults = buildDefaultProducts();
-            const { data, error } = await supabaseClient
-                .from("products")
-                .insert(defaults)
-                .select("*");
-            if(error) throw error;
-            products = data || [];
-        }        quotations =            (quoteResult.data || [])            .map(function(q){                const meta =                    unpackQuotationNotes(                        q.notes || ""                    );                return {                    ...q,                    id:q.id,                    number:q.number,                    date:q.quote_date,                    client:q.client || "",                    contact:q.contact || "",                    email:q.email || "",                    address:q.address || "",                    project:q.project || "",                    items:Array.isArray(q.items)                        ? q.items                        : [],                    subtotal:Number(                        q.subtotal || 0                    ),                    total:Number(                        q.total || 0                    ),                    downpayment:Number(                        q.downpayment || 0                    ),                    remaining:Number(                        q.remaining || 0                    ),                    status:q.status || "Pending",                    notes:meta.notes,                    image:meta.image,                    createdAt:q.created_at                };            });        settings =            settingsResult.data || {                id:1,                company_name:                    "PrintArt Creative Graphics and Signs",                tagline:                    "Creative Graphics & Signs",                address:                    "C' Arcade Building, Unit 9 2/F, Camachiles, Mabalacat City, Pampanga",                contact:                    "0961 517 9028",                email:                    "printartcreative.kr@gmail.com",                logo:""            };        updateCloudStatus(true);        renderProducts();        populateProductSelect();        renderDashboard();        renderQuotations();        generateQuotationNumber();        loadSettings();    }catch(error){        console.error(            "Cloud database error:",            error        );        updateCloudStatus(false);        alert(            "Unable to load the shared database.\n\n" +            error.message        );    }}/* =========================================================   NAVIGATION========================================================= */function showPage(page,button){    document        .querySelectorAll(".page")        .forEach(function(p){            p.classList.remove("active");        });    const target =        document.getElementById(page);    if(target)        target.classList.add("active");    document        .querySelectorAll(".nav-btn")        .forEach(function(b){            b.classList.remove("active");        });    if(button)        button.classList.add("active");    const titles={        dashboard:"Dashboard",        quotation:"New Quotation",        quotations:"Quotation Compilation",        signages:"Signage Projects",        products:"Product & Price Database",        settings:"Settings"    };    document.getElementById("pageTitle")        .innerText =        titles[page] || "Dashboard";}function showPageByName(page){    const button =        [            ...document.querySelectorAll(".nav-btn")        ].find(function(b){            return b.innerText                .toLowerCase()                .includes(page.toLowerCase());        });    showPage(        page,        button    );}/* =========================================================   DATE========================================================= */function updateDate(){    const now =        new Date();    document.getElementById(        "currentDate"    ).innerText =        now.toLocaleDateString(            "en-PH",            {                year:"numeric",                month:"long",                day:"numeric"            }        );}function setToday(){    const now =        new Date();    const local =        new Date(            now.getTime()            -            now.getTimezoneOffset()*60000        )        .toISOString()        .split("T")[0];    const input =        document.getElementById(            "quoteDate"        );    if(input)        input.value = local;}/* =========================================================   QUOTATION NUMBER========================================================= */function generateQuotationNumber(){    const year =        new Date().getFullYear();    let max = 0;    quotations.forEach(function(q){        const match =            String(q.number || "")            .match(/PAQ-(\d+)-/);        if(match){            max =                Math.max(                    max,                    Number(match[1])                );        }    });    const next =        String(max + 1)        .padStart(4,"0");    const number =        `PAQ-${next}-${year}`;    const el =        document.getElementById(            "quotationNumber"        );    if(el)        el.innerText = number;    return number;}/* =========================================================   PRODUCT DATABASE========================================================= */function renderProducts(){
- const container=document.getElementById("productsContainer");
- if(!container)return;
- container.innerHTML="";
- if(!products.length){
-   container.innerHTML=`<div class="product-empty-size">No products found. Click <strong>+ Add Product</strong> to create one.</div>`;
-   return;
- }
- const groups={};
- products.forEach(function(p){
-   const key=getProductNameKey(p.name);
-   if(!groups[key])groups[key]={name:p.name||"Unnamed Product",category:p.category||"",unit:p.unit||"",items:[]};
-   groups[key].items.push(p);
- });
- Object.keys(groups).forEach(function(key){
-   const g=groups[key];
-   let rows="";
-   g.items.forEach(function(p){
-     rows+=`<tr>
-       <td><strong>${escapeHTML(p.size||"No size")}</strong></td>
-       <td>${escapeHTML(p.unit||g.unit||"")}</td>
-       <td><strong>₱${money(p.price||0)}</strong></td>
-       <td><div class="product-size-actions">
-         <button class="btn btn-light" onclick="editProduct(${Number(p.id)})">Edit</button>
-         <button class="btn btn-red" onclick="deleteProduct(${Number(p.id)})">Delete</button>
-       </div></td>
-     </tr>`;
-   });
-   container.innerHTML+=`<div class="product-group">
-     <div class="product-group-header">
-       <div><div class="product-group-title">${escapeHTML(g.name)}</div>
-       <div class="product-group-meta">${escapeHTML(g.category||"No category")} · ${g.items.length} size${g.items.length===1?"":"s"}</div></div>
-       <button class="btn btn-primary" onclick='addSizeToProduct(${JSON.stringify(g.name)},${JSON.stringify(g.category)},${JSON.stringify(g.unit)})'>+ Add Size</button>
-     </div>
-     <div style="overflow-x:auto"><table class="product-size-table">
-       <thead><tr><th>Size</th><th>Unit</th><th>Price</th><th>Action</th></tr></thead>
-       <tbody>${rows}</tbody>
-     </table></div>
-   </div>`;
- });
-}
-function getProductNameKey(name){ return String(name || "").trim().toLowerCase(); }
-function getUniqueProductNames(){
- const seen=new Set(), names=[];
- products.forEach(function(p){
-  const name=String(p.name||"").trim(), key=getProductNameKey(name);
-  if(name&&!seen.has(key)){seen.add(key);names.push(name);}
- });
- return names;
-}
-function populateProductSelect(){
- const select=document.getElementById("productSelect");
- if(!select)return;
- select.innerHTML=`<option value="">Select product...</option>`;
- getUniqueProductNames().forEach(function(name){
-  const option=document.createElement("option");
-  option.value=name; option.textContent=name; select.appendChild(option);
- });
- resetSizeSelect();
-}
-function resetSizeSelect(){
- const select=document.getElementById("itemSize");
- if(!select)return;
- select.innerHTML=`<option value="">Select size...</option>`;
- select.disabled=true;
- document.getElementById("selectedPrice").innerText="0.00";
-}
-function populateSizeSelect(){
- const productName=document.getElementById("productSelect").value.trim();
- const sizeSelect=document.getElementById("itemSize");
- if(!sizeSelect)return;
- sizeSelect.innerHTML=`<option value="">Select size...</option>`;
- sizeSelect.disabled=true;
- document.getElementById("selectedPrice").innerText="0.00";
- if(!productName)return;
- const matches=products.filter(function(p){return getProductNameKey(p.name)===getProductNameKey(productName);});
- const sized=matches.filter(function(p){return String(p.size||"").trim()!=="";});
- if(!sized.length){
-  if(matches.length===1){
-   sizeSelect.innerHTML=`<option value="">No size configured</option>`;
-   document.getElementById("selectedPrice").innerText=money(matches[0].price);
-  }
-  return;
- }
- const seen=new Set();
- sized.forEach(function(p){
-  const size=String(p.size).trim(), key=size.toLowerCase();
-  if(!seen.has(key)){
-   seen.add(key);
-   const option=document.createElement("option");
-   option.value=size; option.textContent=size; sizeSelect.appendChild(option);
-  }
- });
- sizeSelect.disabled=false;
-}
-function selectProduct(){
- populateSizeSelect();
- const productName=document.getElementById("productSelect").value.trim();
- updateSelectedProductPrice(productName,document.getElementById("itemSize").value.trim());
-}
-function updateSelectedProductPrice(productName,size){
- const priceEl=document.getElementById("selectedPrice");
- if(!productName||!size){priceEl.innerText="0.00";return;}
- const product=products.find(function(p){
-  return getProductNameKey(p.name)===getProductNameKey(productName)
-   && String(p.size||"").trim().toLowerCase()===size.toLowerCase();
- });
- priceEl.innerText=product?money(product.price):"0.00";
-}
-document.getElementById("itemSize")?.addEventListener("change",function(){
- updateSelectedProductPrice(document.getElementById("productSelect").value.trim(),this.value.trim());
-});
+/* =========================================================
+   LOAD CLOUD DATA
+========================================================= */
 
+async function loadCloudData(){
+
+    if(!supabaseClient){
+        initializeSupabase();
+    }
+
+    if(!supabaseClient){
+
+        alert(
+            "Supabase is not connected."
+        );
+
+        return;
+    }
+
+    try{
+
+        const [
+            productResult,
+            quoteResult,
+            settingsResult
+        ] = await Promise.all([
+
+            supabaseClient
+                .from("products")
+                .select("*")
+                .order("id"),
+
+            supabaseClient
+                .from("quotations")
+                .select("*")
+                .order(
+                    "created_at",
+                    {
+                        ascending:false
+                    }
+                ),
+
+            supabaseClient
+                .from("settings")
+                .select("*")
+                .eq("id",1)
+                .maybeSingle()
+
+        ]);
+
+        /* =================================================
+           CHECK ERRORS
+        ================================================= */
+
+        if(productResult.error)
+            throw productResult.error;
+
+        if(quoteResult.error)
+            throw quoteResult.error;
+
+        if(settingsResult.error)
+            throw settingsResult.error;
+
+
+        /* =================================================
+           PRODUCTS
+           
+           IMPORTANT:
+           Do NOT automatically create default products.
+           The Product Database is controlled by Supabase.
+        ================================================= */
+
+        products = productResult.data || [];
+
+
+        /* =================================================
+           QUOTATIONS
+        ================================================= */
+
+        quotations =
+            (quoteResult.data || [])
+            .map(function(q){
+
+                const meta =
+                    unpackQuotationNotes(
+                        q.notes || ""
+                    );
+
+                return {
+
+                    ...q,
+
+                    id:q.id,
+
+                    number:q.number,
+
+                    date:q.quote_date,
+
+                    client:q.client || "",
+
+                    contact:q.contact || "",
+
+                    email:q.email || "",
+
+                    address:q.address || "",
+
+                    project:q.project || "",
+
+                    items:
+                        Array.isArray(q.items)
+                            ? q.items
+                            : [],
+
+                    subtotal:
+                        Number(
+                            q.subtotal || 0
+                        ),
+
+                    total:
+                        Number(
+                            q.total || 0
+                        ),
+
+                    downpayment:
+                        Number(
+                            q.downpayment || 0
+                        ),
+
+                    remaining:
+                        Number(
+                            q.remaining || 0
+                        ),
+
+                    status:
+                        q.status || "Pending",
+
+                    notes:
+                        meta.notes,
+
+                    image:
+                        meta.image,
+
+                    createdAt:
+                        q.created_at
+
+                };
+
+            });
+
+
+        /* =================================================
+           SETTINGS
+        ================================================= */
+
+        settings =
+            settingsResult.data || {
+
+                id:1,
+
+                company_name:
+                    "PrintArt Creative Graphics and Signs",
+
+                tagline:
+                    "Creative Graphics & Signs",
+
+                address:
+                    "C' Arcade Building, Unit 9 2/F, Camachiles, Mabalacat City, Pampanga",
+
+                contact:
+                    "0961 517 9028",
+
+                email:
+                    "printartcreative.kr@gmail.com",
+
+                logo:""
+
+            };
+
+
+        /* =================================================
+           CLOUD CONNECTED
+        ================================================= */
+
+        updateCloudStatus(true);
+
+
+        /* =================================================
+           RENDER EVERYTHING
+        ================================================= */
+
+        renderProducts();
+
+        populateProductSelect();
+
+        renderDashboard();
+
+        renderQuotations();
+
+        generateQuotationNumber();
+
+        loadSettings();
+
+
+    }catch(error){
+
+        console.error(
+            "Cloud database error:",
+            error
+        );
+
+        updateCloudStatus(false);
+
+        alert(
+            "Unable to load the shared database.\n\n" +
+            error.message
+        );
+
+    }
+
+}
 /* =========================================================
  SIGNAGE PROJECTS
 ========================================================= */

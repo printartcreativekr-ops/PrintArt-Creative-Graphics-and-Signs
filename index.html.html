@@ -6,7 +6,96 @@
 .quote-items td:nth-child(5){
     white-space:nowrap;
 }
-.quote-items th:nth-child(1){    width:40%;}.quote-items th:nth-child(2){    width:18%;}.quote-items th:nth-child(3){    width:15%;}.quote-items th:nth-child(4){    width:13%;}.quote-items th:nth-child(5){    width:17%;}.quote-total{    margin-left:auto;    width:330px;    margin-top:20px;}.quote-total div{    display:flex;    justify-content:space-between;    padding:7px;    font-size:13px;}.quote-total .grand{    font-weight:bold;    font-size:19px;    border-top:2px solid #111;}.quote-footer{    margin-top:30px;    font-size:12px;    color:#666;    line-height:1.5;}.quote-footer p{    margin:5px 0;}/* =========================================================   RESPONSIVE========================================================= */@media(max-width:1100px){    .dashboard-grid{        grid-template-columns:repeat(2,1fr);    }    .form-grid.three{        grid-template-columns:repeat(2,1fr);    }}@media(max-width:1000px){    .sidebar{        width:210px;    }    .main{        margin-left:210px;    }}@media(max-width:700px){    .sidebar{        position:relative;        width:100%;        height:auto;    }    .main{        margin-left:0;    }    .dashboard-grid,    .form-grid,    .form-grid.three{        grid-template-columns:1fr;    }    .totals-box{        width:100%;    }    .topbar{        position:relative;        height:auto;        min-height:75px;    }    .content{        padding:15px;    }    .quote-header{        flex-direction:column;    }    .quote-meta{        text-align:left;    }    .quote-paper{        padding:20px;    }}/* =========================================================   PRINT========================================================= */@media print{    @page{        size:A4;        margin:10mm;    }    html,    body{        margin:0!important;        padding:0!important;        background:#fff!important;        width:100%!important;    }    body *{        visibility:hidden!important;    }    #quoteModal{        position:static!important;        display:block!important;        background:#fff!important;        padding:0!important;        margin:0!important;        overflow:visible!important;    }    #quoteModal .modal-content{        max-width:none!important;        width:100%!important;        padding:0!important;        margin:0!important;        border-radius:0!important;        box-shadow:none!important;    }    #printArea,    #printArea *{        visibility:visible!important;    }    #printArea{        position:static!important;        display:block!important;        width:100%!important;        margin:0!important;        padding:0!important;    }    .quote-paper{        display:block!important;        width:100%!important;        max-width:none!important;        margin:0!important;        padding:5mm!important;        background:#fff!important;        box-shadow:none!important;    }    .no-print{        display:none!important;    }    .quote-header{        page-break-inside:avoid;    }    .quote-items{        page-break-inside:auto;    }    .quote-items tr{        page-break-inside:avoid;        page-break-after:auto;    }    .quote-total{        page-break-inside:avoid;    }    .quote-footer{        page-break-inside:avoid;    }    img{        max-width:100%!important;    }}/* =========================================================   CLOUD STATUS========================================================= */.cloud-status{    font-size:12px;    padding:5px 10px;    border-radius:20px;    font-weight:bold;}.cloud-status.connected{    background:#eafaf2;    color:#168947;}.cloud-status.disconnected{    background:#fff0f0;    color:#c0392b;}
+.quote-items th:nth-child(1){    width:40%;}.quote-items th:nth-child(2){    width:18%;}.quote-items th:nth-child(3){    width:15%;}.quote-items th:nth-child(4){    width:13%;}.quote-items th:nth-child(5){    width:17%;}.quote-total{    margin-left:auto;    width:330px;    margin-top:20px;}.quote-total div{    display:flex;    justify-content:space-between;    padding:7px;    font-size:13px;}.quote-total .grand{    font-weight:bold;    font-size:19px;    border-top:2px solid #111;}.quote-footer{    margin-top:30px;    font-size:12px;    color:#666;    line-height:1.5;}.quote-footer p{    margin:5px 0;}/* =========================================================   RESPONSIVE========================================================= */@media(max-width:1100px){    .dashboard-grid{        grid-template-columns:repeat(2,1fr);    }    .form-grid.three{        grid-template-columns:repeat(2,1fr);    }}@media(max-width:1000px){    .sidebar{        width:210px;    }    .main{        margin-left:210px;    }}@media(max-width:700px){    .sidebar{        position:relative;        width:100%;        height:auto;    }    .main{        margin-left:0;    }    .dashboard-grid,    .form-grid,    .form-grid.three{        grid-template-columns:1fr;    }    .totals-box{        width:100%;    }    .topbar{        position:relative;        height:auto;        min-height:75px;    }    .content{        padding:15px;    }    .quote-header{        flex-direction:column;    }    .quote-meta{        text-align:left;    }    .quote-paper{        padding:20px;    }}/* =========================================================
+   PRINT FALLBACK
+========================================================= */
+@media print{
+    @page{
+        size:A4 portrait;
+        margin:10mm;
+    }
+
+    html,body{
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+        width:100%!important;
+    }
+
+    body > *:not(#quoteModal){
+        display:none!important;
+    }
+
+    #quoteModal{
+        display:block!important;
+        position:static!important;
+        inset:auto!important;
+        width:100%!important;
+        height:auto!important;
+        padding:0!important;
+        margin:0!important;
+        background:#fff!important;
+        overflow:visible!important;
+    }
+
+    #quoteModal .modal-content{
+        display:block!important;
+        position:static!important;
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
+        border:0!important;
+        border-radius:0!important;
+        box-shadow:none!important;
+        background:#fff!important;
+    }
+
+    #quoteModal .no-print{
+        display:none!important;
+    }
+
+    #printArea{
+        display:block!important;
+        width:100%!important;
+        margin:0!important;
+        padding:0!important;
+    }
+
+    .quote-paper{
+        display:block!important;
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+        color:#111!important;
+        box-shadow:none!important;
+    }
+
+    .quote-header,
+    .quote-total,
+    .quote-footer{
+        break-inside:avoid!important;
+        page-break-inside:avoid!important;
+    }
+
+    .quote-items tr{
+        break-inside:avoid!important;
+        page-break-inside:avoid!important;
+    }
+
+    .quote-items th{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+
+    img{
+        max-width:100%!important;
+    }
+}
+
+/* =========================================================   CLOUD STATUS========================================================= */.cloud-status{    font-size:12px;    padding:5px 10px;    border-radius:20px;    font-weight:bold;}.cloud-status.connected{    background:#eafaf2;    color:#168947;}.cloud-status.disconnected{    background:#fff0f0;    color:#c0392b;}
 /* =========================================================
  SIGNAGE PROJECTS
 ========================================================= */
@@ -70,7 +159,7 @@
 .status.production{background:#eef5ff;color:#1d5fa7;}
 .status.completed{background:#eafaf2;color:#087740;}
 
-<style>
+/* SIGNAGE RESPONSIVE */
 @media (max-width: 1100px) {
     .signage-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -393,7 +482,7 @@
   </div>
 </div>
 </section>
-<!-- =======================================================     SETTINGS======================================================= --><section id="settings" class="page"><div class="panel">    <h2>        Company Settings    </h2>    <div class="form-grid">        <div class="field">            <label>                Company Name            </label>            <input id="companyName" value="PrintArt Creative Graphics and Signs">        </div>        <div class="field">            <label>                Company Tagline            </label>            <input id="companyTagline" value="Creative Graphics &amp; Signs">        </div>        <div class="field">            <label>                Address            </label>            <input id="companyAddress" placeholder="Company address">        </div>        <div class="field">            <label>                Contact Number            </label>            <input id="companyContact" placeholder="Company contact number">        </div>        <div class="field">            <label>                Company Email            </label>            <input id="companyEmail" placeholder="company@email.com">        </div>        <div class="field">            <label>                Upload Company Logo            </label>            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">        </div>    </div>    <div class="button-row">        <button class="btn btn-green" onclick="saveSettings()">            Save Settings        </button>    </div></div><div class="panel">    <h3>        Quotation Payment Settings    </h3>    <div class="form-grid">        <div class="field">            <label>                Downpayment Percentage            </label>            <input value="60%" disabled="">        </div>        <div class="field">            <label>                Remaining Balance            </label>            <input value="40%" disabled="">        </div>    </div>    <p style="color:#777;font-size:13px;">        The quotation system automatically calculates        60% downpayment and 40% remaining balance.    </p></div></section>    </div></div><!-- =======================================================     VIEW QUOTATION MODAL======================================================= --><div class="modal" id="quoteModal">    <div class="modal-content">        <div class="button-row no-print" style="justify-content:flex-end;">            <button class="btn btn-dark" onclick="window.print()">                🖨 Print            </button>            <button class="btn btn-light" onclick="closeModal()">                Close            </button>        </div>        <div id="printArea"></div>    </div></div><script>
+<!-- =======================================================     SETTINGS======================================================= --><section id="settings" class="page"><div class="panel">    <h2>        Company Settings    </h2>    <div class="form-grid">        <div class="field">            <label>                Company Name            </label>            <input id="companyName" value="PrintArt Creative Graphics and Signs">        </div>        <div class="field">            <label>                Company Tagline            </label>            <input id="companyTagline" value="Creative Graphics &amp; Signs">        </div>        <div class="field">            <label>                Address            </label>            <input id="companyAddress" placeholder="Company address">        </div>        <div class="field">            <label>                Contact Number            </label>            <input id="companyContact" placeholder="Company contact number">        </div>        <div class="field">            <label>                Company Email            </label>            <input id="companyEmail" placeholder="company@email.com">        </div>        <div class="field">            <label>                Upload Company Logo            </label>            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">        </div>    </div>    <div class="button-row">        <button class="btn btn-green" onclick="saveSettings()">            Save Settings        </button>    </div></div><div class="panel">    <h3>        Quotation Payment Settings    </h3>    <div class="form-grid">        <div class="field">            <label>                Downpayment Percentage            </label>            <input value="60%" disabled="">        </div>        <div class="field">            <label>                Remaining Balance            </label>            <input value="40%" disabled="">        </div>    </div>    <p style="color:#777;font-size:13px;">        The quotation system automatically calculates        60% downpayment and 40% remaining balance.    </p></div></section>    </div></div><!-- =======================================================     VIEW QUOTATION MODAL======================================================= --><div class="modal" id="quoteModal">    <div class="modal-content">        <div class="button-row no-print" style="justify-content:flex-end;">            <button class="btn btn-dark" type="button" onclick="printQuotation()">                🖨 Print            </button>            <button class="btn btn-light" onclick="closeModal()">                Close            </button>        </div>        <div id="printArea"></div>    </div></div><script>
 /* =========================================================
    PRINTART QUOTATION SYSTEM
    Formula-based Product & Price Database
@@ -1566,6 +1655,298 @@ function previewQuotation(q){
     `;
 
     document.getElementById("quoteModal").classList.add("show");
+}
+
+function printQuotation(){
+    const source = document.getElementById("printArea");
+
+    if(!source || !source.innerHTML.trim()){
+        alert("Please click Preview first so the quotation can be generated.");
+        return;
+    }
+
+    // Clone the already-rendered quotation. This avoids rebuilding quotation data
+    // and guarantees that the print document contains exactly what Preview shows.
+    const quotationHTML = source.innerHTML;
+
+    // Collect the application's CSS so the standalone print document has
+    // the same quotation styling.
+    const css = Array.from(document.querySelectorAll("style"))
+        .map(el => el.textContent || "")
+        .join("\\n");
+
+    const frame = document.createElement("iframe");
+    frame.setAttribute("aria-hidden","true");
+    frame.style.position = "fixed";
+    frame.style.right = "0";
+    frame.style.bottom = "0";
+    frame.style.width = "0";
+    frame.style.height = "0";
+    frame.style.border = "0";
+    frame.style.opacity = "0";
+    frame.style.pointerEvents = "none";
+
+    document.body.appendChild(frame);
+
+    const doc = frame.contentDocument;
+    if(!doc){
+        frame.remove();
+        alert("Unable to create the print document. Please try again.");
+        return;
+    }
+
+    doc.open();
+    doc.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintArt Quotation</title>
+<style>
+${css}
+
+/* =========================================================
+   DEDICATED PRINT DOCUMENT
+========================================================= */
+html,body{
+    margin:0!important;
+    padding:0!important;
+    background:#fff!important;
+    color:#111!important;
+    font-family:Arial,Helvetica,sans-serif!important;
+}
+
+body{
+    width:100%;
+}
+
+.print-page{
+    width:100%;
+    max-width:190mm;
+    margin:0 auto;
+}
+
+.quote-paper{
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    background:#fff!important;
+    color:#111!important;
+    box-shadow:none!important;
+}
+
+.quote-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    border-bottom:3px solid #d4af37;
+    padding-bottom:12px;
+    margin-bottom:18px;
+}
+
+.quote-logo{
+    display:block;
+    width:180px;
+    height:65px;
+    object-fit:contain;
+    object-position:left center;
+    margin-bottom:7px;
+}
+
+.quote-company h1{
+    margin:0 0 5px;
+}
+
+.quote-company p{
+    margin:3px 0;
+    font-size:11px;
+    line-height:1.35;
+}
+
+.quote-meta{
+    min-width:155px;
+    text-align:right;
+}
+
+.quote-meta strong{
+    display:block;
+    font-size:19px;
+    margin-bottom:4px;
+}
+
+.quote-meta div{
+    font-size:11px;
+    margin-bottom:3px;
+}
+
+.quoted-to{
+    margin-bottom:18px;
+}
+
+.quoted-to strong{
+    font-size:10px;
+}
+
+.quoted-to h3{
+    margin:4px 0;
+    font-size:16px;
+}
+
+.quoted-to div{
+    font-size:11px;
+    margin:2px 0;
+}
+
+.quote-items{
+    width:100%!important;
+    border-collapse:collapse!important;
+    table-layout:fixed!important;
+}
+
+.quote-items th{
+    background:#111!important;
+    color:#fff!important;
+    padding:8px!important;
+    text-align:left!important;
+    font-size:10px!important;
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+}
+
+.quote-items td{
+    padding:8px!important;
+    border-bottom:1px solid #ddd!important;
+    font-size:10px!important;
+    vertical-align:top!important;
+    word-wrap:break-word!important;
+}
+
+.quote-items th:nth-child(1){width:40%!important;}
+.quote-items th:nth-child(2){width:18%!important;}
+.quote-items th:nth-child(3){width:15%!important;}
+.quote-items th:nth-child(4){width:13%!important;}
+.quote-items th:nth-child(5){width:14%!important;}
+
+.quote-items td:nth-child(4),
+.quote-items td:nth-child(5){
+    white-space:nowrap!important;
+}
+
+.quote-total{
+    margin-left:auto!important;
+    width:300px!important;
+    margin-top:16px!important;
+}
+
+.quote-total div{
+    display:flex!important;
+    justify-content:space-between!important;
+    padding:6px!important;
+    font-size:11px!important;
+}
+
+.quote-total .grand{
+    font-size:16px!important;
+    font-weight:bold!important;
+    border-top:2px solid #111!important;
+}
+
+.quote-footer{
+    margin-top:22px!important;
+    font-size:10px!important;
+    color:#555!important;
+    line-height:1.4!important;
+}
+
+.quote-footer p{
+    margin:4px 0!important;
+}
+
+.quote-reference-image{
+    display:block!important;
+    max-width:100%!important;
+    max-height:320px!important;
+    object-fit:contain!important;
+    margin:12px auto 0!important;
+}
+
+@page{
+    size:A4 portrait;
+    margin:10mm;
+}
+
+@media print{
+    html,body{
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+    }
+
+    .print-page{
+        max-width:none!important;
+    }
+}
+</style>
+</head>
+<body>
+<div class="print-page">${quotationHTML}</div>
+</body>
+</html>`);
+    doc.close();
+
+    const cleanup = () => {
+        setTimeout(() => {
+            if(frame.parentNode) frame.parentNode.removeChild(frame);
+        }, 1000);
+    };
+
+    const images = Array.from(doc.images);
+
+    const printNow = () => {
+        setTimeout(() => {
+            try{
+                frame.contentWindow.focus();
+                frame.contentWindow.print();
+            } finally {
+                cleanup();
+            }
+        }, 250);
+    };
+
+    if(images.length === 0){
+        printNow();
+        return;
+    }
+
+    let remaining = images.length;
+    let finished = false;
+
+    const imageDone = () => {
+        remaining--;
+        if(remaining <= 0 && !finished){
+            finished = true;
+            printNow();
+        }
+    };
+
+    images.forEach(img => {
+        if(img.complete){
+            imageDone();
+        }else{
+            img.addEventListener("load", imageDone, {once:true});
+            img.addEventListener("error", imageDone, {once:true});
+        }
+    });
+
+    // Never leave the print button hanging if an image takes too long.
+    setTimeout(() => {
+        if(!finished){
+            finished = true;
+            printNow();
+        }
+    }, 3000);
 }
 
 function closeModal(){

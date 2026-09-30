@@ -1,12 +1,244 @@
 
 <!DOCTYPE html>
 <!-- saved from url=(0397)https://sdmntprseasia.oaiusercontent.com/files/00000000-9a38-8207-95aa-86a83b9f7acb/raw?se=2026-09-28T02%3A14%3A32Z&sp=r&sv=2026-02-06&sr=b&scid=cf70b2b8-f08c-43dd-8bd4-7b47f072d87a&skoid=6fa9748a-b7b2-4b56-a932-8c1417549c47&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-28T00%3A17%3A22Z&ske=2026-09-29T00%3A17%3A22Z&sks=b&skv=2026-02-06&sig=PGJrMUot45rAwQSXTB0ggoIrgIYo7yqpWVVMliYPva0%3D -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PrintArt Quotation System</title><style>:root{    --black:#0b0b0b;    --dark:#141414;    --dark2:#1d1d1d;    --white:#ffffff;    --gray:#a9a9a9;    --gold:#d4af37;    --gold2:#f2c94c;    --orange:#f28c28;    --green:#27ae60;    --red:#e74c3c;    --border:#303030;}*{    box-sizing:border-box;}body{    margin:0;    font-family:Arial,Helvetica,sans-serif;    background:#f3f3f3;    color:#111;}/* =========================================================   SIDEBAR========================================================= */.sidebar{    position:fixed;    left:0;    top:0;    bottom:0;    width:250px;    background:linear-gradient(180deg,#080808,#171717);    color:white;    padding:25px 18px;    z-index:1000;    box-shadow:4px 0 20px rgba(0,0,0,.25);}.logo-area{    text-align:center;    padding-bottom:25px;    border-bottom:1px solid #333;    margin-bottom:20px;}.logo-area img{    width:220px;    height:115px;    object-fit:contain;    background:transparent;    border-radius:15px;    padding:8px;    display:block;    margin:auto;}.logo-placeholder{    width:200px;    height:95px;    background:#111;    color:var(--gold2);    border-radius:15px;    display:flex;    align-items:center;    justify-content:center;    font-weight:bold;    font-size:20px;    margin:auto;}.logo-area h2{    font-size:17px;    margin:12px 0 4px;    color:var(--gold2);}.nav-btn{    width:100%;    background:transparent;    color:#fff;    border:0;    text-align:left;    padding:14px 15px;    margin:4px 0;    border-radius:9px;    cursor:pointer;    font-size:14px;    transition:.2s;}.nav-btn:hover{    background:#292929;}.nav-btn.active{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;    font-weight:bold;}.nav-icon{    width:25px;    display:inline-block;}/* =========================================================   MAIN========================================================= */.main{    margin-left:250px;    min-height:100vh;}.topbar{    height:75px;    background:#fff;    border-bottom:1px solid #ddd;    display:flex;    align-items:center;    justify-content:space-between;    padding:0 30px;    position:sticky;    top:0;    z-index:500;}.topbar h1{    margin:0;    font-size:21px;}.topbar span{    color:#777;    font-size:13px;}.content{    padding:30px;}/* =========================================================   PAGE========================================================= */.page{    display:none;}.page.active{    display:block;}/* =========================================================   DASHBOARD========================================================= */.dashboard-grid{    display:grid;    grid-template-columns:repeat(4,1fr);    gap:18px;    margin-bottom:25px;}.card{    background:#fff;    border-radius:14px;    padding:22px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    border-left:5px solid var(--gold);}.card.orange{    border-left-color:var(--orange);}.card.green{    border-left-color:var(--green);}.card.black{    border-left-color:#111;}.card-title{    color:#777;    font-size:13px;    margin-bottom:8px;}.card-value{    font-size:30px;    font-weight:bold;}.card-icon{    float:right;    font-size:28px;}/* =========================================================   PANELS========================================================= */.panel{    background:#fff;    border-radius:14px;    padding:25px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    margin-bottom:25px;}.panel-header{    display:flex;    justify-content:space-between;    align-items:center;    margin-bottom:20px;    gap:15px;}.panel-header h2{    margin:0;    font-size:19px;}/* =========================================================   FORMS========================================================= */.form-grid{    display:grid;    grid-template-columns:repeat(2,1fr);    gap:18px;}.form-grid.three{    grid-template-columns:repeat(4,1fr);}.field label{    display:block;    font-size:12px;    color:#666;    margin-bottom:7px;    font-weight:bold;}input,select,textarea{    width:100%;    padding:12px 13px;    border:1px solid #ccc;    border-radius:8px;    outline:none;    font-size:14px;    background:#fff;}input:focus,select:focus,textarea:focus{    border-color:var(--gold);    box-shadow:0 0 0 2px rgba(212,175,55,.15);}/* =========================================================   BUTTONS========================================================= */.btn{    border:0;    border-radius:8px;    padding:11px 17px;    cursor:pointer;    font-weight:bold;    font-size:13px;}.btn-primary{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;}.btn-dark{    background:#111;    color:#fff;}.btn-green{    background:var(--green);    color:#fff;}.btn-red{    background:var(--red);    color:#fff;}.btn-light{    background:#eee;    color:#111;}.btn:hover{    opacity:.88;}.button-row{    display:flex;    gap:10px;    flex-wrap:wrap;    margin-top:20px;}/* =========================================================   QUOTATION ITEMS========================================================= */.item-table{    width:100%;    border-collapse:collapse;    margin-top:20px;}.item-table th{    background:#111;    color:#fff;    padding:12px;    text-align:left;    font-size:12px;}.item-table td{    border-bottom:1px solid #ddd;    padding:10px;    font-size:13px;}.item-table input{    padding:8px;}.remove-btn{    border:0;    background:#fee;    color:#d00;    border-radius:6px;    padding:7px 10px;    cursor:pointer;}/* =========================================================   TOTALS========================================================= */.totals-box{    width:360px;    margin-left:auto;    margin-top:25px;}.total-line{    display:flex;    justify-content:space-between;    padding:9px 0;    border-bottom:1px solid #ddd;}.total-line.grand{    font-size:20px;    font-weight:bold;    border-bottom:2px solid #111;}.total-line.deposit{    color:var(--green);    font-weight:bold;}.total-line.balance{    color:var(--red);    font-size:18px;    font-weight:bold;}/* =========================================================   DATA TABLE========================================================= */.data-table{    width:100%;    border-collapse:collapse;}.data-table th{    background:#111;    color:#fff;    padding:13px;    font-size:12px;    text-align:left;}.data-table td{    padding:12px;    border-bottom:1px solid #eee;    font-size:13px;}.data-table tr:hover{    background:#fafafa;}.status{    padding:5px 9px;    border-radius:20px;    font-size:11px;    font-weight:bold;}.status.pending{    background:#fff4f4;    color:#b90000;}.status.approved{    background:#f0fff4;    color:#159447;}.status.completed{    background:#eafaf2;    color:#087740;}/* =========================================================   PRODUCT DATABASE========================================================= */.search-box{    max-width:350px;}.price-display{    background:#111;    color:var(--gold2);    padding:12px;    border-radius:8px;    font-weight:bold;}/* =========================================================   QUOTATION IMAGE========================================================= */.quote-image-upload{    border:1px dashed #c9c9c9;    border-radius:10px;    padding:14px;    background:#fafafa;}.quote-image-preview{    display:none;    max-width:240px;    max-height:180px;    object-fit:contain;    border:1px solid #ddd;    border-radius:8px;    margin-top:10px;    background:#fff;}.quote-image-note{    color:#777;    font-size:12px;    margin-top:6px;}.quote-reference-image{    display:block;    max-width:100%;    max-height:420px;    object-fit:contain;    margin:20px auto 0;    border:1px solid #ddd;    border-radius:8px;}/* =========================================================   MODAL========================================================= */.modal{    display:none;    position:fixed;    inset:0;    background:rgba(0,0,0,.7);    z-index:3000;    padding:30px;    overflow:auto;}.modal.show{    display:block;}.modal-content{    background:#fff;    max-width:950px;    margin:auto;    border-radius:15px;    padding:30px;}/* =========================================================   QUOTATION PRINT AREA========================================================= */#printArea{    width:100%;}.quote-paper{    background:#fff;    width:100%;    max-width:850px;    margin:0 auto;    padding:40px;    color:#111;}.quote-header{    display:flex;    justify-content:space-between;    align-items:flex-start;    gap:30px;    border-bottom:3px solid var(--gold);    padding-bottom:20px;    margin-bottom:25px;}.quote-company{    flex:1;    min-width:0;}.quote-logo{    display:block;    width:220px;    height:80px;    object-fit:contain;    object-position:left center;    margin-bottom:10px;}.quote-company h1{    margin:0 0 5px;    font-size:25px;}.quote-company p{    margin:4px 0;    color:#666;    font-size:13px;    line-height:1.4;}.quote-meta{    min-width:180px;    text-align:right;}.quote-meta strong{    display:block;    font-size:20px;    margin-bottom:5px;}.quote-meta div{    font-size:13px;    margin-bottom:4px;}.quoted-to{    margin-bottom:25px;}.quoted-to strong{    font-size:12px;}.quoted-to h3{    margin:5px 0;    font-size:18px;}.quoted-to div{    font-size:13px;    margin:3px 0;}.quote-items{    width:100%;    border-collapse:collapse;    table-layout:fixed;}.quote-items th{    background:#111;    color:#fff;    padding:10px;    text-align:left;    font-size:12px;}.quote-items td{    padding:10px;    border-bottom:1px solid #ddd;    font-size:13px;    vertical-align:top;    word-wrap:break-word;}
-.quote-items td:nth-child(4),
-.quote-items td:nth-child(5){
-    white-space:nowrap;
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PrintArt Quotation System</title><style>:root{    --black:#0b0b0b;    --dark:#141414;    --dark2:#1d1d1d;    --white:#ffffff;    --gray:#a9a9a9;    --gold:#d4af37;    --gold2:#f2c94c;    --orange:#f28c28;    --green:#27ae60;    --red:#e74c3c;    --border:#303030;}*{    box-sizing:border-box;}body{    margin:0;    font-family:Arial,Helvetica,sans-serif;    background:#f3f3f3;    color:#111;}/* =========================================================   SIDEBAR========================================================= */.sidebar{    position:fixed;    left:0;    top:0;    bottom:0;    width:250px;    background:linear-gradient(180deg,#080808,#171717);    color:white;    padding:25px 18px;    z-index:1000;    box-shadow:4px 0 20px rgba(0,0,0,.25);}.logo-area{    text-align:center;    padding-bottom:25px;    border-bottom:1px solid #333;    margin-bottom:20px;}.logo-area img{    width:220px;    height:115px;    object-fit:contain;    background:transparent;    border-radius:15px;    padding:8px;    display:block;    margin:auto;}.logo-placeholder{    width:200px;    height:95px;    background:#111;    color:var(--gold2);    border-radius:15px;    display:flex;    align-items:center;    justify-content:center;    font-weight:bold;    font-size:20px;    margin:auto;}.logo-area h2{    font-size:17px;    margin:12px 0 4px;    color:var(--gold2);}.nav-btn{    width:100%;    background:transparent;    color:#fff;    border:0;    text-align:left;    padding:14px 15px;    margin:4px 0;    border-radius:9px;    cursor:pointer;    font-size:14px;    transition:.2s;}.nav-btn:hover{    background:#292929;}.nav-btn.active{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;    font-weight:bold;}.nav-icon{    width:25px;    display:inline-block;}/* =========================================================   MAIN========================================================= */.main{    margin-left:250px;    min-height:100vh;}.topbar{    height:75px;    background:#fff;    border-bottom:1px solid #ddd;    display:flex;    align-items:center;    justify-content:space-between;    padding:0 30px;    position:sticky;    top:0;    z-index:500;}.topbar h1{    margin:0;    font-size:21px;}.topbar span{    color:#777;    font-size:13px;}.content{    padding:30px;}/* =========================================================   PAGE========================================================= */.page{    display:none;}.page.active{    display:block;}/* =========================================================   DASHBOARD========================================================= */.dashboard-grid{    display:grid;    grid-template-columns:repeat(4,1fr);    gap:18px;    margin-bottom:25px;}.card{    background:#fff;    border-radius:14px;    padding:22px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    border-left:5px solid var(--gold);}.card.orange{    border-left-color:var(--orange);}.card.green{    border-left-color:var(--green);}.card.black{    border-left-color:#111;}.card-title{    color:#777;    font-size:13px;    margin-bottom:8px;}.card-value{    font-size:30px;    font-weight:bold;}.card-icon{    float:right;    font-size:28px;}/* =========================================================   PANELS========================================================= */.panel{    background:#fff;    border-radius:14px;    padding:25px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    margin-bottom:25px;}.panel-header{    display:flex;    justify-content:space-between;    align-items:center;    margin-bottom:20px;    gap:15px;}.panel-header h2{    margin:0;    font-size:19px;}/* =========================================================   FORMS========================================================= */.form-grid{    display:grid;    grid-template-columns:repeat(2,1fr);    gap:18px;}.form-grid.three{    grid-template-columns:repeat(4,1fr);}.field label{    display:block;    font-size:12px;    color:#666;    margin-bottom:7px;    font-weight:bold;}input,select,textarea{    width:100%;    padding:12px 13px;    border:1px solid #ccc;    border-radius:8px;    outline:none;    font-size:14px;    background:#fff;}input:focus,select:focus,textarea:focus{    border-color:var(--gold);    box-shadow:0 0 0 2px rgba(212,175,55,.15);}/* =========================================================   BUTTONS========================================================= */.btn{    border:0;    border-radius:8px;    padding:11px 17px;    cursor:pointer;    font-weight:bold;    font-size:13px;}.btn-primary{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;}.btn-dark{    background:#111;    color:#fff;}.btn-green{    background:var(--green);    color:#fff;}.btn-red{    background:var(--red);    color:#fff;}.btn-light{    background:#eee;    color:#111;}.btn:hover{    opacity:.88;}.button-row{    display:flex;    gap:10px;    flex-wrap:wrap;    margin-top:20px;}/* =========================================================   QUOTATION ITEMS========================================================= */.item-table{    width:100%;    border-collapse:collapse;    margin-top:20px;}.item-table th{    background:#111;    color:#fff;    padding:12px;    text-align:left;    font-size:12px;}.item-table td{    border-bottom:1px solid #ddd;    padding:10px;    font-size:13px;}.item-table input{    padding:8px;}.remove-btn{    border:0;    background:#fee;    color:#d00;    border-radius:6px;    padding:7px 10px;    cursor:pointer;}/* =========================================================   TOTALS========================================================= */.totals-box{    width:360px;    margin-left:auto;    margin-top:25px;}.total-line{    display:flex;    justify-content:space-between;    padding:9px 0;    border-bottom:1px solid #ddd;}.total-line.grand{    font-size:20px;    font-weight:bold;    border-bottom:2px solid #111;}.total-line.deposit{    color:var(--green);    font-weight:bold;}.total-line.balance{    color:var(--red);    font-size:18px;    font-weight:bold;}/* =========================================================   DATA TABLE========================================================= */.data-table{    width:100%;    border-collapse:collapse;}.data-table th{    background:#111;    color:#fff;    padding:13px;    font-size:12px;    text-align:left;}.data-table td{    padding:12px;    border-bottom:1px solid #eee;    font-size:13px;}.data-table tr:hover{    background:#fafafa;}.status{    padding:5px 9px;    border-radius:20px;    font-size:11px;    font-weight:bold;}.status.pending{    background:#fff4f4;    color:#b90000;}.status.approved{    background:#f0fff4;    color:#159447;}.status.completed{    background:#eafaf2;    color:#087740;}/* =========================================================   PRODUCT DATABASE========================================================= */.search-box{    max-width:350px;}.price-display{    background:#111;    color:var(--gold2);    padding:12px;    border-radius:8px;    font-weight:bold;}/* =========================================================   QUOTATION IMAGE========================================================= */.quote-image-upload{    border:1px dashed #c9c9c9;    border-radius:10px;    padding:14px;    background:#fafafa;}.quote-image-preview{    display:none;    max-width:240px;    max-height:180px;    object-fit:contain;    border:1px solid #ddd;    border-radius:8px;    margin-top:10px;    background:#fff;}.quote-image-note{    color:#777;    font-size:12px;    margin-top:6px;}.quote-reference-image{    display:block;    max-width:100%;    max-height:420px;    object-fit:contain;    margin:20px auto 0;    border:1px solid #ddd;    border-radius:8px;}/* =========================================================   MODAL========================================================= */.modal{    display:none;    position:fixed;    inset:0;    background:rgba(0,0,0,.7);    z-index:3000;    padding:30px;    overflow:auto;}.modal.show{    display:block;}.modal-content{    background:#fff;    max-width:950px;    margin:auto;    border-radius:15px;    padding:30px;}/* =========================================================
+   QUOTATION PRINT AREA — PRINTART PREMIUM A4 FORMAT
+========================================================= */
+#printArea{width:100%;}
+.quote-paper{
+    width:210mm;
+    min-height:297mm;
+    margin:0 auto;
+    padding:0;
+    background:#fff;
+    color:#111;
+    display:grid;
+    grid-template-columns:31% 69%;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
 }
-.quote-items th:nth-child(1){    width:40%;}.quote-items th:nth-child(2){    width:18%;}.quote-items th:nth-child(3){    width:15%;}.quote-items th:nth-child(4){    width:13%;}.quote-items th:nth-child(5){    width:17%;}.quote-total{    margin-left:auto;    width:330px;    margin-top:20px;}.quote-total div{    display:flex;    justify-content:space-between;    padding:7px;    font-size:13px;}.quote-total .grand{    font-weight:bold;    font-size:19px;    border-top:2px solid #111;}.quote-footer{    margin-top:30px;    font-size:12px;    color:#666;    line-height:1.5;}.quote-footer p{    margin:5px 0;}/* =========================================================   RESPONSIVE========================================================= */@media(max-width:1100px){    .dashboard-grid{        grid-template-columns:repeat(2,1fr);    }    .form-grid.three{        grid-template-columns:repeat(2,1fr);    }}@media(max-width:1000px){    .sidebar{        width:210px;    }    .main{        margin-left:210px;    }}@media(max-width:700px){    .sidebar{        position:relative;        width:100%;        height:auto;    }    .main{        margin-left:0;    }    .dashboard-grid,    .form-grid,    .form-grid.three{        grid-template-columns:1fr;    }    .totals-box{        width:100%;    }    .topbar{        position:relative;        height:auto;        min-height:75px;    }    .content{        padding:15px;    }    .quote-header{        flex-direction:column;    }    .quote-meta{        text-align:left;    }    .quote-paper{        padding:20px;    }}/* =========================================================
+.quote-sidebar{
+    background:#202020;
+    color:#fff;
+    min-height:297mm;
+    padding:18mm 6mm 8mm;
+    display:flex;
+    flex-direction:column;
+}
+.quote-side-logo{
+    width:100%;
+    height:30mm;
+    object-fit:contain;
+    object-position:center;
+    margin:0 auto 8mm;
+}
+.quote-side-logo-placeholder{
+    height:30mm;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#f2c94c;
+    font-size:20px;
+    font-weight:800;
+    text-align:center;
+    margin-bottom:8mm;
+}
+.quote-side-section{margin-bottom:8mm;}
+.quote-side-title{
+    font-size:13px;
+    margin:0 0 4mm;
+    font-weight:500;
+    letter-spacing:.1px;
+}
+.quote-payment{display:flex;gap:3mm;margin-bottom:5mm;align-items:flex-start;}
+.quote-payment-icon{
+    width:10mm;
+    height:10mm;
+    background:#fff;
+    color:#222;
+    flex:0 0 10mm;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    font-weight:800;
+    border-radius:1px;
+}
+.quote-payment.bank .quote-payment-icon{background:#000;color:#fff;}
+.quote-payment strong{display:block;font-size:12px;font-weight:500;margin-bottom:1mm;}
+.quote-payment span{display:block;font-size:10px;line-height:1.4;color:#f1f1f1;}
+.quote-side-label{font-size:11px;margin-bottom:2mm;}
+.quote-side-value{font-size:10px;line-height:1.45;word-break:break-word;}
+.quote-qr{
+    width:45mm;
+    height:45mm;
+    object-fit:cover;
+    display:block;
+    margin:2mm auto 0;
+    background:#fff;
+    padding:1mm;
+}
+.quote-social{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    gap:3mm;
+    font-weight:700;
+    font-size:12px;
+}
+.quote-facebook{
+    width:10mm;
+    height:10mm;
+    border-radius:1mm;
+    background:#fff;
+    color:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+    font-weight:900;
+}
+.quote-main{
+    padding:8mm 7mm 6mm;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+}
+.quote-top{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-start;
+    min-height:31mm;
+}
+.quote-title-block{text-align:right;}
+.quote-title-block h1{
+    margin:0;
+    font-size:34px;
+    line-height:1;
+    letter-spacing:1.5px;
+    font-weight:900;
+}
+.quote-date{
+    margin-top:5mm;
+    font-size:11px;
+}
+.quote-invoice-label{
+    margin-top:4mm;
+    font-size:10px;
+    font-weight:400;
+    text-transform:uppercase;
+}
+.quote-invoice-name{
+    font-size:11px;
+    font-weight:500;
+    margin-top:1mm;
+    text-transform:uppercase;
+}
+.quote-items-wrap{margin-top:1mm;}
+.quote-items{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+    border:1px solid #111;
+}
+.quote-items th{
+    background:#242424;
+    color:#fff;
+    border:1px solid #111;
+    padding:3.2mm 2.5mm;
+    text-align:left;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    line-height:1.1;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+}
+.quote-items td{
+    border:1px solid #111;
+    padding:3.2mm 2.5mm;
+    height:16mm;
+    vertical-align:middle;
+    font-size:10px;
+    line-height:1.25;
+    word-break:break-word;
+}
+.quote-items th:nth-child(1){width:12%;text-align:center;}
+.quote-items th:nth-child(2){width:47%;}
+.quote-items th:nth-child(3){width:13%;text-align:right;}
+.quote-items th:nth-child(4){width:13%;text-align:center;}
+.quote-items th:nth-child(5){width:15%;text-align:right;}
+.quote-items td:nth-child(1){text-align:center;font-weight:700;}
+.quote-items td:nth-child(3),.quote-items td:nth-child(5){text-align:right;white-space:nowrap;}
+.quote-items td:nth-child(4){text-align:center;white-space:nowrap;}
+.quote-item-name{font-weight:800;text-transform:uppercase;}
+.quote-item-size{font-size:9px;margin-top:1.2mm;color:#444;}
+.quote-empty-row td{height:16mm;}
+.quote-reference{
+    width:75mm;
+    height:55mm;
+    object-fit:contain;
+    display:block;
+    margin:7mm auto 0;
+    border:0;
+}
+.quote-summary{
+    width:100%;
+    margin-top:9mm;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:4mm;
+}
+.quote-summary-box{
+    width:92mm;
+    min-height:14mm;
+    background:#5a5a5a;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:3mm 4mm;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+}
+.quote-summary-label{font-size:12px;font-weight:800;letter-spacing:.5px;}
+.quote-summary-value{font-size:15px;font-weight:400;white-space:nowrap;}
+.quote-summary-box.total{background:#555;}
+.quote-bottom{
+    margin-top:auto;
+    border-top:2px solid #111;
+    padding-top:5mm;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8mm;
+    min-height:35mm;
+}
+.quote-note{
+    font-size:10px;
+    font-style:italic;
+    line-height:1.35;
+}
+.quote-note a{color:#111;text-decoration:underline;}
+.quote-accept{text-align:center;font-size:10px;line-height:1.4;}
+.quote-signature{margin-top:12mm;border-top:1px solid #111;padding-top:2mm;}
+.quote-thanks{font-size:10px;font-weight:800;font-style:italic;margin-top:8mm;}
+.quote-status-print{display:none;}
+
+@media screen and (max-width:900px){
+    .quote-paper{width:100%;min-height:0;grid-template-columns:31% 69%;}
+    .quote-sidebar{min-height:100%;padding:8mm 4mm;}
+    .quote-main{padding:5mm 4mm;}
+    .quote-title-block h1{font-size:25px;}
+    .quote-summary-box{width:100%;}
+    .quote-bottom{grid-template-columns:1fr;}
+}
+
+@media print{
+    .quote-paper{width:210mm!important;min-height:297mm!important;max-width:none!important;margin:0!important;}
+    .quote-sidebar{min-height:297mm!important;}
+}
+/* =========================================================   RESPONSIVE========================================================= */@media(max-width:1100px){    .dashboard-grid{        grid-template-columns:repeat(2,1fr);    }    .form-grid.three{        grid-template-columns:repeat(2,1fr);    }}@media(max-width:1000px){    .sidebar{        width:210px;    }    .main{        margin-left:210px;    }}@media(max-width:700px){    .sidebar{        position:relative;        width:100%;        height:auto;    }    .main{        margin-left:0;    }    .dashboard-grid,    .form-grid,    .form-grid.three{        grid-template-columns:1fr;    }    .totals-box{        width:100%;    }    .topbar{        position:relative;        height:auto;        min-height:75px;    }    .content{        padding:15px;    }    .quote-header{        flex-direction:column;    }    .quote-meta{        text-align:left;    }    .quote-paper{        padding:20px;    }}/* =========================================================
    PRINT FALLBACK
 ========================================================= */
 @media print{
@@ -1563,94 +1795,160 @@ function previewCurrentQuotation(){
 function previewQuotation(q){
     const company=getSettings();
     const meta=unpackQuotationNotes(q.notes||"");
-    const notes=q.notes && meta.notes !== q.notes ? meta.notes : (meta.notes || q.notes || "");
+    const notes=(q.notes && meta.notes !== q.notes) ? meta.notes : (meta.notes || q.notes || "");
     const image=q.image || meta.image || "";
 
-    const rows=(q.items||[]).map(item=>{
-        const dims=item.length!=null && item.width!=null
+    /* Payment information shown on the printed quotation. */
+    const payment={
+        gcashName:"Hayvan Isip",
+        gcashNumber:"0961-517-9028",
+        bankName:"Hayvan Pabustan Isip",
+        bankNumber:"069-3-069649713-1"
+    };
+
+    const items=q.items||[];
+    let rows=items.map((item,index)=>{
+        const size=item.length!=null && item.width!=null
             ? `${escapeHTML(item.length)} × ${escapeHTML(item.width)} ${escapeHTML(item.dimension_unit||"")}`
-            : "—";
+            : "";
+        const amount=Number(item.amount ?? (Number(item.qty||0)*Number(item.price||0)));
         return `
             <tr>
+                <td>${index+1}.</td>
                 <td>
-                    <strong>${escapeHTML(item.name||"")}</strong>
-                    ${item.category?`<br><small>${escapeHTML(item.category)}</small>`:""}
+                    <div class="quote-item-name">${escapeHTML(item.name||"")}</div>
+                    ${size ? `<div class="quote-item-size">${size}</div>` : ""}
                 </td>
-                <td>${dims}</td>
-                <td>${escapeHTML(item.qty)}</td>
-                <td>₱${money(item.price)}</td>
-                <td>₱${money(item.amount ?? Number(item.qty||0)*Number(item.price||0))}</td>
-            </tr>
-        `;
+                <td>${Number(item.price||0)>0 ? "₱"+money(item.price) : ""}</td>
+                <td>${item.qty!=null ? escapeHTML(item.qty) : ""}</td>
+                <td><strong>₱${money(amount)}</strong></td>
+            </tr>`;
     }).join("");
 
-    const logoHTML=company.logo
-        ? `<img class="quote-logo" src="${escapeHTML(company.logo)}" alt="Company Logo">`
-        : `<div style="font-size:24px;font-weight:bold;margin-bottom:10px;">${escapeHTML(company.companyName)}</div>`;
+    /* Keep the table visually similar to the reference even with fewer items. */
+    const minimumRows=3;
+    for(let i=items.length;i<minimumRows;i++){
+        rows += `<tr class="quote-empty-row"><td></td><td></td><td></td><td></td><td></td></tr>`;
+    }
+
+    const logo=company.logo
+        ? `<img class="quote-side-logo" src="${escapeHTML(company.logo)}" alt="PrintArt Creative Logo">`
+        : `<div class="quote-side-logo-placeholder">PRINTART<br>CREATIVE</div>`;
+
+    const qrImage=`<img class="quote-qr" src="${qr_data}" alt="Payment QR Code">`;
+    const date=formatDate(q.date);
+    const total=Number(q.total||q.subtotal||0);
+    const downpayment=Number(q.downpayment ?? total*0.60);
+    const remaining=Number(q.remaining ?? total*0.40);
+
+    const contact=company.contact || "0961-517-9028";
+    const email=company.email || "printartcreative.kr@gmail.com";
+    const address=company.address || "C’ Arcade Bldg. Unit 9 2/F, Camachiles, Mabalacat City, Pampanga";
 
     document.getElementById("printArea").innerHTML=`
         <div class="quote-paper">
-            <div class="quote-header">
-                <div class="quote-company">
-                    ${logoHTML}
-                    ${company.tagline?`<p><strong>${escapeHTML(company.tagline)}</strong></p>`:""}
-                    ${company.address?`<p>${escapeHTML(company.address)}</p>`:""}
-                    ${company.contact?`<p>${escapeHTML(company.contact)}</p>`:""}
-                    ${company.email?`<p>${escapeHTML(company.email)}</p>`:""}
+            <aside class="quote-sidebar">
+                ${logo}
+
+                <div class="quote-side-section">
+                    <div class="quote-side-title">Payment Method</div>
+                    <div class="quote-payment">
+                        <div class="quote-payment-icon">G</div>
+                        <div>
+                            <strong>GCash</strong>
+                            <span>${escapeHTML(payment.gcashName)}</span>
+                            <span>${escapeHTML(payment.gcashNumber)}</span>
+                        </div>
+                    </div>
+                    <div class="quote-payment bank">
+                        <div class="quote-payment-icon">▣</div>
+                        <div>
+                            <strong>Metrobank</strong>
+                            <span>${escapeHTML(payment.bankName)}</span>
+                            <span>${escapeHTML(payment.bankNumber)}</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="quote-meta">
-                    <strong>QUOTATION</strong>
-                    <div>${escapeHTML(q.number||"")}</div>
-                    <div>${formatDate(q.date)}</div>
-                    <div style="margin-top:10px;">${statusBadge(q.status||"Pending")}</div>
+
+                <div class="quote-side-section">
+                    <div class="quote-side-label">Email</div>
+                    <div class="quote-side-value">${escapeHTML(email)}</div>
                 </div>
-            </div>
 
-            <div class="quoted-to">
-                <strong>QUOTED TO:</strong>
-                <h3>${escapeHTML(q.client||"Client")}</h3>
-                ${q.contact?`<div>${escapeHTML(q.contact)}</div>`:""}
-                ${q.email?`<div>${escapeHTML(q.email)}</div>`:""}
-                ${q.address?`<div>${escapeHTML(q.address)}</div>`:""}
-                ${q.project?`<div style="margin-top:8px;"><strong>Project:</strong> ${escapeHTML(q.project)}</div>`:""}
-            </div>
+                <div class="quote-side-section">
+                    <div class="quote-side-label">Contact</div>
+                    <div class="quote-side-value">${escapeHTML(contact)}</div>
+                </div>
 
-            <table class="quote-items">
-                <thead>
-                    <tr>
-                        <th>Products / Services</th>
-                        <th>Size</th>
-                        <th>Qty</th>
-                        <th>Unit Price</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-            </table>
+                <div class="quote-side-section">
+                    <div class="quote-side-label"><strong>Location</strong></div>
+                    <div class="quote-side-value">${escapeHTML(address)}</div>
+                </div>
 
-            <div class="quote-total">
-                <div><span>Subtotal</span><strong>₱${money(q.subtotal ?? q.total ?? 0)}</strong></div>
-                <div class="grand"><span>TOTAL</span><strong>₱${money(q.total||0)}</strong></div>
-                <div style="color:#27ae60;font-weight:bold;"><span>60% Downpayment</span><strong>₱${money(q.downpayment||0)}</strong></div>
-                <div style="color:#c0392b;font-weight:bold;"><span>40% Remaining Balance</span><strong>₱${money(q.remaining||0)}</strong></div>
-            </div>
+                ${qrImage}
 
-            ${image?`
-                <div style="margin-top:30px;page-break-inside:avoid;">
-                    <strong>Reference Image:</strong>
-                    <img class="quote-reference-image" src="${escapeHTML(image)}" alt="Quotation reference image">
-                </div>`:""}
+                <div class="quote-social">
+                    <div class="quote-facebook">f</div>
+                    <span>Connect with us!</span>
+                </div>
+            </aside>
 
-            ${notes?`
-                <div class="quote-footer">
-                    <strong>Notes / Terms:</strong>
-                    <p>${escapeHTML(notes).replace(/\n/g,"<br>")}</p>
-                </div>`:""}
+            <main class="quote-main">
+                <div class="quote-top">
+                    <div class="quote-title-block">
+                        <h1>QUOTATION</h1>
+                        <div class="quote-date">${escapeHTML(date)}</div>
+                        <div class="quote-invoice-label">Invoice To:</div>
+                        <div class="quote-invoice-name">${escapeHTML(q.client||"Client")}</div>
+                    </div>
+                </div>
 
-            <div class="quote-footer">
-                <p>Thank you for choosing <strong>${escapeHTML(company.companyName)}</strong>.</p>
-                <p>This quotation is subject to confirmation and approval.</p>
-            </div>
+                <div class="quote-items-wrap">
+                    <table class="quote-items">
+                        <thead>
+                            <tr>
+                                <th>NO. OF<br>ITEMS</th>
+                                <th>ITEM DESCRIPTION</th>
+                                <th>PRICE</th>
+                                <th>QTY</th>
+                                <th>TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>
+                </div>
+
+                ${image ? `<img class="quote-reference" src="${escapeHTML(image)}" alt="Quotation Project Image">` : ""}
+
+                <div class="quote-summary">
+                    <div class="quote-summary-box">
+                        <span class="quote-summary-label">DOWNPAYMENT 60%:</span>
+                        <span class="quote-summary-value">₱ ${money(downpayment)}</span>
+                    </div>
+                    <div class="quote-summary-box">
+                        <span class="quote-summary-label">REMAINING BALANCE:</span>
+                        <span class="quote-summary-value">₱ ${money(remaining)}</span>
+                    </div>
+                    <div class="quote-summary-box total">
+                        <span class="quote-summary-label">TOTAL PRICE:</span>
+                        <span class="quote-summary-value">₱ ${money(total)}</span>
+                    </div>
+                </div>
+
+                <div class="quote-bottom">
+                    <div class="quote-note">
+                        If you have any questions concerning<br>
+                        this quotation, please contact us at<br>
+                        <a>${escapeHTML(email)}</a>
+                        ${notes ? `<div style="margin-top:4mm;font-style:normal;"><strong>Notes:</strong><br>${escapeHTML(notes).replace(/\n/g,"<br>")}</div>` : ""}
+                        <div class="quote-thanks">Thank you for your business!</div>
+                    </div>
+                    <div class="quote-accept">
+                        Please confirm your acceptance of<br>this quote:
+                        <div class="quote-signature">Signature over printed name and date</div>
+                    </div>
+                </div>
+            </main>
         </div>
     `;
 
@@ -1658,307 +1956,71 @@ function previewQuotation(q){
 }
 
 function printQuotation(){
-    const source = document.getElementById("printArea");
-
+    const source=document.getElementById("printArea");
     if(!source || !source.innerHTML.trim()){
         alert("Please click Preview first so the quotation can be generated.");
         return;
     }
 
-    // Clone the already-rendered quotation. This avoids rebuilding quotation data
-    // and guarantees that the print document contains exactly what Preview shows.
-    const quotationHTML = source.innerHTML;
-
-    const frame = document.createElement("iframe");
+    const quotationHTML=source.innerHTML;
+    const frame=document.createElement("iframe");
     frame.setAttribute("aria-hidden","true");
-    frame.style.position = "fixed";
-    frame.style.right = "0";
-    frame.style.bottom = "0";
-    frame.style.width = "0";
-    frame.style.height = "0";
-    frame.style.border = "0";
-    frame.style.opacity = "0";
-    frame.style.pointerEvents = "none";
-
+    Object.assign(frame.style,{
+        position:"fixed",right:"0",bottom:"0",width:"0",height:"0",
+        border:"0",opacity:"0",pointerEvents:"none"
+    });
     document.body.appendChild(frame);
 
-    const doc = frame.contentDocument;
-    if(!doc){
-        frame.remove();
-        alert("Unable to create the print document. Please try again.");
-        return;
-    }
+    const doc=frame.contentDocument;
+    if(!doc){frame.remove();alert("Unable to create the print document.");return;}
+
+    const css=`
+        *{box-sizing:border-box;}
+        html,body{margin:0!important;padding:0!important;background:#fff!important;color:#111!important;font-family:Arial,Helvetica,sans-serif!important;}
+        body{width:100%;}
+        .quote-paper{width:210mm!important;height:297mm!important;min-height:297mm!important;margin:0!important;padding:0!important;background:#fff!important;display:grid!important;grid-template-columns:31% 69%!important;overflow:hidden!important;}
+        .quote-sidebar{background:#202020!important;color:#fff!important;min-height:297mm!important;height:297mm!important;padding:18mm 6mm 8mm!important;display:flex!important;flex-direction:column!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+        .quote-side-logo{width:100%!important;height:30mm!important;object-fit:contain!important;object-position:center!important;margin:0 auto 8mm!important;}
+        .quote-side-logo-placeholder{height:30mm!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#f2c94c!important;font-size:20px!important;font-weight:800!important;text-align:center!important;margin-bottom:8mm!important;}
+        .quote-side-section{margin-bottom:8mm!important;}
+        .quote-side-title{font-size:13px!important;margin:0 0 4mm!important;font-weight:500!important;}
+        .quote-payment{display:flex!important;gap:3mm!important;margin-bottom:5mm!important;align-items:flex-start!important;}
+        .quote-payment-icon{width:10mm!important;height:10mm!important;background:#fff!important;color:#222!important;flex:0 0 10mm!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:19px!important;font-weight:800!important;border-radius:1px!important;}
+        .quote-payment.bank .quote-payment-icon{background:#000!important;color:#fff!important;}
+        .quote-payment strong{display:block!important;font-size:12px!important;font-weight:500!important;margin-bottom:1mm!important;}
+        .quote-payment span{display:block!important;font-size:10px!important;line-height:1.4!important;color:#f1f1f1!important;}
+        .quote-side-label{font-size:11px!important;margin-bottom:2mm!important;}.quote-side-value{font-size:10px!important;line-height:1.45!important;word-break:break-word!important;}
+        .quote-qr{width:45mm!important;height:45mm!important;object-fit:cover!important;display:block!important;margin:2mm auto 0!important;background:#fff!important;padding:1mm!important;}
+        .quote-social{margin-top:auto!important;display:flex!important;align-items:center!important;gap:3mm!important;font-weight:700!important;font-size:12px!important;}.quote-facebook{width:10mm!important;height:10mm!important;border-radius:1mm!important;background:#fff!important;color:#111!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:21px!important;font-weight:900!important;}
+        .quote-main{padding:8mm 7mm 6mm!important;min-width:0!important;display:flex!important;flex-direction:column!important;}
+        .quote-top{display:flex!important;justify-content:flex-end!important;align-items:flex-start!important;min-height:31mm!important;}.quote-title-block{text-align:right!important;}.quote-title-block h1{margin:0!important;font-size:34px!important;line-height:1!important;letter-spacing:1.5px!important;font-weight:900!important;}.quote-date{margin-top:5mm!important;font-size:11px!important;}.quote-invoice-label{margin-top:4mm!important;font-size:10px!important;font-weight:400!important;text-transform:uppercase!important;}.quote-invoice-name{font-size:11px!important;font-weight:500!important;margin-top:1mm!important;text-transform:uppercase!important;}
+        .quote-items-wrap{margin-top:1mm!important;}.quote-items{width:100%!important;border-collapse:collapse!important;table-layout:fixed!important;border:1px solid #111!important;}.quote-items th{background:#242424!important;color:#fff!important;border:1px solid #111!important;padding:3.2mm 2.5mm!important;text-align:left!important;font-size:10px!important;font-weight:800!important;text-transform:uppercase!important;line-height:1.1!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}.quote-items td{border:1px solid #111!important;padding:3.2mm 2.5mm!important;height:16mm!important;vertical-align:middle!important;font-size:10px!important;line-height:1.25!important;word-break:break-word!important;}.quote-items th:nth-child(1){width:12%!important;text-align:center!important;}.quote-items th:nth-child(2){width:47%!important;}.quote-items th:nth-child(3){width:13%!important;text-align:right!important;}.quote-items th:nth-child(4){width:13%!important;text-align:center!important;}.quote-items th:nth-child(5){width:15%!important;text-align:right!important;}.quote-items td:nth-child(1){text-align:center!important;font-weight:700!important;}.quote-items td:nth-child(3),.quote-items td:nth-child(5){text-align:right!important;white-space:nowrap!important;}.quote-items td:nth-child(4){text-align:center!important;white-space:nowrap!important;}.quote-item-name{font-weight:800!important;text-transform:uppercase!important;}.quote-item-size{font-size:9px!important;margin-top:1.2mm!important;color:#444!important;}.quote-empty-row td{height:16mm!important;}
+        .quote-reference{width:75mm!important;height:55mm!important;object-fit:contain!important;display:block!important;margin:7mm auto 0!important;border:0!important;}.quote-summary{width:100%!important;margin-top:9mm!important;display:flex!important;flex-direction:column!important;align-items:flex-end!important;gap:4mm!important;}.quote-summary-box{width:92mm!important;min-height:14mm!important;background:#5a5a5a!important;color:#fff!important;display:flex!important;align-items:center!important;justify-content:space-between!important;padding:3mm 4mm!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}.quote-summary-label{font-size:12px!important;font-weight:800!important;letter-spacing:.5px!important;}.quote-summary-value{font-size:15px!important;font-weight:400!important;white-space:nowrap!important;}.quote-summary-box.total{background:#555!important;}
+        .quote-bottom{margin-top:auto!important;border-top:2px solid #111!important;padding-top:5mm!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:8mm!important;min-height:35mm!important;}.quote-note{font-size:10px!important;font-style:italic!important;line-height:1.35!important;}.quote-note a{color:#111!important;text-decoration:underline!important;}.quote-accept{text-align:center!important;font-size:10px!important;line-height:1.4!important;}.quote-signature{margin-top:12mm!important;border-top:1px solid #111!important;padding-top:2mm!important;}.quote-thanks{font-size:10px!important;font-weight:800!important;font-style:italic!important;margin-top:8mm!important;}
+        @page{size:A4 portrait;margin:0;}
+        @media print{html,body{margin:0!important;padding:0!important;background:#fff!important;}body *{visibility:visible!important;}.quote-paper,.quote-paper *{visibility:visible!important;}}
+    `;
 
     doc.open();
-    doc.write(`<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrintArt Quotation</title>
-<style>
-/* Application CSS is intentionally NOT copied into this iframe.
-   The main page contains print rules that would hide this document. */
-
-/* =========================================================
-   DEDICATED PRINT DOCUMENT
-========================================================= */
-html,body{
-    margin:0!important;
-    padding:0!important;
-    background:#fff!important;
-    color:#111!important;
-    font-family:Arial,Helvetica,sans-serif!important;
-}
-
-body{
-    width:100%;
-}
-
-.print-page{
-    display:block!important;
-    visibility:visible!important;
-    width:100%;
-    max-width:190mm;
-    margin:0 auto;
-}
-
-.quote-paper{
-    display:block!important;
-    visibility:visible!important;
-    width:100%!important;
-    max-width:none!important;
-    margin:0!important;
-    padding:0!important;
-    background:#fff!important;
-    color:#111!important;
-    box-shadow:none!important;
-}
-
-.quote-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:20px;
-    border-bottom:3px solid #d4af37;
-    padding-bottom:12px;
-    margin-bottom:18px;
-}
-
-.quote-logo{
-    display:block;
-    width:180px;
-    height:65px;
-    object-fit:contain;
-    object-position:left center;
-    margin-bottom:7px;
-}
-
-.quote-company h1{
-    margin:0 0 5px;
-}
-
-.quote-company p{
-    margin:3px 0;
-    font-size:11px;
-    line-height:1.35;
-}
-
-.quote-meta{
-    min-width:155px;
-    text-align:right;
-}
-
-.quote-meta strong{
-    display:block;
-    font-size:19px;
-    margin-bottom:4px;
-}
-
-.quote-meta div{
-    font-size:11px;
-    margin-bottom:3px;
-}
-
-.quoted-to{
-    margin-bottom:18px;
-}
-
-.quoted-to strong{
-    font-size:10px;
-}
-
-.quoted-to h3{
-    margin:4px 0;
-    font-size:16px;
-}
-
-.quoted-to div{
-    font-size:11px;
-    margin:2px 0;
-}
-
-.quote-items{
-    width:100%!important;
-    border-collapse:collapse!important;
-    table-layout:fixed!important;
-}
-
-.quote-items th{
-    background:#111!important;
-    color:#fff!important;
-    padding:8px!important;
-    text-align:left!important;
-    font-size:10px!important;
-    -webkit-print-color-adjust:exact!important;
-    print-color-adjust:exact!important;
-}
-
-.quote-items td{
-    padding:8px!important;
-    border-bottom:1px solid #ddd!important;
-    font-size:10px!important;
-    vertical-align:top!important;
-    word-wrap:break-word!important;
-}
-
-.quote-items th:nth-child(1){width:40%!important;}
-.quote-items th:nth-child(2){width:18%!important;}
-.quote-items th:nth-child(3){width:15%!important;}
-.quote-items th:nth-child(4){width:13%!important;}
-.quote-items th:nth-child(5){width:14%!important;}
-
-.quote-items td:nth-child(4),
-.quote-items td:nth-child(5){
-    white-space:nowrap!important;
-}
-
-.quote-total{
-    margin-left:auto!important;
-    width:300px!important;
-    margin-top:16px!important;
-}
-
-.quote-total div{
-    display:flex!important;
-    justify-content:space-between!important;
-    padding:6px!important;
-    font-size:11px!important;
-}
-
-.quote-total .grand{
-    font-size:16px!important;
-    font-weight:bold!important;
-    border-top:2px solid #111!important;
-}
-
-.quote-footer{
-    margin-top:22px!important;
-    font-size:10px!important;
-    color:#555!important;
-    line-height:1.4!important;
-}
-
-.quote-footer p{
-    margin:4px 0!important;
-}
-
-.quote-reference-image{
-    display:block!important;
-    max-width:100%!important;
-    max-height:320px!important;
-    object-fit:contain!important;
-    margin:12px auto 0!important;
-}
-
-@page{
-    size:A4 portrait;
-    margin:10mm;
-}
-
-@media print{
-    html,body{
-        margin:0!important;
-        padding:0!important;
-        background:#fff!important;
-    }
-
-    .print-page{
-        display:block!important;
-        visibility:visible!important;
-        max-width:none!important;
-    }
-
-    /* IMPORTANT: the parent application has a print rule that hides body *;
-       override it inside this isolated print document. */
-    body *{
-        visibility:visible!important;
-    }
-
-    .print-page,
-    .print-page *{
-        visibility:visible!important;
-    }
-}
-</style>
-</head>
-<body>
-<div class="print-page">${quotationHTML}</div>
-</body>
-</html>`);
+    doc.write(`<!doctype html><html><head><meta charset="utf-8"><title>PrintArt Quotation</title><style>${css}</style></head><body>${quotationHTML}</body></html>`);
     doc.close();
 
-    const cleanup = () => {
-        setTimeout(() => {
-            if(frame.parentNode) frame.parentNode.removeChild(frame);
-        }, 1000);
+    const images=Array.from(doc.images);
+    let printed=false;
+    const cleanup=()=>setTimeout(()=>frame.remove(),1200);
+    const printNow=()=>{
+        if(printed)return;
+        printed=true;
+        setTimeout(()=>{try{frame.contentWindow.focus();frame.contentWindow.print();}finally{cleanup();}},300);
     };
-
-    const images = Array.from(doc.images);
-
-    const printNow = () => {
-        setTimeout(() => {
-            try{
-                frame.contentWindow.focus();
-                frame.contentWindow.print();
-            } finally {
-                cleanup();
-            }
-        }, 250);
-    };
-
-    if(images.length === 0){
-        printNow();
-        return;
-    }
-
-    let remaining = images.length;
-    let finished = false;
-
-    const imageDone = () => {
-        remaining--;
-        if(remaining <= 0 && !finished){
-            finished = true;
-            printNow();
-        }
-    };
-
-    images.forEach(img => {
-        if(img.complete){
-            imageDone();
-        }else{
-            img.addEventListener("load", imageDone, {once:true});
-            img.addEventListener("error", imageDone, {once:true});
-        }
+    if(!images.length){printNow();return;}
+    let remaining=images.length;
+    const done=()=>{remaining--;if(remaining<=0)printNow();};
+    images.forEach(img=>{
+        if(img.complete)done();
+        else{img.addEventListener("load",done,{once:true});img.addEventListener("error",done,{once:true});}
     });
-
-    // Never leave the print button hanging if an image takes too long.
-    setTimeout(() => {
-        if(!finished){
-            finished = true;
-            printNow();
-        }
-    }, 3000);
+    setTimeout(printNow,3500);
 }
 
 function closeModal(){

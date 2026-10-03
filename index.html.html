@@ -781,6 +781,7 @@
     .signage-grid {
         grid-template-columns: 1fr;
     }
+}
 
 /* =========================================================
    PROFESSIONAL FINANCIAL REPORT UI
@@ -1072,6 +1073,1380 @@
     .finance-filter{grid-template-columns:1fr;}
 }
 
+
+/* =========================================================
+   PRINTART FINANCIAL DASHBOARD — PROFESSIONAL THEME
+========================================================= */
+#finance{
+    max-width:1400px;
+    margin:0 auto;
+    padding-bottom:40px;
+}
+#finance .finance-hero{
+    background:linear-gradient(135deg,#111 0%,#1c1c1c 55%,#8b5a08 140%);
+    color:#fff;
+    border-radius:20px;
+    padding:26px 28px;
+    margin-bottom:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 14px 34px rgba(0,0,0,.14);
+    position:relative;
+    overflow:hidden;
+}
+#finance .finance-hero:after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    right:-80px;
+    top:-100px;
+    border-radius:50%;
+    background:rgba(245,181,46,.14);
+}
+#finance .finance-hero h2{
+    margin:0 0 6px;
+    font-size:24px;
+    font-weight:850;
+}
+#finance .finance-hero p{
+    margin:0;
+    color:#d4d4d4;
+    font-size:12px;
+}
+#finance .finance-hero-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:2;
+}
+#finance .finance-period-chip{
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    padding:8px 12px;
+    font-size:10px;
+    font-weight:700;
+}
+#finance .finance-action-row{
+    display:flex;
+    gap:8px;
+}
+#finance .finance-hero .btn-light{
+    background:#fff;
+    color:#222;
+    border:0;
+}
+#finance .finance-hero .btn-primary{
+    background:#f3a51f;
+    border:0;
+    color:#111;
+}
+
+/* KPI row */
+#finance .finance-kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:16px;
+}
+#finance .finance-kpi-card{
+    background:#fff;
+    border:1px solid #e5e8ed;
+    border-radius:16px;
+    padding:19px;
+    min-height:125px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(17,17,17,.055);
+}
+#finance .finance-kpi-card:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:4px;
+}
+#finance .finance-kpi-card.income:after{background:#15945a;}
+#finance .finance-kpi-card.expense:after{background:#dc4b45;}
+#finance .finance-kpi-card.net:after{background:#e5a928;}
+#finance .finance-kpi-card.count:after{background:#252525;}
+#finance .finance-kpi-card .icon{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    font-weight:800;
+}
+#finance .finance-kpi-card.income .icon{background:#e8f7ef;color:#16844f;}
+#finance .finance-kpi-card.expense .icon{background:#fff0ef;color:#c63f39;}
+#finance .finance-kpi-card.net .icon{background:#fff6dc;color:#a86d00;}
+#finance .finance-kpi-card.count .icon{background:#f0f1f3;color:#333;}
+#finance .finance-kpi-card .label{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+    color:#777;
+}
+#finance .finance-kpi-card .value{
+    margin-top:11px;
+    font-size:25px;
+    line-height:1.1;
+    font-weight:850;
+    color:#171717;
+}
+#finance .finance-kpi-card.income .value{color:#16844f;}
+#finance .finance-kpi-card.expense .value{color:#c63f39;}
+#finance .finance-kpi-card.net .value{color:#a86d00;}
+#finance .finance-kpi-card .sub{
+    margin-top:8px;
+    font-size:10px;
+    color:#9a9a9a;
+}
+
+/* Dashboard pulse */
+#finance .finance-pulse{
+    display:grid;
+    grid-template-columns:1.35fr .8fr .9fr .9fr;
+    gap:14px;
+    margin-bottom:16px;
+}
+#finance .finance-pulse-card{
+    background:#fff;
+    border:1px solid #e5e8ed;
+    border-radius:16px;
+    padding:18px;
+    min-height:112px;
+    box-shadow:0 6px 18px rgba(17,17,17,.045);
+}
+#finance .finance-pulse-card.primary{
+    background:linear-gradient(135deg,#171717,#292929);
+    color:#fff;
+    border:0;
+    position:relative;
+    overflow:hidden;
+}
+#finance .finance-pulse-card.primary:after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    right:-70px;
+    top:-90px;
+    border-radius:50%;
+    background:rgba(238,177,43,.14);
+}
+#finance .finance-pulse-card .eyebrow{
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    color:#8b8f96;
+}
+#finance .finance-pulse-card.primary .eyebrow{color:#c8c8c8;}
+#finance .finance-pulse-card .big-number{
+    margin-top:9px;
+    font-size:27px;
+    font-weight:850;
+    color:#eeb12b;
+    position:relative;
+    z-index:1;
+}
+#finance .finance-pulse-card .small-note{
+    margin-top:7px;
+    color:#999;
+    font-size:10px;
+}
+#finance .finance-pulse-card.primary .small-note{color:#bcbcbc;}
+#finance .pulse-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    margin-top:12px;
+}
+#finance .pulse-value{
+    font-size:17px;
+    font-weight:850;
+    color:#222;
+}
+#finance .pulse-tag{
+    font-size:9px;
+    font-weight:800;
+    border-radius:999px;
+    padding:5px 8px;
+    background:#f0f1f3;
+    color:#777;
+}
+#finance .pulse-tag.green{background:#e7f7ee;color:#16844f;}
+#finance .pulse-tag.red{background:#fff0ef;color:#c63f39;}
+
+/* Cash flow chart */
+#finance .finance-flow-card,
+#finance .finance-filter-card,
+#finance .finance-report-card,
+#finance .finance-month-card,
+#finance .finance-ledger-card{
+    background:#fff;
+    border:1px solid #e5e8ed;
+    border-radius:16px;
+    box-shadow:0 6px 18px rgba(17,17,17,.045);
+}
+#finance .finance-flow-card{
+    padding:19px;
+    margin-bottom:16px;
+}
+#finance .finance-flow-head,
+#finance .finance-filter-header,
+#finance .finance-table-title,
+#finance .finance-section-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+#finance .finance-flow-head h3,
+#finance .finance-filter-header h3,
+#finance .finance-table-title h3,
+#finance .finance-section-heading h3{
+    margin:0;
+    font-size:14px;
+    color:#171717;
+}
+#finance .finance-flow-head p,
+#finance .finance-table-title p,
+#finance .finance-section-heading p{
+    margin:4px 0 0;
+    font-size:10px;
+    color:#999;
+}
+#finance .finance-legend{
+    display:flex;
+    gap:12px;
+    font-size:9px;
+    color:#777;
+}
+#finance .finance-legend span{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+#finance .finance-legend i{
+    width:8px;
+    height:8px;
+    border-radius:3px;
+    display:inline-block;
+}
+#finance .income-dot{background:#15945a;}
+#finance .expense-dot{background:#dc4b45;}
+#finance .finance-flow-chart{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:16px;
+    align-items:end;
+    min-height:185px;
+    margin-top:12px;
+    padding:5px 5px 0;
+}
+#finance .finance-flow-column{
+    height:165px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    gap:6px;
+}
+#finance .finance-flow-bars{
+    width:100%;
+    max-width:90px;
+    height:125px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:5px;
+    border-bottom:1px solid #eceef1;
+}
+#finance .finance-flow-bar{
+    width:20px;
+    min-height:3px;
+    border-radius:5px 5px 1px 1px;
+}
+#finance .finance-flow-bar.income{background:#15945a;}
+#finance .finance-flow-bar.expense{background:#dc4b45;}
+#finance .finance-flow-label{
+    font-size:9px;
+    color:#70747b;
+}
+#finance .finance-flow-value{
+    font-size:8px;
+    color:#9b9da1;
+}
+
+/* Filters */
+#finance .finance-filter-card{
+    padding:18px;
+    margin-bottom:16px;
+}
+#finance .finance-filter-header{
+    margin-bottom:13px;
+}
+#finance .finance-filter-header span{
+    color:#999;
+    font-size:10px;
+}
+#finance .financial-filter{
+    display:grid;
+    grid-template-columns:1.6fr 1fr 1fr 1fr auto;
+    gap:10px;
+    align-items:end;
+}
+#finance .field label{
+    display:block;
+    margin-bottom:5px;
+    color:#666;
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+#finance .field input,
+#finance .field select,
+#finance .field textarea{
+    width:100%;
+    box-sizing:border-box;
+    border:1px solid #dfe2e7;
+    border-radius:9px;
+    background:#fff;
+    padding:10px 11px;
+    font-size:11px;
+    outline:none;
+}
+#finance .field input:focus,
+#finance .field select:focus,
+#finance .field textarea:focus{
+    border-color:#d99d20;
+    box-shadow:0 0 0 3px rgba(217,157,32,.10);
+}
+
+/* Category cards */
+#finance .finance-report-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+}
+#finance .finance-report-card{
+    padding:18px;
+}
+#finance .finance-section-heading{
+    align-items:flex-start;
+    margin-bottom:14px;
+}
+#finance .finance-section-badge{
+    font-size:9px;
+    font-weight:800;
+    padding:5px 9px;
+    border-radius:999px;
+}
+#finance .finance-section-badge.income{background:#e8f7ef;color:#16844f;}
+#finance .finance-section-badge.expense{background:#fff0ef;color:#c63f39;}
+#finance .financial-summary-list{display:flex;flex-direction:column;gap:8px;}
+#finance .financial-summary-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    align-items:center;
+    padding:10px 11px;
+    border:1px solid #edf0f3;
+    border-radius:9px;
+    background:#fafbfc;
+}
+#finance .financial-summary-row .name{
+    font-size:11px;
+    color:#555;
+}
+#finance .financial-summary-row .amount{
+    font-size:11px;
+    font-weight:850;
+}
+#finance .financial-summary-row .financial-summary-bar{
+    height:4px;
+    margin-top:6px;
+    border-radius:10px;
+    background:#e9ecef;
+    overflow:hidden;
+}
+#finance .financial-summary-row .financial-summary-bar span{
+    display:block;
+    height:100%;
+    border-radius:10px;
+    background:#15945a;
+}
+#finance .financial-summary-row.expense .financial-summary-bar span{background:#dc4b45;}
+
+/* Tables */
+#finance .finance-month-card,
+#finance .finance-ledger-card{
+    padding:18px;
+    margin-bottom:16px;
+}
+#finance .finance-table-title{
+    margin-bottom:13px;
+}
+#finance .financial-month-table,
+#finance .financial-table{
+    width:100%;
+    border-collapse:collapse;
+}
+#finance .financial-month-table th,
+#finance .financial-table th{
+    background:#171717;
+    color:#fff;
+    padding:11px 10px;
+    font-size:9px;
+    letter-spacing:.45px;
+    text-align:left;
+    white-space:nowrap;
+}
+#finance .financial-month-table td,
+#finance .financial-table td{
+    padding:11px 10px;
+    border-bottom:1px solid #edf0f3;
+    font-size:10px;
+}
+#finance .financial-month-table tbody tr:nth-child(even),
+#finance .financial-table tbody tr:nth-child(even){
+    background:#fafbfc;
+}
+#finance .financial-month-table tbody tr:hover,
+#finance .financial-table tbody tr:hover{
+    background:#fff9e8;
+}
+#finance .financial-type{
+    display:inline-flex;
+    min-width:55px;
+    justify-content:center;
+    padding:5px 8px;
+    border-radius:999px;
+    font-size:9px;
+    font-weight:800;
+}
+#finance .financial-type.income{background:#e8f7ef;color:#16844f;}
+#finance .financial-type.expense{background:#fff0ef;color:#c63f39;}
+#finance .financial-amount.income{color:#16844f;font-weight:850;}
+#finance .financial-amount.expense{color:#c63f39;font-weight:850;}
+#finance .financial-actions{display:flex;gap:5px;white-space:nowrap;}
+#finance .financial-actions .btn{padding:6px 8px;font-size:9px;}
+#finance .financial-empty{
+    text-align:center;
+    padding:35px!important;
+    color:#999;
+}
+#finance .finance-ledger-count{
+    font-size:9px;
+    font-weight:800;
+    color:#777;
+    background:#f1f2f4;
+    border-radius:999px;
+    padding:5px 8px;
+}
+
+/* Add transaction form */
+#financialForm{
+    max-width:1000px;
+    margin:0 auto 30px;
+    border:1px solid #e5e8ed;
+    border-radius:18px;
+    box-shadow:0 10px 28px rgba(17,17,17,.08);
+}
+#financialForm .financial-form-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+#financialForm .financial-form-grid .full{grid-column:1/-1;}
+
+/* Responsive */
+@media(max-width:1100px){
+    #finance .finance-kpi-grid{grid-template-columns:repeat(2,1fr);}
+    #finance .finance-pulse{grid-template-columns:1fr 1fr;}
+    #finance .financial-filter{grid-template-columns:repeat(2,1fr);}
+    #finance .finance-flow-chart{grid-template-columns:repeat(4,1fr);}
+    #financialForm .financial-form-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:700px){
+    #finance .finance-hero{align-items:flex-start;flex-direction:column;}
+    #finance .finance-kpi-grid,
+    #finance .finance-pulse,
+    #finance .finance-report-grid{grid-template-columns:1fr;}
+    #finance .financial-filter{grid-template-columns:1fr;}
+    #finance .finance-flow-chart{grid-template-columns:repeat(3,1fr);}
+    #financialForm .financial-form-grid{grid-template-columns:1fr;}
+    #financialForm .financial-form-grid .full{grid-column:auto;}
+}
+
+
+/* =========================================================
+   FINANCIAL DASHBOARD — V2
+========================================================= */
+#finance{
+    max-width:1450px;
+    margin:0 auto;
+    padding:8px 0 45px;
+    color:#1b1b1b;
+}
+#finance .finance-dashboard-header{
+    min-height:112px;
+    padding:24px 26px;
+    margin-bottom:18px;
+    border-radius:20px;
+    background:
+        radial-gradient(circle at 90% 10%,rgba(236,174,44,.22),transparent 28%),
+        linear-gradient(135deg,#101010 0%,#1c1c1c 62%,#3a2a12 100%);
+    color:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 14px 32px rgba(0,0,0,.13);
+    position:relative;
+    overflow:hidden;
+}
+#finance .finance-dashboard-title{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    min-width:0;
+}
+#finance .finance-dashboard-icon{
+    width:52px;
+    height:52px;
+    flex:0 0 52px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f0b429;
+    color:#111;
+    font-size:24px;
+    font-weight:900;
+    box-shadow:0 8px 20px rgba(240,180,41,.2);
+}
+#finance .finance-kicker{
+    font-size:9px;
+    font-weight:850;
+    letter-spacing:1.5px;
+    color:#d0a83f;
+    margin-bottom:5px;
+}
+#finance .finance-dashboard-title h2{
+    margin:0;
+    font-size:25px;
+    font-weight:850;
+    letter-spacing:-.5px;
+}
+#finance .finance-dashboard-title p{
+    margin:5px 0 0;
+    color:#c8c8c8;
+    font-size:11px;
+}
+#finance .finance-dashboard-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+#finance .finance-dashboard-actions .btn{margin:0;}
+#finance .finance-currency-badge{
+    padding:8px 11px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    color:#eee;
+    font-size:9px;
+    font-weight:800;
+}
+#finance .finance-dashboard-header .btn-light{
+    background:#fff;
+    color:#222;
+    border:0;
+}
+#finance .finance-dashboard-header .btn-primary{
+    background:#f0b429;
+    color:#111;
+    border:0;
+}
+
+/* Main KPI cards */
+#finance .finance-kpi-grid-main{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:16px;
+}
+#finance .finance-kpi-card{
+    background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:17px;
+    padding:18px;
+    min-height:118px;
+    box-shadow:0 6px 18px rgba(17,17,17,.045);
+    position:relative;
+    overflow:hidden;
+}
+#finance .finance-kpi-card:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:4px;
+}
+#finance .finance-kpi-card.income:before{background:#15945a;}
+#finance .finance-kpi-card.expense:before{background:#d94b45;}
+#finance .finance-kpi-card.net:before{background:#d9a221;}
+#finance .finance-kpi-card.count:before{background:#303030;}
+#finance .finance-card-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+}
+#finance .finance-kpi-label{
+    display:block;
+    font-size:9px;
+    font-weight:850;
+    letter-spacing:.75px;
+    color:#777;
+}
+#finance .finance-kpi-value{
+    margin-top:8px;
+    font-size:24px;
+    line-height:1.1;
+    font-weight:900;
+    letter-spacing:-.4px;
+}
+#finance .finance-kpi-card.income .finance-kpi-value{color:#16854f;}
+#finance .finance-kpi-card.expense .finance-kpi-value{color:#c73f39;}
+#finance .finance-kpi-card.net .finance-kpi-value{color:#a87300;}
+#finance .finance-kpi-card.count .finance-kpi-value{color:#222;}
+#finance .finance-kpi-icon{
+    width:37px;
+    height:37px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    font-weight:900;
+}
+#finance .finance-kpi-card.income .finance-kpi-icon{background:#e9f7ef;color:#16854f;}
+#finance .finance-kpi-card.expense .finance-kpi-icon{background:#fff0ef;color:#c73f39;}
+#finance .finance-kpi-card.net .finance-kpi-icon{background:#fff6dc;color:#a87300;}
+#finance .finance-kpi-card.count .finance-kpi-icon{background:#f0f1f3;color:#333;}
+#finance .finance-kpi-footer{
+    margin-top:14px;
+    padding-top:10px;
+    border-top:1px solid #eef0f2;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    color:#999;
+    font-size:9px;
+}
+#finance .finance-kpi-status{
+    padding:4px 7px;
+    border-radius:999px;
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+#finance .finance-kpi-status.income{background:#e9f7ef;color:#16854f;}
+#finance .finance-kpi-status.expense{background:#fff0ef;color:#c73f39;}
+#finance .finance-kpi-status.net{background:#fff6dc;color:#a87300;}
+#finance .finance-kpi-status.count{background:#f0f1f3;color:#555;}
+
+/* Insight cards */
+#finance .finance-insight-grid{
+    display:grid;
+    grid-template-columns:1.45fr 1fr 1fr;
+    gap:14px;
+    margin-bottom:16px;
+}
+#finance .finance-balance-card,
+#finance .finance-insight-card{
+    border-radius:17px;
+    min-height:150px;
+    box-shadow:0 6px 18px rgba(17,17,17,.045);
+}
+#finance .finance-balance-card{
+    padding:19px;
+    color:#fff;
+    background:linear-gradient(135deg,#171717,#252525);
+    position:relative;
+    overflow:hidden;
+}
+#finance .finance-balance-card:after{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    right:-90px;
+    top:-105px;
+    border-radius:50%;
+    background:rgba(240,180,41,.12);
+}
+#finance .finance-balance-header{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+}
+#finance .finance-section-kicker{
+    display:block;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#999;
+}
+#finance .finance-balance-card .finance-section-kicker{color:#c7c7c7;}
+#finance .finance-balance-header h3{
+    margin:4px 0 0;
+    font-size:14px;
+}
+#finance .finance-balance-badge{
+    padding:5px 8px;
+    border-radius:999px;
+    background:rgba(240,180,41,.13);
+    color:#efbd45;
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+#finance .finance-balance-value{
+    position:relative;
+    z-index:1;
+    margin-top:13px;
+    font-size:29px;
+    font-weight:900;
+    color:#efbd45;
+}
+#finance .finance-balance-note{
+    position:relative;
+    z-index:1;
+    margin-top:4px;
+    color:#bcbcbc;
+    font-size:9px;
+}
+#finance .finance-balance-line{
+    height:1px;
+    margin:14px 0 9px;
+    background:rgba(255,255,255,.11);
+}
+#finance .finance-balance-foot{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:9px;
+    color:#aaa;
+}
+#finance .finance-balance-foot strong{color:#fff;font-size:11px;}
+#finance .finance-balance-foot .pulse-tag{margin-left:auto;}
+#finance .finance-insight-card{
+    background:#fff;
+    border:1px solid #e4e7eb;
+    padding:18px;
+    position:relative;
+}
+#finance .finance-insight-icon{
+    position:absolute;
+    top:17px;
+    right:17px;
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    font-weight:900;
+}
+#finance .finance-insight-icon.income{background:#e9f7ef;color:#16854f;}
+#finance .finance-insight-icon.expense{background:#fff0ef;color:#c73f39;}
+#finance .finance-insight-card h3{
+    margin:11px 42px 0 0;
+    font-size:15px;
+    line-height:1.25;
+    color:#222;
+}
+#finance .finance-insight-amount{
+    margin-top:7px;
+    color:#16854f;
+    font-size:18px;
+    font-weight:900;
+}
+#finance .finance-insight-amount.expense{color:#c73f39;}
+#finance .finance-insight-card p{
+    margin:7px 0 0;
+    color:#999;
+    font-size:9px;
+    line-height:1.45;
+}
+
+/* Main chart / overview */
+#finance .finance-main-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.75fr) minmax(290px,.85fr);
+    gap:16px;
+    margin-bottom:16px;
+}
+#finance .finance-panel{
+    background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:17px;
+    box-shadow:0 6px 18px rgba(17,17,17,.045);
+}
+#finance .finance-chart-panel{padding:19px;}
+#finance .finance-overview-panel{padding:19px;}
+#finance .finance-panel-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:14px;
+}
+#finance .finance-panel-header h3{
+    margin:4px 0 0;
+    font-size:14px;
+    color:#1d1d1d;
+}
+#finance .finance-panel-header p{
+    margin:4px 0 0;
+    font-size:9px;
+    color:#999;
+}
+#finance .finance-chart-legend{
+    display:flex;
+    gap:12px;
+    color:#777;
+    font-size:8px;
+    padding-top:2px;
+}
+#finance .finance-chart-legend span{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+#finance .finance-chart-legend i{
+    width:8px;
+    height:8px;
+    border-radius:3px;
+}
+#finance .income-dot{background:#15945a;}
+#finance .expense-dot{background:#d94b45;}
+#finance .finance-flow-chart{
+    min-height:215px;
+    display:grid;
+    grid-template-columns:repeat(6,minmax(55px,1fr));
+    align-items:end;
+    gap:13px;
+    padding:7px 3px 0;
+}
+#finance .finance-flow-column{
+    height:180px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+}
+#finance .finance-flow-bars{
+    width:100%;
+    max-width:86px;
+    height:135px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:5px;
+    border-bottom:1px solid #e9ecef;
+    padding:0 7px;
+}
+#finance .finance-flow-bar{
+    width:20px;
+    min-height:3px;
+    border-radius:6px 6px 2px 2px;
+}
+#finance .finance-flow-bar.income{background:#15945a;}
+#finance .finance-flow-bar.expense{background:#d94b45;}
+#finance .finance-flow-label{
+    color:#70747b;
+    font-size:8px;
+    font-weight:700;
+}
+#finance .finance-flow-value{
+    color:#999;
+    font-size:7px;
+    max-width:90px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+/* Overview */
+#finance .finance-summary-stat{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px solid #eef0f2;
+}
+#finance .finance-summary-stat-icon{
+    width:31px;
+    height:31px;
+    flex:0 0 31px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:900;
+}
+#finance .finance-summary-stat-icon.income{background:#e9f7ef;color:#16854f;}
+#finance .finance-summary-stat-icon.expense{background:#fff0ef;color:#c73f39;}
+#finance .finance-summary-stat-icon.net{background:#fff6dc;color:#a87300;}
+#finance .finance-summary-stat span{
+    display:block;
+    color:#999;
+    font-size:8px;
+}
+#finance .finance-summary-stat strong{
+    display:block;
+    margin-top:2px;
+    color:#222;
+    font-size:13px;
+}
+#finance .finance-income-expense-meter{
+    margin-top:15px;
+}
+#finance .finance-meter-label{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    color:#777;
+    font-size:8px;
+    font-weight:700;
+}
+#finance .finance-meter-label strong{color:#c73f39;}
+#finance .finance-meter-track{
+    height:7px;
+    margin-top:7px;
+    border-radius:99px;
+    background:#edf0f2;
+    overflow:hidden;
+}
+#finance .finance-meter-fill{
+    height:100%;
+    width:0;
+    border-radius:99px;
+    background:#d94b45;
+    transition:width .25s ease;
+}
+#finance .finance-income-expense-meter small{
+    display:block;
+    margin-top:6px;
+    color:#aaa;
+    font-size:7px;
+}
+
+/* Filters */
+#finance .finance-filter-card{
+    padding:18px;
+    margin-bottom:16px;
+}
+#finance .finance-filter-header{margin-bottom:13px;}
+#finance .financial-filter{
+    display:grid;
+    grid-template-columns:1.65fr 1fr 1fr 1fr;
+    gap:10px;
+}
+#finance .field label{
+    display:block;
+    margin-bottom:5px;
+    color:#666;
+    font-size:8px;
+    font-weight:850;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+#finance .field input,
+#finance .field select,
+#finance .field textarea{
+    width:100%;
+    box-sizing:border-box;
+    height:40px;
+    border:1px solid #dfe2e7;
+    border-radius:9px;
+    background:#fff;
+    padding:9px 10px;
+    font-size:11px;
+    outline:none;
+}
+#finance .field input:focus,
+#finance .field select:focus{
+    border-color:#d9a221;
+    box-shadow:0 0 0 3px rgba(217,162,33,.10);
+}
+
+/* Category panels */
+#finance .finance-category-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+}
+#finance .finance-category-panel{padding:18px;}
+#finance .finance-section-badge{
+    padding:5px 8px;
+    border-radius:999px;
+    font-size:7px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+#finance .finance-section-badge.income{background:#e9f7ef;color:#16854f;}
+#finance .finance-section-badge.expense{background:#fff0ef;color:#c73f39;}
+#finance .financial-summary-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+#finance .finance-category-row{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:12px;
+    align-items:center;
+    padding:9px 10px;
+    border:1px solid #edf0f2;
+    border-radius:10px;
+    background:#fafbfc;
+}
+#finance .finance-category-name{
+    color:#555;
+    font-size:9px;
+    font-weight:700;
+}
+#finance .finance-category-track{
+    height:5px;
+    margin-top:6px;
+    border-radius:99px;
+    background:#e8ebee;
+    overflow:hidden;
+}
+#finance .finance-category-fill{
+    height:100%;
+    border-radius:99px;
+    background:#15945a;
+}
+#finance .finance-category-fill.expense{background:#d94b45;}
+#finance .finance-category-amount{
+    color:#222;
+    font-size:10px;
+    font-weight:900;
+}
+#finance .finance-empty-small{
+    padding:25px;
+    text-align:center;
+    color:#aaa;
+    font-size:9px;
+}
+
+/* Tables */
+#finance .finance-month-card,
+#finance .finance-ledger-card{
+    padding:18px;
+    margin-bottom:16px;
+}
+#finance .financial-table-wrap{
+    width:100%;
+    overflow-x:auto;
+    border:1px solid #edf0f2;
+    border-radius:10px;
+}
+#finance .financial-month-table,
+#finance .financial-table{
+    width:100%;
+    border-collapse:collapse;
+}
+#finance .financial-month-table th,
+#finance .financial-table th{
+    background:#181818;
+    color:#fff;
+    padding:10px;
+    text-align:left;
+    white-space:nowrap;
+    font-size:8px;
+    letter-spacing:.55px;
+}
+#finance .financial-month-table td,
+#finance .financial-table td{
+    padding:10px;
+    border-bottom:1px solid #edf0f2;
+    font-size:9px;
+    color:#555;
+}
+#finance .financial-month-table tbody tr:nth-child(even),
+#finance .financial-table tbody tr:nth-child(even){background:#fafbfc;}
+#finance .financial-month-table tbody tr:hover,
+#finance .financial-table tbody tr:hover{background:#fff9e8;}
+#finance .financial-type{
+    display:inline-flex;
+    min-width:55px;
+    justify-content:center;
+    padding:4px 7px;
+    border-radius:999px;
+    font-size:7px;
+    font-weight:900;
+}
+#finance .financial-type.income{background:#e9f7ef;color:#16854f;}
+#finance .financial-type.expense{background:#fff0ef;color:#c73f39;}
+#finance .financial-amount{font-weight:900;white-space:nowrap;}
+#finance .financial-amount.income{color:#16854f;}
+#finance .financial-amount.expense{color:#c73f39;}
+#finance .financial-actions{display:flex;gap:5px;white-space:nowrap;}
+#finance .financial-actions .btn{padding:5px 7px;font-size:8px;}
+#finance .financial-empty{
+    text-align:center;
+    padding:35px!important;
+    color:#aaa;
+}
+#finance .finance-table-count{
+    padding:5px 8px;
+    border-radius:999px;
+    background:#f1f2f4;
+    color:#666;
+    font-size:8px;
+    font-weight:850;
+    white-space:nowrap;
+}
+
+/* Mobile/tablet */
+
+/* =========================================================
+   FINANCIAL MANAGEMENT DASHBOARD — BOLD, SIMPLE, OPERABLE
+   ========================================================= */
+#finance{
+    background:#f5f6fa;
+}
+#finance .finance-commandbar{
+    background:#fff;
+    border:1px solid #e1e4ea;
+    border-radius:10px;
+    min-height:78px;
+    padding:16px 18px;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    box-shadow:0 2px 8px rgba(20,30,45,.04);
+}
+#finance .finance-command-title{display:flex;align-items:center;gap:12px;min-width:0;}
+#finance .finance-command-icon{
+    width:44px;height:44px;border-radius:8px;background:#f6a623;color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;flex:0 0 44px;
+}
+#finance .finance-eyebrow{font-size:8px;font-weight:900;letter-spacing:1.1px;color:#89909a;margin-bottom:3px;}
+#finance .finance-commandbar h2{margin:0;color:#263238;font-size:20px;line-height:1.15;font-weight:800;}
+#finance .finance-commandbar p{margin:4px 0 0;color:#8b929a;font-size:9px;}
+#finance .finance-command-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;}
+#finance .finance-btn{border:0;border-radius:6px;padding:9px 12px;font-size:10px;font-weight:800;cursor:pointer;}
+#finance .finance-btn-primary{background:#f5a623;color:#fff;}
+#finance .finance-btn-secondary{background:#eef1f4;color:#4f5963;}
+
+#finance .finance-kpi-board{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:12px;
+}
+#finance .finance-kpi-tile{
+    background:#fff;border:1px solid #e2e5e9;border-radius:7px;padding:12px 12px 10px;
+    min-height:98px;position:relative;overflow:hidden;
+}
+#finance .finance-kpi-tile:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;}
+#finance .finance-kpi-tile.income:before{background:#28a66a;}
+#finance .finance-kpi-tile.expense:before{background:#e05b55;}
+#finance .finance-kpi-tile.net:before{background:#f2a51a;}
+#finance .finance-kpi-tile.count:before{background:#67717c;}
+#finance .finance-kpi-tile.source:before{background:#3c8dbc;}
+#finance .finance-kpi-tile.spend:before{background:#a45aa5;}
+#finance .finance-tile-icon{
+    width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+    font-weight:900;font-size:12px;float:right;
+}
+#finance .income .finance-tile-icon{background:#e7f6ee;color:#22945b;}
+#finance .expense .finance-tile-icon{background:#fdebea;color:#d64d47;}
+#finance .net .finance-tile-icon{background:#fff3db;color:#d88c00;}
+#finance .count .finance-tile-icon{background:#edf0f3;color:#59636d;}
+#finance .source .finance-tile-icon{background:#eaf4fb;color:#357fa9;}
+#finance .spend .finance-tile-icon{background:#f4eaf5;color:#95549a;}
+#finance .finance-tile-label{font-size:8px;font-weight:900;color:#7d858e;letter-spacing:.55px;}
+#finance .finance-tile-value{font-size:19px;line-height:1.1;font-weight:900;margin-top:8px;color:#283038;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#finance .finance-kpi-tile.income .finance-tile-value{color:#218c58;}
+#finance .finance-kpi-tile.expense .finance-tile-value{color:#d34b45;}
+#finance .finance-kpi-tile.net .finance-tile-value{color:#c58200;}
+#finance .finance-tile-value.small{font-size:14px;margin-top:5px;}
+#finance .finance-tile-name{font-size:10px;font-weight:800;color:#37414a;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#finance .finance-tile-note{font-size:7px;color:#a0a6ad;margin-top:7px;}
+
+#finance .finance-dashboard-grid{
+    display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.75fr);gap:10px;margin-bottom:10px;
+}
+#finance .finance-dashboard-panel{
+    background:#fff;border:1px solid #e0e3e7;border-radius:7px;box-shadow:0 2px 8px rgba(20,30,45,.035);
+    padding:14px;min-width:0;
+}
+#finance .finance-panel-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:11px;}
+#finance .finance-panel-kicker{font-size:7px;font-weight:900;letter-spacing:1px;color:#969da5;}
+#finance .finance-panel-title-row h3{margin:3px 0 0;font-size:13px;color:#2d353c;font-weight:800;}
+#finance .finance-panel-title-row p{margin:3px 0 0;color:#9ba1a8;font-size:8px;}
+#finance .finance-legend{display:flex;gap:10px;font-size:8px;color:#777;white-space:nowrap;}
+#finance .finance-legend span{display:flex;align-items:center;gap:4px;}
+#finance .finance-legend i{width:7px;height:7px;border-radius:2px;display:inline-block;}
+#finance .finance-legend i.income{background:#2da66a;}
+#finance .finance-legend i.expense{background:#df5a54;}
+
+#finance .finance-chart-large{min-height:310px;}
+#finance .finance-flow-chart{
+    min-height:245px;height:245px;display:grid;grid-template-columns:repeat(6,minmax(55px,1fr));gap:14px;
+    align-items:end;padding:6px 5px 0;border-top:1px solid #f0f1f3;
+}
+#finance .finance-flow-column{height:226px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;position:relative;}
+#finance .finance-flow-bars{
+    height:178px;width:100%;max-width:80px;display:flex;align-items:flex-end;justify-content:center;gap:5px;
+    border-bottom:1px solid #e6e8eb;padding:0 8px;position:relative;
+    background:repeating-linear-gradient(to top,transparent 0,transparent 43px,#f0f1f3 44px);
+}
+#finance .finance-flow-bar{width:20px;min-height:2px;border-radius:2px 2px 0 0;position:relative;}
+#finance .finance-flow-bar.income{background:#bd4d93;}
+#finance .finance-flow-bar.expense{background:#f5a400;}
+#finance .finance-flow-label{font-size:8px;color:#69717a;font-weight:700;}
+#finance .finance-flow-value{font-size:7px;color:#8f969d;max-width:95px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+#finance .finance-gauge-panel{min-height:310px;}
+#finance .finance-gauge-wrap{display:flex;justify-content:center;padding:3px 0 8px;}
+#finance .finance-gauge{
+    width:178px;height:178px;border-radius:50%;
+    background:conic-gradient(#f5a623 0deg,#f5a623 0deg,#edf0f3 0deg,#edf0f3 360deg);
+    display:flex;align-items:center;justify-content:center;position:relative;
+}
+#finance .finance-gauge:before{content:"";position:absolute;width:136px;height:136px;background:#fff;border-radius:50%;}
+#finance .finance-gauge-inner{position:relative;z-index:1;text-align:center;}
+#finance .finance-gauge-inner strong{display:block;font-size:25px;color:#3c454d;font-weight:900;}
+#finance .finance-gauge-inner span{display:block;color:#999;font-size:8px;margin-top:3px;}
+#finance .finance-gauge-summary{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #edf0f2;padding-top:10px;gap:8px;}
+#finance .finance-gauge-summary div{text-align:center;}
+#finance .finance-gauge-summary span{display:block;font-size:7px;color:#999;}
+#finance .finance-gauge-summary strong{display:block;font-size:10px;color:#343b42;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#finance .finance-meter-track{height:5px;border-radius:5px;background:#eceff1;margin-top:10px;overflow:hidden;}
+#finance .finance-meter-fill{height:100%;width:0;background:#f5a623;border-radius:5px;transition:width .25s ease;}
+
+#finance .finance-lower-grid{grid-template-columns:1.4fr 1fr;}
+#finance .finance-health-main{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;min-height:75px;}
+#finance .finance-muted-label{display:block;font-size:7px;font-weight:900;color:#9ca2a8;letter-spacing:.7px;}
+#finance .finance-health-main>div:first-child strong{display:block;font-size:28px;color:#d49309;margin-top:7px;}
+#finance .finance-margin{text-align:right;}
+#finance .finance-margin span{display:block;font-size:8px;color:#999;}
+#finance .finance-margin strong{display:block;font-size:20px;color:#2b343b;margin-top:4px;}
+#finance .finance-health-badge{font-size:7px;font-weight:900;border-radius:10px;padding:5px 8px;background:#e9f7ef;color:#218b58;}
+#finance .finance-quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+#finance .finance-quick-actions button{
+    border:1px solid #e1e5e8;background:#fafbfc;border-radius:6px;padding:12px 8px;cursor:pointer;
+    font-size:9px;font-weight:800;color:#4c555e;
+}
+#finance .finance-quick-actions button:first-child{border-color:#ccebdc;background:#f3fbf6;color:#208b58;}
+#finance .finance-quick-actions button:last-child{border-color:#f5d4d2;background:#fff7f6;color:#d14d48;}
+#finance .finance-quick-actions span{font-size:16px;margin-right:4px;}
+
+#finance .finance-filter-panel{margin-bottom:10px;}
+#finance .finance-simple-filter{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:8px;}
+#finance .field label{display:block;font-size:7px;font-weight:900;color:#7d858d;letter-spacing:.6px;margin-bottom:4px;text-transform:uppercase;}
+#finance .field input,#finance .field select{height:36px;width:100%;box-sizing:border-box;border:1px solid #dfe3e7;border-radius:5px;background:#fff;padding:7px 9px;font-size:10px;color:#404850;outline:none;}
+#finance .field input:focus,#finance .field select:focus{border-color:#f0a51c;box-shadow:0 0 0 2px rgba(240,165,28,.10);}
+
+#finance .finance-category-dashboard{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+#finance .finance-pill{font-size:7px;font-weight:900;border-radius:10px;padding:5px 8px;}
+#finance .finance-pill.income{background:#e9f7ef;color:#238b59;}
+#finance .finance-pill.expense{background:#fff0ef;color:#d04e49;}
+#finance .finance-category-dashboard .financial-summary-list{max-height:190px;overflow:auto;}
+
+#finance .finance-month-card,#finance .finance-ledger-card{margin-bottom:10px;}
+#finance .finance-record-count{font-size:8px;color:#888;background:#f0f2f4;border-radius:10px;padding:5px 8px;font-weight:800;}
+#finance .financial-table-wrap{overflow-x:auto;border:1px solid #e8eaed;border-radius:5px;}
+#finance .financial-month-table,#finance .financial-table{border-collapse:collapse;width:100%;}
+#finance .financial-month-table th,#finance .financial-table th{background:#4b535b;color:#fff;padding:8px 9px;font-size:7px;letter-spacing:.55px;white-space:nowrap;text-align:left;}
+#finance .financial-month-table td,#finance .financial-table td{padding:8px 9px;border-bottom:1px solid #eef0f2;font-size:8px;color:#555;white-space:nowrap;}
+#finance .financial-month-table tr:nth-child(even) td,#finance .financial-table tr:nth-child(even) td{background:#fafbfc;}
+#finance .financial-empty{padding:25px!important;text-align:center;color:#aaa!important;}
+
+@media(max-width:1150px){
+    #finance .finance-kpi-board{grid-template-columns:repeat(3,1fr);}
+    #finance .finance-dashboard-grid{grid-template-columns:1fr;}
+    #finance .finance-simple-filter{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:720px){
+    #finance .finance-commandbar{align-items:flex-start;flex-direction:column;}
+    #finance .finance-command-actions{width:100%;}
+    #finance .finance-command-actions .finance-btn{flex:1;}
+    #finance .finance-kpi-board{grid-template-columns:repeat(2,1fr);}
+    #finance .finance-lower-grid,#finance .finance-category-dashboard{grid-template-columns:1fr;}
+    #finance .finance-simple-filter{grid-template-columns:1fr;}
+    #finance .finance-flow-chart{grid-template-columns:repeat(6,minmax(55px,1fr));overflow-x:auto;}
+}
+@media(max-width:1150px){
+    #finance .finance-kpi-grid-main{grid-template-columns:repeat(2,1fr);}
+    #finance .finance-insight-grid{grid-template-columns:1fr 1fr;}
+    #finance .finance-balance-card{grid-column:1/-1;}
+    #finance .finance-main-grid{grid-template-columns:1fr;}
+    #finance .financial-filter{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:720px){
+    #finance{padding-top:2px;}
+    #finance .finance-dashboard-header{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:19px;
+    }
+    #finance .finance-dashboard-title h2{font-size:21px;}
+    #finance .finance-dashboard-actions{width:100%;justify-content:flex-start;}
+    #finance .finance-kpi-grid-main,
+    #finance .finance-insight-grid,
+    #finance .finance-category-grid,
+    #finance .financial-filter{grid-template-columns:1fr;}
+    #finance .finance-balance-card{grid-column:auto;}
+    #finance .finance-flow-chart{
+        grid-template-columns:repeat(3,minmax(55px,1fr));
+        overflow-x:auto;
+        padding-bottom:5px;
+    }
+    #finance .finance-flow-column{min-width:55px;}
+    #finance .finance-panel-header{align-items:flex-start;flex-direction:column;}
+    #finance .finance-chart-legend{padding-top:0;}
+}
 </style> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';"></script></head><body><!-- =======================================================     SIDEBAR======================================================= --><div class="sidebar">    <div class="logo-area">        <img id="sidebarLogo" src="data:image/png;base64,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" alt="PrintArt Creative Logo" style="display: block;">        <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">                   </div>        <h2></h2>    </div>    <button class="nav-btn" onclick="showPage('dashboard',this)">        <span class="nav-icon">▣</span>        Dashboard    </button>    <button class="nav-btn" onclick="showPage('quotation')">        <span class="nav-icon">📝</span>        New Quotation    </button>    <button class="nav-btn" onclick="showPage('quotations')">        <span class="nav-icon">📋</span>        Quotations    </button>    <button class="nav-btn" onclick="showPage('signages')">        <span class="nav-icon">🖼️</span>        Signage Projects    </button>    <button class="nav-btn" onclick="showPage('tracker',this)">        <span class="nav-icon">📊</span>        Project &amp; Sales Tracker    </button>    <button class="nav-btn" onclick="showPage('daily-report',this)">        <span class="nav-icon">📅</span>        Daily Report    </button>    <button class="nav-btn" onclick="showPage('finance',this)">        <span class="nav-icon">💰</span>        Financial Report    </button>    <button class="nav-btn" onclick="showPage('products')">        <span class="nav-icon">📦</span>        Product &amp; Price    </button>    <button class="nav-btn" onclick="showPage('settings',this)">        <span class="nav-icon">⚙</span>        Settings    </button></div><!-- =======================================================     MAIN======================================================= --><div class="main">    <div class="topbar">        <div>            <h1 id="pageTitle">Product &amp; Price Database</h1>            <span>                PrintArt Creative Graphics and Signs            </span>        </div>        <div style="display:flex;align-items:center;gap:15px;">            <span id="cloudStatus" class="cloud-status disconnected">☁ Cloud Disconnected</span>            <strong id="currentDate">September 28, 2026</strong>        </div>    </div>    <div class="content">
  <!-- =======================================================     DASHBOARD======================================================= --><section id="dashboard" class="page active">    <div class="dashboard-grid">        <div class="card">            <span class="card-icon">                📋            </span>            <div class="card-title">                TOTAL QUOTATIONS            </div>            <div class="card-value" id="dashTotalQuotes">0</div>        </div>        <div class="card orange">            <span class="card-icon">                ₱            </span>            <div class="card-title">                TOTAL QUOTATION VALUE            </div>            <div class="card-value" id="dashTotalValue">₱0.00</div>        </div>        <div class="card green">            <span class="card-icon">                ✓            </span>            <div class="card-title">                PENDING / APPROVED            </div>            <div class="card-value" id="dashPending">0</div>        </div>        <div class="card black">            <span class="card-icon">                ★            </span>            <div class="card-title">                COMPLETED            </div>            <div class="card-value" id="dashCompleted">0</div>        </div>    </div>    <div class="panel">        <div class="panel-header">            <h2>                Recent Quotations            </h2>            <button class="btn btn-primary" onclick="showPageByName('quotation')">                + New Quotation            </button>        </div>        <table class="data-table">            <thead>                <tr>                    <th>                        Quotation No.                    </th>                    <th>                        Date                    </th>                    <th>                        Client                    </th>                    <th>                        Total                    </th>                    <th>                        Status                    </th>                </tr>            </thead>            <tbody id="recentQuotes">            <tr>                <td colspan="5" style="text-align:center;color:#888;">                    No quotations saved yet.                </td>            </tr>        </tbody>        </table>    </div></section><!-- =======================================================     NEW QUOTATION======================================================= --><section id="quotation" class="page">
 <div class="panel">
@@ -1509,113 +2884,157 @@
      FINANCIAL REPORT / TRACKER
 ======================================================= -->
 <section id="finance" class="page">
-    <div class="finance-hero">
-        <div>
-            <h2>Financial Report &amp; Tracker</h2>
-            <p>Monitor income, expenses, cash flow and transaction activity in one place.</p>
-        </div>
-        <div class="finance-hero-meta">
-            <span class="finance-period-chip">₱ PHP • Philippine Peso</span>
-            <div class="finance-action-row">
-                <button class="btn btn-light" onclick="exportFinancialCSV()">Export CSV</button>
-                <button class="btn btn-primary" onclick="openFinancialForm()">+ Add Transaction</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="finance-kpi-grid">
-        <div class="finance-kpi-card income">
-            <div class="icon">↗</div>
-            <div class="label">Total Income</div>
-            <div class="value" id="financeTotalIncome">₱0.00</div>
-            <div class="sub">For the selected period</div>
-        </div>
-        <div class="finance-kpi-card expense">
-            <div class="icon">↘</div>
-            <div class="label">Total Expenses</div>
-            <div class="value" id="financeTotalExpense">₱0.00</div>
-            <div class="sub">For the selected period</div>
-        </div>
-        <div class="finance-kpi-card net">
-            <div class="icon">₱</div>
-            <div class="label">Net Cash Flow</div>
-            <div class="value" id="financeNet">₱0.00</div>
-            <div class="sub">Income less expenses</div>
-        </div>
-        <div class="finance-kpi-card count">
-            <div class="icon">#</div>
-            <div class="label">Transactions</div>
-            <div class="value" id="financeTransactionCount">0</div>
-            <div class="sub">Matching the selected filters</div>
-        </div>
-    </div>
-
-
-    <div class="finance-pulse">
-        <div class="finance-pulse-card primary">
-            <div class="eyebrow">Financial Position</div>
-            <div class="big-number" id="financePulseNet">₱0.00</div>
-            <div class="small-note">Current net cash flow from the selected report filters.</div>
-        </div>
-        <div class="finance-pulse-card">
-            <div class="eyebrow">Net Margin</div>
-            <div class="pulse-row">
-                <div class="pulse-value" id="financeNetMargin">0.0%</div>
-                <span class="pulse-tag" id="financeNetMarginTag">—</span>
-            </div>
-            <div class="small-note">Net cash flow ÷ income</div>
-        </div>
-        <div class="finance-pulse-card">
-            <div class="eyebrow">Top Income Source</div>
-            <div class="pulse-row">
-                <div class="pulse-value" id="financeTopIncome">—</div>
-            </div>
-            <div class="small-note" id="financeTopIncomeAmount">₱0.00</div>
-        </div>
-        <div class="finance-pulse-card">
-            <div class="eyebrow">Top Expense Category</div>
-            <div class="pulse-row">
-                <div class="pulse-value" id="financeTopExpense">—</div>
-            </div>
-            <div class="small-note" id="financeTopExpenseAmount">₱0.00</div>
-        </div>
-    </div>
-
-    <div class="finance-flow-card">
-        <div class="finance-flow-head">
+    <div class="finance-commandbar">
+        <div class="finance-command-title">
+            <div class="finance-command-icon">₱</div>
             <div>
-                <h3>Cash Flow Overview</h3>
-                <p>Visual comparison of income and expenses across recent months.</p>
-            </div>
-            <div class="finance-legend">
-                <span><i class="income-dot"></i>Income</span>
-                <span><i class="expense-dot"></i>Expenses</span>
+                <div class="finance-eyebrow">PRINTART CREATIVE • FINANCIAL MANAGEMENT</div>
+                <h2>Income &amp; Expense Dashboard</h2>
+                <p>See your money in, money out, and current cash flow at a glance.</p>
             </div>
         </div>
-        <div id="financeFlowChart" class="finance-flow-chart"></div>
+        <div class="finance-command-actions">
+            <button class="finance-btn finance-btn-secondary" onclick="exportFinancialCSV()">↓ Export</button>
+            <button class="finance-btn finance-btn-primary" onclick="openFinancialForm()">＋ Add Transaction</button>
+        </div>
     </div>
 
-    <div class="finance-filter-card">
-        <div class="finance-filter-header">
-            <div>
-                <h3>Report Filters</h3>
-                <span>Use filters to review a specific period or transaction group.</span>
-            </div>
-            <button class="btn btn-light" onclick="clearFinancialFilters()">Reset</button>
+    <div class="finance-kpi-board">
+        <div class="finance-kpi-tile income">
+            <div class="finance-tile-icon">↗</div>
+            <div class="finance-tile-label">TOTAL INCOME</div>
+            <div class="finance-tile-value" id="financeTotalIncome">₱0.00</div>
+            <div class="finance-tile-note">Money received</div>
         </div>
-        <div class="financial-filter">
+        <div class="finance-kpi-tile expense">
+            <div class="finance-tile-icon">↘</div>
+            <div class="finance-tile-label">TOTAL EXPENSES</div>
+            <div class="finance-tile-value" id="financeTotalExpense">₱0.00</div>
+            <div class="finance-tile-note">Money spent</div>
+        </div>
+        <div class="finance-kpi-tile net">
+            <div class="finance-tile-icon">₱</div>
+            <div class="finance-tile-label">NET CASH FLOW</div>
+            <div class="finance-tile-value" id="financeNet">₱0.00</div>
+            <div class="finance-tile-note">Income − expenses</div>
+        </div>
+        <div class="finance-kpi-tile count">
+            <div class="finance-tile-icon">#</div>
+            <div class="finance-tile-label">TRANSACTIONS</div>
+            <div class="finance-tile-value" id="financeTransactionCount">0</div>
+            <div class="finance-tile-note">Records in report</div>
+        </div>
+        <div class="finance-kpi-tile source">
+            <div class="finance-tile-icon">★</div>
+            <div class="finance-tile-label">TOP INCOME</div>
+            <div class="finance-tile-name" id="financeTopIncome">—</div>
+            <div class="finance-tile-value small" id="financeTopIncomeAmount">₱0.00</div>
+        </div>
+        <div class="finance-kpi-tile spend">
+            <div class="finance-tile-icon">!</div>
+            <div class="finance-tile-label">TOP EXPENSE</div>
+            <div class="finance-tile-name" id="financeTopExpense">—</div>
+            <div class="finance-tile-value small" id="financeTopExpenseAmount">₱0.00</div>
+        </div>
+    </div>
+
+    <div class="finance-dashboard-grid">
+        <div class="finance-dashboard-panel finance-chart-large">
+            <div class="finance-panel-title-row">
+                <div>
+                    <span class="finance-panel-kicker">CASH FLOW</span>
+                    <h3>Income vs. Expenses</h3>
+                    <p>Last 6 recorded months</p>
+                </div>
+                <div class="finance-legend">
+                    <span><i class="income"></i> Income</span>
+                    <span><i class="expense"></i> Expenses</span>
+                </div>
+            </div>
+            <div id="financeFlowChart" class="finance-flow-chart"></div>
+        </div>
+
+        <div class="finance-dashboard-panel finance-gauge-panel">
+            <div class="finance-panel-title-row">
+                <div>
+                    <span class="finance-panel-kicker">EXPENSE CONTROL</span>
+                    <h3>Expense Ratio</h3>
+                    <p>Expenses compared with income</p>
+                </div>
+            </div>
+            <div class="finance-gauge-wrap">
+                <div class="finance-gauge" id="financeExpenseGauge">
+                    <div class="finance-gauge-inner">
+                        <strong id="financeExpenseGaugeValue">0%</strong>
+                        <span>of income spent</span>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-gauge-summary">
+                <div><span>Income</span><strong id="financeOverviewIncome">₱0.00</strong></div>
+                <div><span>Expenses</span><strong id="financeOverviewExpense">₱0.00</strong></div>
+                <div><span>Net</span><strong id="financeOverviewNet">₱0.00</strong></div>
+            </div>
+            <div class="finance-meter-track"><div id="financeExpenseRatioBar" class="finance-meter-fill"></div></div>
+        </div>
+    </div>
+
+    <div class="finance-dashboard-grid finance-lower-grid">
+        <div class="finance-dashboard-panel finance-health-panel">
+            <div class="finance-panel-title-row">
+                <div>
+                    <span class="finance-panel-kicker">FINANCIAL HEALTH</span>
+                    <h3>Current Financial Position</h3>
+                    <p>Based on the transactions currently shown.</p>
+                </div>
+                <span class="finance-health-badge" id="financeNetMarginTag">—</span>
+            </div>
+            <div class="finance-health-main">
+                <div>
+                    <span class="finance-muted-label">NET CASH FLOW</span>
+                    <strong id="financePulseNet">₱0.00</strong>
+                </div>
+                <div class="finance-margin">
+                    <span>Net Margin</span>
+                    <strong id="financeNetMargin">0.0%</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="finance-dashboard-panel finance-quick-panel">
+            <div class="finance-panel-title-row">
+                <div>
+                    <span class="finance-panel-kicker">QUICK ACTIONS</span>
+                    <h3>Record a transaction</h3>
+                </div>
+            </div>
+            <div class="finance-quick-actions">
+                <button onclick="openFinancialForm('Income')"><span>＋</span> Record Income</button>
+                <button onclick="openFinancialForm('Expense')"><span>−</span> Record Expense</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="finance-dashboard-panel finance-filter-panel">
+        <div class="finance-panel-title-row">
+            <div>
+                <span class="finance-panel-kicker">REPORT CONTROLS</span>
+                <h3>Find a transaction</h3>
+                <p>Use the filters below to update the dashboard and reports.</p>
+            </div>
+            <button class="finance-btn finance-btn-secondary" onclick="clearFinancialFilters()">Reset</button>
+        </div>
+        <div class="financial-filter finance-simple-filter">
             <div class="field">
                 <label>Search</label>
-                <input id="financeSearch" oninput="renderFinancialTracker()" placeholder="Description, client, reference...">
+                <input id="financeSearch" oninput="renderFinancialTracker()" placeholder="Client, description, reference...">
             </div>
             <div class="field">
                 <label>Month</label>
-                <select id="financeMonthFilter" onchange="renderFinancialTracker()">
-                    <option value="">All Months</option>
-                </select>
+                <select id="financeMonthFilter" onchange="renderFinancialTracker()"><option value="">All Months</option></select>
             </div>
             <div class="field">
-                <label>Transaction Type</label>
+                <label>Type</label>
                 <select id="financeTypeFilter" onchange="renderFinancialTracker()">
                     <option value="">All Types</option>
                     <option value="Income">Income</option>
@@ -1624,86 +3043,49 @@
             </div>
             <div class="field">
                 <label>Category</label>
-                <select id="financeCategoryFilter" onchange="renderFinancialTracker()">
-                    <option value="">All Categories</option>
-                </select>
+                <select id="financeCategoryFilter" onchange="renderFinancialTracker()"><option value="">All Categories</option></select>
             </div>
-            <div></div>
         </div>
     </div>
 
-    <div class="finance-report-grid">
-        <div class="finance-report-card">
-            <div class="finance-section-heading">
-                <div>
-                    <h3>Income by Category</h3>
-                    <p>Where your recorded income comes from.</p>
-                </div>
-                <span class="finance-section-badge income">Income</span>
+    <div class="finance-category-dashboard">
+        <div class="finance-dashboard-panel">
+            <div class="finance-panel-title-row">
+                <div><span class="finance-panel-kicker">INCOME</span><h3>Where your money comes from</h3></div>
+                <span class="finance-pill income">INCOME</span>
             </div>
             <div id="financeIncomeCategories" class="financial-summary-list"></div>
         </div>
-
-        <div class="finance-report-card">
-            <div class="finance-section-heading">
-                <div>
-                    <h3>Expenses by Category</h3>
-                    <p>Where your recorded expenses are allocated.</p>
-                </div>
-                <span class="finance-section-badge expense">Expenses</span>
+        <div class="finance-dashboard-panel">
+            <div class="finance-panel-title-row">
+                <div><span class="finance-panel-kicker">EXPENSES</span><h3>Where your money goes</h3></div>
+                <span class="finance-pill expense">EXPENSES</span>
             </div>
             <div id="financeExpenseCategories" class="financial-summary-list"></div>
         </div>
     </div>
 
-    <div class="finance-month-card">
-        <div class="finance-table-title">
-            <div>
-                <h3>Monthly Financial Summary</h3>
-                <p>Compare income, expenses and net cash flow by month.</p>
-            </div>
+    <div class="finance-dashboard-panel finance-month-card">
+        <div class="finance-panel-title-row">
+            <div><span class="finance-panel-kicker">MONTHLY REPORT</span><h3>Monthly Income &amp; Expense Summary</h3><p>Simple month-by-month view.</p></div>
         </div>
-        <div style="overflow-x:auto;">
+        <div class="financial-table-wrap">
             <table class="financial-month-table">
-                <thead>
-                    <tr>
-                        <th>MONTH</th>
-                        <th>INCOME</th>
-                        <th>EXPENSES</th>
-                        <th>NET CASH FLOW</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>MONTH</th><th>INCOME</th><th>EXPENSES</th><th>NET CASH FLOW</th></tr></thead>
                 <tbody id="financeMonthlyBody"></tbody>
             </table>
         </div>
     </div>
 
-    <div class="finance-ledger-card">
-        <div class="finance-table-title">
-            <div>
-                <h3>Transaction Ledger</h3>
-                <p>Detailed record of all income and expense transactions.</p>
-            </div>
-            <span class="finance-table-count" id="financeLedgerCount">0 records</span>
+    <div class="finance-dashboard-panel finance-ledger-card">
+        <div class="finance-panel-title-row">
+            <div><span class="finance-panel-kicker">TRANSACTION HISTORY</span><h3>Income &amp; Expense Records</h3><p>View, edit or delete individual transactions.</p></div>
+            <span class="finance-record-count" id="financeLedgerCount">0 records</span>
         </div>
         <div class="financial-table-wrap">
             <table class="financial-table">
-                <thead>
-                    <tr>
-                        <th>DATE</th>
-                        <th>TYPE</th>
-                        <th>CATEGORY</th>
-                        <th>DESCRIPTION</th>
-                        <th>CLIENT / PROJECT</th>
-                        <th>PAYMENT METHOD</th>
-                        <th>AMOUNT</th>
-                        <th>REFERENCE</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody id="financialTableBody">
-                    <tr><td colspan="9" class="financial-empty">No financial transactions recorded yet.</td></tr>
-                </tbody>
+                <thead><tr><th>DATE</th><th>TYPE</th><th>CATEGORY</th><th>DESCRIPTION</th><th>CLIENT / PROJECT</th><th>PAYMENT METHOD</th><th>AMOUNT</th><th>REFERENCE</th><th>ACTIONS</th></tr></thead>
+                <tbody id="financialTableBody"><tr><td colspan="9" class="financial-empty">No financial transactions recorded yet.</td></tr></tbody>
             </table>
         </div>
     </div>
@@ -4149,14 +5531,18 @@ function setFinancialToday(){
     input.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 }
 
-function openFinancialForm(id){
+function openFinancialForm(idOrType){
     const form=document.getElementById("financialForm");
     if(!form)return;
+
+    const requestedType=(idOrType==="Income" || idOrType==="Expense") ? idOrType : "";
+    const id=requestedType ? "" : idOrType;
 
     form.style.display="block";
     document.getElementById("editingFinancialId").value="";
     document.getElementById("financialFormTitle").textContent="Add Financial Transaction";
     document.getElementById("financialType").value="Income";
+    if(requestedType) document.getElementById("financialType").value=requestedType;
     document.getElementById("financialAmount").value="";
     document.getElementById("financialPaymentMethod").value="Cash";
     document.getElementById("financialReference").value="";
@@ -4212,8 +5598,14 @@ async function loadFinancialData(){
         populateFinancialFilters();
         renderFinancialTracker();
 
-        if(!String(error?.message||"").toLowerCase().includes("financial_transactions")){
-            console.warn("Unable to load financial transactions:",error.message||error);
+        const msg=String(error?.message||"");
+        if(msg.toLowerCase().includes("financial_transactions")){
+            const ledger=document.getElementById("financialTableBody");
+            if(ledger){
+                ledger.innerHTML='<tr><td colspan="9" class="financial-empty"><strong>Financial database is not ready.</strong><br><span style="font-size:10px;">Run the Financial Transactions SQL in Supabase, then refresh the page.</span></td></tr>';
+            }
+        }else{
+            console.warn("Unable to load financial transactions:",msg);
         }
     }
 }
@@ -4243,23 +5635,26 @@ function renderFinancialCategorySummary(containerId,rows,isExpense){
 
     const totals={};
     rows.forEach(t=>{
-        totals[t.category]=(totals[t.category]||0)+Number(t.amount||0);
+        const category=t.category||"Other";
+        totals[category]=(totals[category]||0)+Number(t.amount||0);
     });
 
     const entries=Object.entries(totals).sort((a,b)=>b[1]-a[1]);
     if(!entries.length){
-        container.innerHTML='<div style="color:#999;font-size:12px;padding:20px 0;text-align:center;">No data for the selected period.</div>';
+        container.innerHTML='<div class="finance-empty-small">No data for the selected period.</div>';
         return;
     }
 
     const max=entries[0][1]||1;
-    container.innerHTML=entries.map(([name,total])=>`
-        <div class="financial-summary-row ${isExpense?"expense":""}">
+    container.innerHTML=entries.slice(0,8).map(([name,total])=>`
+        <div class="finance-category-row">
             <div>
-                <div class="name">${escapeHTML(name)}</div>
-                <div class="financial-summary-bar"><span style="width:${Math.max(3,(total/max)*100)}%;"></span></div>
+                <div class="finance-category-name">${escapeHTML(name)}</div>
+                <div class="finance-category-track">
+                    <div class="finance-category-fill ${isExpense?"expense":""}" style="width:${Math.max(4,(total/max)*100)}%"></div>
+                </div>
             </div>
-            <div class="amount">${formatFinancialAmount(total)}</div>
+            <div class="finance-category-amount">${formatFinancialAmount(total)}</div>
         </div>
     `).join("");
 }
@@ -4397,6 +5792,25 @@ function renderFinancialTracker(){
     setText("financeNet",formatFinancialAmount(net));
     setText("financeTransactionCount",rows.length);
     setText("financeLedgerCount",rows.length + (rows.length===1 ? " record" : " records"));
+
+    // Refresh the dashboard insights and charts whenever filters or transactions change.
+    renderFinancialPulse(rows,income,expense,net);
+
+    const expenseRatio=income>0 ? Math.min(100,(expense/income)*100) : 0;
+    setText("financeOverviewIncome",formatFinancialAmount(income));
+    setText("financeOverviewExpense",formatFinancialAmount(expense));
+    setText("financeOverviewNet",formatFinancialAmount(net));
+    setText("financeExpenseRatio",expenseRatio.toFixed(1)+"%");
+    const ratioBar=document.getElementById("financeExpenseRatioBar");
+    if(ratioBar)ratioBar.style.width=expenseRatio+"%";
+    const gauge=document.getElementById("financeExpenseGauge");
+    const gaugeValue=document.getElementById("financeExpenseGaugeValue");
+    if(gauge){
+        const safeRatio=Math.max(0,Math.min(100,expenseRatio));
+        const angle=safeRatio*3.6;
+        gauge.style.background=`conic-gradient(#f5a623 0deg ${angle}deg,#edf0f3 ${angle}deg 360deg)`;
+    }
+    if(gaugeValue)gaugeValue.textContent=expenseRatio.toFixed(1)+"%";
 
     renderFinancialCategorySummary(
         "financeIncomeCategories",

@@ -298,6 +298,325 @@
     }
 }
 
+
+
+/* =========================================================
+   DAILY REPORT
+========================================================= */
+.daily-report-toolbar{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr auto auto;
+    gap:12px;
+    align-items:end;
+    padding:18px;
+    background:#fafafa;
+    border:1px solid #eee;
+    border-radius:12px;
+    margin-bottom:18px;
+}
+.daily-report-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:18px;
+}
+.daily-summary-card{
+    background:#fff;
+    border:1px solid #e7e7e7;
+    border-radius:12px;
+    padding:16px;
+    box-shadow:0 4px 14px rgba(0,0,0,.05);
+}
+.daily-summary-card .label{
+    font-size:10px;
+    font-weight:800;
+    color:#777;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+.daily-summary-card .value{
+    font-size:22px;
+    font-weight:800;
+    margin-top:5px;
+}
+.daily-report-wrap{
+    overflow-x:auto;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+.daily-report-table{
+    width:100%;
+    min-width:1350px;
+    border-collapse:collapse;
+    background:#fff;
+}
+.daily-report-table th{
+    position:sticky;
+    top:0;
+    z-index:2;
+    background:#111;
+    color:#fff;
+    padding:12px 10px;
+    font-size:10px;
+    text-align:center;
+    white-space:nowrap;
+    letter-spacing:.3px;
+}
+.daily-report-table td{
+    border-bottom:1px solid #e5e5e5;
+    border-right:1px solid #eee;
+    padding:10px;
+    font-size:12px;
+    vertical-align:middle;
+}
+.daily-report-table tbody tr.data-row:hover{background:#fffaf0;}
+.daily-report-date-group td{
+    background:#f28c28;
+    color:#fff;
+    font-weight:800;
+    padding:7px 12px;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+.daily-report-table .client-cell{font-weight:700;min-width:150px;}
+.daily-report-table .remarks-cell{min-width:150px;color:#555;}
+.daily-report-table .status-select{
+    width:100%;
+    min-width:125px;
+    border:0;
+    border-radius:7px;
+    padding:7px 9px;
+    font-size:11px;
+    font-weight:700;
+    cursor:pointer;
+}
+.daily-report-table .payment-paid{background:#43d000;color:#111;}
+.daily-report-table .payment-unpaid{background:#e9e9e9;color:#222;}
+.daily-report-table .payment-partial{background:#ffe58a;color:#111;}
+.daily-report-table .payment-collection{background:#ffd8a8;color:#111;}
+.daily-report-table .project-delivered{background:#16845a;color:#fff;}
+.daily-report-table .project-printing{background:#c90000;color:#fff;}
+.daily-report-table .project-pickup{background:#ffe082;color:#222;}
+.daily-report-table .project-quotation{background:#b8dfff;color:#174b73;}
+.daily-report-table .project-design{background:#d7c4ff;color:#4a287d;}
+.daily-report-table .project-production{background:#1976d2;color:#fff;}
+.daily-report-table .project-other{background:#e8e8e8;color:#222;}
+.daily-report-actions{
+    display:flex;
+    gap:5px;
+    white-space:nowrap;
+}
+.daily-report-actions .btn{padding:6px 8px;font-size:10px;}
+.daily-report-empty{
+    text-align:center;
+    padding:40px!important;
+    color:#999;
+}
+.daily-report-print{
+    display:none;
+}
+@media(max-width:1100px){
+    .daily-report-toolbar{grid-template-columns:repeat(2,1fr);}
+    .daily-report-summary{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:650px){
+    .daily-report-toolbar{grid-template-columns:1fr;}
+    .daily-report-summary{grid-template-columns:1fr;}
+}
+@media print{
+    body.daily-report-printing .sidebar,
+    body.daily-report-printing .topbar,
+    body.daily-report-printing .daily-report-toolbar,
+    body.daily-report-printing .daily-report-summary,
+    body.daily-report-printing .panel-header .button-row,
+    body.daily-report-printing .daily-report-actions{display:none!important;}
+    body.daily-report-printing .main{margin:0!important;}
+    body.daily-report-printing .content{padding:0!important;}
+    body.daily-report-printing .page{display:none!important;}
+    body.daily-report-printing #daily-report{display:block!important;}
+    body.daily-report-printing .daily-report-print{display:block!important;}
+}
+
+
+/* =========================================================
+   FINANCIAL REPORT / TRACKER
+========================================================= */
+.financial-kpis{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin:0 0 22px;
+}
+.financial-kpi{
+    background:#fff;
+    border:1px solid #e7e7e7;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+    position:relative;
+    overflow:hidden;
+}
+.financial-kpi::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:4px;
+    background:var(--gold);
+}
+.financial-kpi.income::after{background:var(--green);}
+.financial-kpi.expense::after{background:var(--red);}
+.financial-kpi.net::after{background:var(--gold);}
+.financial-kpi.count::after{background:#111;}
+.financial-kpi .kpi-label{
+    color:#777;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+}
+.financial-kpi .kpi-value{
+    margin-top:8px;
+    font-size:25px;
+    font-weight:800;
+}
+.financial-kpi .kpi-sub{
+    margin-top:5px;
+    color:#999;
+    font-size:11px;
+}
+.financial-filter{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr auto;
+    gap:12px;
+    align-items:end;
+}
+.financial-report-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+.financial-summary-list{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+.financial-summary-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    align-items:center;
+    padding:10px 12px;
+    background:#fafafa;
+    border:1px solid #eee;
+    border-radius:9px;
+}
+.financial-summary-row .name{
+    font-size:12px;
+    color:#555;
+}
+.financial-summary-row .amount{
+    font-weight:800;
+    font-size:13px;
+}
+.financial-summary-bar{
+    height:5px;
+    background:#eee;
+    border-radius:20px;
+    margin-top:6px;
+    overflow:hidden;
+}
+.financial-summary-bar span{
+    display:block;
+    height:100%;
+    background:var(--gold);
+    border-radius:20px;
+}
+.financial-summary-row.expense .financial-summary-bar span{background:var(--red);}
+.financial-table-wrap{
+    overflow-x:auto;
+    border:1px solid #e8e8e8;
+    border-radius:12px;
+}
+.financial-table{
+    width:100%;
+    min-width:1100px;
+    border-collapse:collapse;
+}
+.financial-table th{
+    background:#111;
+    color:#fff;
+    padding:13px 12px;
+    font-size:11px;
+    text-align:left;
+    white-space:nowrap;
+}
+.financial-table td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    font-size:12px;
+    vertical-align:middle;
+}
+.financial-table tr:hover{background:#fafafa;}
+.financial-type{
+    display:inline-flex;
+    align-items:center;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:800;
+}
+.financial-type.income{background:#eaf8ef;color:#168044;}
+.financial-type.expense{background:#fff0f0;color:#c0392b;}
+.financial-amount.income{color:#168044;font-weight:800;}
+.financial-amount.expense{color:#c0392b;font-weight:800;}
+.financial-actions{display:flex;gap:6px;white-space:nowrap;}
+.financial-actions .btn{padding:7px 10px;font-size:11px;}
+.financial-form-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+.financial-form-grid .full{grid-column:1/-1;}
+.financial-empty{
+    text-align:center;
+    padding:35px!important;
+    color:#999;
+}
+.financial-month-table{
+    width:100%;
+    border-collapse:collapse;
+}
+.financial-month-table th,
+.financial-month-table td{
+    padding:10px;
+    border-bottom:1px solid #eee;
+    font-size:12px;
+}
+.financial-month-table th{
+    text-align:left;
+    color:#777;
+    font-size:11px;
+    text-transform:uppercase;
+}
+.financial-profit{
+    font-size:18px;
+    font-weight:800;
+}
+@media(max-width:1100px){
+    .financial-kpis{grid-template-columns:repeat(2,1fr);}
+    .financial-filter{grid-template-columns:repeat(2,1fr);}
+    .financial-report-grid{grid-template-columns:1fr;}
+    .financial-form-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:650px){
+    .financial-kpis{grid-template-columns:1fr;}
+    .financial-filter{grid-template-columns:1fr;}
+    .financial-form-grid{grid-template-columns:1fr;}
+    .financial-form-grid .full{grid-column:auto;}
+}
+
 /* =========================================================   RESPONSIVE========================================================= */@media(max-width:1100px){    .dashboard-grid{        grid-template-columns:repeat(2,1fr);    }    .form-grid.three{        grid-template-columns:repeat(2,1fr);    }}@media(max-width:1000px){    .sidebar{        width:210px;    }    .main{        margin-left:210px;    }}@media(max-width:700px){    .sidebar{        position:relative;        width:100%;        height:auto;    }    .main{        margin-left:0;    }    .dashboard-grid,    .form-grid,    .form-grid.three{        grid-template-columns:1fr;    }    .totals-box{        width:100%;    }    .topbar{        position:relative;        height:auto;        min-height:75px;    }    .content{        padding:15px;    }    .quote-header{        flex-direction:column;    }    .quote-meta{        text-align:left;    }    .quote-paper{        padding:20px;    }}/* =========================================================
    PRINT FALLBACK
 ========================================================= */
@@ -462,7 +781,298 @@
     .signage-grid {
         grid-template-columns: 1fr;
     }
-</style> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';"></script></head><body><!-- =======================================================     SIDEBAR======================================================= --><div class="sidebar">    <div class="logo-area">        <img id="sidebarLogo" src="data:image/png;base64,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" alt="PrintArt Creative Logo" style="display: block;">        <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">                   </div>        <h2></h2>    </div>    <button class="nav-btn" onclick="showPage('dashboard',this)">        <span class="nav-icon">▣</span>        Dashboard    </button>    <button class="nav-btn" onclick="showPage('quotation')">        <span class="nav-icon">📝</span>        New Quotation    </button>    <button class="nav-btn" onclick="showPage('quotations')">        <span class="nav-icon">📋</span>        Quotations    </button>    <button class="nav-btn" onclick="showPage('signages')">        <span class="nav-icon">🖼️</span>        Signage Projects    </button>    <button class="nav-btn" onclick="showPage('tracker',this)">        <span class="nav-icon">📊</span>        Project &amp; Sales Tracker    </button>    <button class="nav-btn" onclick="showPage('products')">        <span class="nav-icon">📦</span>        Product &amp; Price    </button>    <button class="nav-btn" onclick="showPage('settings',this)">        <span class="nav-icon">⚙</span>        Settings    </button></div><!-- =======================================================     MAIN======================================================= --><div class="main">    <div class="topbar">        <div>            <h1 id="pageTitle">Product &amp; Price Database</h1>            <span>                PrintArt Creative Graphics and Signs            </span>        </div>        <div style="display:flex;align-items:center;gap:15px;">            <span id="cloudStatus" class="cloud-status disconnected">☁ Cloud Disconnected</span>            <strong id="currentDate">September 28, 2026</strong>        </div>    </div>    <div class="content">
+
+/* =========================================================
+   PROFESSIONAL FINANCIAL REPORT UI
+========================================================= */
+#finance .panel{
+    border-radius:16px;
+}
+#finance > .panel{
+    background:#f5f6f8;
+    box-shadow:none;
+    border:0;
+    padding:0;
+}
+.finance-hero{
+    background:linear-gradient(135deg,#111 0%,#202020 65%,#3a2a0d 100%);
+    color:#fff;
+    border-radius:16px;
+    padding:24px 26px;
+    margin-bottom:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 10px 28px rgba(0,0,0,.14);
+}
+.finance-hero h2{
+    margin:0 0 5px;
+    font-size:22px;
+    letter-spacing:-.2px;
+}
+.finance-hero p{
+    margin:0;
+    color:#c9c9c9;
+    font-size:12px;
+}
+.finance-hero-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+.finance-period-chip{
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.15);
+    color:#fff;
+    border-radius:999px;
+    padding:8px 12px;
+    font-size:11px;
+}
+.finance-action-row{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+.finance-action-row .btn{
+    margin:0;
+}
+.finance-kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:18px;
+}
+.finance-kpi-card{
+    background:#fff;
+    border:1px solid #e7e9ed;
+    border-radius:14px;
+    padding:18px;
+    position:relative;
+    min-height:112px;
+    box-shadow:0 4px 14px rgba(17,17,17,.045);
+}
+.finance-kpi-card .icon{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+    background:#f5f5f5;
+}
+.finance-kpi-card .label{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.7px;
+    color:#777;
+    text-transform:uppercase;
+}
+.finance-kpi-card .value{
+    margin-top:8px;
+    font-size:23px;
+    line-height:1.15;
+    font-weight:800;
+    color:#171717;
+}
+.finance-kpi-card .sub{
+    margin-top:7px;
+    font-size:10px;
+    color:#9a9a9a;
+}
+.finance-kpi-card.income{border-top:3px solid #17834b;}
+.finance-kpi-card.expense{border-top:3px solid #c9433c;}
+.finance-kpi-card.net{border-top:3px solid #d69b18;}
+.finance-kpi-card.count{border-top:3px solid #333;}
+.finance-kpi-card.income .icon{background:#eaf8ef;color:#168044;}
+.finance-kpi-card.expense .icon{background:#fff0f0;color:#c0392b;}
+.finance-kpi-card.net .icon{background:#fff7df;color:#a87500;}
+.finance-kpi-card.count .icon{background:#f0f1f3;color:#333;}
+
+.finance-filter-card{
+    background:#fff;
+    border:1px solid #e7e9ed;
+    border-radius:14px;
+    padding:17px;
+    margin-bottom:18px;
+    box-shadow:0 4px 14px rgba(17,17,17,.04);
+}
+.finance-filter-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+.finance-filter-header h3{
+    margin:0;
+    font-size:13px;
+}
+.finance-filter-header span{
+    color:#999;
+    font-size:10px;
+}
+.finance-filter{
+    grid-template-columns:1.7fr 1fr 1fr 1.1fr auto;
+    gap:10px;
+}
+#finance .field label{
+    font-size:10px;
+    font-weight:700;
+    color:#666;
+    text-transform:uppercase;
+    letter-spacing:.3px;
+}
+#finance .field input,
+#finance .field select{
+    height:40px;
+    border:1px solid #dfe2e6;
+    border-radius:9px;
+    background:#fff;
+    font-size:12px;
+}
+.finance-report-grid{
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+.finance-report-card{
+    background:#fff;
+    border:1px solid #e7e9ed;
+    border-radius:14px;
+    padding:18px;
+    box-shadow:0 4px 14px rgba(17,17,17,.04);
+}
+.finance-section-heading{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:14px;
+}
+.finance-section-heading h3{
+    margin:0;
+    font-size:14px;
+}
+.finance-section-heading p{
+    margin:3px 0 0;
+    color:#999;
+    font-size:10px;
+}
+.finance-section-badge{
+    font-size:9px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    padding:5px 8px;
+    border-radius:999px;
+    background:#f5f5f5;
+    color:#777;
+}
+.finance-section-badge.income{background:#eaf8ef;color:#168044;}
+.finance-section-badge.expense{background:#fff0f0;color:#c0392b;}
+.finance-month-card,
+.finance-ledger-card{
+    background:#fff;
+    border:1px solid #e7e9ed;
+    border-radius:14px;
+    padding:18px;
+    box-shadow:0 4px 14px rgba(17,17,17,.04);
+}
+.finance-month-card{margin-top:18px;}
+.finance-ledger-card{margin-top:18px;}
+.finance-table-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+}
+.finance-table-title h3{
+    margin:0;
+    font-size:14px;
+}
+.finance-table-title p{
+    margin:3px 0 0;
+    font-size:10px;
+    color:#999;
+}
+.finance-table-count{
+    padding:6px 9px;
+    border-radius:8px;
+    background:#f5f5f5;
+    color:#666;
+    font-size:10px;
+    font-weight:700;
+}
+.financial-table{
+    min-width:1180px;
+}
+.financial-table th{
+    background:#161616;
+    padding:12px 11px;
+    font-size:9px;
+    letter-spacing:.55px;
+}
+.financial-table td{
+    padding:11px;
+    font-size:11px;
+}
+.financial-table tbody tr:nth-child(even){
+    background:#fcfcfc;
+}
+.financial-table tbody tr:hover{
+    background:#fff9e8;
+}
+.financial-table-wrap{
+    border-radius:11px;
+}
+.financial-type{
+    min-width:60px;
+    justify-content:center;
+}
+.financial-summary-list{
+    gap:8px;
+}
+.financial-summary-row{
+    padding:10px;
+    background:#fafbfc;
+    border-color:#eceef1;
+}
+.financial-summary-row .amount{
+    font-size:12px;
+}
+.financial-month-table th{
+    background:#f7f7f8;
+    color:#777;
+    padding:10px;
+    font-size:9px;
+}
+.financial-month-table td{
+    padding:11px 10px;
+}
+.finance-form-card{
+    max-width:980px;
+    margin:0 auto;
+    border:1px solid #e5e5e5;
+    border-radius:16px;
+}
+@media(max-width:1100px){
+    .finance-kpi-grid{grid-template-columns:repeat(2,1fr);}
+    .finance-filter{grid-template-columns:repeat(2,1fr);}
+    .finance-filter button{height:40px;}
+}
+@media(max-width:700px){
+    .finance-hero{align-items:flex-start;flex-direction:column;}
+    .finance-kpi-grid{grid-template-columns:1fr;}
+    .finance-report-grid{grid-template-columns:1fr;}
+    .finance-filter{grid-template-columns:1fr;}
+}
+
+</style> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';"></script></head><body><!-- =======================================================     SIDEBAR======================================================= --><div class="sidebar">    <div class="logo-area">        <img id="sidebarLogo" src="data:image/png;base64,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" alt="PrintArt Creative Logo" style="display: block;">        <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">                   </div>        <h2></h2>    </div>    <button class="nav-btn" onclick="showPage('dashboard',this)">        <span class="nav-icon">▣</span>        Dashboard    </button>    <button class="nav-btn" onclick="showPage('quotation')">        <span class="nav-icon">📝</span>        New Quotation    </button>    <button class="nav-btn" onclick="showPage('quotations')">        <span class="nav-icon">📋</span>        Quotations    </button>    <button class="nav-btn" onclick="showPage('signages')">        <span class="nav-icon">🖼️</span>        Signage Projects    </button>    <button class="nav-btn" onclick="showPage('tracker',this)">        <span class="nav-icon">📊</span>        Project &amp; Sales Tracker    </button>    <button class="nav-btn" onclick="showPage('daily-report',this)">        <span class="nav-icon">📅</span>        Daily Report    </button>    <button class="nav-btn" onclick="showPage('finance',this)">        <span class="nav-icon">💰</span>        Financial Report    </button>    <button class="nav-btn" onclick="showPage('products')">        <span class="nav-icon">📦</span>        Product &amp; Price    </button>    <button class="nav-btn" onclick="showPage('settings',this)">        <span class="nav-icon">⚙</span>        Settings    </button></div><!-- =======================================================     MAIN======================================================= --><div class="main">    <div class="topbar">        <div>            <h1 id="pageTitle">Product &amp; Price Database</h1>            <span>                PrintArt Creative Graphics and Signs            </span>        </div>        <div style="display:flex;align-items:center;gap:15px;">            <span id="cloudStatus" class="cloud-status disconnected">☁ Cloud Disconnected</span>            <strong id="currentDate">September 28, 2026</strong>        </div>    </div>    <div class="content">
  <!-- =======================================================     DASHBOARD======================================================= --><section id="dashboard" class="page active">    <div class="dashboard-grid">        <div class="card">            <span class="card-icon">                📋            </span>            <div class="card-title">                TOTAL QUOTATIONS            </div>            <div class="card-value" id="dashTotalQuotes">0</div>        </div>        <div class="card orange">            <span class="card-icon">                ₱            </span>            <div class="card-title">                TOTAL QUOTATION VALUE            </div>            <div class="card-value" id="dashTotalValue">₱0.00</div>        </div>        <div class="card green">            <span class="card-icon">                ✓            </span>            <div class="card-title">                PENDING / APPROVED            </div>            <div class="card-value" id="dashPending">0</div>        </div>        <div class="card black">            <span class="card-icon">                ★            </span>            <div class="card-title">                COMPLETED            </div>            <div class="card-value" id="dashCompleted">0</div>        </div>    </div>    <div class="panel">        <div class="panel-header">            <h2>                Recent Quotations            </h2>            <button class="btn btn-primary" onclick="showPageByName('quotation')">                + New Quotation            </button>        </div>        <table class="data-table">            <thead>                <tr>                    <th>                        Quotation No.                    </th>                    <th>                        Date                    </th>                    <th>                        Client                    </th>                    <th>                        Total                    </th>                    <th>                        Status                    </th>                </tr>            </thead>            <tbody id="recentQuotes">            <tr>                <td colspan="5" style="text-align:center;color:#888;">                    No quotations saved yet.                </td>            </tr>        </tbody>        </table>    </div></section><!-- =======================================================     NEW QUOTATION======================================================= --><section id="quotation" class="page">
 <div class="panel">
   <div class="panel-header">
@@ -775,6 +1385,397 @@
 </div>
 </section>
 <!-- =======================================================     SETTINGS======================================================= -->
+
+
+<!-- =======================================================
+     DAILY REPORT
+======================================================= -->
+<section id="daily-report" class="page">
+    <div class="panel">
+        <div class="panel-header">
+            <div>
+                <h2>Daily Report</h2>
+                <span style="color:#777;font-size:12px;">
+                    Daily project, payment and production monitoring — based on your Project & Sales Tracker.
+                </span>
+            </div>
+            <div class="button-row" style="margin-top:0;">
+                <button class="btn btn-dark" onclick="printDailyReport()">Print Report</button>
+                <button class="btn btn-light" onclick="exportDailyReportCSV()">Export CSV</button>
+                <button class="btn btn-primary" onclick="openTrackerForm()">+ Add Entry</button>
+            </div>
+        </div>
+
+        <div class="daily-report-summary">
+            <div class="daily-summary-card">
+                <div class="label">Total Entries</div>
+                <div class="value" id="dailyTotal">0</div>
+            </div>
+            <div class="daily-summary-card">
+                <div class="label">Fully Paid</div>
+                <div class="value" id="dailyPaid">0</div>
+            </div>
+            <div class="daily-summary-card">
+                <div class="label">For Production / Printing</div>
+                <div class="value" id="dailyProduction">0</div>
+            </div>
+            <div class="daily-summary-card">
+                <div class="label">Ready / Delivered</div>
+                <div class="value" id="dailyDelivered">0</div>
+            </div>
+        </div>
+
+        <div class="daily-report-toolbar">
+            <div class="field">
+                <label>Date</label>
+                <input type="date" id="dailyReportDate" onchange="renderDailyReport()">
+            </div>
+            <div class="field">
+                <label>Source</label>
+                <select id="dailyReportSource" onchange="renderDailyReport()">
+                    <option value="">All Sources</option>
+                    <option value="Messenger">Messenger</option>
+                    <option value="Gmail">Gmail</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Walk-in">Walk-in</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Referral">Referral</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Payment Status</label>
+                <select id="dailyReportPayment" onchange="renderDailyReport()">
+                    <option value="">All Payments</option>
+                    <option value="Paid">Fully Paid</option>
+                    <option value="Partial">Partial</option>
+                    <option value="Unpaid">Not Yet Paid</option>
+                    <option value="For Collection">For Collection</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Project Status</label>
+                <select id="dailyReportProjectStatus" onchange="renderDailyReport()">
+                    <option value="">All Projects</option>
+                    <option value="For Quotation">For Quotation</option>
+                    <option value="Done Quotation">Done Quotation</option>
+                    <option value="For Printing">For Printing</option>
+                    <option value="Ready for Pickup">Ready for Pickup</option>
+                    <option value="Received/Delivered">Received/Delivered</option>
+                    <option value="In Production">In Production</option>
+                    <option value="Completed">Completed</option>
+                    <option value="For Design">For Design</option>
+                    <option value="Design Approved">Design Approved</option>
+                    <option value="For Production">For Production</option>
+                    <option value="On Hold">On Hold</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+            <button class="btn btn-light" onclick="clearDailyReportFilters()">Clear</button>
+            <button class="btn btn-light" onclick="setDailyReportToday()">Today</button>
+        </div>
+
+        <div class="daily-report-wrap">
+            <table class="daily-report-table">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>CLIENT'S NAME</th>
+                        <th>QUOTATION / SIZE</th>
+                        <th>MATERIALS</th>
+                        <th>SOURCE</th>
+                        <th>LOCATION</th>
+                        <th>PAYMENT STATUS</th>
+                        <th>PROJECT STATUS</th>
+                        <th>REMARKS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="dailyReportBody">
+                    <tr><td colspan="10" class="daily-report-empty">No daily report entries.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="daily-report-print">
+            <h2>PRINTART CREATIVE GRAPHICS AND SIGNS</h2>
+            <h3>DAILY REPORT</h3>
+            <p id="dailyPrintDate"></p>
+        </div>
+    </div>
+</section>
+
+<!-- =======================================================
+     FINANCIAL REPORT / TRACKER
+======================================================= -->
+<section id="finance" class="page">
+    <div class="finance-hero">
+        <div>
+            <h2>Financial Report &amp; Tracker</h2>
+            <p>Monitor income, expenses, cash flow and transaction activity in one place.</p>
+        </div>
+        <div class="finance-hero-meta">
+            <span class="finance-period-chip">₱ PHP • Philippine Peso</span>
+            <div class="finance-action-row">
+                <button class="btn btn-light" onclick="exportFinancialCSV()">Export CSV</button>
+                <button class="btn btn-primary" onclick="openFinancialForm()">+ Add Transaction</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="finance-kpi-grid">
+        <div class="finance-kpi-card income">
+            <div class="icon">↗</div>
+            <div class="label">Total Income</div>
+            <div class="value" id="financeTotalIncome">₱0.00</div>
+            <div class="sub">For the selected period</div>
+        </div>
+        <div class="finance-kpi-card expense">
+            <div class="icon">↘</div>
+            <div class="label">Total Expenses</div>
+            <div class="value" id="financeTotalExpense">₱0.00</div>
+            <div class="sub">For the selected period</div>
+        </div>
+        <div class="finance-kpi-card net">
+            <div class="icon">₱</div>
+            <div class="label">Net Cash Flow</div>
+            <div class="value" id="financeNet">₱0.00</div>
+            <div class="sub">Income less expenses</div>
+        </div>
+        <div class="finance-kpi-card count">
+            <div class="icon">#</div>
+            <div class="label">Transactions</div>
+            <div class="value" id="financeTransactionCount">0</div>
+            <div class="sub">Matching the selected filters</div>
+        </div>
+    </div>
+
+
+    <div class="finance-pulse">
+        <div class="finance-pulse-card primary">
+            <div class="eyebrow">Financial Position</div>
+            <div class="big-number" id="financePulseNet">₱0.00</div>
+            <div class="small-note">Current net cash flow from the selected report filters.</div>
+        </div>
+        <div class="finance-pulse-card">
+            <div class="eyebrow">Net Margin</div>
+            <div class="pulse-row">
+                <div class="pulse-value" id="financeNetMargin">0.0%</div>
+                <span class="pulse-tag" id="financeNetMarginTag">—</span>
+            </div>
+            <div class="small-note">Net cash flow ÷ income</div>
+        </div>
+        <div class="finance-pulse-card">
+            <div class="eyebrow">Top Income Source</div>
+            <div class="pulse-row">
+                <div class="pulse-value" id="financeTopIncome">—</div>
+            </div>
+            <div class="small-note" id="financeTopIncomeAmount">₱0.00</div>
+        </div>
+        <div class="finance-pulse-card">
+            <div class="eyebrow">Top Expense Category</div>
+            <div class="pulse-row">
+                <div class="pulse-value" id="financeTopExpense">—</div>
+            </div>
+            <div class="small-note" id="financeTopExpenseAmount">₱0.00</div>
+        </div>
+    </div>
+
+    <div class="finance-flow-card">
+        <div class="finance-flow-head">
+            <div>
+                <h3>Cash Flow Overview</h3>
+                <p>Visual comparison of income and expenses across recent months.</p>
+            </div>
+            <div class="finance-legend">
+                <span><i class="income-dot"></i>Income</span>
+                <span><i class="expense-dot"></i>Expenses</span>
+            </div>
+        </div>
+        <div id="financeFlowChart" class="finance-flow-chart"></div>
+    </div>
+
+    <div class="finance-filter-card">
+        <div class="finance-filter-header">
+            <div>
+                <h3>Report Filters</h3>
+                <span>Use filters to review a specific period or transaction group.</span>
+            </div>
+            <button class="btn btn-light" onclick="clearFinancialFilters()">Reset</button>
+        </div>
+        <div class="financial-filter">
+            <div class="field">
+                <label>Search</label>
+                <input id="financeSearch" oninput="renderFinancialTracker()" placeholder="Description, client, reference...">
+            </div>
+            <div class="field">
+                <label>Month</label>
+                <select id="financeMonthFilter" onchange="renderFinancialTracker()">
+                    <option value="">All Months</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Transaction Type</label>
+                <select id="financeTypeFilter" onchange="renderFinancialTracker()">
+                    <option value="">All Types</option>
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Category</label>
+                <select id="financeCategoryFilter" onchange="renderFinancialTracker()">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="finance-report-grid">
+        <div class="finance-report-card">
+            <div class="finance-section-heading">
+                <div>
+                    <h3>Income by Category</h3>
+                    <p>Where your recorded income comes from.</p>
+                </div>
+                <span class="finance-section-badge income">Income</span>
+            </div>
+            <div id="financeIncomeCategories" class="financial-summary-list"></div>
+        </div>
+
+        <div class="finance-report-card">
+            <div class="finance-section-heading">
+                <div>
+                    <h3>Expenses by Category</h3>
+                    <p>Where your recorded expenses are allocated.</p>
+                </div>
+                <span class="finance-section-badge expense">Expenses</span>
+            </div>
+            <div id="financeExpenseCategories" class="financial-summary-list"></div>
+        </div>
+    </div>
+
+    <div class="finance-month-card">
+        <div class="finance-table-title">
+            <div>
+                <h3>Monthly Financial Summary</h3>
+                <p>Compare income, expenses and net cash flow by month.</p>
+            </div>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="financial-month-table">
+                <thead>
+                    <tr>
+                        <th>MONTH</th>
+                        <th>INCOME</th>
+                        <th>EXPENSES</th>
+                        <th>NET CASH FLOW</th>
+                    </tr>
+                </thead>
+                <tbody id="financeMonthlyBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="finance-ledger-card">
+        <div class="finance-table-title">
+            <div>
+                <h3>Transaction Ledger</h3>
+                <p>Detailed record of all income and expense transactions.</p>
+            </div>
+            <span class="finance-table-count" id="financeLedgerCount">0 records</span>
+        </div>
+        <div class="financial-table-wrap">
+            <table class="financial-table">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>TYPE</th>
+                        <th>CATEGORY</th>
+                        <th>DESCRIPTION</th>
+                        <th>CLIENT / PROJECT</th>
+                        <th>PAYMENT METHOD</th>
+                        <th>AMOUNT</th>
+                        <th>REFERENCE</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="financialTableBody">
+                    <tr><td colspan="9" class="financial-empty">No financial transactions recorded yet.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<div class="panel finance-form-card" id="financialForm" style="display:none;">
+    <div class="panel-header">
+        <div>
+            <h2 id="financialFormTitle">Add Financial Transaction</h2>
+            <span style="color:#777;font-size:12px;">Record income received or an expense paid by PrintArt.</span>
+        </div>
+        <button class="btn btn-light" onclick="closeFinancialForm()">Close</button>
+    </div>
+
+    <input type="hidden" id="editingFinancialId">
+
+    <div class="financial-form-grid">
+        <div class="field">
+            <label>Date</label>
+            <input type="date" id="financialDate">
+        </div>
+        <div class="field">
+            <label>Transaction Type</label>
+            <select id="financialType" onchange="populateFinancialCategoryOptions()">
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Category</label>
+            <select id="financialCategory"></select>
+        </div>
+        <div class="field">
+            <label>Amount</label>
+            <input type="number" id="financialAmount" min="0" step="0.01" placeholder="0.00">
+        </div>
+        <div class="field">
+            <label>Payment Method</label>
+            <select id="financialPaymentMethod">
+                <option value="Cash">Cash</option>
+                <option value="GCash">GCash</option>
+                <option value="Maya">Maya</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="Credit / Debit Card">Credit / Debit Card</option>
+                <option value="Check">Check</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Reference No.</label>
+            <input id="financialReference" placeholder="Receipt, invoice, OR, etc.">
+        </div>
+        <div class="field">
+            <label>Client / Project</label>
+            <input id="financialClientProject" placeholder="Client or project name">
+        </div>
+        <div class="field full">
+            <label>Description</label>
+            <input id="financialDescription" placeholder="What was received or paid?">
+        </div>
+        <div class="field full">
+            <label>Notes</label>
+            <textarea id="financialNotes" rows="3" placeholder="Optional notes"></textarea>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button class="btn btn-primary" onclick="saveFinancialTransaction()">Save Transaction</button>
+        <button class="btn btn-light" onclick="closeFinancialForm()">Cancel</button>
+    </div>
+</div>
+
 <!-- =======================================================
      PROJECT TRACKER
 ======================================================= -->
@@ -981,6 +1982,7 @@ let currentItems = [];
 let quotationImageData = "";
 let signageProjects = [];
 let projectTracker = [];
+let financialTransactions = [];
 
 /* =========================================================
    PRODUCT FORMULA DEFINITIONS
@@ -1151,6 +2153,8 @@ function showPage(pageId,button){
         quotations:"Quotations",
         signages:"Signage Projects",
         tracker:"Project & Sales Tracker",
+        "daily-report":"Daily Report",
+        finance:"Financial Report",
         products:"Product & Price Database",
         settings:"Settings"
     };
@@ -1159,6 +2163,8 @@ function showPage(pageId,button){
 
     if(pageId === "signages")loadSignageProjects();
     if(pageId === "products")renderProducts();
+    if(pageId === "finance")renderFinancialTracker();
+    if(pageId === "daily-report")renderDailyReport();
 }
 
 function showPageByName(pageId){
@@ -2850,6 +3856,722 @@ async function deleteSignageProject(id){
 }
 
 
+
+/* =========================================================
+   FINANCIAL REPORT / TRACKER
+========================================================= */
+/* =========================================================
+   DAILY REPORT
+========================================================= */
+function setDailyReportToday(){
+    const el=document.getElementById("dailyReportDate");
+    if(!el)return;
+    const d=new Date();
+    el.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    renderDailyReport();
+}
+
+function clearDailyReportFilters(){
+    ["dailyReportDate","dailyReportSource","dailyReportPayment","dailyReportProjectStatus"].forEach(id=>{
+        const el=document.getElementById(id);
+        if(el)el.value="";
+    });
+    renderDailyReport();
+}
+
+function dailyPaymentClass(status){
+    if(status==="Paid")return "payment-paid";
+    if(status==="Partial")return "payment-partial";
+    if(status==="For Collection")return "payment-collection";
+    return "payment-unpaid";
+}
+
+function dailyProjectClass(status){
+    if(status==="Received/Delivered" || status==="Completed")return "project-delivered";
+    if(status==="For Printing")return "project-printing";
+    if(status==="Ready for Pickup")return "project-pickup";
+    if(status==="For Quotation" || status==="Done Quotation")return "project-quotation";
+    if(status==="For Design" || status==="Design Approved")return "project-design";
+    if(status==="For Production" || status==="In Production")return "project-production";
+    return "project-other";
+}
+
+function dailyPaymentLabel(status){
+    return status==="Paid" ? "FULLY PAID"
+        : status==="Unpaid" ? "NOT YET PAID"
+        : status==="Partial" ? "PARTIAL"
+        : status==="For Collection" ? "FOR COLLECTION"
+        : status || "—";
+}
+
+function dailyProjectLabel(status){
+    const labels={
+        "For Quotation":"For Quotation",
+        "Done Quotation":"Done Quotation",
+        "For Printing":"For Printing",
+        "Ready for Pickup":"Ready for Pickup",
+        "Received/Delivered":"Received/Delivered"
+    };
+    return labels[status] || status || "—";
+}
+
+function renderDailyReport(){
+    const tbody=document.getElementById("dailyReportBody");
+    if(!tbody)return;
+
+    const date=document.getElementById("dailyReportDate")?.value||"";
+    const source=document.getElementById("dailyReportSource")?.value||"";
+    const payment=document.getElementById("dailyReportPayment")?.value||"";
+    const projectStatus=document.getElementById("dailyReportProjectStatus")?.value||"";
+
+    let rows=(Array.isArray(projectTracker)?projectTracker:[]).filter(p=>{
+        return (!date || p.date===date) &&
+               (!source || p.source===source) &&
+               (!payment || p.payment_status===payment) &&
+               (!projectStatus || p.project_status===projectStatus);
+    });
+
+    rows.sort((a,b)=>{
+        const da=String(a.date||"");
+        const db=String(b.date||"");
+        return db.localeCompare(da) || Number(b.id||0)-Number(a.id||0);
+    });
+
+    const setText=(id,value)=>{
+        const el=document.getElementById(id);
+        if(el)el.textContent=value;
+    };
+
+    setText("dailyTotal",rows.length);
+    setText("dailyPaid",rows.filter(p=>p.payment_status==="Paid").length);
+    setText("dailyProduction",rows.filter(p=>["For Printing","For Production","In Production"].includes(p.project_status)).length);
+    setText("dailyDelivered",rows.filter(p=>["Ready for Pickup","Received/Delivered","Completed"].includes(p.project_status)).length);
+
+    if(!rows.length){
+        tbody.innerHTML='<tr><td colspan="10" class="daily-report-empty">No entries found for the selected filters.</td></tr>';
+        return;
+    }
+
+    const groups={};
+    rows.forEach(p=>{
+        const key=p.date||"No Date";
+        if(!groups[key])groups[key]=[];
+        groups[key].push(p);
+    });
+
+    let html="";
+    Object.keys(groups).sort((a,b)=>b.localeCompare(a)).forEach(dateKey=>{
+        const displayDate=dateKey==="No Date" ? "NO DATE" : formatDate(dateKey);
+        html+=`<tr class="daily-report-date-group"><td colspan="10">${escapeHTML(displayDate)} <span style="float:right;">${groups[dateKey].length} ENTRIES</span></td></tr>`;
+
+        groups[dateKey].forEach(p=>{
+            const paymentClass=dailyPaymentClass(p.payment_status);
+            const projectClass=dailyProjectClass(p.project_status);
+            html+=`
+                <tr class="data-row">
+                    <td style="white-space:nowrap;">${formatDate(p.date)}</td>
+                    <td class="client-cell">${escapeHTML(p.client||"—")}</td>
+                    <td>${escapeHTML(p.quotation_size||"—")}</td>
+                    <td>${escapeHTML(p.materials||"—")}</td>
+                    <td>${escapeHTML(p.source||"—")}</td>
+                    <td>${escapeHTML(p.location||"—")}</td>
+                    <td>
+                        <select class="status-select ${paymentClass}" onchange="changeTrackerPayment(${Number(p.id)},this.value)">
+                            <option value="Unpaid" ${p.payment_status==="Unpaid"?"selected":""}>NOT YET PAID</option>
+                            <option value="Partial" ${p.payment_status==="Partial"?"selected":""}>PARTIAL</option>
+                            <option value="Paid" ${p.payment_status==="Paid"?"selected":""}>FULLY PAID</option>
+                            <option value="For Collection" ${p.payment_status==="For Collection"?"selected":""}>FOR COLLECTION</option>
+                            <option value="Cancelled" ${p.payment_status==="Cancelled"?"selected":""}>CANCELLED</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="status-select ${projectClass}" onchange="changeTrackerStatus(${Number(p.id)},this.value)">
+                            <option value="For Quotation" ${p.project_status==="For Quotation"?"selected":""}>For Quotation</option>
+                            <option value="Done Quotation" ${p.project_status==="Done Quotation"?"selected":""}>Done Quotation</option>
+                            <option value="For Printing" ${p.project_status==="For Printing"?"selected":""}>For Printing</option>
+                            <option value="Ready for Pickup" ${p.project_status==="Ready for Pickup"?"selected":""}>Ready for Pickup</option>
+                            <option value="Received/Delivered" ${p.project_status==="Received/Delivered"?"selected":""}>Received/Delivered</option>
+                            <option value="For Design" ${p.project_status==="For Design"?"selected":""}>For Design</option>
+                            <option value="Design Approved" ${p.project_status==="Design Approved"?"selected":""}>Design Approved</option>
+                            <option value="For Production" ${p.project_status==="For Production"?"selected":""}>For Production</option>
+                            <option value="In Production" ${p.project_status==="In Production"?"selected":""}>In Production</option>
+                            <option value="Completed" ${p.project_status==="Completed"?"selected":""}>Completed</option>
+                            <option value="On Hold" ${p.project_status==="On Hold"?"selected":""}>On Hold</option>
+                            <option value="Cancelled" ${p.project_status==="Cancelled"?"selected":""}>Cancelled</option>
+                        </select>
+                    </td>
+                    <td class="remarks-cell">${escapeHTML(p.remarks||"—")}</td>
+                    <td class="daily-report-actions">
+                        <button class="btn btn-light" onclick="openTrackerForm(${Number(p.id)})">Edit</button>
+                        <button class="btn btn-red" onclick="deleteProjectTracker(${Number(p.id)});setTimeout(renderDailyReport,200)">Delete</button>
+                    </td>
+                </tr>
+            `;
+        });
+    });
+
+    tbody.innerHTML=html;
+}
+
+function printDailyReport(){
+    const printDate=document.getElementById("dailyPrintDate");
+    const selected=document.getElementById("dailyReportDate")?.value||"";
+    if(printDate){
+        printDate.textContent=selected
+            ? "Date: "+formatDate(selected)
+            : "Date: All Records";
+    }
+    document.body.classList.add("daily-report-printing");
+    setTimeout(()=>{
+        window.print();
+        document.body.classList.remove("daily-report-printing");
+    },100);
+}
+
+function exportDailyReportCSV(){
+    const date=document.getElementById("dailyReportDate")?.value||"";
+    const source=document.getElementById("dailyReportSource")?.value||"";
+    const payment=document.getElementById("dailyReportPayment")?.value||"";
+    const projectStatus=document.getElementById("dailyReportProjectStatus")?.value||"";
+
+    const rows=projectTracker.filter(p=>
+        (!date || p.date===date) &&
+        (!source || p.source===source) &&
+        (!payment || p.payment_status===payment) &&
+        (!projectStatus || p.project_status===projectStatus)
+    );
+
+    if(!rows.length){
+        alert("There are no daily report entries to export.");
+        return;
+    }
+
+    const headers=["Date","Client's Name","Quotation / Size","Materials","Source","Location","Payment Status","Project Status","Remarks"];
+    const csv=[headers,...rows.map(p=>[
+        p.date,p.client,p.quotation_size,p.materials,p.source,p.location,
+        dailyPaymentLabel(p.payment_status),dailyProjectLabel(p.project_status),p.remarks
+    ])].map(row=>row.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
+
+    const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    a.download=`PrintArt_Daily_Report_${date||"All"}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+
+
+
+const FINANCIAL_INCOME_CATEGORIES = [
+    "Sales",
+    "Quotation Payment",
+    "Downpayment",
+    "Balance Payment",
+    "Service Income",
+    "Other Income"
+];
+
+const FINANCIAL_EXPENSE_CATEGORIES = [
+    "Materials",
+    "Payroll",
+    "Utilities",
+    "Rent",
+    "Transportation",
+    "Marketing",
+    "Maintenance",
+    "Office Supplies",
+    "Equipment",
+    "Other Expense"
+];
+
+function normalizeFinancialTransaction(t){
+    return {
+        ...t,
+        id:t.id,
+        transaction_date:t.transaction_date || "",
+        transaction_type:t.transaction_type || "Income",
+        category:t.category || "",
+        description:t.description || "",
+        client_project:t.client_project || "",
+        payment_method:t.payment_method || "Cash",
+        amount:Number(t.amount || 0),
+        reference:t.reference || "",
+        notes:t.notes || ""
+    };
+}
+
+function formatFinancialAmount(value){
+    return "₱" + Number(value || 0).toLocaleString("en-PH",{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+
+function getFinancialCategories(type){
+    return type === "Expense"
+        ? FINANCIAL_EXPENSE_CATEGORIES
+        : FINANCIAL_INCOME_CATEGORIES;
+}
+
+function populateFinancialCategoryOptions(){
+    const select=document.getElementById("financialCategory");
+    if(!select)return;
+    const current=select.value;
+    select.innerHTML=getFinancialCategories(document.getElementById("financialType")?.value || "Income")
+        .map(c=>`<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`).join("");
+    if(current && Array.from(select.options).some(o=>o.value===current))select.value=current;
+}
+
+function populateFinancialFilters(){
+    const month=document.getElementById("financeMonthFilter");
+    const category=document.getElementById("financeCategoryFilter");
+    if(!month || !category)return;
+
+    const currentMonth=month.value;
+    const months=[...new Set(financialTransactions.map(t=>String(t.transaction_date||"").slice(0,7)).filter(Boolean))].sort().reverse();
+
+    month.innerHTML='<option value="">All Months</option>'+months.map(m=>{
+        const d=new Date(m+"-01T00:00:00");
+        return `<option value="${m}">${d.toLocaleDateString("en-PH",{year:"numeric",month:"long"})}</option>`;
+    }).join("");
+    if(currentMonth && months.includes(currentMonth))month.value=currentMonth;
+
+    const currentCategory=category.value;
+    const categories=[...new Set(financialTransactions.map(t=>t.category).filter(Boolean))].sort();
+    category.innerHTML='<option value="">All Categories</option>'+categories.map(c=>`<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`).join("");
+    if(currentCategory && categories.includes(currentCategory))category.value=currentCategory;
+}
+
+function setFinancialToday(){
+    const input=document.getElementById("financialDate");
+    if(!input || input.value)return;
+    const d=new Date();
+    input.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+
+function openFinancialForm(id){
+    const form=document.getElementById("financialForm");
+    if(!form)return;
+
+    form.style.display="block";
+    document.getElementById("editingFinancialId").value="";
+    document.getElementById("financialFormTitle").textContent="Add Financial Transaction";
+    document.getElementById("financialType").value="Income";
+    document.getElementById("financialAmount").value="";
+    document.getElementById("financialPaymentMethod").value="Cash";
+    document.getElementById("financialReference").value="";
+    document.getElementById("financialClientProject").value="";
+    document.getElementById("financialDescription").value="";
+    document.getElementById("financialNotes").value="";
+    setFinancialToday();
+    populateFinancialCategoryOptions();
+
+    if(id){
+        const t=financialTransactions.find(x=>Number(x.id)===Number(id));
+        if(!t)return;
+        document.getElementById("editingFinancialId").value=t.id;
+        document.getElementById("financialFormTitle").textContent="Edit Financial Transaction";
+        document.getElementById("financialDate").value=t.transaction_date||"";
+        document.getElementById("financialType").value=t.transaction_type||"Income";
+        populateFinancialCategoryOptions();
+        document.getElementById("financialCategory").value=t.category||"";
+        document.getElementById("financialAmount").value=t.amount||"";
+        document.getElementById("financialPaymentMethod").value=t.payment_method||"Cash";
+        document.getElementById("financialReference").value=t.reference||"";
+        document.getElementById("financialClientProject").value=t.client_project||"";
+        document.getElementById("financialDescription").value=t.description||"";
+        document.getElementById("financialNotes").value=t.notes||"";
+    }
+    form.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeFinancialForm(){
+    const form=document.getElementById("financialForm");
+    if(form)form.style.display="none";
+}
+
+async function loadFinancialData(){
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient)return;
+
+    try{
+        const {data,error}=await supabaseClient
+            .from("financial_transactions")
+            .select("*")
+            .order("transaction_date",{ascending:false})
+            .order("id",{ascending:false});
+
+        if(error)throw error;
+
+        financialTransactions=(data||[]).map(normalizeFinancialTransaction);
+        populateFinancialFilters();
+        renderFinancialTracker();
+    }catch(error){
+        console.error("Financial tracker load error:",error);
+        financialTransactions=[];
+        populateFinancialFilters();
+        renderFinancialTracker();
+
+        if(!String(error?.message||"").toLowerCase().includes("financial_transactions")){
+            console.warn("Unable to load financial transactions:",error.message||error);
+        }
+    }
+}
+
+function getFilteredFinancialTransactions(){
+    const search=(document.getElementById("financeSearch")?.value||"").trim().toLowerCase();
+    const month=document.getElementById("financeMonthFilter")?.value||"";
+    const type=document.getElementById("financeTypeFilter")?.value||"";
+    const category=document.getElementById("financeCategoryFilter")?.value||"";
+
+    return financialTransactions.filter(t=>{
+        const hay=[
+            t.description,t.client_project,t.reference,t.notes,t.category,
+            t.payment_method,t.transaction_date
+        ].join(" ").toLowerCase();
+
+        return (!search || hay.includes(search)) &&
+               (!month || String(t.transaction_date).startsWith(month)) &&
+               (!type || t.transaction_type===type) &&
+               (!category || t.category===category);
+    });
+}
+
+function renderFinancialCategorySummary(containerId,rows,isExpense){
+    const container=document.getElementById(containerId);
+    if(!container)return;
+
+    const totals={};
+    rows.forEach(t=>{
+        totals[t.category]=(totals[t.category]||0)+Number(t.amount||0);
+    });
+
+    const entries=Object.entries(totals).sort((a,b)=>b[1]-a[1]);
+    if(!entries.length){
+        container.innerHTML='<div style="color:#999;font-size:12px;padding:20px 0;text-align:center;">No data for the selected period.</div>';
+        return;
+    }
+
+    const max=entries[0][1]||1;
+    container.innerHTML=entries.map(([name,total])=>`
+        <div class="financial-summary-row ${isExpense?"expense":""}">
+            <div>
+                <div class="name">${escapeHTML(name)}</div>
+                <div class="financial-summary-bar"><span style="width:${Math.max(3,(total/max)*100)}%;"></span></div>
+            </div>
+            <div class="amount">${formatFinancialAmount(total)}</div>
+        </div>
+    `).join("");
+}
+
+function renderFinancialMonthlySummary(rows){
+    const tbody=document.getElementById("financeMonthlyBody");
+    if(!tbody)return;
+
+    const groups={};
+    rows.forEach(t=>{
+        const month=String(t.transaction_date||"").slice(0,7);
+        if(!month)return;
+        if(!groups[month])groups[month]={income:0,expense:0};
+        if(t.transaction_type==="Income")groups[month].income+=Number(t.amount||0);
+        else groups[month].expense+=Number(t.amount||0);
+    });
+
+    const months=Object.keys(groups).sort().reverse();
+    if(!months.length){
+        tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:#999;padding:25px;">No monthly data available.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML=months.map(month=>{
+        const g=groups[month];
+        const net=g.income-g.expense;
+        const d=new Date(month+"-01T00:00:00");
+        return `
+            <tr>
+                <td><strong>${d.toLocaleDateString("en-PH",{year:"numeric",month:"long"})}</strong></td>
+                <td class="financial-amount income">${formatFinancialAmount(g.income)}</td>
+                <td class="financial-amount expense">${formatFinancialAmount(g.expense)}</td>
+                <td class="financial-profit" style="color:${net>=0?"#168044":"#c0392b"}">${formatFinancialAmount(net)}</td>
+            </tr>
+        `;
+    }).join("");
+}
+
+
+function renderFinancialPulse(rows,income,expense,net){
+    const setText=(id,value)=>{
+        const el=document.getElementById(id);
+        if(el)el.textContent=value;
+    };
+
+    setText("financePulseNet",formatFinancialAmount(net));
+
+    const margin=income>0 ? (net/income)*100 : 0;
+    setText("financeNetMargin",margin.toFixed(1)+"%");
+
+    const marginTag=document.getElementById("financeNetMarginTag");
+    if(marginTag){
+        marginTag.textContent=margin>=0 ? "Positive" : "Negative";
+        marginTag.className="pulse-tag "+(margin>=0?"green":"red");
+    }
+
+    const incomeTotals={};
+    const expenseTotals={};
+    rows.forEach(t=>{
+        if(t.transaction_type==="Income"){
+            incomeTotals[t.category]=(incomeTotals[t.category]||0)+Number(t.amount||0);
+        }else{
+            expenseTotals[t.category]=(expenseTotals[t.category]||0)+Number(t.amount||0);
+        }
+    });
+
+    const topIncome=Object.entries(incomeTotals).sort((a,b)=>b[1]-a[1])[0];
+    const topExpense=Object.entries(expenseTotals).sort((a,b)=>b[1]-a[1])[0];
+
+    setText("financeTopIncome",topIncome?.[0]||"—");
+    setText("financeTopIncomeAmount",topIncome ? formatFinancialAmount(topIncome[1]) : "₱0.00");
+    setText("financeTopExpense",topExpense?.[0]||"—");
+    setText("financeTopExpenseAmount",topExpense ? formatFinancialAmount(topExpense[1]) : "₱0.00");
+
+    renderFinancialFlowChart(rows);
+}
+
+function renderFinancialFlowChart(rows){
+    const container=document.getElementById("financeFlowChart");
+    if(!container)return;
+
+    const groups={};
+    rows.forEach(t=>{
+        const month=String(t.transaction_date||"").slice(0,7);
+        if(!month)return;
+        if(!groups[month])groups[month]={income:0,expense:0};
+        if(t.transaction_type==="Income")groups[month].income+=Number(t.amount||0);
+        else groups[month].expense+=Number(t.amount||0);
+    });
+
+    const months=Object.keys(groups).sort().slice(-6);
+    if(!months.length){
+        container.innerHTML='<div style="grid-column:1/-1;text-align:center;color:#999;padding:50px 0;font-size:11px;">No monthly cash flow data yet.</div>';
+        return;
+    }
+
+    const max=Math.max(1,...months.flatMap(m=>[groups[m].income,groups[m].expense]));
+    container.innerHTML=months.map(month=>{
+        const d=new Date(month+"-01T00:00:00");
+        const g=groups[month];
+        const incomeHeight=Math.max(3,(g.income/max)*100);
+        const expenseHeight=Math.max(3,(g.expense/max)*100);
+
+        return `
+            <div class="finance-flow-column">
+                <div class="finance-flow-value">${formatFinancialAmount(g.income)}</div>
+                <div class="finance-flow-bars">
+                    <div class="finance-flow-bar income" style="height:${incomeHeight}%;" title="Income: ${formatFinancialAmount(g.income)}"></div>
+                    <div class="finance-flow-bar expense" style="height:${expenseHeight}%;" title="Expenses: ${formatFinancialAmount(g.expense)}"></div>
+                </div>
+                <div class="finance-flow-label">${d.toLocaleDateString("en-PH",{month:"short",year:"2-digit"})}</div>
+            </div>
+        `;
+    }).join("");
+}
+
+function renderFinancialTracker(){
+    const tbody=document.getElementById("financialTableBody");
+    if(!tbody)return;
+
+    populateFinancialFilters();
+
+    const rows=getFilteredFinancialTransactions();
+    const income=rows.filter(t=>t.transaction_type==="Income").reduce((sum,t)=>sum+Number(t.amount||0),0);
+    const expense=rows.filter(t=>t.transaction_type==="Expense").reduce((sum,t)=>sum+Number(t.amount||0),0);
+    const net=income-expense;
+
+    const setText=(id,value)=>{
+        const el=document.getElementById(id);
+        if(el)el.textContent=value;
+    };
+
+    setText("financeTotalIncome",formatFinancialAmount(income));
+    setText("financeTotalExpense",formatFinancialAmount(expense));
+    setText("financeNet",formatFinancialAmount(net));
+    setText("financeTransactionCount",rows.length);
+    setText("financeLedgerCount",rows.length + (rows.length===1 ? " record" : " records"));
+
+    renderFinancialCategorySummary(
+        "financeIncomeCategories",
+        rows.filter(t=>t.transaction_type==="Income"),
+        false
+    );
+    renderFinancialCategorySummary(
+        "financeExpenseCategories",
+        rows.filter(t=>t.transaction_type==="Expense"),
+        true
+    );
+    renderFinancialMonthlySummary(rows);
+
+    if(!rows.length){
+        tbody.innerHTML='<tr><td colspan="9" class="financial-empty">No financial transactions match the selected filters.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML=rows.map(t=>`
+        <tr>
+            <td>${formatDate(t.transaction_date)}</td>
+            <td><span class="financial-type ${t.transaction_type==="Income"?"income":"expense"}">${escapeHTML(t.transaction_type)}</span></td>
+            <td>${escapeHTML(t.category||"—")}</td>
+            <td><strong>${escapeHTML(t.description||"—")}</strong></td>
+            <td>${escapeHTML(t.client_project||"—")}</td>
+            <td>${escapeHTML(t.payment_method||"—")}</td>
+            <td class="financial-amount ${t.transaction_type==="Income"?"income":"expense"}">
+                ${t.transaction_type==="Income"?"+":"−"}${formatFinancialAmount(t.amount)}
+            </td>
+            <td>${escapeHTML(t.reference||"—")}</td>
+            <td class="financial-actions">
+                <button class="btn btn-light" onclick="openFinancialForm(${Number(t.id)})">Edit</button>
+                <button class="btn btn-red" onclick="deleteFinancialTransaction(${Number(t.id)})">Delete</button>
+            </td>
+        </tr>
+    `).join("");
+}
+
+async function saveFinancialTransaction(){
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){
+        alert("Cloud database is not connected.");
+        return;
+    }
+
+    const payload={
+        transaction_date:document.getElementById("financialDate").value,
+        transaction_type:document.getElementById("financialType").value,
+        category:document.getElementById("financialCategory").value,
+        description:document.getElementById("financialDescription").value.trim(),
+        client_project:document.getElementById("financialClientProject").value.trim(),
+        payment_method:document.getElementById("financialPaymentMethod").value,
+        amount:Number(document.getElementById("financialAmount").value||0),
+        reference:document.getElementById("financialReference").value.trim(),
+        notes:document.getElementById("financialNotes").value.trim()
+    };
+
+    if(!payload.transaction_date){
+        alert("Please select the transaction date.");
+        return;
+    }
+    if(!payload.category){
+        alert("Please select a category.");
+        return;
+    }
+    if(!payload.description){
+        alert("Please enter a description.");
+        return;
+    }
+    if(payload.amount<=0){
+        alert("Please enter an amount greater than zero.");
+        return;
+    }
+
+    const editing=Number(document.getElementById("editingFinancialId").value||0);
+
+    try{
+        if(editing){
+            const {data,error}=await supabaseClient
+                .from("financial_transactions")
+                .update(payload)
+                .eq("id",editing)
+                .select("*")
+                .single();
+            if(error)throw error;
+            financialTransactions=financialTransactions.map(t=>
+                Number(t.id)===editing ? normalizeFinancialTransaction(data) : t
+            );
+        }else{
+            const {data,error}=await supabaseClient
+                .from("financial_transactions")
+                .insert([payload])
+                .select("*")
+                .single();
+            if(error)throw error;
+            financialTransactions.unshift(normalizeFinancialTransaction(data));
+        }
+
+        populateFinancialFilters();
+        renderFinancialTracker();
+        closeFinancialForm();
+        alert(editing ? "Financial transaction updated successfully." : "Financial transaction saved successfully.");
+    }catch(error){
+        console.error("saveFinancialTransaction:",error);
+        alert("Unable to save financial transaction:\n\n"+(error.message||error));
+    }
+}
+
+async function deleteFinancialTransaction(id){
+    if(!confirm("Delete this financial transaction?"))return;
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){
+        alert("Cloud database is not connected.");
+        return;
+    }
+
+    try{
+        const {error}=await supabaseClient
+            .from("financial_transactions")
+            .delete()
+            .eq("id",Number(id));
+        if(error)throw error;
+
+        financialTransactions=financialTransactions.filter(t=>Number(t.id)!==Number(id));
+        populateFinancialFilters();
+        renderFinancialTracker();
+        alert("Financial transaction deleted.");
+    }catch(error){
+        console.error(error);
+        alert("Unable to delete financial transaction:\n\n"+(error.message||error));
+    }
+}
+
+function clearFinancialFilters(){
+    ["financeSearch","financeMonthFilter","financeTypeFilter","financeCategoryFilter"].forEach(id=>{
+        const el=document.getElementById(id);
+        if(el)el.value="";
+    });
+    renderFinancialTracker();
+}
+
+function exportFinancialCSV(){
+    const rows=getFilteredFinancialTransactions();
+    if(!rows.length){
+        alert("There are no financial transactions to export.");
+        return;
+    }
+
+    const headers=[
+        "Date","Type","Category","Description","Client / Project",
+        "Payment Method","Amount","Reference","Notes"
+    ];
+
+    const csvRows=[headers,...rows.map(t=>[
+        t.transaction_date,t.transaction_type,t.category,t.description,
+        t.client_project,t.payment_method,Number(t.amount||0),t.reference,t.notes
+    ])];
+
+    const csv=csvRows.map(row=>row.map(value=>{
+        const text=String(value??"").replace(/"/g,'""');
+        return `"${text}"`;
+    }).join(",")).join("\r\n");
+
+    const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    a.download="PrintArt_Financial_Report.csv";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+
+
 /* =========================================================
    PROJECT TRACKER
 ========================================================= */
@@ -3110,6 +4832,11 @@ window.addEventListener("DOMContentLoaded",async()=>{
 
     const trackerForm=document.getElementById("trackerForm");
     if(trackerForm)trackerForm.style.display="none";
+
+    const financialForm=document.getElementById("financialForm");
+    if(financialForm)financialForm.style.display="none";
+    setFinancialToday();
+    populateFinancialCategoryOptions();
     setTrackerToday();
 
     const rate=document.getElementById("productRate");
@@ -3126,6 +4853,8 @@ window.addEventListener("DOMContentLoaded",async()=>{
 
     await loadCloudData();
     await loadSignageProjects();
+    await loadFinancialData();
+    renderDailyReport();
     renderProjectTracker();
     renderItems();
     setToday();

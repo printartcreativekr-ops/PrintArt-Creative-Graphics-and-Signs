@@ -482,7 +482,197 @@
   </div>
 </div>
 </section>
-<!-- =======================================================     SETTINGS======================================================= --><section id="settings" class="page"><div class="panel">    <h2>        Company Settings    </h2>    <div class="form-grid">        <div class="field">            <label>                Company Name            </label>            <input id="companyName" value="PrintArt Creative Graphics and Signs">        </div>        <div class="field">            <label>                Company Tagline            </label>            <input id="companyTagline" value="Creative Graphics &amp; Signs">        </div>        <div class="field">            <label>                Address            </label>            <input id="companyAddress" placeholder="Company address">        </div>        <div class="field">            <label>                Contact Number            </label>            <input id="companyContact" placeholder="Company contact number">        </div>        <div class="field">            <label>                Company Email            </label>            <input id="companyEmail" placeholder="company@email.com">        </div>        <div class="field">            <label>                Upload Company Logo            </label>            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">        </div>    </div>    <div class="button-row">        <button class="btn btn-green" onclick="saveSettings()">            Save Settings        </button>    </div></div><div class="panel">    <h3>        Quotation Payment Settings    </h3>    <div class="form-grid">        <div class="field">            <label>                Downpayment Percentage            </label>            <input value="60%" disabled="">        </div>        <div class="field">            <label>                Remaining Balance            </label>            <input value="40%" disabled="">        </div>    </div>    <p style="color:#777;font-size:13px;">        The quotation system automatically calculates        60% downpayment and 40% remaining balance.    </p></div></section>    </div></div><!-- =======================================================     VIEW QUOTATION MODAL======================================================= --><div class="modal" id="quoteModal">    <div class="modal-content">        <div class="button-row no-print" style="justify-content:flex-end;">            <button class="btn btn-dark" type="button" onclick="printQuotation()">                🖨 Print            </button>            <button class="btn btn-light" onclick="closeModal()">                Close            </button>        </div>        <div id="printArea"></div>    </div></div><script>
+<!-- =======================================================     SETTINGS======================================================= -->
+<!-- =======================================================
+     PROJECT TRACKER
+======================================================= -->
+<section id="tracker" class="page">
+    <div class="panel">
+        <div class="panel-header">
+            <div>
+                <h2>Project & Sales Tracker</h2>
+                <span style="color:#777;font-size:12px;">
+                    Track client, quotation/size, materials, source, location, payment and project status in one place.
+                </span>
+            </div>
+            <button class="btn btn-primary" onclick="openTrackerForm()">+ Add Project</button>
+        </div>
+
+        <div class="tracker-kpis">
+            <div class="tracker-kpi">
+                <div class="label">TOTAL PROJECTS</div>
+                <div class="value" id="trackerTotal">0</div>
+            </div>
+            <div class="tracker-kpi">
+                <div class="label">PAID</div>
+                <div class="value" id="trackerPaid">0</div>
+            </div>
+            <div class="tracker-kpi">
+                <div class="label">PARTIAL</div>
+                <div class="value" id="trackerPartial">0</div>
+            </div>
+            <div class="tracker-kpi">
+                <div class="label">IN PRODUCTION</div>
+                <div class="value" id="trackerProduction">0</div>
+            </div>
+            <div class="tracker-kpi">
+                <div class="label">COMPLETED</div>
+                <div class="value" id="trackerCompleted">0</div>
+            </div>
+        </div>
+
+        <div class="panel" style="margin:0 0 18px;padding:18px;background:#fafafa;">
+            <div class="tracker-toolbar">
+                <div class="field">
+                    <label>Search</label>
+                    <input id="trackerSearch" oninput="renderProjectTracker()" placeholder="Client, quotation, material, location...">
+                </div>
+                <div class="field">
+                    <label>Payment Status</label>
+                    <select id="trackerPaymentFilter" onchange="renderProjectTracker()">
+                        <option value="">All Payments</option>
+                        <option value="Unpaid">Unpaid</option>
+                        <option value="Partial">Partial</option>
+                        <option value="Paid">Paid</option>
+                        <option value="For Collection">For Collection</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Project Status</label>
+                    <select id="trackerStatusFilter" onchange="renderProjectTracker()">
+                        <option value="">All Projects</option>
+                        <option value="New">New</option>
+                        <option value="Quoted">Quoted</option>
+                        <option value="Approved">Approved</option>
+                        <option value="For Design">For Design</option>
+                        <option value="Design Approved">Design Approved</option>
+                        <option value="For Production">For Production</option>
+                        <option value="In Production">In Production</option>
+                        <option value="Ready for Release">Ready for Release</option>
+                        <option value="For Installation">For Installation</option>
+                        <option value="Completed">Completed</option>
+                        <option value="On Hold">On Hold</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="field" style="flex:0 0 auto;min-width:auto;">
+                    <button class="btn btn-light" onclick="clearTrackerFilters()">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tracker-table-wrap">
+            <table class="tracker-table">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>CLIENT'S NAME</th>
+                        <th>QUOTATION / SIZE</th>
+                        <th>MATERIALS</th>
+                        <th>SOURCE</th>
+                        <th>LOCATION</th>
+                        <th>PAYMENT STATUS</th>
+                        <th>PROJECT STATUS</th>
+                        <th>REMARKS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTrackerBody">
+                    <tr><td colspan="10" class="tracker-empty">No projects saved yet.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel" id="trackerForm" style="display:none;">
+        <div class="panel-header">
+            <div>
+                <h2 id="trackerFormTitle">Add Project</h2>
+                <span style="color:#777;font-size:12px;">Create a project record using the same fields as your Excel tracker.</span>
+            </div>
+            <button class="btn btn-light" onclick="closeTrackerForm()">Close</button>
+        </div>
+
+        <input type="hidden" id="editingTrackerId">
+
+        <div class="tracker-form-grid">
+            <div class="field">
+                <label>Date</label>
+                <input type="date" id="trackerDate">
+            </div>
+            <div class="field">
+                <label>Client's Name</label>
+                <input id="trackerClient" placeholder="Client / company name">
+            </div>
+            <div class="field">
+                <label>Quotation / Size</label>
+                <input id="trackerQuotationSize" placeholder="PAQ-0001-2026 / 4ft × 8ft">
+            </div>
+            <div class="field">
+                <label>Materials</label>
+                <input id="trackerMaterials" placeholder="Acrylic, ACP, Tarpaulin, Sticker...">
+            </div>
+            <div class="field">
+                <label>Source</label>
+                <select id="trackerSource">
+                    <option value="">Select source...</option>
+                    <option>Facebook</option>
+                    <option>Messenger</option>
+                    <option>Walk-in</option>
+                    <option>Referral</option>
+                    <option>Google</option>
+                    <option>Website</option>
+                    <option>Repeat Customer</option>
+                    <option>TikTok</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Location</label>
+                <input id="trackerLocation" placeholder="Mabalacat / Angeles / Clark / project address">
+            </div>
+            <div class="field">
+                <label>Payment Status</label>
+                <select id="trackerPaymentStatus">
+                    <option value="Unpaid">Unpaid</option>
+                    <option value="Partial">Partial</option>
+                    <option value="Paid">Paid</option>
+                    <option value="For Collection">For Collection</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Project Status</label>
+                <select id="trackerProjectStatus">
+                    <option value="New">New</option>
+                    <option value="Quoted">Quoted</option>
+                    <option value="Approved">Approved</option>
+                    <option value="For Design">For Design</option>
+                    <option value="Design Approved">Design Approved</option>
+                    <option value="For Production">For Production</option>
+                    <option value="In Production">In Production</option>
+                    <option value="Ready for Release">Ready for Release</option>
+                    <option value="For Installation">For Installation</option>
+                    <option value="Completed">Completed</option>
+                    <option value="On Hold">On Hold</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+            <div class="field full">
+                <label>Remarks</label>
+                <textarea id="trackerRemarks" rows="3" placeholder="Production notes, delivery/installation notes, customer requests..."></textarea>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button class="btn btn-green" onclick="saveProjectTracker()">💾 Save Project</button>
+            <button class="btn btn-light" onclick="closeTrackerForm()">Cancel</button>
+        </div>
+    </div>
+</section>
+
+<section id="settings" class="page"><div class="panel">    <h2>        Company Settings    </h2>    <div class="form-grid">        <div class="field">            <label>                Company Name            </label>            <input id="companyName" value="PrintArt Creative Graphics and Signs">        </div>        <div class="field">            <label>                Company Tagline            </label>            <input id="companyTagline" value="Creative Graphics &amp; Signs">        </div>        <div class="field">            <label>                Address            </label>            <input id="companyAddress" placeholder="Company address">        </div>        <div class="field">            <label>                Contact Number            </label>            <input id="companyContact" placeholder="Company contact number">        </div>        <div class="field">            <label>                Company Email            </label>            <input id="companyEmail" placeholder="company@email.com">        </div>        <div class="field">            <label>                Upload Company Logo            </label>            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">        </div>    </div>    <div class="button-row">        <button class="btn btn-green" onclick="saveSettings()">            Save Settings        </button>    </div></div><div class="panel">    <h3>        Quotation Payment Settings    </h3>    <div class="form-grid">        <div class="field">            <label>                Downpayment Percentage            </label>            <input value="60%" disabled="">        </div>        <div class="field">            <label>                Remaining Balance            </label>            <input value="40%" disabled="">        </div>    </div>    <p style="color:#777;font-size:13px;">        The quotation system automatically calculates        60% downpayment and 40% remaining balance.    </p></div></section>    </div></div><!-- =======================================================     VIEW QUOTATION MODAL======================================================= --><div class="modal" id="quoteModal">    <div class="modal-content">        <div class="button-row no-print" style="justify-content:flex-end;">            <button class="btn btn-dark" type="button" onclick="printQuotation()">                🖨 Print            </button>            <button class="btn btn-light" onclick="closeModal()">                Close            </button>        </div>        <div id="printArea"></div>    </div></div><script>
 /* =========================================================
    PRINTART QUOTATION SYSTEM
    Formula-based Product & Price Database
@@ -498,6 +688,7 @@ let settings = null;
 let currentItems = [];
 let quotationImageData = "";
 let signageProjects = [];
+let projectTracker = [];
 
 /* =========================================================
    PRODUCT FORMULA DEFINITIONS
@@ -667,6 +858,7 @@ function showPage(pageId,button){
         quotation:"New Quotation",
         quotations:"Quotations",
         signages:"Signage Projects",
+        tracker:"Project & Sales Tracker",
         products:"Product & Price Database",
         settings:"Settings"
     };
@@ -1262,15 +1454,17 @@ async function loadCloudData(){
     if(!supabaseClient)return;
 
     try{
-        const [productResult,quoteResult,settingsResult] = await Promise.all([
+        const [productResult,quoteResult,settingsResult,trackerResult] = await Promise.all([
             supabaseClient.from("products").select("*").order("id"),
             supabaseClient.from("quotations").select("*").order("created_at",{ascending:false}),
-            supabaseClient.from("settings").select("*").eq("id",1).maybeSingle()
+            supabaseClient.from("settings").select("*").eq("id",1).maybeSingle(),
+            supabaseClient.from("project_tracker").select("*").order("date",{ascending:false}).order("id",{ascending:false})
         ]);
 
         if(productResult.error)throw productResult.error;
         if(quoteResult.error)throw quoteResult.error;
         if(settingsResult.error)throw settingsResult.error;
+        if(trackerResult.error)throw trackerResult.error;
 
         products = (productResult.data || []).map(normalizeProduct);
 
@@ -1308,17 +1502,49 @@ async function loadCloudData(){
             logo:""
         };
 
+        projectTracker = (trackerResult.data || []).map(normalizeProjectTracker);
         updateCloudStatus(true);
         renderProducts();
         populateProductSelect();
         renderDashboard();
         renderQuotations();
+        renderProjectTracker();
         generateQuotationNumber();
         loadSettings();
     }catch(error){
         console.error("Cloud database error:",error);
         updateCloudStatus(false);
         console.error("Supabase load error details:",error);
+        // If the Project Tracker table has not been created yet, the existing
+        // quotation/product system can still be used.
+        if(String(error?.message || "").toLowerCase().includes("project_tracker")){
+            projectTracker = [];
+            try{
+                const [productResult,quoteResult,settingsResult] = await Promise.all([
+                    supabaseClient.from("products").select("*").order("id"),
+                    supabaseClient.from("quotations").select("*").order("created_at",{ascending:false}),
+                    supabaseClient.from("settings").select("*").eq("id",1).maybeSingle()
+                ]);
+                if(!productResult.error)products=(productResult.data||[]).map(normalizeProduct);
+                if(!quoteResult.error){
+                    quotations=(quoteResult.data||[]).map(q=>{
+                        const meta=unpackQuotationNotes(q.notes||"");
+                        return {...q,id:q.id,number:q.number,date:q.quote_date,client:q.client||"",
+                            contact:q.contact||"",email:q.email||"",address:q.address||"",
+                            project:q.project||"",items:Array.isArray(q.items)?q.items:[],
+                            subtotal:Number(q.subtotal||0),total:Number(q.total||0),
+                            downpayment:Number(q.downpayment||0),remaining:Number(q.remaining||0),
+                            status:q.status||"Pending",notes:meta.notes,image:meta.image,createdAt:q.created_at};
+                    });
+                }
+                settings=settingsResult.data || settings;
+                updateCloudStatus(true);
+                renderProducts(); populateProductSelect(); renderDashboard();
+                renderQuotations(); generateQuotationNumber(); loadSettings();
+            }catch(recoveryError){
+                console.error("Cloud recovery error:",recoveryError);
+            }
+        }
     }
 }
 
@@ -1431,6 +1657,18 @@ function renderDashboard(){
     document.getElementById("dashTotalValue").textContent="₱"+money(totalValue);
     document.getElementById("dashPending").textContent=pending;
     document.getElementById("dashCompleted").textContent=completed;
+
+    const tracker = Array.isArray(projectTracker) ? projectTracker : [];
+    const paid = tracker.filter(p=>p.payment_status==="Paid").length;
+    const partial = tracker.filter(p=>p.payment_status==="Partial").length;
+    const production = tracker.filter(p=>p.project_status==="In Production" || p.project_status==="For Production").length;
+    const installation = tracker.filter(p=>p.project_status==="For Installation").length;
+    const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
+    setText("dashProjects",tracker.length);
+    setText("dashPaidProjects",paid);
+    setText("dashPartialProjects",partial);
+    setText("dashProductionProjects",production);
+    setText("dashInstallationProjects",installation);
 
     const recent=document.getElementById("recentQuotes");
     if(!recent)return;
@@ -2319,6 +2557,252 @@ async function deleteSignageProject(id){
     }
 }
 
+
+/* =========================================================
+   PROJECT TRACKER
+========================================================= */
+const TRACKER_PROJECT_STATUSES = [
+    "New","Quoted","Approved","For Design","Design Approved",
+    "For Production","In Production","Ready for Release",
+    "For Installation","Completed","On Hold","Cancelled"
+];
+
+function normalizeProjectTracker(p){
+    return {
+        ...p,
+        id:p.id,
+        date:p.date || "",
+        client:p.client || "",
+        quotation_size:p.quotation_size || "",
+        materials:p.materials || "",
+        source:p.source || "",
+        location:p.location || "",
+        payment_status:p.payment_status || "Unpaid",
+        project_status:p.project_status || "New",
+        remarks:p.remarks || ""
+    };
+}
+
+function trackerStatusBadge(status){
+    return statusBadge(status || "New");
+}
+
+function setTrackerToday(){
+    const input=document.getElementById("trackerDate");
+    if(!input || input.value)return;
+    const d=new Date();
+    input.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+
+function openTrackerForm(id){
+    const form=document.getElementById("trackerForm");
+    if(!form)return;
+    form.style.display="block";
+    document.getElementById("editingTrackerId").value="";
+    document.getElementById("trackerFormTitle").textContent="Add Project";
+    setTrackerToday();
+
+    if(id){
+        const p=projectTracker.find(x=>Number(x.id)===Number(id));
+        if(!p)return;
+        document.getElementById("editingTrackerId").value=p.id;
+        document.getElementById("trackerFormTitle").textContent="Edit Project";
+        document.getElementById("trackerDate").value=p.date||"";
+        document.getElementById("trackerClient").value=p.client||"";
+        document.getElementById("trackerQuotationSize").value=p.quotation_size||"";
+        document.getElementById("trackerMaterials").value=p.materials||"";
+        document.getElementById("trackerSource").value=p.source||"";
+        document.getElementById("trackerLocation").value=p.location||"";
+        document.getElementById("trackerPaymentStatus").value=p.payment_status||"Unpaid";
+        document.getElementById("trackerProjectStatus").value=p.project_status||"New";
+        document.getElementById("trackerRemarks").value=p.remarks||"";
+    }
+    form.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeTrackerForm(){
+    const form=document.getElementById("trackerForm");
+    if(form)form.style.display="none";
+}
+
+function clearTrackerFilters(){
+    const ids=["trackerSearch","trackerPaymentFilter","trackerStatusFilter"];
+    ids.forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
+    renderProjectTracker();
+}
+
+async function saveProjectTracker(){
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){
+        alert("Cloud database is not connected.");
+        return;
+    }
+
+    const payload={
+        date:document.getElementById("trackerDate").value,
+        client:document.getElementById("trackerClient").value.trim(),
+        quotation_size:document.getElementById("trackerQuotationSize").value.trim(),
+        materials:document.getElementById("trackerMaterials").value.trim(),
+        source:document.getElementById("trackerSource").value,
+        location:document.getElementById("trackerLocation").value.trim(),
+        payment_status:document.getElementById("trackerPaymentStatus").value,
+        project_status:document.getElementById("trackerProjectStatus").value,
+        remarks:document.getElementById("trackerRemarks").value.trim()
+    };
+
+    if(!payload.client){
+        alert("Please enter the client's name.");
+        return;
+    }
+    if(!payload.date){
+        alert("Please select the project date.");
+        return;
+    }
+
+    const editing=Number(document.getElementById("editingTrackerId").value||0);
+
+    try{
+        if(editing){
+            const {data,error}=await supabaseClient.from("project_tracker")
+                .update(payload).eq("id",editing).select("*").single();
+            if(error)throw error;
+            projectTracker=projectTracker.map(p=>Number(p.id)===editing?normalizeProjectTracker(data):p);
+        }else{
+            const {data,error}=await supabaseClient.from("project_tracker")
+                .insert([payload]).select("*").single();
+            if(error)throw error;
+            projectTracker.unshift(normalizeProjectTracker(data));
+        }
+
+        renderProjectTracker();
+        renderDashboard();
+        closeTrackerForm();
+        alert(editing ? "Project updated successfully." : "Project saved successfully.");
+    }catch(error){
+        console.error("saveProjectTracker:",error);
+        alert("Unable to save project:\n\n"+(error.message||error));
+    }
+}
+
+async function changeTrackerPayment(id,value){
+    const p=projectTracker.find(x=>Number(x.id)===Number(id));
+    if(!p)return;
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){alert("Cloud database is not connected.");return;}
+
+    try{
+        const {error}=await supabaseClient.from("project_tracker")
+            .update({payment_status:value}).eq("id",Number(id));
+        if(error)throw error;
+        p.payment_status=value;
+        renderProjectTracker();
+        renderDashboard();
+    }catch(error){
+        console.error(error);
+        alert("Unable to update payment status:\n\n"+error.message);
+    }
+}
+
+async function changeTrackerStatus(id,value){
+    const p=projectTracker.find(x=>Number(x.id)===Number(id));
+    if(!p)return;
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){alert("Cloud database is not connected.");return;}
+
+    try{
+        const {error}=await supabaseClient.from("project_tracker")
+            .update({project_status:value}).eq("id",Number(id));
+        if(error)throw error;
+        p.project_status=value;
+        renderProjectTracker();
+        renderDashboard();
+    }catch(error){
+        console.error(error);
+        alert("Unable to update project status:\n\n"+error.message);
+    }
+}
+
+async function deleteProjectTracker(id){
+    if(!confirm("Delete this project from the tracker?"))return;
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){alert("Cloud database is not connected.");return;}
+
+    try{
+        const {error}=await supabaseClient.from("project_tracker").delete().eq("id",Number(id));
+        if(error)throw error;
+        projectTracker=projectTracker.filter(p=>Number(p.id)!==Number(id));
+        renderProjectTracker();
+        renderDashboard();
+    }catch(error){
+        console.error(error);
+        alert("Unable to delete project:\n\n"+error.message);
+    }
+}
+
+function renderProjectTracker(){
+    const tbody=document.getElementById("projectTrackerBody");
+    if(!tbody)return;
+
+    const search=(document.getElementById("trackerSearch")?.value||"").trim().toLowerCase();
+    const payment=(document.getElementById("trackerPaymentFilter")?.value||"").trim();
+    const status=(document.getElementById("trackerStatusFilter")?.value||"").trim();
+
+    const filtered=projectTracker.filter(p=>{
+        const hay=[
+            p.client,p.quotation_size,p.materials,p.source,p.location,p.remarks,p.date
+        ].join(" ").toLowerCase();
+
+        return (!search || hay.includes(search)) &&
+               (!payment || p.payment_status===payment) &&
+               (!status || p.project_status===status);
+    });
+
+    const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
+    setText("trackerTotal",projectTracker.length);
+    setText("trackerPaid",projectTracker.filter(p=>p.payment_status==="Paid").length);
+    setText("trackerPartial",projectTracker.filter(p=>p.payment_status==="Partial").length);
+    setText("trackerProduction",projectTracker.filter(p=>p.project_status==="In Production" || p.project_status==="For Production").length);
+    setText("trackerCompleted",projectTracker.filter(p=>p.project_status==="Completed").length);
+
+    if(!filtered.length){
+        tbody.innerHTML=`<tr><td colspan="10" class="tracker-empty">${
+            projectTracker.length ? "No projects match the selected filters." : "No projects saved yet."
+        }</td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML=filtered.map(p=>`
+        <tr>
+            <td class="tracker-date">${formatDate(p.date)}</td>
+            <td><strong>${escapeHTML(p.client)}</strong></td>
+            <td>${escapeHTML(p.quotation_size||"—")}</td>
+            <td>${escapeHTML(p.materials||"—")}</td>
+            <td>${escapeHTML(p.source||"—")}</td>
+            <td>${escapeHTML(p.location||"—")}</td>
+            <td>
+                <select class="tracker-status-select" onchange="changeTrackerPayment(${Number(p.id)},this.value)">
+                    <option value="Unpaid" ${p.payment_status==="Unpaid"?"selected":""}>Unpaid</option>
+                    <option value="Partial" ${p.payment_status==="Partial"?"selected":""}>Partial</option>
+                    <option value="Paid" ${p.payment_status==="Paid"?"selected":""}>Paid</option>
+                    <option value="For Collection" ${p.payment_status==="For Collection"?"selected":""}>For Collection</option>
+                    <option value="Cancelled" ${p.payment_status==="Cancelled"?"selected":""}>Cancelled</option>
+                </select>
+            </td>
+            <td>
+                <select class="tracker-status-select" onchange="changeTrackerStatus(${Number(p.id)},this.value)">
+                    ${TRACKER_PROJECT_STATUSES.map(s=>`<option value="${escapeHTML(s)}" ${p.project_status===s?"selected":""}>${escapeHTML(s)}</option>`).join("")}
+                </select>
+            </td>
+            <td style="max-width:220px;">${escapeHTML(p.remarks||"—")}</td>
+            <td class="tracker-actions">
+                <button class="btn btn-light" onclick="openTrackerForm(${Number(p.id)})">Edit</button>
+                <button class="btn btn-red" onclick="deleteProjectTracker(${Number(p.id)})">Delete</button>
+            </td>
+        </tr>
+    `).join("");
+}
+
+
 /* =========================================================
    INITIALIZATION
 ========================================================= */
@@ -2331,6 +2815,10 @@ window.addEventListener("DOMContentLoaded",async()=>{
 
     const signageForm=document.getElementById("signageForm");
     if(signageForm)signageForm.style.display="none";
+
+    const trackerForm=document.getElementById("trackerForm");
+    if(trackerForm)trackerForm.style.display="none";
+    setTrackerToday();
 
     const rate=document.getElementById("productRate");
     const extra=document.getElementById("productExtraCharge");
@@ -2346,6 +2834,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
 
     await loadCloudData();
     await loadSignageProjects();
+    renderProjectTracker();
     renderItems();
     setToday();
 });

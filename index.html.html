@@ -1,305 +1,13 @@
 
 <!DOCTYPE html>
+
 <!-- saved from url=(0397)https://sdmntprseasia.oaiusercontent.com/files/00000000-9a38-8207-95aa-86a83b9f7acb/raw?se=2026-09-28T02%3A14%3A32Z&sp=r&sv=2026-02-06&sr=b&scid=cf70b2b8-f08c-43dd-8bd4-7b47f072d87a&skoid=6fa9748a-b7b2-4b56-a932-8c1417549c47&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-28T00%3A17%3A22Z&ske=2026-09-29T00%3A17%3A22Z&sks=b&skv=2026-02-06&sig=PGJrMUot45rAwQSXTB0ggoIrgIYo7yqpWVVMliYPva0%3D -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PrintArt Quotation System</title><style>:root{    --black:#0b0b0b;    --dark:#141414;    --dark2:#1d1d1d;    --white:#ffffff;    --gray:#a9a9a9;    --gold:#d4af37;    --gold2:#f2c94c;    --orange:#f28c28;    --green:#27ae60;    --red:#e74c3c;    --border:#303030;}*{    box-sizing:border-box;}body{    margin:0;    font-family:Arial,Helvetica,sans-serif;    background:#f3f3f3;    color:#111;}/* =========================================================   SIDEBAR========================================================= */.sidebar{    position:fixed;    left:0;    top:0;    bottom:0;    width:250px;    background:linear-gradient(180deg,#080808,#171717);    color:white;    padding:25px 18px;    z-index:1000;    box-shadow:4px 0 20px rgba(0,0,0,.25);}.logo-area{    text-align:center;    padding-bottom:25px;    border-bottom:1px solid #333;    margin-bottom:20px;}.logo-area img{    width:220px;    height:115px;    object-fit:contain;    background:transparent;    border-radius:15px;    padding:8px;    display:block;    margin:auto;}.logo-placeholder{    width:200px;    height:95px;    background:#111;    color:var(--gold2);    border-radius:15px;    display:flex;    align-items:center;    justify-content:center;    font-weight:bold;    font-size:20px;    margin:auto;}.logo-area h2{    font-size:17px;    margin:12px 0 4px;    color:var(--gold2);}.nav-btn{    width:100%;    background:transparent;    color:#fff;    border:0;    text-align:left;    padding:14px 15px;    margin:4px 0;    border-radius:9px;    cursor:pointer;    font-size:14px;    transition:.2s;}.nav-btn:hover{    background:#292929;}.nav-btn.active{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;    font-weight:bold;}.nav-icon{    width:25px;    display:inline-block;}/* =========================================================   MAIN========================================================= */.main{    margin-left:250px;    min-height:100vh;}.topbar{    height:75px;    background:#fff;    border-bottom:1px solid #ddd;    display:flex;    align-items:center;    justify-content:space-between;    padding:0 30px;    position:sticky;    top:0;    z-index:500;}.topbar h1{    margin:0;    font-size:21px;}.topbar span{    color:#777;    font-size:13px;}.content{    padding:30px;}/* =========================================================   PAGE========================================================= */.page{    display:none;}.page.active{    display:block;}/* =========================================================   DASHBOARD========================================================= */.dashboard-grid{    display:grid;    grid-template-columns:repeat(4,1fr);    gap:18px;    margin-bottom:25px;}.card{    background:#fff;    border-radius:14px;    padding:22px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    border-left:5px solid var(--gold);}.card.orange{    border-left-color:var(--orange);}.card.green{    border-left-color:var(--green);}.card.black{    border-left-color:#111;}.card-title{    color:#777;    font-size:13px;    margin-bottom:8px;}.card-value{    font-size:30px;    font-weight:bold;}.card-icon{    float:right;    font-size:28px;}/* =========================================================   PANELS========================================================= */.panel{    background:#fff;    border-radius:14px;    padding:25px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    margin-bottom:25px;}.panel-header{    display:flex;    justify-content:space-between;    align-items:center;    margin-bottom:20px;    gap:15px;}.panel-header h2{    margin:0;    font-size:19px;}/* =========================================================   FORMS========================================================= */.form-grid{    display:grid;    grid-template-columns:repeat(2,1fr);    gap:18px;}.form-grid.three{    grid-template-columns:repeat(4,1fr);}.field label{    display:block;    font-size:12px;    color:#666;    margin-bottom:7px;    font-weight:bold;}input,select,textarea{    width:100%;    padding:12px 13px;    border:1px solid #ccc;    border-radius:8px;    outline:none;    font-size:14px;    background:#fff;}input:focus,select:focus,textarea:focus{    border-color:var(--gold);    box-shadow:0 0 0 2px rgba(212,175,55,.15);}/* =========================================================   BUTTONS========================================================= */.btn{    border:0;    border-radius:8px;    padding:11px 17px;    cursor:pointer;    font-weight:bold;    font-size:13px;}.btn-primary{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;}.btn-dark{    background:#111;    color:#fff;}.btn-green{    background:var(--green);    color:#fff;}.btn-red{    background:var(--red);    color:#fff;}.btn-light{    background:#eee;    color:#111;}.btn:hover{    opacity:.88;}.button-row{    display:flex;    gap:10px;    flex-wrap:wrap;    margin-top:20px;}/* =========================================================   QUOTATION ITEMS========================================================= */.item-table{    width:100%;    border-collapse:collapse;    margin-top:20px;}.item-table th{    background:#111;    color:#fff;    padding:12px;    text-align:left;    font-size:12px;}.item-table td{    border-bottom:1px solid #ddd;    padding:10px;    font-size:13px;}.item-table input{    padding:8px;}.remove-btn{    border:0;    background:#fee;    color:#d00;    border-radius:6px;    padding:7px 10px;    cursor:pointer;}/* =========================================================   TOTALS========================================================= */.totals-box{    width:360px;    margin-left:auto;    margin-top:25px;}.total-line{    display:flex;    justify-content:space-between;    padding:9px 0;    border-bottom:1px solid #ddd;}.total-line.grand{    font-size:20px;    font-weight:bold;    border-bottom:2px solid #111;}.total-line.deposit{    color:var(--green);    font-weight:bold;}.total-line.balance{    color:var(--red);    font-size:18px;    font-weight:bold;}/* =========================================================   DATA TABLE========================================================= */.data-table{    width:100%;    border-collapse:collapse;}.data-table th{    background:#111;    color:#fff;    padding:13px;    font-size:12px;    text-align:left;}.data-table td{    padding:12px;    border-bottom:1px solid #eee;    font-size:13px;}.data-table tr:hover{    background:#fafafa;}.status{    padding:5px 9px;    border-radius:20px;    font-size:11px;    font-weight:bold;}.status.pending{    background:#fff4f4;    color:#b90000;}.status.approved{    background:#f0fff4;    color:#159447;}.status.completed{    background:#eafaf2;    color:#087740;}/* =========================================================   PRODUCT DATABASE========================================================= */.search-box{    max-width:350px;}.price-display{    background:#111;    color:var(--gold2);    padding:12px;    border-radius:8px;    font-weight:bold;}/* =========================================================   QUOTATION IMAGE========================================================= */.quote-image-upload{    border:1px dashed #c9c9c9;    border-radius:10px;    padding:14px;    background:#fafafa;}.quote-image-preview{    display:none;    max-width:240px;    max-height:180px;    object-fit:contain;    border:1px solid #ddd;    border-radius:8px;    margin-top:10px;    background:#fff;}.quote-image-note{    color:#777;    font-size:12px;    margin-top:6px;}.quote-reference-image{    display:block;    max-width:100%;    max-height:420px;    object-fit:contain;    margin:20px auto 0;    border:1px solid #ddd;    border-radius:8px;}/* =========================================================   MODAL========================================================= */.modal{    display:none;    position:fixed;    inset:0;    background:rgba(0,0,0,.7);    z-index:3000;    padding:30px;    overflow:auto;}.modal.show{    display:block;}.modal-content{    background:#fff;    max-width:950px;    margin:auto;    border-radius:15px;    padding:30px;}/* =========================================================   QUOTATION PRINT AREA========================================================= */#printArea{    width:100%;}.quote-paper{    background:#fff;    width:100%;    max-width:850px;    margin:0 auto;    padding:40px;    color:#111;}.quote-header{    display:flex;    justify-content:space-between;    align-items:flex-start;    gap:30px;    border-bottom:3px solid var(--gold);    padding-bottom:20px;    margin-bottom:25px;}.quote-company{    flex:1;    min-width:0;}.quote-logo{    display:block;    width:220px;    height:80px;    object-fit:contain;    object-position:left center;    margin-bottom:10px;}.quote-company h1{    margin:0 0 5px;    font-size:25px;}.quote-company p{    margin:4px 0;    color:#666;    font-size:13px;    line-height:1.4;}.quote-meta{    min-width:180px;    text-align:right;}.quote-meta strong{    display:block;    font-size:20px;    margin-bottom:5px;}.quote-meta div{    font-size:13px;    margin-bottom:4px;}.quoted-to{    margin-bottom:25px;}.quoted-to strong{    font-size:12px;}.quoted-to h3{    margin:5px 0;    font-size:18px;}.quoted-to div{    font-size:13px;    margin:3px 0;}.quote-items{    width:100%;    border-collapse:collapse;    table-layout:fixed;}.quote-items th{    background:#111;    color:#fff;    padding:10px;    text-align:left;    font-size:12px;}.quote-items td{    padding:10px;    border-bottom:1px solid #ddd;    font-size:13px;    vertical-align:top;    word-wrap:break-word;}
+<html lang="en"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>PrintArt Quotation System</title><style>:root{    --black:#0b0b0b;    --dark:#141414;    --dark2:#1d1d1d;    --white:#ffffff;    --gray:#a9a9a9;    --gold:#d4af37;    --gold2:#f2c94c;    --orange:#f28c28;    --green:#27ae60;    --red:#e74c3c;    --border:#303030;}*{    box-sizing:border-box;}body{    margin:0;    font-family:Arial,Helvetica,sans-serif;    background:#f3f3f3;    color:#111;}/* =========================================================   SIDEBAR========================================================= */.sidebar{    position:fixed;    left:0;    top:0;    bottom:0;    width:250px;    background:linear-gradient(180deg,#080808,#171717);    color:white;    padding:25px 18px;    z-index:1000;    box-shadow:4px 0 20px rgba(0,0,0,.25);}.logo-area{    text-align:center;    padding-bottom:25px;    border-bottom:1px solid #333;    margin-bottom:20px;}.logo-area img{    width:220px;    height:115px;    object-fit:contain;    background:transparent;    border-radius:15px;    padding:8px;    display:block;    margin:auto;}.logo-placeholder{    width:200px;    height:95px;    background:#111;    color:var(--gold2);    border-radius:15px;    display:flex;    align-items:center;    justify-content:center;    font-weight:bold;    font-size:20px;    margin:auto;}.logo-area h2{    font-size:17px;    margin:12px 0 4px;    color:var(--gold2);}.nav-btn{    width:100%;    background:transparent;    color:#fff;    border:0;    text-align:left;    padding:14px 15px;    margin:4px 0;    border-radius:9px;    cursor:pointer;    font-size:14px;    transition:.2s;}.nav-btn:hover{    background:#292929;}.nav-btn.active{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;    font-weight:bold;}.nav-icon{    width:25px;    display:inline-block;}/* =========================================================   MAIN========================================================= */.main{    margin-left:250px;    min-height:100vh;}.topbar{    height:75px;    background:#fff;    border-bottom:1px solid #ddd;    display:flex;    align-items:center;    justify-content:space-between;    padding:0 30px;    position:sticky;    top:0;    z-index:500;}.topbar h1{    margin:0;    font-size:21px;}.topbar span{    color:#777;    font-size:13px;}.content{    padding:30px;}/* =========================================================   PAGE========================================================= */.page{    display:none;}.page.active{    display:block;}/* =========================================================   DASHBOARD========================================================= */.dashboard-grid{    display:grid;    grid-template-columns:repeat(4,1fr);    gap:18px;    margin-bottom:25px;}.card{    background:#fff;    border-radius:14px;    padding:22px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    border-left:5px solid var(--gold);}.card.orange{    border-left-color:var(--orange);}.card.green{    border-left-color:var(--green);}.card.black{    border-left-color:#111;}.card-title{    color:#777;    font-size:13px;    margin-bottom:8px;}.card-value{    font-size:30px;    font-weight:bold;}.card-icon{    float:right;    font-size:28px;}/* =========================================================   PANELS========================================================= */.panel{    background:#fff;    border-radius:14px;    padding:25px;    box-shadow:0 5px 18px rgba(0,0,0,.07);    margin-bottom:25px;}.panel-header{    display:flex;    justify-content:space-between;    align-items:center;    margin-bottom:20px;    gap:15px;}.panel-header h2{    margin:0;    font-size:19px;}/* =========================================================   FORMS========================================================= */.form-grid{    display:grid;    grid-template-columns:repeat(2,1fr);    gap:18px;}.form-grid.three{    grid-template-columns:repeat(4,1fr);}.field label{    display:block;    font-size:12px;    color:#666;    margin-bottom:7px;    font-weight:bold;}input,select,textarea{    width:100%;    padding:12px 13px;    border:1px solid #ccc;    border-radius:8px;    outline:none;    font-size:14px;    background:#fff;}input:focus,select:focus,textarea:focus{    border-color:var(--gold);    box-shadow:0 0 0 2px rgba(212,175,55,.15);}/* =========================================================   BUTTONS========================================================= */.btn{    border:0;    border-radius:8px;    padding:11px 17px;    cursor:pointer;    font-weight:bold;    font-size:13px;}.btn-primary{    background:linear-gradient(90deg,var(--gold),var(--orange));    color:#111;}.btn-dark{    background:#111;    color:#fff;}.btn-green{    background:var(--green);    color:#fff;}.btn-red{    background:var(--red);    color:#fff;}.btn-light{    background:#eee;    color:#111;}.btn:hover{    opacity:.88;}.button-row{    display:flex;    gap:10px;    flex-wrap:wrap;    margin-top:20px;}/* =========================================================   QUOTATION ITEMS========================================================= */.item-table{    width:100%;    border-collapse:collapse;    margin-top:20px;}.item-table th{    background:#111;    color:#fff;    padding:12px;    text-align:left;    font-size:12px;}.item-table td{    border-bottom:1px solid #ddd;    padding:10px;    font-size:13px;}.item-table input{    padding:8px;}.remove-btn{    border:0;    background:#fee;    color:#d00;    border-radius:6px;    padding:7px 10px;    cursor:pointer;}/* =========================================================   TOTALS========================================================= */.totals-box{    width:360px;    margin-left:auto;    margin-top:25px;}.total-line{    display:flex;    justify-content:space-between;    padding:9px 0;    border-bottom:1px solid #ddd;}.total-line.grand{    font-size:20px;    font-weight:bold;    border-bottom:2px solid #111;}.total-line.deposit{    color:var(--green);    font-weight:bold;}.total-line.balance{    color:var(--red);    font-size:18px;    font-weight:bold;}/* =========================================================   DATA TABLE========================================================= */.data-table{    width:100%;    border-collapse:collapse;}.data-table th{    background:#111;    color:#fff;    padding:13px;    font-size:12px;    text-align:left;}.data-table td{    padding:12px;    border-bottom:1px solid #eee;    font-size:13px;}.data-table tr:hover{    background:#fafafa;}.status{    padding:5px 9px;    border-radius:20px;    font-size:11px;    font-weight:bold;}.status.pending{    background:#fff4f4;    color:#b90000;}.status.approved{    background:#f0fff4;    color:#159447;}.status.completed{    background:#eafaf2;    color:#087740;}/* =========================================================   PRODUCT DATABASE========================================================= */.search-box{    max-width:350px;}.price-display{    background:#111;    color:var(--gold2);    padding:12px;    border-radius:8px;    font-weight:bold;}/* =========================================================   QUOTATION IMAGE========================================================= */.quote-image-upload{    border:1px dashed #c9c9c9;    border-radius:10px;    padding:14px;    background:#fafafa;}.quote-image-preview{    display:none;    max-width:240px;    max-height:180px;    object-fit:contain;    border:1px solid #ddd;    border-radius:8px;    margin-top:10px;    background:#fff;}.quote-image-note{    color:#777;    font-size:12px;    margin-top:6px;}.quote-reference-image{    display:block;    max-width:100%;    max-height:420px;    object-fit:contain;    margin:20px auto 0;    border:1px solid #ddd;    border-radius:8px;}/* =========================================================   MODAL========================================================= */.modal{    display:none;    position:fixed;    inset:0;    background:rgba(0,0,0,.7);    z-index:3000;    padding:30px;    overflow:auto;}.modal.show{    display:block;}.modal-content{    background:#fff;    max-width:950px;    margin:auto;    border-radius:15px;    padding:30px;}/* =========================================================   QUOTATION PRINT AREA========================================================= */#printArea{    width:100%;}.quote-paper{    background:#fff;    width:100%;    max-width:850px;    margin:0 auto;    padding:40px;    color:#111;}.quote-header{    display:flex;    justify-content:space-between;    align-items:flex-start;    gap:30px;    border-bottom:3px solid var(--gold);    padding-bottom:20px;    margin-bottom:25px;}.quote-company{    flex:1;    min-width:0;}.quote-logo{    display:block;    width:220px;    height:80px;    object-fit:contain;    object-position:left center;    margin-bottom:10px;}.quote-company h1{    margin:0 0 5px;    font-size:25px;}.quote-company p{    margin:4px 0;    color:#666;    font-size:13px;    line-height:1.4;}.quote-meta{    min-width:180px;    text-align:right;}.quote-meta strong{    display:block;    font-size:20px;    margin-bottom:5px;}.quote-meta div{    font-size:13px;    margin-bottom:4px;}.quoted-to{    margin-bottom:25px;}.quoted-to strong{    font-size:12px;}.quoted-to h3{    margin:5px 0;    font-size:18px;}.quoted-to div{    font-size:13px;    margin:3px 0;}.quote-items{    width:100%;    border-collapse:collapse;    table-layout:fixed;}.quote-items th{    background:#111;    color:#fff;    padding:10px;    text-align:left;    font-size:12px;}.quote-items td{    padding:10px;    border-bottom:1px solid #ddd;    font-size:13px;    vertical-align:top;    word-wrap:break-word;}
 .quote-items td:nth-child(4),
 .quote-items td:nth-child(5){
     white-space:nowrap;
 }
 .quote-items th:nth-child(1){    width:40%;}.quote-items th:nth-child(2){    width:18%;}.quote-items th:nth-child(3){    width:15%;}.quote-items th:nth-child(4){    width:13%;}.quote-items th:nth-child(5){    width:17%;}.quote-total{    margin-left:auto;    width:330px;    margin-top:20px;}.quote-total div{    display:flex;    justify-content:space-between;    padding:7px;    font-size:13px;}.quote-total .grand{    font-weight:bold;    font-size:19px;    border-top:2px solid #111;}.quote-footer{    margin-top:30px;    font-size:12px;    color:#666;    line-height:1.5;}.quote-footer p{    margin:5px 0;}
-/* =========================================================
-   PROJECT & SALES TRACKER - PROFESSIONAL UI
-========================================================= */
-#tracker{
-    padding:0;
-}
-
-#tracker > .panel:first-child{
-    padding:0;
-    background:transparent;
-    box-shadow:none;
-    margin-bottom:20px;
-}
-
-#tracker > .panel:first-child > .panel-header{
-    background:#fff;
-    border-radius:14px;
-    padding:22px 24px;
-    margin-bottom:16px;
-    box-shadow:0 5px 18px rgba(0,0,0,.07);
-    border-left:5px solid var(--gold);
-}
-
-#tracker > .panel:first-child > .panel-header h2{
-    font-size:22px;
-    letter-spacing:-.2px;
-}
-
-#tracker > .panel:first-child > .panel-header span{
-    display:block;
-    margin-top:5px;
-    color:#777 !important;
-    font-size:12px;
-}
-
-#tracker .tracker-kpis{
-    display:grid;
-    grid-template-columns:repeat(5,minmax(0,1fr));
-    gap:14px;
-    margin:0 0 16px;
-}
-
-#tracker .tracker-kpi{
-    position:relative;
-    background:#fff;
-    border:1px solid #e9e9e9;
-    border-radius:12px;
-    padding:18px 18px 16px;
-    min-height:92px;
-    box-shadow:0 4px 14px rgba(0,0,0,.05);
-    overflow:hidden;
-}
-
-#tracker .tracker-kpi::before{
-    content:"";
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    width:4px;
-    background:var(--gold);
-}
-
-#tracker .tracker-kpi:nth-child(2)::before{background:var(--green);}
-#tracker .tracker-kpi:nth-child(3)::before{background:#e8a317;}
-#tracker .tracker-kpi:nth-child(4)::before{background:var(--orange);}
-#tracker .tracker-kpi:nth-child(5)::before{background:#111;}
-
-#tracker .tracker-kpi .label{
-    color:#777;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.4px;
-    margin-bottom:8px;
-}
-
-#tracker .tracker-kpi .value{
-    color:#111;
-    font-size:27px;
-    line-height:1;
-    font-weight:700;
-}
-
-#tracker .tracker-kpi:nth-child(2) .value{color:#159447;}
-#tracker .tracker-kpi:nth-child(3) .value{color:#b77900;}
-#tracker .tracker-kpi:nth-child(4) .value{color:#d66e00;}
-#tracker .tracker-kpi:nth-child(5) .value{color:#111;}
-
-#tracker > .panel:first-child > .panel[style]{
-    background:#fff !important;
-    border:1px solid #e8e8e8;
-    border-radius:12px;
-    padding:18px 18px 16px !important;
-    box-shadow:0 4px 14px rgba(0,0,0,.04);
-}
-
-#tracker .tracker-toolbar{
-    display:grid;
-    grid-template-columns:minmax(280px,1.6fr) minmax(180px,.7fr) minmax(180px,.7fr) auto;
-    align-items:end;
-    gap:12px;
-}
-
-#tracker .tracker-toolbar .field{
-    min-width:0;
-}
-
-#tracker .tracker-toolbar .field label{
-    display:block;
-    margin-bottom:6px;
-    color:#555;
-    font-size:11px;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.35px;
-}
-
-#tracker .tracker-toolbar input,
-#tracker .tracker-toolbar select{
-    height:42px;
-    padding:10px 12px;
-    border:1px solid #d4d4d4;
-    border-radius:8px;
-    font-size:13px;
-    background:#fff;
-}
-
-#tracker .tracker-toolbar input::placeholder{
-    color:#aaa;
-}
-
-#tracker .tracker-toolbar .btn{
-    height:42px;
-    white-space:nowrap;
-    padding:10px 15px;
-}
-
-#tracker .tracker-table-wrap{
-    background:#fff;
-    border:1px solid #e5e5e5;
-    border-radius:12px;
-    box-shadow:0 4px 14px rgba(0,0,0,.05);
-    overflow-x:auto;
-    overflow-y:hidden;
-    margin-top:16px;
-}
-
-#tracker .tracker-table{
-    width:100%;
-    min-width:1180px;
-    border-collapse:separate;
-    border-spacing:0;
-}
-
-#tracker .tracker-table th{
-    background:#151515;
-    color:#fff;
-    padding:13px 12px;
-    font-size:10.5px;
-    font-weight:700;
-    text-align:left;
-    letter-spacing:.35px;
-    white-space:nowrap;
-    border-bottom:2px solid var(--gold);
-}
-
-#tracker .tracker-table th:first-child{
-    border-top-left-radius:11px;
-}
-
-#tracker .tracker-table th:last-child{
-    border-top-right-radius:11px;
-}
-
-#tracker .tracker-table td{
-    padding:12px;
-    border-bottom:1px solid #ededed;
-    font-size:12.5px;
-    color:#333;
-    vertical-align:middle;
-    background:#fff;
-}
-
-#tracker .tracker-table tbody tr:hover td{
-    background:#fffaf0;
-}
-
-#tracker .tracker-table tbody tr:last-child td{
-    border-bottom:0;
-}
-
-#tracker .tracker-table td:first-child{
-    color:#666;
-    white-space:nowrap;
-}
-
-#tracker .tracker-table td:nth-child(2){
-    color:#111;
-    min-width:150px;
-}
-
-#tracker .tracker-status-select{
-    min-width:125px;
-    height:34px;
-    padding:6px 28px 6px 9px;
-    border:1px solid #d7d7d7;
-    border-radius:7px;
-    font-size:11.5px;
-    background:#fff;
-}
-
-#tracker .tracker-status-select:focus{
-    border-color:var(--gold);
-    box-shadow:0 0 0 2px rgba(212,175,55,.12);
-}
-
-#tracker .tracker-actions{
-    white-space:nowrap;
-}
-
-#tracker .tracker-actions .btn{
-    padding:7px 10px;
-    font-size:11px;
-    margin-right:4px;
-}
-
-#tracker .tracker-empty{
-    text-align:center;
-    color:#888;
-    padding:35px 20px !important;
-    font-size:13px !important;
-}
-
-#tracker #trackerForm{
-    background:#fff;
-    border:1px solid #e6e6e6;
-    box-shadow:0 5px 18px rgba(0,0,0,.06);
-}
-
-#tracker #trackerForm .panel-header{
-    padding-bottom:16px;
-    border-bottom:1px solid #eee;
-}
-
-#tracker #trackerForm .tracker-form-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:16px;
-}
-
-#tracker #trackerForm .tracker-form-grid .field:last-child{
-    grid-column:1 / -1;
-}
-
-@media(max-width:1100px){
-    #tracker .tracker-kpis{
-        grid-template-columns:repeat(3,1fr);
-    }
-    #tracker .tracker-toolbar{
-        grid-template-columns:1fr 1fr;
-    }
-    #tracker .tracker-toolbar .field:first-child{
-        grid-column:1 / -1;
-    }
-    #tracker .tracker-toolbar .field:last-child{
-        grid-column:auto;
-    }
-    #tracker #trackerForm .tracker-form-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-}
-
-@media(max-width:700px){
-    #tracker .tracker-kpis{
-        grid-template-columns:1fr 1fr;
-    }
-    #tracker .tracker-toolbar{
-        grid-template-columns:1fr;
-    }
-    #tracker .tracker-toolbar .field:first-child,
-    #tracker .tracker-toolbar .field:last-child{
-        grid-column:auto;
-    }
-    #tracker #trackerForm .tracker-form-grid{
-        grid-template-columns:1fr;
-    }
-    #tracker #trackerForm .tracker-form-grid .field:last-child{
-        grid-column:auto;
-    }
-}
-
-
-
 /* =========================================================
    DAILY REPORT
 ========================================================= */
@@ -2358,1046 +2066,738 @@
     #finance .finance-chart-legend{padding-top:0;}
 }
 
-/* =========================================================
-   DAILY REPORT — PREMIUM LAYOUT OVERRIDE
-========================================================= */
-.daily-report-page{max-width:1500px;margin:0 auto;}
-.daily-hero{
-    position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:25px;
-    padding:28px 30px;margin-bottom:20px;border-radius:18px;
-    background:linear-gradient(120deg,#101010 0%,#1c1c1c 65%,#272116 100%);
-    box-shadow:0 8px 24px rgba(0,0,0,.12);color:#fff;
+
+/* DAILY REPORT - native site layout helpers */
+.daily-native-kpis{margin-top:0;}
+.daily-native-filters{margin-top:0;}
+#dailyReportTable .status-select{min-width:130px;}
+#dailyReportTable td:last-child{white-space:nowrap;}
+@media (max-width:900px){
+  #daily-report .panel-header{align-items:flex-start;gap:14px;flex-wrap:wrap;}
+  #daily-report .panel-header .button-row{width:100%;}
+  #daily-report .panel-header .button-row .btn{flex:1;}
 }
-.daily-hero:after{content:"";position:absolute;right:-80px;top:-120px;width:300px;height:300px;border-radius:50%;background:rgba(212,175,55,.10);pointer-events:none;}
-.daily-hero-copy{position:relative;z-index:1;max-width:760px;}
-.daily-eyebrow{font-size:10px;font-weight:900;letter-spacing:1.5px;color:var(--gold2);margin-bottom:7px;}
-.daily-hero h2{font-size:28px;margin:0 0 6px;letter-spacing:-.4px;}
-.daily-hero p{margin:0;color:#c7c7c7;font-size:13px;line-height:1.55;}
-.daily-hero-actions{position:relative;z-index:2;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
-.daily-action-btn{min-height:40px;padding:10px 14px;}
-.daily-add-btn{font-weight:900;box-shadow:0 5px 15px rgba(212,175,55,.18);}
-.daily-kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 20px;}
-.daily-summary-card{position:relative;min-height:132px;padding:18px 19px 15px;border:1px solid #e7e8ea;border-radius:14px;background:#fff;box-shadow:0 5px 16px rgba(0,0,0,.045);overflow:hidden;}
-.daily-summary-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#111;}
-.daily-summary-card.daily-kpi-unpaid:before{background:#e2a51b;}
-.daily-summary-card.daily-kpi-paid:before{background:#27ae60;}
-.daily-summary-card.daily-kpi-production:before{background:#d4af37;}
-.daily-kpi-icon{position:absolute;right:17px;top:14px;width:35px;height:35px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#f4f4f4;font-size:17px;}
-.daily-kpi-unpaid .daily-kpi-icon{background:#fff6df;}.daily-kpi-paid .daily-kpi-icon{background:#eaf8ee;}.daily-kpi-production .daily-kpi-icon{background:#fff8df;}
-.daily-summary-card .label{font-size:10px;font-weight:900;letter-spacing:.7px;color:#747474;padding-right:50px;}
-.daily-summary-card .value{font-size:30px;line-height:1;font-weight:900;color:#151515;margin-top:12px;}
-.daily-kpi-note{font-size:11px;color:#929292;margin-top:8px;}
-.daily-filter-panel,.daily-table-panel{background:#fff;border:1px solid #e5e6e8;border-radius:15px;box-shadow:0 5px 18px rgba(0,0,0,.045);margin-bottom:20px;}
-.daily-filter-panel{padding:20px;}
-.daily-section-heading,.daily-table-header{display:flex;align-items:center;justify-content:space-between;gap:15px;}
-.daily-section-heading{margin-bottom:15px;}
-.daily-section-heading h3,.daily-table-header h3{margin:0;font-size:15px;color:#171717;}
-.daily-section-heading span,.daily-table-header span{display:block;color:#8a8a8a;font-size:11px;margin-top:4px;}
-.daily-clear-btn{font-size:11px;padding:9px 13px;}
-.daily-report-toolbar{display:grid;grid-template-columns:1.1fr 1fr 1fr 1.2fr;gap:12px;margin-top:0;align-items:end;}
-.daily-report-toolbar .field label{font-size:10px;text-transform:uppercase;letter-spacing:.45px;color:#737373;margin-bottom:6px;}
-.daily-report-toolbar input,.daily-report-toolbar select{height:40px;border-color:#dfe1e4;border-radius:8px;font-size:12px;background:#fafafa;}
-.daily-report-toolbar input:focus,.daily-report-toolbar select:focus{background:#fff;}
-.daily-table-panel{overflow:hidden;}
-.daily-table-header{padding:18px 20px;border-bottom:1px solid #ececec;background:#fff;}
-.daily-live-badge{display:flex!important;align-items:center;gap:7px;color:#5f676d!important;font-size:9px!important;font-weight:900;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;}
-.daily-live-badge span{width:7px;height:7px;border-radius:50%;background:#27ae60;box-shadow:0 0 0 3px rgba(39,174,96,.12);}
-.daily-table-scroll{overflow-x:auto;}
-.daily-report-table{min-width:1250px!important;margin:0!important;}
-.daily-report-table th{height:44px!important;padding:11px 12px!important;font-size:9.5px!important;letter-spacing:.5px;background:#111!important;border-bottom:2px solid var(--gold)!important;}
-.daily-report-table td{padding:11px 12px!important;font-size:11.5px!important;vertical-align:middle!important;border-bottom:1px solid #eeeeee!important;background:#fff;}
-.daily-report-table tbody tr:hover td{background:#fffaf0!important;}
-.daily-report-table td:nth-child(2){min-width:150px;}.daily-report-table td:nth-child(3){min-width:145px;}.daily-report-table td:nth-child(4){min-width:135px;}
-.daily-report-table .status-select{height:32px!important;min-width:120px!important;font-size:10.5px!important;border-radius:7px!important;}
-.daily-report-table .tracker-actions .btn{padding:7px 9px;font-size:10px;}
-.daily-form-panel{padding:0!important;overflow:hidden;border:1px solid #dedfe1!important;}
-.daily-form-header{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px;background:linear-gradient(120deg,#111,#202020);color:#fff;border-bottom:3px solid var(--gold);}
-.daily-form-title-wrap{display:flex;align-items:center;gap:13px;}
-.daily-form-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold),var(--orange));color:#111;font-size:22px;font-weight:900;}
-.daily-form-header h2{margin:0 0 4px;font-size:18px;}.daily-form-header span{font-size:11px;color:#bdbdbd;}
-.daily-form-header .daily-eyebrow{margin-bottom:3px;}
-.daily-form-header .btn-light{background:#303030;color:#fff;border:1px solid #444;}
-.daily-form-grid{padding:22px 24px 4px;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;}
-.daily-form-grid .field.full{grid-column:1 / -1!important;}
-.daily-form-grid .field label{font-size:10px;text-transform:uppercase;letter-spacing:.45px;color:#6f6f6f;margin-bottom:6px;}
-.daily-form-grid input,.daily-form-grid select,.daily-form-grid textarea{border-color:#dfe1e4;border-radius:8px;font-size:12px;}
-.daily-form-grid input,.daily-form-grid select{height:40px;}
-.daily-form-grid textarea{min-height:80px;resize:vertical;}
-.daily-form-footer{display:flex;gap:9px;justify-content:flex-end;padding:16px 24px 20px;border-top:1px solid #ededed;margin-top:15px;background:#fafafa;}
-.daily-save-btn{min-width:145px;}
-@media(max-width:1100px){.daily-kpi-grid{grid-template-columns:repeat(2,1fr)}.daily-report-toolbar{grid-template-columns:repeat(2,1fr)}.daily-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
-@media(max-width:700px){.daily-hero{align-items:flex-start;flex-direction:column;padding:22px}.daily-hero-actions{width:100%;justify-content:flex-start}.daily-action-btn{flex:1}.daily-kpi-grid,.daily-report-toolbar,.daily-form-grid{grid-template-columns:1fr!important}.daily-section-heading,.daily-table-header,.daily-form-header{align-items:flex-start;flex-direction:column}.daily-clear-btn{width:100%}.daily-form-grid .field.full{grid-column:auto!important}.daily-form-footer{justify-content:stretch}.daily-form-footer .btn{flex:1;}}
-</style> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';"></script></head><body><!-- =======================================================     SIDEBAR======================================================= --><div class="sidebar">    <div class="logo-area">        <img id="sidebarLogo" src="data:image/png;base64,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" alt="PrintArt Creative Logo" style="display: block;">        <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">                   </div>        <h2></h2>    </div>    <button class="nav-btn" onclick="showPage('dashboard',this)">        <span class="nav-icon">▣</span>        Dashboard    </button>    <button class="nav-btn" onclick="showPage('quotation')">        <span class="nav-icon">📝</span>        New Quotation    </button>    <button class="nav-btn" onclick="showPage('quotations')">        <span class="nav-icon">📋</span>        Quotations    </button>    <button class="nav-btn" onclick="showPage('signages')">        <span class="nav-icon">🖼️</span>        Signage Projects    </button>    <button class="nav-btn" onclick="showPage('tracker',this)">        <span class="nav-icon">📊</span>        Project &amp; Sales Tracker    </button>    <button class="nav-btn" onclick="showPage('daily-report',this)">        <span class="nav-icon">📅</span>        Daily Report    </button>    <button class="nav-btn" onclick="showPage('finance',this)">        <span class="nav-icon">💰</span>        Financial Report    </button>    <button class="nav-btn" onclick="showPage('products')">        <span class="nav-icon">📦</span>        Product &amp; Price    </button>    <button class="nav-btn" onclick="showPage('settings',this)">        <span class="nav-icon">⚙</span>        Settings    </button></div><!-- =======================================================     MAIN======================================================= --><div class="main">    <div class="topbar">        <div>            <h1 id="pageTitle">Product &amp; Price Database</h1>            <span>                PrintArt Creative Graphics and Signs            </span>        </div>        <div style="display:flex;align-items:center;gap:15px;">            <span id="cloudStatus" class="cloud-status disconnected">☁ Cloud Disconnected</span>            <strong id="currentDate">September 28, 2026</strong>        </div>    </div>    <div class="content">
- <!-- =======================================================     DASHBOARD======================================================= --><section id="dashboard" class="page active">    <div class="dashboard-grid">        <div class="card">            <span class="card-icon">                📋            </span>            <div class="card-title">                TOTAL QUOTATIONS            </div>            <div class="card-value" id="dashTotalQuotes">0</div>        </div>        <div class="card orange">            <span class="card-icon">                ₱            </span>            <div class="card-title">                TOTAL QUOTATION VALUE            </div>            <div class="card-value" id="dashTotalValue">₱0.00</div>        </div>        <div class="card green">            <span class="card-icon">                ✓            </span>            <div class="card-title">                PENDING / APPROVED            </div>            <div class="card-value" id="dashPending">0</div>        </div>        <div class="card black">            <span class="card-icon">                ★            </span>            <div class="card-title">                COMPLETED            </div>            <div class="card-value" id="dashCompleted">0</div>        </div>    </div>    <div class="panel">        <div class="panel-header">            <h2>                Recent Quotations            </h2>            <button class="btn btn-primary" onclick="showPageByName('quotation')">                + New Quotation            </button>        </div>        <table class="data-table">            <thead>                <tr>                    <th>                        Quotation No.                    </th>                    <th>                        Date                    </th>                    <th>                        Client                    </th>                    <th>                        Total                    </th>                    <th>                        Status                    </th>                </tr>            </thead>            <tbody id="recentQuotes">            <tr>                <td colspan="5" style="text-align:center;color:#888;">                    No quotations saved yet.                </td>            </tr>        </tbody>        </table>    </div></section><!-- =======================================================     NEW QUOTATION======================================================= --><section id="quotation" class="page">
+@media (max-width:600px){
+  #daily-report .panel-header .button-row{display:grid;grid-template-columns:1fr 1fr;}
+  #daily-report .panel-header .button-row .btn:last-child{grid-column:1 / -1;}
+}
+</style> <script onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';" src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head><body><!-- =======================================================     SIDEBAR======================================================= --><div class="sidebar"> <div class="logo-area"> <img alt="PrintArt Creative Logo" id="sidebarLogo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANkAAABcCAYAAADjwxAdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABxSSURBVHhe7Z0HnFXF9cfP27e77C5FYJEmiqgQBRQEBAwaS4wt9l6DJUaNRlGTGJO/0Y8lYoNgBDUmih81UayoqJFeLChFwIIVTaKAoUmRhW3/+c575zFvuO/tAr5d3Z0fzJ47d87UO2fOzLlz58WKi4urJSAgIGeIFRUVVcdiMamu3iRrwR/8wf8t+oMmCwjILawmS14HBATkAEGTBQTkGHk6dww00EBzQ4MmCwjIMYJ10SD4gz+n/qDJAgJyi7AmCzTQHNOgyQICcoygyQINNMc0aLKAgBwjL0kzSqIihIfwKKoI4ZnDgyYLCMgxwpos0EBzTIMmCwjIMVJrsoCAgNwgCFlAQI4RrItJhPAQHkUV2xIe1mQBkYjFROJ5eVJRWZW8E7C1CNPFgM2QZwSstEWBHNa3jbk2noBtQhCygDQgYJ3bFcrYa1pIv53KjUpLBgRsNYKQBaSA0upYmi8jBpdIj1ZlEpfqIGPfAoKQBVigwdq3KpAnhrSWA7qUGfHaINV58WRowLYgCFkDABpoa5yC607bF8o955dI99Iq0ynyJVadbwQt2MS+DVgh43NpF3Xp5zovL89Sda5feVz4/m2Nr7yuc6H+msIVtcnfddnKr86F6+eypvi+H6th4jqRRrPiQhl10fZywK6VhrdMYnnVRrPFU1NFeF34fk1fURO/+qG4qPK64J4Ll1f5a/K74J6LnPvr24RfWFgobdu23axgGzZskJUrV0pFRcVm7yRc0IClpaXSpEkTmwYO/srKSlmzZo2sW7dOqqqym6Hj8bhsv/32Ni3yW7FihaU+mjVrZvMhPFOZyJ/6UC94li9fLuvXr0+GJkA+7dq1k/z8/OSdaJAWZf/qq69k48aNybvpaFqSLyce3lmWLS+TvCqjfWLoH8pm2pMm1WLSvuY6ZsLzqgqkuGmBjJv2iaz7plx2atdcTv5hoZw2sFJ23w6ecqHFhk1oIjc8tcKUIZFEFKgD9f3666/lm2++yfqsXFC3Dh062LZ3QT1XrVol5eXlNq2o9IhL+xUUFCTvZAbxs7VfXaDehWyHHXaQKVOmbDbaICRffPGF3HHHHfKvf/3L+qMa3JRf/vKXv8gBBxyQlga8CNkTTzwh9913nxXYTMKG8Lz22mtSUlIi//73v+WCCy6QTz75JBmaAA/21FNPld/85jdy1llnyQcffBCZHp3u2Wefld13392W+cILL5SpU6emlR1BnThxou1k3Cdt4F4r6BzHHnusfPjhh8k76WjeNF/69mgt02cvs20B0tqJa5smA1CiHuam9OnZXua/t1jKK2N2QGle0kTuvfE42a/FFClZv9xGGza+UG54mnazKUWib9++Mnr0aLn//vtl5MiRts61AcL1xsyZ0qply7T64xjEhg8fLmPHjrWDrd/OPOfJkyfbvuO3lw/iHnTQQfLf//43eafukd6z6wE0EiMhI5PrOnbsKP369ZNHHnlE7rrrLmnTpk1kg3KvpXlQ7du3T4uPv2vXrvK73/1OXnzxRdl7772zPhDKQBw0WiYNU1RUJDvvvLPtVD179txsYFCgWUkLh0D5oCNRHy1nqtzmuq2hvvNH+zQgQ9V5pixxmTv7TZk2Y7pMnT7VuGkyxQj35GlTZdLkKXYgmzJpikycPEFeeP5xEy8mvffaS2bPni1DrrpCYvlNpGSnw8w0sZNJNFEvR1QjQbkYAHbaaSc5/vjjpVWrVjV2ehelbUrT6kn925uBp4dpWwbGUaNG2faJamfaWNvNTcN1Nsw81/qG1WQ0jI6idU3p1E899ZRtSO4Brlu3bm0FDR5GRzTarbfeaqcRbnymZTfffLMMHDgw7T5aqXPnzqkpxaxZs+SII46QsjKz5nD4oE2bNpW3337bxvnPf/4jZ599tnz00UdpfID7jLDkiSY788wzUxpG+eh406dPlz333NOW+5RTTpHx48fbEVXTQ4gff/xx2wE0bWDD8dpm4A9aplzOGXyOfPbZZ6n4Lm1WHJd+PdvIjLnLZcaMGXL5kMtl5YqVJrYJN//IF94EP+VM+DuVinz0+dcy5MqrzTSvTO69b5SMfvAu6bN6hJSsfsfyJTTZKnO9qX5KwXbbbWc1CoMZGvdnP/uZvPTSS6k8o8qrFDf2+efsAEk5AfcQvI4dOqZegv/tb3+Ta665xk65NT7947HHHrP9Az9tZtN00uG++WPLcvLJJ8vSpUtT9+uc1vd0kQZDEBixeFhvvPFGag3DKHnLLbfYxly4cKEceOCBdo3lgorQsXnggwYNkiVLltjRGfzkJz+Rv/71r1ZgEc4zzjjDdgIfpEE50FQIIvEXLVqUDN2E7t272/R69epl+SnTOeecI++8Q6dMNCMCRGdXIeMBv/LKK6lwBfEVmj8j75FHHinTpk2zQq5xoH58RTOzturXs1RmmOkiWutXl1wqf/7zn016ZnAyHWzO7Dly3733yscff5yWxqB9dpF3PlgsF/3yMmlSaKaKhmf03++WPmuHGyFbYDvn8ImFcuNTq0w6m+dNeS+++GL7fKgzaTNQHX744bJ27dqM5VVQZ+Ix5eO5vfrqq3aA41kyJb/qqqvsLIB2OO644+Tzzz9PS5P4OPeaPnTUUUfZqf+7775rw4ijrr5gn7QWVlGXfhqaEfCf//yn/PrXv7YNywOmg44bN06ee+45y9epUyercYAbn4e93377ycMPPyz33HOPnYbRoKTBWghBAMRBOKB+eUgDAbv66qvtA/aneMpPWueff77tTJSPQYE8mUK6QuPDzw8/5VNHXISRNkArU0833IefnrmT+ltWtj7Zbs/LS+NetG0zctRIOwhpZyO+7XL88TqfL1D4/PwoLwMCbcW1duC9zPTzsMPMlNNri6j6g9NPP13+8Y9/yPXXX2/LR10ZDG+//fbUGoppYfPmzdPSsOVPPmMcfm2/G2+80a6xuc8zqk375dpvW0MbSVGXfh4WU0FGfh6OPiC9pvMDGgwH3PgIxGWXXSb777+/7ZwILaCiTOuYAsKPwwKm1y7gZVS+/PLLLb8P5ac8TNswZjBdJB6CS6dG4LTsCs3Lz8/3kydp9unTx2p1/yFlj2/ST4iMBdM2yvKhKR8abdTIkdKlS5c0I4GNby41lqZHuJ83Pj9/cOKJJ1oBoBMzZWQaDphC08ldRJWf54RAsLblGg1G+5E/z1GNOAidWhoVfnr0AQZo1t08cx9R+bvItd/2Cm3Y+qQ4GkgXtN26dZM//OEPcswxx1ie9957LzWNzBQfxzpnl112sR32hhtukB/84AeWh2mmThX9+Agy0xPt4H643mO6ymKcdRZrs/fff9+Gs/BnuqUdWUfPqHSiKNAHQ2erbbwUdYSsTWkbO6offuQRcpkZNM48+yxZuXKVnUYriEdMaJXbIexNb6Awzs8PoaCdqSfm8UsuucRO0agD1kYEx+bhxXMpcaE6mDLVYzA49NBD7awEPzwMZv/73/9S8aKoAv9WtV+OaZomq09KgRCMmTNn2oZ98803rYbCYoVwMRVQIcuUDg9r2LBhMmfOHGsiP++88+wox/uboUOH2nk98OPxMFUDgkzpM2XFinbFFVfYQYDpDmVFw2IJZXrqTh0zpRNFqb8+lNrwu9RcJf9WSyWGDfOP9Sydv3Wr1nK+aQdeYVBHmwfx+G/juyK66Qpo8n5+mPzRQrw6wXKLEDCtR+NgyOAVB51d4cdXCigPAyvPl7UwBo0f/ehHNmz16tXWskzZiZMpHTc9UBNfXdN612QUBIqjc7rTBjo/I/Cf/vQn2/gKN34UuE+HIm2sf7/97W+t2V3hx4dqg7jw+SgPZVMh4p3aRRddlDIqYCnF9IyhBUTlk436qG0804KWmhKmNNS1/3etnHTSiTL4nMHytemsu+22m1x08QWyfZvW0qNHNxsnET/R/i5sGkkH3PwYtH7xi1/Yei9btsxqMt4rMujQBjy/E044weTRI9VObnyXAuLguAc/zw06YcIEu1bnHakiUzpueqAmvrqm3wlNBtAGaCosTKx7sNhhudpnn31kxIgRNixbfIAfjcW7NdKjklj28LsWr5rSUUSFk6Y68mD0xSKJNRI+yquvHvz4NVEftYpXTT6Jh5mAKZuZrS5ftlzi+XHZtevOsnffXjJo/0Hy1qy3ZK/e3WWP3btYszfxKecmoAWTHcQ4vdb8ABZb2hh300032feQGGtY07KOIj3WmKyRVMgiy+2AtTLTdbWoMpg9+eST9t0e1zhQUzqKTHz1RfO0wwC9rmu/XmO1Y93Tu3dva9bFysSuDYXyu3HUUSHcggUL7DSGUZb7jLik6fLi/PhR8MNdPvJSP3kxuut01OUDbnx1rl87o49M/Ol+s45LeI1IxM1gskbuHD7MdNgPZP7b82TiK5PlhbHj5NGHH5F5cxfImzPnyIsvTZW8KhPX/iNeMgEPlMrND4MGU3CdCtIGKgTqtF14b8krD3+N5KanYFfHW2+9ZQWNwZD2QDsyM3D5/fjutQs/vL799txFHNDruva7hUI74PwHB5Q/yq9pwM8UkcUz1xhTMM2raV8d8P2KTOFRfDjyoZMccsgh8umnn6b4uA/c+Oqi/D788Ch/4iJRd9OCZlBaK3fecYcsXPiBtTSuX/eNVJn2LN9YLhvKNsi6detlg7muzqs0mirRtvwziZhrk4KmrY5w42hfjEhoaq6ZxvNODIexAof5nhfv8GO4wA+vllPTUj8gXAcZ2pB3hICB9txzz00bgPz4vt+HH15fflsD7aD1RUHU9ZZSwDWdG/M1ayaAaffoo49OPbBs8UGm8Gx85IlGwxTP1JGBQpEpHZ/6qE08HmLbjs2loIDPU8qlwKi1Xt07yIDenWTA3jvKgD6G9ulo3A7W9e/dXvr16iBtWmJmT6ajmswS8yfZSfQ++dB2rJEwbFDXMWPG2I0Dr7/+ujVWcY176KGHrKHJ5c/U7toZAfdYErDXFAMKGpD3cAMGDKjxuSlV1MRX19SW3pW8uqZaEL0HsvFno4BrHJYptuTQIVgr/P73v7cbcpUniioyhbtclNsPR7DocOxQ4GWqX7dc0PVllTJ95hJbz+qqjVJhyvDF4pXy5dLV8uUSdWuMf418wfXStSZ8tbw+e5F8s35jSlslE+RP4trAtGTySqwW49UFdWINpVvFiKvx8aONdLcM29oYdBRuuX1wj/hYK9mcjZ9ZCEarFi1aRLa3TxU18dU1jZuKXE8F6sthrcISxYOZN2+enS4wzYnijXKMeLvuuqsdBXk4WKXYvQ/4zATz8OLFi+30hrzYwxiVRi8zPVn02SJ5f+FCmWjSYC3o8gDWCIzMny761I7g8+fPt/d9Pj7VQNjImxe15O/y+I78eYGMqZp2oKNR9ihe3/EY161L7Of85aWXmryWSsvWbaV9x87WtbNuZ2nXAT90Z3u/U6fO0q1bVxk4aD9Z9fVKmTNrthkcjpAOG2dKYfkS00Fi8saifJm2kJfMMTn2uGOkyLQf5cPYw3SctZRfHtZUxSUlUllRYdrzM2lSVGTbwH+mgBkGgxE7aXhutFuFiceWKN7DMfVGq5Ef7QHcNNRhkdxjjz3sqwRtP2YVmfjr3H0X9i7SyZB6f2SsDagE8YHGJR1AGOlDAWHuNE7h8mn8qDL4aWk+UYBPebPxATd/nK5JawLJ55vpYUF+XMo2Vsno0Q9IUVFJSgNFVMEiWSwzvUzwPDv2GdPJJ5r490nf1cOk2dp5Zh0nMmxigdzwFJ+6JDblavm0faLaCLj1gSI4UfUhDAcIVx7NR8O5TxrZAJ/GqW371RViJSUltqVoMArpU0UI/26FmzvSdrsCueO8LvLy/BXy+OQVkmcHq0QnTV4kIgP1+zQZ1rJ1a3nowXuk15qh0mL1+7aTDuejzadXmeuEQLn511S+EL4pvN41WcCWg2dX2jxP7j63pRzRtVJmLC6Sz5odKsWlAyUWL0xpMqcPbAY4jC42f+KSZ6aGBUWFsm//7lLw9pXSatVc00k2feqCkAVsPVKaLOD7AQSneXGe3H9hSzmsm1kvmRtVlUVS1r6HVG3XRYqqC4zwmCmTEYzKGNPoTY/XmudjTKt4t2ZG2iozjTNCGa80tKDAxFkv8c9flOKNa+zxA3eObyI3PROEbFsRNNn3CAhH+5Zxue2sFnJ0dyMoeRvsx432AVaadVKsRKryKqw/ZrQTEaqrK41cJXiskFUbIeOfuWQ1VGXCYrLRCJURTsMbN1eEVVRtlGFTiuXGJ1cHIdtGBE32PQEzv3g8Jg//qo38dPc1RhAQHkL4kzAUJLZYJQw7HEnAg60S+PIkj5mhfQGNYMFaJfmVcaPN0o82qDaMyGdVbKMMndhMbh2zNgjZNiLt+AFF8H/3/Oa/HNK3jfywS4UUxculyqyZ0Fb0f3QR0mMmgIbPTBaNI741WBjdRLhJ0aYBP9NJQjj6zaZvnH7yQnzLXRWTyR/HZNI8trVteXmD3/EHTfb9gHluyXMvEo/LCpaBGjlyAfpJUGLbjrAmM2DkUbgjUCZsKT9w44DaxttS1FU+tcXWtFVDQ6PXZPoSkzMm2OVRUVHzYarwa+eBl3dK2eLAq/EAvK7LBo27pXkoiBP1Ah7Ai8tWjkw8tYm7NW3VEGF34QNtLNfv04YUzoNnKw4H4XCMAF9Ss3ufL6vZKxcVH3DiFfw4jkRgC9DgwYPTzhIBSgE7yuFVR1w2wgKXPyo+h8iMG/dC2kE4wKdg0sQJsmDBfPstHp/84G69dWiaMLjxEAL2GvJFut5zwwF7FtlCRltpOOmx4ZrtUHysCTRM47GljKP+tK1wzz3/fOowJOVzqRu/IYU3Sk2mAvboo4/K3Llz5YEHHrD7Bvkchu+g8Ou5Ei6Ix/kjnOnBNY5zKfjuje/WOFBHG1cBD99hkR/XAB72+NHxfH4X8POV8d133y3XXXedPaU3Ez+8nK3BeSXUg53wnGvCnj8+go2Kx54/9gX+/Oc/tzRqKxJb1siXr7/5UBMeBIUysV+UIyLQ/j44LwUBhFfrTZkQTPYjNiY0Susiu7s5o4ITrg4++GC7eVU7GLygtunRmTiWG03I5zWkU1P+tfUjBAg8u9kRGLQoO+BBpvgIBV+Cv/DCC/bcjGzlIX0+lOWYOzSa2wYuP2cZcrAsZ29whDbajbQ574TPieCNSl/R2P32y2gAVdfQ/WZgsUe5IWgIGA3i8gKX3/UzxcLRmemkTIs4PMfdJa5U+TnF6o9//KM9XxCNxHdSaBzlcfnVT/qcp4+mZDrKtJFd66QHfH691vJRtqhw36/IFI7jUCOEm6+iSZffBOBrBvd8eZcfoL35upl646699lrp269fjeVviP60NVljoTxoBI2jm2vDr5QG4xQovqXi0ww+4eBIbqZ++JXPp3wiw7dYHNUG5cxC7WxR/IBwBgFO1uWwmmeeeUaGDBlihQ9kiqcUUN7a8IFsfAwgY8aMsXVH6DmNih+DQPOp9vPjMYjwZTQCqY7DfKLSb+g0TZM1For24lslpl/ZRlaf4vjOiY8/OYqbAz35Vox1E5QG9eMBDBCs9dT9+Mc/tt9iAZ8fiuOLYE7/pTNTXoSYaRq/XqM8yu9TfcAgG5+LbHwIElNQBIej71hL8r1cVH2VMq3ky2jqS1323XdfeebppzPyN2TaKK2LCAdGCjoBXzHr1AqB42BU1lmZ4mMO//LLL+3hpldeeaWdLupxaOqUXymdFCMBC38c+UfxqSP/k046yX7Oz1SNPLFiMkXjwB46e7b4tfW7yBSuFKFhHcZpVfzwhn4U6fKpA9SZgYT6at3d1yNRVJ36ffp9Dc+6JvNpQwmn4hgGsJZxLAHnUnC8mf6WmftrK1FUGxCTPycHczoW6yeE1OdXweVVAWnDzzWH+8Dj8qtDUzL6c4KygjyxYvIFNadAufGU6jW8WkY/3PUDn9cPVwo4A5EvwxEahcunDvDKgV9joa6cuoxjXcarDuDGU+rGb0jhcTOK2+MHaOjGQgHaAc3A0d2YlNFIrLWwELIGYiSOis/ZIZwPyMnBxMM6x9EGGAZ0jefyAzQTFk2ORcBYgEWO4+P0nEE/H9ZwpIsW0zUPQHvweT1lIE8/nubH6wemdPqLoFF8SpnmMp3VX8vJxk8dMfVTjkztoxRw3AO8nKVJnZmi8yqAts8Ur0HSsHdx0yhEg+CyAT7g8kXd86E8LjLxZ0uvtnllC3exJbxbii2pc0NGo7Qu+hSno2tUuEsZwX0+nGoc975LNZ5LQRR/tnCN7993aU3hLs1Wjm2lOLe+ek/DGwu1p1Xh0VGnsVDWSljreNHLNWZ4gImcdQ/3mba5vyiCY7cHPPpTQcRlqtlzzz1lh44dUz8qzn3WVrobYscdd7TTPMAuCH5IgykaacLLiVu8b+OhYCRQ+OVmrYNTHu6zDYzDRNl7yfqPMgCmqKzfdjRldusI/HRZa3FqGOf4q1EDkB7xtNNgdNmrVy/pQF2d3+GmThxPThmoq578TL47dOoku3XrKgX5+an7fv4NmSbs140MVBwBw0ReboSAd1esmwACxNn2CAen5SJsCqyQvCPCIpmCaUv2Ju5oOhJxMc8rOF2XbVh0QH4BRoGgqikekAc/OUSH5X4mwN+/f397sq77ENmyddttt1kBOff881JhCOOAgQPs8WzsNdT7PrjPCcCUs/+A/tbwo/d5Ec47RcWpp51mhZfj4Y4/4fjk3cQgwst26nuK4SEujnUZ7VxRXiG99+5t4zY2NFoh40cH2cD61dKl1lTOiKtAy/B+B4shxgwFGg7zPZ0X7QVMV7LpFZcUW02k2op7pMkPC3JAJ52Ne4D7KtSATo2JnnMceemcCcRjMy/lQ0tqegj3gw8+aH/LraRok0AQvmrlKpsu5nS17EUBg8SRR/3U1le1DUAotG24RuPNnTPHGoc4ChyQD2Wg7AwmzZpt2q+IVudQntPPPENWLF9hp+WNDY1yTYbDusdLZDoD7330544IY4cDJn4sga7woYHohMuWL7Pah7jwo4GWLlkqkyZNsjtAAPeJi8me39jCr/fVqR/B5F0bQsBvRut9lwKmfkwT+bUTygw0LaaITG1bGgHU+wBhRhOhpTK9nwNs/br3nnultHWpnboqXD59z7XLrrvYNBlAXDCtxPpIO2k88kfQb7tlqOxmBikGG+Cm29Bpo1yT4TBdM/072oz+/IAd77y0YehMnEaMyZ0OoycA00HYtY8pmk6r6zX40XD4NQ34GbVJg84Hj/7qC2A9pvH1CwC2LbGTBNO7wi03mvLll1+2pn+0CoOArokwr2O25x0WWknRwwjmwH33lQnjx6f2VwI3XRzxjzeDDq8G0Oyky33KzS5+NQwtMFrx4IMOtoPCXSNGWKHXOlMnXm3woxe0ESAe+xj5mdvZs2bZNoDfzb+h00ZtwrcNYBwPXTuKCw2LQrawrUFNZQFunrXNvzbpAngULl9UPrVNU7Gl/A0N4T1ZQECO0SgNHwEBdYkgZAEBOUYQsoCAHMMKGYtSF8Ef/C6Cfxv9wfAREJBbhOliQECOEYQsICDHSFuTBRpooDmgYU0WEJBbBOuiQfAHv4tv3R80WUBAbhHWZIEGmmsaNFlAQG6RdU3mU0UID+FRVBHCvfCgyQICcouwJgs00FzToMkCAnKLoMkCDTTXNGiygIDcIta0adMgZAEBOUTQZAEBOYXI/wMoQK3awZ0PrAAAAABJRU5ErkJggg==" style="display: block;"/> <div class="logo-placeholder" id="logoPlaceholder" style="display: none;"> </div> <h2></h2> </div> <button class="nav-btn" onclick="showPage('dashboard',this)"> <span class="nav-icon">▣</span>        Dashboard    </button> <button class="nav-btn" onclick="showPage('quotation')"> <span class="nav-icon">📝</span>        New Quotation    </button> <button class="nav-btn" onclick="showPage('quotations')"> <span class="nav-icon">📋</span>        Quotations    </button> <button class="nav-btn" onclick="showPage('signages')"> <span class="nav-icon">🖼️</span>        Signage Projects    </button>  <button class="nav-btn" onclick="showPage('daily-report',this)"> <span class="nav-icon">📅</span>        Daily Report    </button> <button class="nav-btn" onclick="showPage('finance',this)"> <span class="nav-icon">💰</span>        Financial Report    </button> <button class="nav-btn" onclick="showPage('products')"> <span class="nav-icon">📦</span>        Product &amp; Price    </button> <button class="nav-btn" onclick="showPage('settings',this)"> <span class="nav-icon">⚙</span>        Settings    </button></div><!-- =======================================================     MAIN======================================================= --><div class="main"> <div class="topbar"> <div> <h1 id="pageTitle">Product &amp; Price Database</h1> <span>                PrintArt Creative Graphics and Signs            </span> </div> <div style="display:flex;align-items:center;gap:15px;"> <span class="cloud-status disconnected" id="cloudStatus">☁ Cloud Disconnected</span> <strong id="currentDate">September 28, 2026</strong> </div> </div> <div class="content">
+<!-- =======================================================     DASHBOARD======================================================= --><section class="page active" id="dashboard"> <div class="dashboard-grid"> <div class="card"> <span class="card-icon">                📋            </span> <div class="card-title">                TOTAL QUOTATIONS            </div> <div class="card-value" id="dashTotalQuotes">0</div> </div> <div class="card orange"> <span class="card-icon">                ₱            </span> <div class="card-title">                TOTAL QUOTATION VALUE            </div> <div class="card-value" id="dashTotalValue">₱0.00</div> </div> <div class="card green"> <span class="card-icon">                ✓            </span> <div class="card-title">                PENDING / APPROVED            </div> <div class="card-value" id="dashPending">0</div> </div> <div class="card black"> <span class="card-icon">                ★            </span> <div class="card-title">                COMPLETED            </div> <div class="card-value" id="dashCompleted">0</div> </div> </div> <div class="panel"> <div class="panel-header"> <h2>                Recent Quotations            </h2> <button class="btn btn-primary" onclick="showPageByName('quotation')">                + New Quotation            </button> </div> <table class="data-table"> <thead> <tr> <th>                        Quotation No.                    </th> <th>                        Date                    </th> <th>                        Client                    </th> <th>                        Total                    </th> <th>                        Status                    </th> </tr> </thead> <tbody id="recentQuotes"> <tr> <td colspan="5" style="text-align:center;color:#888;">                    No quotations saved yet.                </td> </tr> </tbody> </table> </div></section><!-- =======================================================     NEW QUOTATION======================================================= --><section class="page" id="quotation">
 <div class="panel">
-  <div class="panel-header">
-    <h2>Quotation Data Entry</h2>
-    <strong id="quotationNumber">PAQ-0001-2026</strong>
-  </div>
-
-  <div class="form-grid">
-    <div class="field">
-      <label>Quotation Date</label>
-      <input type="date" id="quoteDate">
-    </div>
-    <div class="field">
-      <label>Client / Customer Name</label>
-      <input id="clientName" placeholder="Enter client name">
-    </div>
-    <div class="field">
-      <label>Contact Number</label>
-      <input id="clientContact" placeholder="09XX XXX XXXX">
-    </div>
-    <div class="field">
-      <label>Email</label>
-      <input id="clientEmail" placeholder="client@email.com">
-    </div>
-    <div class="field">
-      <label>Project / Job Description</label>
-      <input id="projectName" placeholder="Example: Store Signage">
-    </div>
-    <div class="field">
-      <label>Address</label>
-      <input id="clientAddress" placeholder="Client address">
-    </div>
-  </div>
-
-  <hr style="margin:30px 0;border:0;border-top:1px solid #ddd;">
-
-  <h3>Add Products / Services</h3>
-
-  <div class="form-grid three" style="align-items:end;">
-    <div class="field">
-      <label>Product / Service</label>
-      <select id="productSelect" onchange="selectProduct()">
-        <option value="">Select product...</option>
-      </select>
-      <small id="formulaHint" style="display:block;color:#777;margin-top:5px;">
+<div class="panel-header">
+<h2>Quotation Data Entry</h2>
+<strong id="quotationNumber">PAQ-0001-2026</strong>
+</div>
+<div class="form-grid">
+<div class="field">
+<label>Quotation Date</label>
+<input id="quoteDate" type="date"/>
+</div>
+<div class="field">
+<label>Client / Customer Name</label>
+<input id="clientName" placeholder="Enter client name"/>
+</div>
+<div class="field">
+<label>Contact Number</label>
+<input id="clientContact" placeholder="09XX XXX XXXX"/>
+</div>
+<div class="field">
+<label>Email</label>
+<input id="clientEmail" placeholder="client@email.com"/>
+</div>
+<div class="field">
+<label>Project / Job Description</label>
+<input id="projectName" placeholder="Example: Store Signage"/>
+</div>
+<div class="field">
+<label>Address</label>
+<input id="clientAddress" placeholder="Client address"/>
+</div>
+</div>
+<hr style="margin:30px 0;border:0;border-top:1px solid #ddd;"/>
+<h3>Add Products / Services</h3>
+<div class="form-grid three" style="align-items:end;">
+<div class="field">
+<label>Product / Service</label>
+<select id="productSelect" onchange="selectProduct()">
+<option value="">Select product...</option>
+</select>
+<small id="formulaHint" style="display:block;color:#777;margin-top:5px;">
         Select a product to load its pricing formula.
       </small>
-    </div>
-
-    <div class="field" id="lengthField">
-      <label>Length</label>
-      <input type="number" id="itemLength" min="0" step="0.01" placeholder="0.00" oninput="updateQuotationPricePreview()">
-    </div>
-
-    <div class="field" id="widthField">
-      <label>Width</label>
-      <input type="number" id="itemWidth" min="0" step="0.01" placeholder="0.00" oninput="updateQuotationPricePreview()">
-    </div>
-
-    <div class="field">
-      <label>Quantity</label>
-      <input type="number" id="itemQty" value="1" min="1" step="1" oninput="updateQuotationPricePreview()">
-    </div>
-
-    <div class="field">
-      <label>Calculated Unit / Item Price</label>
-      <div class="price-display">₱ <span id="selectedPrice">0.00</span></div>
-    </div>
-
-  </div>
-
-  <div id="minimumNotice" style="display:none;margin-top:10px;padding:10px;border-radius:8px;background:#fff8e6;color:#9a6900;font-size:12px;"></div>
-
-  <div class="button-row">
-    <button class="btn btn-primary" onclick="addItem()">+ Add Item</button>
-  </div>
-
-  <div style="overflow-x:auto;">
-    <table class="item-table">
-      <thead>
-        <tr>
-          <th>Product / Service</th>
-          <th>Size</th>
-          <th width="90">Qty</th>
-          <th width="140">Unit Price</th>
-          <th width="140">Amount</th>
-          <th width="70">Action</th>
-        </tr>
-      </thead>
-      <tbody id="itemsBody"></tbody>
-    </table>
-  </div>
-
-  <div class="totals-box">
-    <div class="total-line">
-      <span>Subtotal</span>
-      <strong id="subtotal">₱0.00</strong>
-    </div>
-    <div class="total-line grand">
-      <span>TOTAL</span>
-      <strong id="grandTotal">₱0.00</strong>
-    </div>
-    <div class="total-line deposit">
-      <span>60% DOWNPAYMENT</span>
-      <strong id="downpayment">₱0.00</strong>
-    </div>
-    <div class="total-line balance">
-      <span>40% REMAINING BALANCE</span>
-      <strong id="remaining">₱0.00</strong>
-    </div>
-  </div>
-
-  <div class="form-grid" style="margin-top:25px;">
-    <div class="field">
-      <label>Quotation Status</label>
-      <select id="quoteStatus">
-        <option value="Pending">Pending</option>
-        <option value="Approved">Approved</option>
-        <option value="Completed">Completed</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Notes / Terms</label>
-      <textarea id="quoteNotes" rows="3" placeholder="Quotation notes, terms and conditions..."></textarea>
-    </div>
-
-    <div class="field">
-      <label>Quotation Image <span style="font-weight:normal;color:#888;">(Optional)</span></label>
-      <div class="quote-image-upload">
-        <input type="file" id="quotationImage" accept="image/*" onchange="handleQuotationImage(this)">
-        <div class="quote-image-note">Optional reference/design image.</div>
-        <img id="quotationImagePreview" class="quote-image-preview" alt="Quotation image preview">
-        <div class="button-row" style="margin-top:10px;display:none;" id="quotationImageActions">
-          <button type="button" class="btn btn-light" onclick="removeQuotationImage()">Remove Image</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="button-row">
-    <button class="btn btn-green" onclick="saveQuotation()">💾 Save Quotation</button>
-    <button class="btn btn-dark" onclick="previewCurrentQuotation()">👁 Preview</button>
-    <button class="btn btn-light" onclick="clearQuotation()">Clear</button>
-  </div>
 </div>
-</section><!-- =======================================================     QUOTATIONS======================================================= --><section id="quotations" class="page"><div class="panel">    <div class="panel-header">        <h2>            Quotation Compilation        </h2>        <input class="search-box" id="quoteSearch" oninput="renderQuotations()" placeholder="Search quotation / client...">    </div>    <div style="overflow-x:auto;">        <table class="data-table">            <thead>                <tr>                    <th>                        Quotation No.                    </th>                    <th>                        Date                    </th>                    <th>                        Client                    </th>                    <th>                        Project                    </th>                    <th>                        Total                    </th>                    <th>                        Status                    </th>                    <th>                        Actions                    </th>                </tr>            </thead>            <tbody id="quotesTable">            <tr>                <td colspan="7" style="text-align:center;color:#888;">                    No quotations found.                </td>            </tr>        </tbody>        </table>    </div></div></section><!-- =======================================================     PRODUCTS======================================================= -->
+<div class="field" id="lengthField">
+<label>Length</label>
+<input id="itemLength" min="0" oninput="updateQuotationPricePreview()" placeholder="0.00" step="0.01" type="number"/>
+</div>
+<div class="field" id="widthField">
+<label>Width</label>
+<input id="itemWidth" min="0" oninput="updateQuotationPricePreview()" placeholder="0.00" step="0.01" type="number"/>
+</div>
+<div class="field">
+<label>Quantity</label>
+<input id="itemQty" min="1" oninput="updateQuotationPricePreview()" step="1" type="number" value="1"/>
+</div>
+<div class="field">
+<label>Calculated Unit / Item Price</label>
+<div class="price-display">₱ <span id="selectedPrice">0.00</span></div>
+</div>
+</div>
+<div id="minimumNotice" style="display:none;margin-top:10px;padding:10px;border-radius:8px;background:#fff8e6;color:#9a6900;font-size:12px;"></div>
+<div class="button-row">
+<button class="btn btn-primary" onclick="addItem()">+ Add Item</button>
+</div>
+<div style="overflow-x:auto;">
+<table class="item-table">
+<thead>
+<tr>
+<th>Product / Service</th>
+<th>Size</th>
+<th width="90">Qty</th>
+<th width="140">Unit Price</th>
+<th width="140">Amount</th>
+<th width="70">Action</th>
+</tr>
+</thead>
+<tbody id="itemsBody"></tbody>
+</table>
+</div>
+<div class="totals-box">
+<div class="total-line">
+<span>Subtotal</span>
+<strong id="subtotal">₱0.00</strong>
+</div>
+<div class="total-line grand">
+<span>TOTAL</span>
+<strong id="grandTotal">₱0.00</strong>
+</div>
+<div class="total-line deposit">
+<span>60% DOWNPAYMENT</span>
+<strong id="downpayment">₱0.00</strong>
+</div>
+<div class="total-line balance">
+<span>40% REMAINING BALANCE</span>
+<strong id="remaining">₱0.00</strong>
+</div>
+</div>
+<div class="form-grid" style="margin-top:25px;">
+<div class="field">
+<label>Quotation Status</label>
+<select id="quoteStatus">
+<option value="Pending">Pending</option>
+<option value="Approved">Approved</option>
+<option value="Completed">Completed</option>
+</select>
+</div>
+<div class="field">
+<label>Notes / Terms</label>
+<textarea id="quoteNotes" placeholder="Quotation notes, terms and conditions..." rows="3"></textarea>
+</div>
+<div class="field">
+<label>Quotation Image <span style="font-weight:normal;color:#888;">(Optional)</span></label>
+<div class="quote-image-upload">
+<input accept="image/*" id="quotationImage" onchange="handleQuotationImage(this)" type="file"/>
+<div class="quote-image-note">Optional reference/design image.</div>
+<img alt="Quotation image preview" class="quote-image-preview" id="quotationImagePreview"/>
+<div class="button-row" id="quotationImageActions" style="margin-top:10px;display:none;">
+<button class="btn btn-light" onclick="removeQuotationImage()" type="button">Remove Image</button>
+</div>
+</div>
+</div>
+</div>
+<div class="button-row">
+<button class="btn btn-green" onclick="saveQuotation()">💾 Save Quotation</button>
+<button class="btn btn-dark" onclick="previewCurrentQuotation()">👁 Preview</button>
+<button class="btn btn-light" onclick="clearQuotation()">Clear</button>
+</div>
+</div>
+</section><!-- =======================================================     QUOTATIONS======================================================= --><section class="page" id="quotations"><div class="panel"> <div class="panel-header"> <h2>            Quotation Compilation        </h2> <input class="search-box" id="quoteSearch" oninput="renderQuotations()" placeholder="Search quotation / client..."/> </div> <div style="overflow-x:auto;"> <table class="data-table"> <thead> <tr> <th>                        Quotation No.                    </th> <th>                        Date                    </th> <th>                        Client                    </th> <th>                        Project                    </th> <th>                        Total                    </th> <th>                        Status                    </th> <th>                        Actions                    </th> </tr> </thead> <tbody id="quotesTable"> <tr> <td colspan="7" style="text-align:center;color:#888;">                    No quotations found.                </td> </tr> </tbody> </table> </div></div></section><!-- =======================================================     PRODUCTS======================================================= -->
 <!-- =======================================================
  SIGNAGE PROJECTS
 ======================================================= -->
-<section id="signages" class="page">
+<section class="page" id="signages">
 <div class="panel">
- <div class="panel-header">
-  <div>
-   <h2>Signage Projects</h2>
-   <span style="color:#777;font-size:12px;">Upload project images and track each signage status.</span>
-  </div>
-  <button class="btn btn-primary" onclick="openSignageForm()">+ New Signage Project</button>
- </div>
- <div class="signage-grid" id="signageGrid">
-  <div class="signage-empty">No signage projects saved yet.</div>
- </div>
+<div class="panel-header">
+<div>
+<h2>Signage Projects</h2>
+<span style="color:#777;font-size:12px;">Upload project images and track each signage status.</span>
 </div>
-
+<button class="btn btn-primary" onclick="openSignageForm()">+ New Signage Project</button>
+</div>
+<div class="signage-grid" id="signageGrid">
+<div class="signage-empty">No signage projects saved yet.</div>
+</div>
+</div>
 <div class="panel" id="signageForm" style="display: block;">
- <div class="panel-header">
-  <h2>Add / Edit Signage Project</h2>
-  <button class="btn btn-light" onclick="closeSignageForm()">Close</button>
- </div>
- <input type="hidden" id="editingSignageId" value="">
- <div class="form-grid">
-  <div class="field">
-   <label>Project / Signage Name</label>
-   <input id="signageProjectName" placeholder="Example: ABC Restaurant Signage">
-  </div>
-  <div class="field">
-   <label>Client / Customer</label>
-   <input id="signageClient" placeholder="Client name">
-  </div>
-  <div class="field">
-   <label>Status</label>
-   <select id="signageStatus">
-    <option value="New">New</option>
-    <option value="In Progress">In Progress</option>
-    <option value="For Approval">For Approval</option>
-    <option value="Approved">Approved</option>
-    <option value="Production">Production</option>
-    <option value="Completed">Completed</option>
-   </select>
-  </div>
-  <div class="field">
-   <label>Project / File Description</label>
-   <input id="signageDescription" placeholder="Example: Front wall signage, 8 x 12 ft">
-  </div>
- </div>
- <div class="field" style="margin-top:18px;">
-  <label>Upload Signage Image</label>
-  <div class="signage-upload">
-   <input type="file" id="signageFile" accept="image/*" onchange="previewSignageFile()">
-   <div class="quote-image-note">PNG, JPG, JPEG, WEBP. The file will be stored in the PrintArt cloud storage.</div>
-   <img id="signagePreview" class="signage-preview" alt="Signage preview" style="display: none;">
-  </div>
- </div>
- <div class="button-row">
-  <button class="btn btn-green" onclick="saveSignageProject()">Save Signage Project</button>
-  <button class="btn btn-light" onclick="closeSignageForm()">Cancel</button>
- </div>
+<div class="panel-header">
+<h2>Add / Edit Signage Project</h2>
+<button class="btn btn-light" onclick="closeSignageForm()">Close</button>
+</div>
+<input id="editingSignageId" type="hidden" value=""/>
+<div class="form-grid">
+<div class="field">
+<label>Project / Signage Name</label>
+<input id="signageProjectName" placeholder="Example: ABC Restaurant Signage"/>
+</div>
+<div class="field">
+<label>Client / Customer</label>
+<input id="signageClient" placeholder="Client name"/>
+</div>
+<div class="field">
+<label>Status</label>
+<select id="signageStatus">
+<option value="New">New</option>
+<option value="In Progress">In Progress</option>
+<option value="For Approval">For Approval</option>
+<option value="Approved">Approved</option>
+<option value="Production">Production</option>
+<option value="Completed">Completed</option>
+</select>
+</div>
+<div class="field">
+<label>Project / File Description</label>
+<input id="signageDescription" placeholder="Example: Front wall signage, 8 x 12 ft"/>
+</div>
+</div>
+<div class="field" style="margin-top:18px;">
+<label>Upload Signage Image</label>
+<div class="signage-upload">
+<input accept="image/*" id="signageFile" onchange="previewSignageFile()" type="file"/>
+<div class="quote-image-note">PNG, JPG, JPEG, WEBP. The file will be stored in the PrintArt cloud storage.</div>
+<img alt="Signage preview" class="signage-preview" id="signagePreview" style="display: none;"/>
+</div>
+</div>
+<div class="button-row">
+<button class="btn btn-green" onclick="saveSignageProject()">Save Signage Project</button>
+<button class="btn btn-light" onclick="closeSignageForm()">Cancel</button>
+</div>
 </div>
 </section>
-<section id="products" class="page">
+<section class="page" id="products">
 <div class="panel">
-  <div class="panel-header">
-    <div>
-      <h2>Product &amp; Price Database</h2>
-      <div class="quote-image-note">
+<div class="panel-header">
+<div>
+<h2>Product &amp; Price Database</h2>
+<div class="quote-image-note">
         Pricing is formula-based. The quotation system automatically uses the rate,
         formula, unit and extra charge saved here.
       </div>
-    </div>
-    <button class="btn btn-primary" onclick="openProductForm()">+ Add Product</button>
-  </div>
-
-  <div class="panel" style="margin:0 0 18px;padding:18px;background:#fafafa;">
-    <div class="form-grid">
-      <div class="field">
-        <label>Search Products</label>
-        <input id="productSearch" class="search-box" oninput="renderProducts()" placeholder="Search product / category...">
-      </div>
-      <div class="field">
-        <label>Formula Guide</label>
-        <div style="font-size:13px;color:#666;line-height:1.7;">
-          <strong>Area:</strong> L × W × Rate &nbsp; • &nbsp;
-          <strong>Area + Extra:</strong> L × W × Rate + Extra &nbsp; • &nbsp;
+</div>
+<button class="btn btn-primary" onclick="openProductForm()">+ Add Product</button>
+</div>
+<div class="panel" style="margin:0 0 18px;padding:18px;background:#fafafa;">
+<div class="form-grid">
+<div class="field">
+<label>Search Products</label>
+<input class="search-box" id="productSearch" oninput="renderProducts()" placeholder="Search product / category..."/>
+</div>
+<div class="field">
+<label>Formula Guide</label>
+<div style="font-size:13px;color:#666;line-height:1.7;">
+<strong>Area:</strong> L × W × Rate   •  
+          <strong>Area + Extra:</strong> L × W × Rate + Extra   •  
           <strong>Quantity:</strong> Qty × Rate
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="productsContainer"></div>
 </div>
-
+</div>
+</div>
+<div id="productsContainer"></div>
+</div>
 <div class="panel" id="productForm" style="display:none;">
-  <h3 id="productFormTitle">Add Product</h3>
-  <input type="hidden" id="editingProductId" value="">
-
-  <div class="form-grid">
-    <div class="field">
-      <label>Product / Service Name</label>
-      <input id="productName" placeholder="Example: Tarpaulin 10 oz">
-    </div>
-
-    <div class="field">
-      <label>Category</label>
-      <input id="productCategory" placeholder="Example: Tarpaulin">
-    </div>
-
-    <div class="field">
-      <label>Formula</label>
-      <select id="productFormulaType" onchange="updateProductFormulaFields()">
-        <option value="AREA_SQFT">L × W × Rate (SQ.FT)</option>
-        <option value="AREA_SQFT_EXTRA">L × W × Rate + Extra (SQ.FT)</option>
-        <option value="AREA_SQIN">L × W × Rate (SQ.IN)</option>
-        <option value="QUANTITY">Quantity × Rate</option>
-        <option value="QUANTITY_EXTRA">Quantity × Rate + Extra</option>
-        <option value="FIXED">Fixed Price</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Unit</label>
-      <input id="productUnit" placeholder="sq.ft / sq.in / pc / set">
-    </div>
-
-    <div class="field">
-      <label>Rate</label>
-      <input id="productRate" type="number" min="0" step="0.01" placeholder="Example: 25">
-      <small style="display:block;color:#777;margin-top:5px;">The main price used by the formula.</small>
-    </div>
-
-    <div class="field">
-      <label>Extra Charge</label>
-      <input id="productExtraCharge" type="number" min="0" step="0.01" value="0" placeholder="Example: 40">
-      <small style="display:block;color:#777;margin-top:5px;">Used for cutting or other fixed charges.</small>
-    </div>
-
-    <div class="field">
-      <label>Minimum Quantity</label>
-      <input id="productMinQty" type="number" min="1" step="1" value="1">
-    </div>
-
-    <div class="field">
-      <label>Dimension Unit</label>
-      <select id="productDimensionUnit">
-        <option value="ft">Feet (ft)</option>
-        <option value="in">Inches (in)</option>
-        <option value="none">No dimensions</option>
-      </select>
-    </div>
-  </div>
-
-  <div id="productFormulaPreview" class="price-display" style="margin-top:15px;">
+<h3 id="productFormTitle">Add Product</h3>
+<input id="editingProductId" type="hidden" value=""/>
+<div class="form-grid">
+<div class="field">
+<label>Product / Service Name</label>
+<input id="productName" placeholder="Example: Tarpaulin 10 oz"/>
+</div>
+<div class="field">
+<label>Category</label>
+<input id="productCategory" placeholder="Example: Tarpaulin"/>
+</div>
+<div class="field">
+<label>Formula</label>
+<select id="productFormulaType" onchange="updateProductFormulaFields()">
+<option value="AREA_SQFT">L × W × Rate (SQ.FT)</option>
+<option value="AREA_SQFT_EXTRA">L × W × Rate + Extra (SQ.FT)</option>
+<option value="AREA_SQIN">L × W × Rate (SQ.IN)</option>
+<option value="QUANTITY">Quantity × Rate</option>
+<option value="QUANTITY_EXTRA">Quantity × Rate + Extra</option>
+<option value="FIXED">Fixed Price</option>
+</select>
+</div>
+<div class="field">
+<label>Unit</label>
+<input id="productUnit" placeholder="sq.ft / sq.in / pc / set"/>
+</div>
+<div class="field">
+<label>Rate</label>
+<input id="productRate" min="0" placeholder="Example: 25" step="0.01" type="number"/>
+<small style="display:block;color:#777;margin-top:5px;">The main price used by the formula.</small>
+</div>
+<div class="field">
+<label>Extra Charge</label>
+<input id="productExtraCharge" min="0" placeholder="Example: 40" step="0.01" type="number" value="0"/>
+<small style="display:block;color:#777;margin-top:5px;">Used for cutting or other fixed charges.</small>
+</div>
+<div class="field">
+<label>Minimum Quantity</label>
+<input id="productMinQty" min="1" step="1" type="number" value="1"/>
+</div>
+<div class="field">
+<label>Dimension Unit</label>
+<select id="productDimensionUnit">
+<option value="ft">Feet (ft)</option>
+<option value="in">Inches (in)</option>
+<option value="none">No dimensions</option>
+</select>
+</div>
+</div>
+<div class="price-display" id="productFormulaPreview" style="margin-top:15px;">
     Formula: L × W × Rate
   </div>
-
-  <div class="button-row">
-    <button class="btn btn-green" onclick="saveProduct()">Save Product</button>
-    <button class="btn btn-light" onclick="closeProductForm()">Cancel</button>
-  </div>
+<div class="button-row">
+<button class="btn btn-green" onclick="saveProduct()">Save Product</button>
+<button class="btn btn-light" onclick="closeProductForm()">Cancel</button>
+</div>
 </div>
 </section>
 <!-- =======================================================     SETTINGS======================================================= -->
-
-
 <!-- =======================================================
      DAILY REPORT
 ======================================================= -->
-<section id="daily-report" class="page daily-report-page">
-
-    <!-- DAILY REPORT HEADER -->
-    <div class="daily-hero">
-        <div class="daily-hero-copy">
-            <div class="daily-eyebrow">CUSTOMER INQUIRY & QUOTATION LOG</div>
-            <h2>Daily Report</h2>
-            <p>Record every customer requesting a quotation before payment. Keep payment and project progress visible in one place.</p>
-        </div>
-        <div class="daily-hero-actions">
-            <button class="btn btn-light daily-action-btn" onclick="printDailyReport()">🖨 Print</button>
-            <button class="btn btn-light daily-action-btn" onclick="exportDailyReportCSV()">⇩ Export</button>
-            <button class="btn btn-primary daily-action-btn daily-add-btn" onclick="openDailyReportForm()">＋ New Customer</button>
-        </div>
-    </div>
-
-    <!-- DAILY KPI CARDS -->
-    <div class="daily-report-summary daily-kpi-grid">
-        <div class="daily-summary-card daily-kpi-request">
-            <div class="daily-kpi-icon">👥</div>
-            <div class="label">CUSTOMER REQUESTS</div>
-            <div class="value" id="dailyTotal">0</div>
-            <div class="daily-kpi-note">Total inquiries recorded</div>
-        </div>
-        <div class="daily-summary-card daily-kpi-unpaid">
-            <div class="daily-kpi-icon">⏳</div>
-            <div class="label">NOT YET PAID</div>
-            <div class="value" id="dailyUnpaid">0</div>
-            <div class="daily-kpi-note">Waiting for payment</div>
-        </div>
-        <div class="daily-summary-card daily-kpi-paid">
-            <div class="daily-kpi-icon">✓</div>
-            <div class="label">PARTIAL / PAID</div>
-            <div class="value" id="dailyPaid">0</div>
-            <div class="daily-kpi-note">Customers with payment</div>
-        </div>
-        <div class="daily-summary-card daily-kpi-production">
-            <div class="daily-kpi-icon">⚙</div>
-            <div class="label">FOR PRODUCTION</div>
-            <div class="value" id="dailyProduction">0</div>
-            <div class="daily-kpi-note">Production in progress</div>
-        </div>
-    </div>
-
-    <!-- FILTER / SEARCH PANEL -->
-    <div class="daily-filter-panel">
-        <div class="daily-section-heading">
-            <div>
-                <h3>Report Filters</h3>
-                <span>Filter customer requests by date, source, payment, or project status.</span>
-            </div>
-            <button class="btn btn-light daily-clear-btn" onclick="clearDailyReportFilters()">↻ Clear Filters</button>
-        </div>
-
-        <div class="daily-report-toolbar">
-            <div class="field">
-                <label>Date</label>
-                <input type="date" id="dailyReportDate" onchange="renderDailyReport()">
-            </div>
-            <div class="field">
-                <label>Source</label>
-                <select id="dailyReportSource" onchange="renderDailyReport()">
-                    <option value="">All Sources</option>
-                    <option>Facebook</option><option>Messenger</option><option>Walk-in</option><option>Referral</option>
-                    <option>Google</option><option>Website</option><option>Repeat Customer</option><option>TikTok</option>
-                    <option>Phone</option><option>Gmail</option><option>Other</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Payment Status</label>
-                <select id="dailyReportPayment" onchange="renderDailyReport()">
-                    <option value="">All Payment Status</option>
-                    <option value="Not Yet Paid">Not Yet Paid</option><option>Partial</option><option>Paid</option>
-                    <option>For Collection</option><option>Cancelled</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Project Status</label>
-                <select id="dailyReportProjectStatus" onchange="renderDailyReport()">
-                    <option value="">All Project Status</option>
-                    <option>For Quotation</option><option>Quoted</option><option>Approved</option><option>For Design</option>
-                    <option>Design Approved</option><option>For Production</option><option>In Production</option>
-                    <option>Ready for Release</option><option>For Installation</option><option>Completed</option>
-                    <option>On Hold</option><option>Cancelled</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <!-- REPORT TABLE -->
-    <div class="daily-table-panel">
-        <div class="daily-table-header">
-            <div>
-                <h3>Customer Requests</h3>
-                <span>Update payment and project status directly from the table.</span>
-            </div>
-            <div class="daily-live-badge"><span></span> LIVE CLOUD DATA</div>
-        </div>
-
-        <div class="daily-table-scroll">
-            <table class="tracker-table daily-report-table">
-                <thead><tr>
-                    <th>DATE</th><th>CLIENT</th><th>QUOTATION / SIZE</th><th>MATERIALS</th><th>SOURCE</th>
-                    <th>LOCATION</th><th>PAYMENT</th><th>PROJECT STATUS</th><th>REMARKS</th><th>ACTIONS</th>
-                </tr></thead>
-                <tbody id="dailyReportBody">
-                    <tr><td colspan="10" class="tracker-empty">No customer requests recorded yet.</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- CUSTOMER FORM -->
-    <div class="panel daily-form-panel" id="dailyReportForm" style="display:none;">
-        <div class="daily-form-header">
-            <div class="daily-form-title-wrap">
-                <div class="daily-form-icon">＋</div>
-                <div>
-                    <div class="daily-eyebrow">CUSTOMER RECORD</div>
-                    <h2 id="dailyReportFormTitle">New Customer Request</h2>
-                    <span>Encode the customer before payment. Actual payments are recorded separately in Financial Report.</span>
-                </div>
-            </div>
-            <button class="btn btn-light" onclick="closeDailyReportForm()">✕ Close</button>
-        </div>
-
-        <input type="hidden" id="editingDailyReportId">
-
-        <div class="daily-form-grid tracker-form-grid">
-            <div class="field">
-                <label>Date *</label>
-                <input type="date" id="dailyReportFormDate">
-            </div>
-            <div class="field">
-                <label>Client's Name *</label>
-                <input id="dailyReportClient" placeholder="Customer / company name">
-            </div>
-            <div class="field">
-                <label>Quotation / Size</label>
-                <input id="dailyReportQuotationSize" placeholder="PAQ-0001-2026 / 4ft × 8ft">
-            </div>
-            <div class="field">
-                <label>Materials</label>
-                <input id="dailyReportMaterials" placeholder="Acrylic, ACP, Tarpaulin, Sticker...">
-            </div>
-            <div class="field">
-                <label>Source</label>
-                <select id="dailyReportFormSource">
-                    <option value="">Select source...</option><option>Facebook</option><option>Messenger</option><option>Walk-in</option>
-                    <option>Referral</option><option>Google</option><option>Website</option><option>Repeat Customer</option>
-                    <option>TikTok</option><option>Phone</option><option>Gmail</option><option>Other</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Location</label>
-                <input id="dailyReportLocation" placeholder="Mabalacat / Angeles / Clark / project address">
-            </div>
-            <div class="field">
-                <label>Payment Status</label>
-                <select id="dailyReportFormPayment">
-                    <option value="Not Yet Paid">Not Yet Paid</option><option>Partial</option><option>Paid</option>
-                    <option>For Collection</option><option>Cancelled</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Project Status</label>
-                <select id="dailyReportFormProjectStatus">
-                    <option>For Quotation</option><option>Quoted</option><option>Approved</option><option>For Design</option>
-                    <option>Design Approved</option><option>For Production</option><option>In Production</option>
-                    <option>Ready for Release</option><option>For Installation</option><option>Completed</option>
-                    <option>On Hold</option><option>Cancelled</option>
-                </select>
-            </div>
-            <div class="field full">
-                <label>Remarks</label>
-                <textarea id="dailyReportRemarks" rows="3" placeholder="Customer request, quotation notes, delivery notes..."></textarea>
-            </div>
-        </div>
-        <div class="daily-form-footer">
-            <button class="btn btn-green daily-save-btn" onclick="saveDailyReport()">✓ Save Customer</button>
-            <button class="btn btn-light" onclick="closeDailyReportForm()">Cancel</button>
-        </div>
-    </div>
+<section class="page" id="daily-report">
+<div class="panel">
+<div class="panel-header">
+<div>
+<h2>Daily Report</h2>
+<span style="color:#777;font-size:12px;">Record customer requests for quotation before payment and monitor their progress.</span>
+</div>
+<div class="button-row" style="margin:0;">
+<button class="btn btn-light" onclick="printDailyReport()">🖨 Print</button>
+<button class="btn btn-light" onclick="exportDailyReportCSV()">⇩ Export</button>
+<button class="btn btn-primary" onclick="openDailyReportForm()">+ New Customer</button>
+</div>
+</div>
+<div class="dashboard-grid daily-native-kpis">
+<div class="card">
+<span class="card-icon">👥</span>
+<div class="card-title">CUSTOMER REQUESTS</div>
+<div class="card-value" id="dailyTotal">0</div>
+</div>
+<div class="card orange">
+<span class="card-icon">⏳</span>
+<div class="card-title">NOT YET PAID</div>
+<div class="card-value" id="dailyUnpaid">0</div>
+</div>
+<div class="card green">
+<span class="card-icon">✓</span>
+<div class="card-title">PARTIAL / PAID</div>
+<div class="card-value" id="dailyPaid">0</div>
+</div>
+<div class="card black">
+<span class="card-icon">⚙</span>
+<div class="card-title">FOR PRODUCTION</div>
+<div class="card-value" id="dailyProduction">0</div>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-header">
+<div>
+<h2>Report Filters</h2>
+<span style="color:#777;font-size:12px;">Filter customer requests by date, source, payment status, or project status.</span>
+</div>
+<button class="btn btn-light" onclick="clearDailyReportFilters()">↻ Clear Filters</button>
+</div>
+<div class="form-grid daily-native-filters">
+<div class="field">
+<label>Date</label>
+<input id="dailyReportDate" onchange="renderDailyReport()" type="date"/>
+</div>
+<div class="field">
+<label>Source</label>
+<select id="dailyReportSource" onchange="renderDailyReport()">
+<option value="">All Sources</option>
+<option>Facebook</option><option>Messenger</option><option>Walk-in</option><option>Referral</option>
+<option>Google</option><option>Website</option><option>Repeat Customer</option><option>TikTok</option>
+<option>Phone</option><option>Gmail</option><option>Other</option>
+</select>
+</div>
+<div class="field">
+<label>Payment Status</label>
+<select id="dailyReportPayment" onchange="renderDailyReport()">
+<option value="">All Payment Status</option>
+<option value="Not Yet Paid">Not Yet Paid</option><option>Partial</option><option>Paid</option>
+<option>For Collection</option><option>Cancelled</option>
+</select>
+</div>
+<div class="field">
+<label>Project Status</label>
+<select id="dailyReportProjectStatus" onchange="renderDailyReport()">
+<option value="">All Project Status</option>
+<option>For Quotation</option><option>Quoted</option><option>Approved</option><option>For Design</option>
+<option>Design Approved</option><option>For Production</option><option>In Production</option>
+<option>Ready for Release</option><option>For Installation</option><option>Completed</option>
+<option>On Hold</option><option>Cancelled</option>
+</select>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-header">
+<div>
+<h2>Customer Requests</h2>
+<span style="color:#777;font-size:12px;">Update payment and project status directly from the table.</span>
+</div>
+<span style="font-size:11px;color:#2e7d32;font-weight:700;">● LIVE CLOUD DATA</span>
+</div>
+<div style="overflow-x:auto;">
+<table class="data-table" id="dailyReportTable">
+<thead><tr>
+<th>DATE</th><th>CLIENT</th><th>QUOTATION / SIZE</th><th>MATERIALS</th><th>SOURCE</th>
+<th>LOCATION</th><th>PAYMENT</th><th>PROJECT STATUS</th><th>REMARKS</th><th>ACTIONS</th>
+</tr></thead>
+<tbody id="dailyReportBody">
+<tr><td colspan="10" style="text-align:center;color:#888;">No customer requests recorded yet.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="panel" id="dailyReportForm" style="display:none;">
+<div class="panel-header">
+<div>
+<h2 id="dailyReportFormTitle">New Customer Request</h2>
+<span style="color:#777;font-size:12px;">Encode the customer before payment. Actual payments are recorded separately in Financial Report.</span>
+</div>
+<button class="btn btn-light" onclick="closeDailyReportForm()">Close</button>
+</div>
+<input id="editingDailyReportId" type="hidden"/>
+<div class="form-grid">
+<div class="field">
+<label>Date *</label>
+<input id="dailyReportFormDate" type="date"/>
+</div>
+<div class="field">
+<label>Client's Name *</label>
+<input id="dailyReportClient" placeholder="Customer / company name"/>
+</div>
+<div class="field">
+<label>Quotation / Size</label>
+<input id="dailyReportQuotationSize" placeholder="Example: 4 x 8 ft / A1 / 2 pcs"/>
+</div>
+<div class="field">
+<label>Materials</label>
+<input id="dailyReportMaterials" placeholder="Example: Tarpaulin / Acrylic / Sticker"/>
+</div>
+<div class="field">
+<label>Source</label>
+<select id="dailyReportFormSource">
+<option value="">Select source...</option>
+<option>Facebook</option><option>Messenger</option><option>Walk-in</option><option>Referral</option>
+<option>Google</option><option>Website</option><option>Repeat Customer</option><option>TikTok</option>
+<option>Phone</option><option>Gmail</option><option>Other</option>
+</select>
+</div>
+<div class="field">
+<label>Location</label>
+<input id="dailyReportLocation" placeholder="Customer / project location"/>
+</div>
+<div class="field">
+<label>Payment Status</label>
+<select id="dailyReportFormPayment">
+<option>Not Yet Paid</option><option>Partial</option><option>Paid</option><option>For Collection</option><option>Cancelled</option>
+</select>
+</div>
+<div class="field">
+<label>Project Status</label>
+<select id="dailyReportFormProjectStatus">
+<option>For Quotation</option><option>Quoted</option><option>Approved</option><option>For Design</option>
+<option>Design Approved</option><option>For Production</option><option>In Production</option>
+<option>Ready for Release</option><option>For Installation</option><option>Completed</option>
+<option>On Hold</option><option>Cancelled</option>
+</select>
+</div>
+</div>
+<div class="field" style="margin-top:18px;">
+<label>Remarks</label>
+<textarea id="dailyReportRemarks" placeholder="Additional customer request, notes, or follow-up details..." rows="4"></textarea>
+</div>
+<div class="button-row">
+<button class="btn btn-green" onclick="saveDailyReport()">Save Customer Request</button>
+<button class="btn btn-light" onclick="closeDailyReportForm()">Cancel</button>
+</div>
+</div>
 </section>
-
 <!-- =======================================================
      FINANCIAL REPORT / TRACKER
 ======================================================= -->
-<section id="finance" class="page">
-    <div class="finance-commandbar">
-        <div class="finance-command-title">
-            <div class="finance-command-icon">₱</div>
-            <div>
-                <div class="finance-eyebrow">PRINTART CREATIVE • FINANCIAL MANAGEMENT</div>
-                <h2>Income &amp; Expense Dashboard</h2>
-                <p>See your money in, money out, and current cash flow at a glance.</p>
-            </div>
-        </div>
-        <div class="finance-command-actions">
-            <button class="finance-btn finance-btn-secondary" onclick="exportFinancialCSV()">↓ Export</button>
-            <button class="finance-btn finance-btn-primary" onclick="openFinancialForm()">＋ Add Transaction</button>
-        </div>
-    </div>
-
-    <div class="finance-kpi-board">
-        <div class="finance-kpi-tile income">
-            <div class="finance-tile-icon">↗</div>
-            <div class="finance-tile-label">TOTAL INCOME</div>
-            <div class="finance-tile-value" id="financeTotalIncome">₱0.00</div>
-            <div class="finance-tile-note">Money received</div>
-        </div>
-        <div class="finance-kpi-tile expense">
-            <div class="finance-tile-icon">↘</div>
-            <div class="finance-tile-label">TOTAL EXPENSES</div>
-            <div class="finance-tile-value" id="financeTotalExpense">₱0.00</div>
-            <div class="finance-tile-note">Money spent</div>
-        </div>
-        <div class="finance-kpi-tile net">
-            <div class="finance-tile-icon">₱</div>
-            <div class="finance-tile-label">NET CASH FLOW</div>
-            <div class="finance-tile-value" id="financeNet">₱0.00</div>
-            <div class="finance-tile-note">Income − expenses</div>
-        </div>
-        <div class="finance-kpi-tile count">
-            <div class="finance-tile-icon">#</div>
-            <div class="finance-tile-label">TRANSACTIONS</div>
-            <div class="finance-tile-value" id="financeTransactionCount">0</div>
-            <div class="finance-tile-note">Records in report</div>
-        </div>
-        <div class="finance-kpi-tile source">
-            <div class="finance-tile-icon">★</div>
-            <div class="finance-tile-label">TOP INCOME</div>
-            <div class="finance-tile-name" id="financeTopIncome">—</div>
-            <div class="finance-tile-value small" id="financeTopIncomeAmount">₱0.00</div>
-        </div>
-        <div class="finance-kpi-tile spend">
-            <div class="finance-tile-icon">!</div>
-            <div class="finance-tile-label">TOP EXPENSE</div>
-            <div class="finance-tile-name" id="financeTopExpense">—</div>
-            <div class="finance-tile-value small" id="financeTopExpenseAmount">₱0.00</div>
-        </div>
-    </div>
-
-    <div class="finance-dashboard-grid">
-        <div class="finance-dashboard-panel finance-chart-large">
-            <div class="finance-panel-title-row">
-                <div>
-                    <span class="finance-panel-kicker">CASH FLOW</span>
-                    <h3>Income vs. Expenses</h3>
-                    <p>Last 6 recorded months</p>
-                </div>
-                <div class="finance-legend">
-                    <span><i class="income"></i> Income</span>
-                    <span><i class="expense"></i> Expenses</span>
-                </div>
-            </div>
-            <div id="financeFlowChart" class="finance-flow-chart"></div>
-        </div>
-
-        <div class="finance-dashboard-panel finance-gauge-panel">
-            <div class="finance-panel-title-row">
-                <div>
-                    <span class="finance-panel-kicker">EXPENSE CONTROL</span>
-                    <h3>Expense Ratio</h3>
-                    <p>Expenses compared with income</p>
-                </div>
-            </div>
-            <div class="finance-gauge-wrap">
-                <div class="finance-gauge" id="financeExpenseGauge">
-                    <div class="finance-gauge-inner">
-                        <strong id="financeExpenseGaugeValue">0%</strong>
-                        <span>of income spent</span>
-                    </div>
-                </div>
-            </div>
-            <div class="finance-gauge-summary">
-                <div><span>Income</span><strong id="financeOverviewIncome">₱0.00</strong></div>
-                <div><span>Expenses</span><strong id="financeOverviewExpense">₱0.00</strong></div>
-                <div><span>Net</span><strong id="financeOverviewNet">₱0.00</strong></div>
-            </div>
-            <div class="finance-meter-track"><div id="financeExpenseRatioBar" class="finance-meter-fill"></div></div>
-        </div>
-    </div>
-
-    <div class="finance-dashboard-grid finance-lower-grid">
-        <div class="finance-dashboard-panel finance-health-panel">
-            <div class="finance-panel-title-row">
-                <div>
-                    <span class="finance-panel-kicker">FINANCIAL HEALTH</span>
-                    <h3>Current Financial Position</h3>
-                    <p>Based on the transactions currently shown.</p>
-                </div>
-                <span class="finance-health-badge" id="financeNetMarginTag">—</span>
-            </div>
-            <div class="finance-health-main">
-                <div>
-                    <span class="finance-muted-label">NET CASH FLOW</span>
-                    <strong id="financePulseNet">₱0.00</strong>
-                </div>
-                <div class="finance-margin">
-                    <span>Net Margin</span>
-                    <strong id="financeNetMargin">0.0%</strong>
-                </div>
-            </div>
-        </div>
-
-        <div class="finance-dashboard-panel finance-quick-panel">
-            <div class="finance-panel-title-row">
-                <div>
-                    <span class="finance-panel-kicker">QUICK ACTIONS</span>
-                    <h3>Record a transaction</h3>
-                </div>
-            </div>
-            <div class="finance-quick-actions">
-                <button onclick="openFinancialForm('Income')"><span>＋</span> Record Income</button>
-                <button onclick="openFinancialForm('Expense')"><span>−</span> Record Expense</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="finance-dashboard-panel finance-filter-panel">
-        <div class="finance-panel-title-row">
-            <div>
-                <span class="finance-panel-kicker">REPORT CONTROLS</span>
-                <h3>Find a transaction</h3>
-                <p>Use the filters below to update the dashboard and reports.</p>
-            </div>
-            <button class="finance-btn finance-btn-secondary" onclick="clearFinancialFilters()">Reset</button>
-        </div>
-        <div class="financial-filter finance-simple-filter">
-            <div class="field">
-                <label>Search</label>
-                <input id="financeSearch" oninput="renderFinancialTracker()" placeholder="Client, description, reference...">
-            </div>
-            <div class="field">
-                <label>Month</label>
-                <select id="financeMonthFilter" onchange="renderFinancialTracker()"><option value="">All Months</option></select>
-            </div>
-            <div class="field">
-                <label>Type</label>
-                <select id="financeTypeFilter" onchange="renderFinancialTracker()">
-                    <option value="">All Types</option>
-                    <option value="Income">Income</option>
-                    <option value="Expense">Expense</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Category</label>
-                <select id="financeCategoryFilter" onchange="renderFinancialTracker()"><option value="">All Categories</option></select>
-            </div>
-        </div>
-    </div>
-
-    <div class="finance-category-dashboard">
-        <div class="finance-dashboard-panel">
-            <div class="finance-panel-title-row">
-                <div><span class="finance-panel-kicker">INCOME</span><h3>Where your money comes from</h3></div>
-                <span class="finance-pill income">INCOME</span>
-            </div>
-            <div id="financeIncomeCategories" class="financial-summary-list"></div>
-        </div>
-        <div class="finance-dashboard-panel">
-            <div class="finance-panel-title-row">
-                <div><span class="finance-panel-kicker">EXPENSES</span><h3>Where your money goes</h3></div>
-                <span class="finance-pill expense">EXPENSES</span>
-            </div>
-            <div id="financeExpenseCategories" class="financial-summary-list"></div>
-        </div>
-    </div>
-
-    <div class="finance-dashboard-panel finance-month-card">
-        <div class="finance-panel-title-row">
-            <div><span class="finance-panel-kicker">MONTHLY REPORT</span><h3>Monthly Income &amp; Expense Summary</h3><p>Simple month-by-month view.</p></div>
-        </div>
-        <div class="financial-table-wrap">
-            <table class="financial-month-table">
-                <thead><tr><th>MONTH</th><th>INCOME</th><th>EXPENSES</th><th>NET CASH FLOW</th></tr></thead>
-                <tbody id="financeMonthlyBody"></tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="finance-dashboard-panel finance-ledger-card">
-        <div class="finance-panel-title-row">
-            <div><span class="finance-panel-kicker">TRANSACTION HISTORY</span><h3>Income &amp; Expense Records</h3><p>View, edit or delete individual transactions.</p></div>
-            <span class="finance-record-count" id="financeLedgerCount">0 records</span>
-        </div>
-        <div class="financial-table-wrap">
-            <table class="financial-table">
-                <thead><tr><th>DATE</th><th>TYPE</th><th>CATEGORY</th><th>DESCRIPTION</th><th>CLIENT / PROJECT</th><th>PAYMENT METHOD</th><th>AMOUNT</th><th>REFERENCE</th><th>ACTIONS</th></tr></thead>
-                <tbody id="financialTableBody"><tr><td colspan="9" class="financial-empty">No financial transactions recorded yet.</td></tr></tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<div class="panel finance-form-card" id="financialForm" style="display:none;">
-    <div class="panel-header">
-        <div>
-            <h2 id="financialFormTitle">Add Financial Transaction</h2>
-            <span style="color:#777;font-size:12px;">Record income received or an expense paid by PrintArt.</span>
-        </div>
-        <button class="btn btn-light" onclick="closeFinancialForm()">Close</button>
-    </div>
-
-    <input type="hidden" id="editingFinancialId">
-
-    <div class="financial-form-grid">
-        <div class="field">
-            <label>Date</label>
-            <input type="date" id="financialDate">
-        </div>
-        <div class="field">
-            <label>Transaction Type</label>
-            <select id="financialType" onchange="populateFinancialCategoryOptions()">
-                <option value="Income">Income</option>
-                <option value="Expense">Expense</option>
-            </select>
-        </div>
-        <div class="field">
-            <label>Category</label>
-            <select id="financialCategory"></select>
-        </div>
-        <div class="field">
-            <label>Amount</label>
-            <input type="number" id="financialAmount" min="0" step="0.01" placeholder="0.00">
-        </div>
-        <div class="field">
-            <label>Payment Method</label>
-            <select id="financialPaymentMethod">
-                <option value="Cash">Cash</option>
-                <option value="GCash">GCash</option>
-                <option value="Maya">Maya</option>
-                <option value="Bank Transfer">Bank Transfer</option>
-                <option value="Credit / Debit Card">Credit / Debit Card</option>
-                <option value="Check">Check</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-        <div class="field">
-            <label>Reference No.</label>
-            <input id="financialReference" placeholder="Receipt, invoice, OR, etc.">
-        </div>
-        <div class="field">
-            <label>Client / Project</label>
-            <input id="financialClientProject" placeholder="Client or project name">
-        </div>
-        <div class="field full">
-            <label>Description</label>
-            <input id="financialDescription" placeholder="What was received or paid?">
-        </div>
-        <div class="field full">
-            <label>Notes</label>
-            <textarea id="financialNotes" rows="3" placeholder="Optional notes"></textarea>
-        </div>
-    </div>
-
-    <div class="button-row">
-        <button class="btn btn-primary" onclick="saveFinancialTransaction()">Save Transaction</button>
-        <button class="btn btn-light" onclick="closeFinancialForm()">Cancel</button>
-    </div>
+<section class="page" id="finance">
+<div class="finance-commandbar">
+<div class="finance-command-title">
+<div class="finance-command-icon">₱</div>
+<div>
+<div class="finance-eyebrow">PRINTART CREATIVE • FINANCIAL MANAGEMENT</div>
+<h2>Income &amp; Expense Dashboard</h2>
+<p>See your money in, money out, and current cash flow at a glance.</p>
 </div>
-
+</div>
+<div class="finance-command-actions">
+<button class="finance-btn finance-btn-secondary" onclick="exportFinancialCSV()">↓ Export</button>
+<button class="finance-btn finance-btn-primary" onclick="openFinancialForm()">＋ Add Transaction</button>
+</div>
+</div>
+<div class="finance-kpi-board">
+<div class="finance-kpi-tile income">
+<div class="finance-tile-icon">↗</div>
+<div class="finance-tile-label">TOTAL INCOME</div>
+<div class="finance-tile-value" id="financeTotalIncome">₱0.00</div>
+<div class="finance-tile-note">Money received</div>
+</div>
+<div class="finance-kpi-tile expense">
+<div class="finance-tile-icon">↘</div>
+<div class="finance-tile-label">TOTAL EXPENSES</div>
+<div class="finance-tile-value" id="financeTotalExpense">₱0.00</div>
+<div class="finance-tile-note">Money spent</div>
+</div>
+<div class="finance-kpi-tile net">
+<div class="finance-tile-icon">₱</div>
+<div class="finance-tile-label">NET CASH FLOW</div>
+<div class="finance-tile-value" id="financeNet">₱0.00</div>
+<div class="finance-tile-note">Income − expenses</div>
+</div>
+<div class="finance-kpi-tile count">
+<div class="finance-tile-icon">#</div>
+<div class="finance-tile-label">TRANSACTIONS</div>
+<div class="finance-tile-value" id="financeTransactionCount">0</div>
+<div class="finance-tile-note">Records in report</div>
+</div>
+<div class="finance-kpi-tile source">
+<div class="finance-tile-icon">★</div>
+<div class="finance-tile-label">TOP INCOME</div>
+<div class="finance-tile-name" id="financeTopIncome">—</div>
+<div class="finance-tile-value small" id="financeTopIncomeAmount">₱0.00</div>
+</div>
+<div class="finance-kpi-tile spend">
+<div class="finance-tile-icon">!</div>
+<div class="finance-tile-label">TOP EXPENSE</div>
+<div class="finance-tile-name" id="financeTopExpense">—</div>
+<div class="finance-tile-value small" id="financeTopExpenseAmount">₱0.00</div>
+</div>
+</div>
+<div class="finance-dashboard-grid">
+<div class="finance-dashboard-panel finance-chart-large">
+<div class="finance-panel-title-row">
+<div>
+<span class="finance-panel-kicker">CASH FLOW</span>
+<h3>Income vs. Expenses</h3>
+<p>Last 6 recorded months</p>
+</div>
+<div class="finance-legend">
+<span><i class="income"></i> Income</span>
+<span><i class="expense"></i> Expenses</span>
+</div>
+</div>
+<div class="finance-flow-chart" id="financeFlowChart"></div>
+</div>
+<div class="finance-dashboard-panel finance-gauge-panel">
+<div class="finance-panel-title-row">
+<div>
+<span class="finance-panel-kicker">EXPENSE CONTROL</span>
+<h3>Expense Ratio</h3>
+<p>Expenses compared with income</p>
+</div>
+</div>
+<div class="finance-gauge-wrap">
+<div class="finance-gauge" id="financeExpenseGauge">
+<div class="finance-gauge-inner">
+<strong id="financeExpenseGaugeValue">0%</strong>
+<span>of income spent</span>
+</div>
+</div>
+</div>
+<div class="finance-gauge-summary">
+<div><span>Income</span><strong id="financeOverviewIncome">₱0.00</strong></div>
+<div><span>Expenses</span><strong id="financeOverviewExpense">₱0.00</strong></div>
+<div><span>Net</span><strong id="financeOverviewNet">₱0.00</strong></div>
+</div>
+<div class="finance-meter-track"><div class="finance-meter-fill" id="financeExpenseRatioBar"></div></div>
+</div>
+</div>
+<div class="finance-dashboard-grid finance-lower-grid">
+<div class="finance-dashboard-panel finance-health-panel">
+<div class="finance-panel-title-row">
+<div>
+<span class="finance-panel-kicker">FINANCIAL HEALTH</span>
+<h3>Current Financial Position</h3>
+<p>Based on the transactions currently shown.</p>
+</div>
+<span class="finance-health-badge" id="financeNetMarginTag">—</span>
+</div>
+<div class="finance-health-main">
+<div>
+<span class="finance-muted-label">NET CASH FLOW</span>
+<strong id="financePulseNet">₱0.00</strong>
+</div>
+<div class="finance-margin">
+<span>Net Margin</span>
+<strong id="financeNetMargin">0.0%</strong>
+</div>
+</div>
+</div>
+<div class="finance-dashboard-panel finance-quick-panel">
+<div class="finance-panel-title-row">
+<div>
+<span class="finance-panel-kicker">QUICK ACTIONS</span>
+<h3>Record a transaction</h3>
+</div>
+</div>
+<div class="finance-quick-actions">
+<button onclick="openFinancialForm('Income')"><span>＋</span> Record Income</button>
+<button onclick="openFinancialForm('Expense')"><span>−</span> Record Expense</button>
+</div>
+</div>
+</div>
+<div class="finance-dashboard-panel finance-filter-panel">
+<div class="finance-panel-title-row">
+<div>
+<span class="finance-panel-kicker">REPORT CONTROLS</span>
+<h3>Find a transaction</h3>
+<p>Use the filters below to update the dashboard and reports.</p>
+</div>
+<button class="finance-btn finance-btn-secondary" onclick="clearFinancialFilters()">Reset</button>
+</div>
+<div class="financial-filter finance-simple-filter">
+<div class="field">
+<label>Search</label>
+<input id="financeSearch" oninput="renderFinancialTracker()" placeholder="Client, description, reference..."/>
+</div>
+<div class="field">
+<label>Month</label>
+<select id="financeMonthFilter" onchange="renderFinancialTracker()"><option value="">All Months</option></select>
+</div>
+<div class="field">
+<label>Type</label>
+<select id="financeTypeFilter" onchange="renderFinancialTracker()">
+<option value="">All Types</option>
+<option value="Income">Income</option>
+<option value="Expense">Expense</option>
+</select>
+</div>
+<div class="field">
+<label>Category</label>
+<select id="financeCategoryFilter" onchange="renderFinancialTracker()"><option value="">All Categories</option></select>
+</div>
+</div>
+</div>
+<div class="finance-category-dashboard">
+<div class="finance-dashboard-panel">
+<div class="finance-panel-title-row">
+<div><span class="finance-panel-kicker">INCOME</span><h3>Where your money comes from</h3></div>
+<span class="finance-pill income">INCOME</span>
+</div>
+<div class="financial-summary-list" id="financeIncomeCategories"></div>
+</div>
+<div class="finance-dashboard-panel">
+<div class="finance-panel-title-row">
+<div><span class="finance-panel-kicker">EXPENSES</span><h3>Where your money goes</h3></div>
+<span class="finance-pill expense">EXPENSES</span>
+</div>
+<div class="financial-summary-list" id="financeExpenseCategories"></div>
+</div>
+</div>
+<div class="finance-dashboard-panel finance-month-card">
+<div class="finance-panel-title-row">
+<div><span class="finance-panel-kicker">MONTHLY REPORT</span><h3>Monthly Income &amp; Expense Summary</h3><p>Simple month-by-month view.</p></div>
+</div>
+<div class="financial-table-wrap">
+<table class="financial-month-table">
+<thead><tr><th>MONTH</th><th>INCOME</th><th>EXPENSES</th><th>NET CASH FLOW</th></tr></thead>
+<tbody id="financeMonthlyBody"></tbody>
+</table>
+</div>
+</div>
+<div class="finance-dashboard-panel finance-ledger-card">
+<div class="finance-panel-title-row">
+<div><span class="finance-panel-kicker">TRANSACTION HISTORY</span><h3>Income &amp; Expense Records</h3><p>View, edit or delete individual transactions.</p></div>
+<span class="finance-record-count" id="financeLedgerCount">0 records</span>
+</div>
+<div class="financial-table-wrap">
+<table class="financial-table">
+<thead><tr><th>DATE</th><th>TYPE</th><th>CATEGORY</th><th>DESCRIPTION</th><th>CLIENT / PROJECT</th><th>PAYMENT METHOD</th><th>AMOUNT</th><th>REFERENCE</th><th>ACTIONS</th></tr></thead>
+<tbody id="financialTableBody"><tr><td class="financial-empty" colspan="9">No financial transactions recorded yet.</td></tr></tbody>
+</table>
+</div>
+</div>
+</section>
+<div class="panel finance-form-card" id="financialForm" style="display:none;">
+<div class="panel-header">
+<div>
+<h2 id="financialFormTitle">Add Financial Transaction</h2>
+<span style="color:#777;font-size:12px;">Record income received or an expense paid by PrintArt.</span>
+</div>
+<button class="btn btn-light" onclick="closeFinancialForm()">Close</button>
+</div>
+<input id="editingFinancialId" type="hidden"/>
+<div class="financial-form-grid">
+<div class="field">
+<label>Date</label>
+<input id="financialDate" type="date"/>
+</div>
+<div class="field">
+<label>Transaction Type</label>
+<select id="financialType" onchange="populateFinancialCategoryOptions()">
+<option value="Income">Income</option>
+<option value="Expense">Expense</option>
+</select>
+</div>
+<div class="field">
+<label>Category</label>
+<select id="financialCategory"></select>
+</div>
+<div class="field">
+<label>Amount</label>
+<input id="financialAmount" min="0" placeholder="0.00" step="0.01" type="number"/>
+</div>
+<div class="field">
+<label>Payment Method</label>
+<select id="financialPaymentMethod">
+<option value="Cash">Cash</option>
+<option value="GCash">GCash</option>
+<option value="Maya">Maya</option>
+<option value="Bank Transfer">Bank Transfer</option>
+<option value="Credit / Debit Card">Credit / Debit Card</option>
+<option value="Check">Check</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="field">
+<label>Reference No.</label>
+<input id="financialReference" placeholder="Receipt, invoice, OR, etc."/>
+</div>
+<div class="field">
+<label>Client / Project</label>
+<input id="financialClientProject" placeholder="Client or project name"/>
+</div>
+<div class="field full">
+<label>Description</label>
+<input id="financialDescription" placeholder="What was received or paid?"/>
+</div>
+<div class="field full">
+<label>Notes</label>
+<textarea id="financialNotes" placeholder="Optional notes" rows="3"></textarea>
+</div>
+</div>
+<div class="button-row">
+<button class="btn btn-primary" onclick="saveFinancialTransaction()">Save Transaction</button>
+<button class="btn btn-light" onclick="closeFinancialForm()">Cancel</button>
+</div>
+</div>
 <!-- =======================================================
      PROJECT TRACKER
 ======================================================= -->
-<section id="tracker" class="page">
-    <div class="panel">
-        <div class="panel-header">
-            <div>
-                <h2>Project & Sales Tracker</h2>
-                <span style="color:#777;font-size:12px;">
-                    Track client, quotation/size, materials, source, location, payment and project status in one place.
-                </span>
-            </div>
-            <button class="btn btn-primary" onclick="openTrackerForm()">+ Add Project</button>
-        </div>
 
-        <div class="tracker-kpis">
-            <div class="tracker-kpi">
-                <div class="label">TOTAL PROJECTS</div>
-                <div class="value" id="trackerTotal">0</div>
-            </div>
-            <div class="tracker-kpi">
-                <div class="label">PAID</div>
-                <div class="value" id="trackerPaid">0</div>
-            </div>
-            <div class="tracker-kpi">
-                <div class="label">PARTIAL</div>
-                <div class="value" id="trackerPartial">0</div>
-            </div>
-            <div class="tracker-kpi">
-                <div class="label">IN PRODUCTION</div>
-                <div class="value" id="trackerProduction">0</div>
-            </div>
-            <div class="tracker-kpi">
-                <div class="label">COMPLETED</div>
-                <div class="value" id="trackerCompleted">0</div>
-            </div>
-        </div>
-
-        <div class="panel" style="margin:0 0 18px;padding:18px;background:#fafafa;">
-            <div class="tracker-toolbar">
-                <div class="field">
-                    <label>Search</label>
-                    <input id="trackerSearch" oninput="renderProjectTracker()" placeholder="Client, quotation, material, location...">
-                </div>
-                <div class="field">
-                    <label>Payment Status</label>
-                    <select id="trackerPaymentFilter" onchange="renderProjectTracker()">
-                        <option value="">All Payments</option>
-                        <option value="Unpaid">Unpaid</option>
-                        <option value="Partial">Partial</option>
-                        <option value="Paid">Paid</option>
-                        <option value="For Collection">For Collection</option>
-                        <option value="Cancelled">Cancelled</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label>Project Status</label>
-                    <select id="trackerStatusFilter" onchange="renderProjectTracker()">
-                        <option value="">All Projects</option>
-                        <option value="New">New</option>
-                        <option value="Quoted">Quoted</option>
-                        <option value="Approved">Approved</option>
-                        <option value="For Design">For Design</option>
-                        <option value="Design Approved">Design Approved</option>
-                        <option value="For Production">For Production</option>
-                        <option value="In Production">In Production</option>
-                        <option value="Ready for Release">Ready for Release</option>
-                        <option value="For Installation">For Installation</option>
-                        <option value="Completed">Completed</option>
-                        <option value="On Hold">On Hold</option>
-                        <option value="Cancelled">Cancelled</option>
-                    </select>
-                </div>
-                <div class="field" style="flex:0 0 auto;min-width:auto;">
-                    <button class="btn btn-light" onclick="clearTrackerFilters()">Clear Filters</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="tracker-table-wrap">
-            <table class="tracker-table">
-                <thead>
-                    <tr>
-                        <th>DATE</th>
-                        <th>CLIENT'S NAME</th>
-                        <th>QUOTATION / SIZE</th>
-                        <th>MATERIALS</th>
-                        <th>SOURCE</th>
-                        <th>LOCATION</th>
-                        <th>PAYMENT STATUS</th>
-                        <th>PROJECT STATUS</th>
-                        <th>REMARKS</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody id="projectTrackerBody">
-                    <tr><td colspan="10" class="tracker-empty">No projects saved yet.</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="panel" id="trackerForm" style="display:none;">
-        <div class="panel-header">
-            <div>
-                <h2 id="trackerFormTitle">Add Project</h2>
-                <span style="color:#777;font-size:12px;">Create a project record using the same fields as your Excel tracker.</span>
-            </div>
-            <button class="btn btn-light" onclick="closeTrackerForm()">Close</button>
-        </div>
-
-        <input type="hidden" id="editingTrackerId">
-
-        <div class="tracker-form-grid">
-            <div class="field">
-                <label>Date</label>
-                <input type="date" id="trackerDate">
-            </div>
-            <div class="field">
-                <label>Client's Name</label>
-                <input id="trackerClient" placeholder="Client / company name">
-            </div>
-            <div class="field">
-                <label>Quotation / Size</label>
-                <input id="trackerQuotationSize" placeholder="PAQ-0001-2026 / 4ft × 8ft">
-            </div>
-            <div class="field">
-                <label>Materials</label>
-                <input id="trackerMaterials" placeholder="Acrylic, ACP, Tarpaulin, Sticker...">
-            </div>
-            <div class="field">
-                <label>Source</label>
-                <select id="trackerSource">
-                    <option value="">Select source...</option>
-                    <option>Facebook</option>
-                    <option>Messenger</option>
-                    <option>Walk-in</option>
-                    <option>Referral</option>
-                    <option>Google</option>
-                    <option>Website</option>
-                    <option>Repeat Customer</option>
-                    <option>TikTok</option>
-                    <option>Other</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Location</label>
-                <input id="trackerLocation" placeholder="Mabalacat / Angeles / Clark / project address">
-            </div>
-            <div class="field">
-                <label>Payment Status</label>
-                <select id="trackerPaymentStatus">
-                    <option value="Unpaid">Unpaid</option>
-                    <option value="Partial">Partial</option>
-                    <option value="Paid">Paid</option>
-                    <option value="For Collection">For Collection</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
-            </div>
-            <div class="field">
-                <label>Project Status</label>
-                <select id="trackerProjectStatus">
-                    <option value="New">New</option>
-                    <option value="Quoted">Quoted</option>
-                    <option value="Approved">Approved</option>
-                    <option value="For Design">For Design</option>
-                    <option value="Design Approved">Design Approved</option>
-                    <option value="For Production">For Production</option>
-                    <option value="In Production">In Production</option>
-                    <option value="Ready for Release">Ready for Release</option>
-                    <option value="For Installation">For Installation</option>
-                    <option value="Completed">Completed</option>
-                    <option value="On Hold">On Hold</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
-            </div>
-            <div class="field full">
-                <label>Remarks</label>
-                <textarea id="trackerRemarks" rows="3" placeholder="Production notes, delivery/installation notes, customer requests..."></textarea>
-            </div>
-        </div>
-
-        <div class="button-row">
-            <button class="btn btn-green" onclick="saveProjectTracker()">💾 Save Project</button>
-            <button class="btn btn-light" onclick="closeTrackerForm()">Cancel</button>
-        </div>
-    </div>
-</section>
-
-<section id="settings" class="page"><div class="panel">    <h2>        Company Settings    </h2>    <div class="form-grid">        <div class="field">            <label>                Company Name            </label>            <input id="companyName" value="PrintArt Creative Graphics and Signs">        </div>        <div class="field">            <label>                Company Tagline            </label>            <input id="companyTagline" value="Creative Graphics &amp; Signs">        </div>        <div class="field">            <label>                Address            </label>            <input id="companyAddress" placeholder="Company address">        </div>        <div class="field">            <label>                Contact Number            </label>            <input id="companyContact" placeholder="Company contact number">        </div>        <div class="field">            <label>                Company Email            </label>            <input id="companyEmail" placeholder="company@email.com">        </div>        <div class="field">            <label>                Upload Company Logo            </label>            <input type="file" id="logoUpload" accept="image/*" onchange="uploadLogo(this)">        </div>    </div>    <div class="button-row">        <button class="btn btn-green" onclick="saveSettings()">            Save Settings        </button>    </div></div><div class="panel">    <h3>        Quotation Payment Settings    </h3>    <div class="form-grid">        <div class="field">            <label>                Downpayment Percentage            </label>            <input value="60%" disabled="">        </div>        <div class="field">            <label>                Remaining Balance            </label>            <input value="40%" disabled="">        </div>    </div>    <p style="color:#777;font-size:13px;">        The quotation system automatically calculates        60% downpayment and 40% remaining balance.    </p></div></section>    </div></div><!-- =======================================================     VIEW QUOTATION MODAL======================================================= --><div class="modal" id="quoteModal">    <div class="modal-content">        <div class="button-row no-print" style="justify-content:flex-end;">            <button class="btn btn-dark" type="button" onclick="printQuotation()">                🖨 Print            </button>            <button class="btn btn-light" onclick="closeModal()">                Close            </button>        </div>        <div id="printArea"></div>    </div></div><script>
+<section class="page" id="settings"><div class="panel"> <h2>        Company Settings    </h2> <div class="form-grid"> <div class="field"> <label>                Company Name            </label> <input id="companyName" value="PrintArt Creative Graphics and Signs"/> </div> <div class="field"> <label>                Company Tagline            </label> <input id="companyTagline" value="Creative Graphics &amp; Signs"/> </div> <div class="field"> <label>                Address            </label> <input id="companyAddress" placeholder="Company address"/> </div> <div class="field"> <label>                Contact Number            </label> <input id="companyContact" placeholder="Company contact number"/> </div> <div class="field"> <label>                Company Email            </label> <input id="companyEmail" placeholder="company@email.com"/> </div> <div class="field"> <label>                Upload Company Logo            </label> <input accept="image/*" id="logoUpload" onchange="uploadLogo(this)" type="file"/> </div> </div> <div class="button-row"> <button class="btn btn-green" onclick="saveSettings()">            Save Settings        </button> </div></div><div class="panel"> <h3>        Quotation Payment Settings    </h3> <div class="form-grid"> <div class="field"> <label>                Downpayment Percentage            </label> <input disabled="" value="60%"/> </div> <div class="field"> <label>                Remaining Balance            </label> <input disabled="" value="40%"/> </div> </div> <p style="color:#777;font-size:13px;">        The quotation system automatically calculates        60% downpayment and 40% remaining balance.    </p></div></section> </div></div><!-- =======================================================     VIEW QUOTATION MODAL======================================================= --><div class="modal" id="quoteModal"> <div class="modal-content"> <div class="button-row no-print" style="justify-content:flex-end;"> <button class="btn btn-dark" onclick="printQuotation()" type="button">                🖨 Print            </button> <button class="btn btn-light" onclick="closeModal()">                Close            </button> </div> <div id="printArea"></div> </div></div><script>
 /* =========================================================
    PRINTART QUOTATION SYSTEM
    Formula-based Product & Price Database
@@ -3413,7 +2813,6 @@ let settings = null;
 let currentItems = [];
 let quotationImageData = "";
 let signageProjects = [];
-let projectTracker = [];
 let financialTransactions = [];
 
 /* =========================================================
@@ -3584,7 +2983,6 @@ function showPage(pageId,button){
         quotation:"New Quotation",
         quotations:"Quotations",
         signages:"Signage Projects",
-        tracker:"Project & Sales Tracker",
         "daily-report":"Daily Report",
         finance:"Financial Report",
         products:"Product & Price Database",
@@ -4183,11 +3581,10 @@ async function loadCloudData(){
     if(!supabaseClient)initializeSupabase();
     if(!supabaseClient)return;
     try{
-        const [productResult,quoteResult,settingsResult,trackerResult,dailyResult]=await Promise.all([
+        const [productResult,quoteResult,settingsResult,dailyResult]=await Promise.all([
             supabaseClient.from("products").select("*").order("id"),
             supabaseClient.from("quotations").select("*").order("created_at",{ascending:false}),
             supabaseClient.from("settings").select("*").eq("id",1).maybeSingle(),
-            supabaseClient.from("project_tracker").select("*").order("date",{ascending:false}).order("id",{ascending:false}),
             supabaseClient.from("daily_reports").select("*").order("report_date",{ascending:false}).order("id",{ascending:false})
         ]);
         if(productResult.error)throw productResult.error;
@@ -4196,11 +3593,9 @@ async function loadCloudData(){
         products=(productResult.data||[]).map(normalizeProduct);
         quotations=(quoteResult.data||[]).map(q=>{const meta=unpackQuotationNotes(q.notes||"");return {...q,id:q.id,number:q.number,date:q.quote_date,client:q.client||"",contact:q.contact||"",email:q.email||"",address:q.address||"",project:q.project||"",items:Array.isArray(q.items)?q.items:[],subtotal:Number(q.subtotal||0),total:Number(q.total||0),downpayment:Number(q.downpayment||0),remaining:Number(q.remaining||0),status:q.status||"Pending",notes:meta.notes,image:meta.image,createdAt:q.created_at};});
         settings=settingsResult.data||{id:1,company_name:"PrintArt Creative Graphics and Signs",tagline:"Creative Graphics & Signs",address:"C' Arcade Building, Unit 9 2/F, Camachiles, Mabalacat City, Pampanga",contact:"0961 517 9028",email:"printartcreative.kr@gmail.com",logo:""};
-        projectTracker=trackerResult.error?[]:(trackerResult.data||[]).map(normalizeProjectTracker);
         dailyReports=dailyResult.error?[]:(dailyResult.data||[]).map(normalizeDailyReport);
-        if(trackerResult.error)console.warn("Project Tracker load warning:",trackerResult.error.message);
         if(dailyResult.error)console.warn("Daily Report load warning. Create daily_reports table if needed:",dailyResult.error.message);
-        updateCloudStatus(true);renderProducts();populateProductSelect();renderDashboard();renderQuotations();renderProjectTracker();renderDailyReport();generateQuotationNumber();loadSettings();
+        updateCloudStatus(true);renderProducts();populateProductSelect();renderDashboard();renderQuotations();renderDailyReport();generateQuotationNumber();loadSettings();
     }catch(error){
         console.error("Cloud database error:",error);updateCloudStatus(false);
         alert("Unable to load cloud database.\n\n"+(error.message||error));
@@ -4237,18 +3632,6 @@ function renderDashboard(){
     document.getElementById("dashTotalValue").textContent="₱"+money(totalValue);
     document.getElementById("dashPending").textContent=pending;
     document.getElementById("dashCompleted").textContent=completed;
-
-    const tracker = Array.isArray(projectTracker) ? projectTracker : [];
-    const paid = tracker.filter(p=>p.payment_status==="Paid").length;
-    const partial = tracker.filter(p=>p.payment_status==="Partial").length;
-    const production = tracker.filter(p=>p.project_status==="In Production" || p.project_status==="For Production").length;
-    const installation = tracker.filter(p=>p.project_status==="For Installation").length;
-    const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
-    setText("dashProjects",tracker.length);
-    setText("dashPaidProjects",paid);
-    setText("dashPartialProjects",partial);
-    setText("dashProductionProjects",production);
-    setText("dashInstallationProjects",installation);
 
     const recent=document.getElementById("recentQuotes");
     if(!recent)return;
@@ -5813,251 +5196,6 @@ function exportFinancialCSV(){
 
 
 /* =========================================================
-   PROJECT TRACKER
-========================================================= */
-const TRACKER_PROJECT_STATUSES = [
-    "New","Quoted","Approved","For Design","Design Approved",
-    "For Production","In Production","Ready for Release",
-    "For Installation","Completed","On Hold","Cancelled"
-];
-
-function normalizeProjectTracker(p){
-    return {
-        ...p,
-        id:p.id,
-        date:p.date || "",
-        client:p.client || "",
-        quotation_size:p.quotation_size || "",
-        materials:p.materials || "",
-        source:p.source || "",
-        location:p.location || "",
-        payment_status:p.payment_status || "Unpaid",
-        project_status:p.project_status || "New",
-        remarks:p.remarks || ""
-    };
-}
-
-function trackerStatusBadge(status){
-    return statusBadge(status || "New");
-}
-
-function setTrackerToday(){
-    const input=document.getElementById("trackerDate");
-    if(!input || input.value)return;
-    const d=new Date();
-    input.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-}
-
-function openTrackerForm(id){
-    const form=document.getElementById("trackerForm");
-    if(!form)return;
-    form.style.display="block";
-    document.getElementById("editingTrackerId").value="";
-    document.getElementById("trackerFormTitle").textContent="Add Project";
-    setTrackerToday();
-
-    if(id){
-        const p=projectTracker.find(x=>Number(x.id)===Number(id));
-        if(!p)return;
-        document.getElementById("editingTrackerId").value=p.id;
-        document.getElementById("trackerFormTitle").textContent="Edit Project";
-        document.getElementById("trackerDate").value=p.date||"";
-        document.getElementById("trackerClient").value=p.client||"";
-        document.getElementById("trackerQuotationSize").value=p.quotation_size||"";
-        document.getElementById("trackerMaterials").value=p.materials||"";
-        document.getElementById("trackerSource").value=p.source||"";
-        document.getElementById("trackerLocation").value=p.location||"";
-        document.getElementById("trackerPaymentStatus").value=p.payment_status||"Unpaid";
-        document.getElementById("trackerProjectStatus").value=p.project_status||"New";
-        document.getElementById("trackerRemarks").value=p.remarks||"";
-    }
-    form.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-function closeTrackerForm(){
-    const form=document.getElementById("trackerForm");
-    if(form)form.style.display="none";
-}
-
-function clearTrackerFilters(){
-    const ids=["trackerSearch","trackerPaymentFilter","trackerStatusFilter"];
-    ids.forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});
-    renderProjectTracker();
-}
-
-async function saveProjectTracker(){
-    if(!supabaseClient)initializeSupabase();
-    if(!supabaseClient){
-        alert("Cloud database is not connected.");
-        return;
-    }
-
-    const payload={
-        date:document.getElementById("trackerDate").value,
-        client:document.getElementById("trackerClient").value.trim(),
-        quotation_size:document.getElementById("trackerQuotationSize").value.trim(),
-        materials:document.getElementById("trackerMaterials").value.trim(),
-        source:document.getElementById("trackerSource").value,
-        location:document.getElementById("trackerLocation").value.trim(),
-        payment_status:document.getElementById("trackerPaymentStatus").value,
-        project_status:document.getElementById("trackerProjectStatus").value,
-        remarks:document.getElementById("trackerRemarks").value.trim()
-    };
-
-    if(!payload.client){
-        alert("Please enter the client's name.");
-        return;
-    }
-    if(!payload.date){
-        alert("Please select the project date.");
-        return;
-    }
-
-    const editing=Number(document.getElementById("editingTrackerId").value||0);
-
-    try{
-        if(editing){
-            const {data,error}=await supabaseClient.from("project_tracker")
-                .update(payload).eq("id",editing).select("*").single();
-            if(error)throw error;
-            projectTracker=projectTracker.map(p=>Number(p.id)===editing?normalizeProjectTracker(data):p);
-        }else{
-            const {data,error}=await supabaseClient.from("project_tracker")
-                .insert([payload]).select("*").single();
-            if(error)throw error;
-            projectTracker.unshift(normalizeProjectTracker(data));
-        }
-
-        renderProjectTracker();
-        renderDashboard();
-        closeTrackerForm();
-        alert(editing ? "Project updated successfully." : "Project saved successfully.");
-    }catch(error){
-        console.error("saveProjectTracker:",error);
-        alert("Unable to save project:\n\n"+(error.message||error));
-    }
-}
-
-async function changeTrackerPayment(id,value){
-    const p=projectTracker.find(x=>Number(x.id)===Number(id));
-    if(!p)return;
-    if(!supabaseClient)initializeSupabase();
-    if(!supabaseClient){alert("Cloud database is not connected.");return;}
-
-    try{
-        const {error}=await supabaseClient.from("project_tracker")
-            .update({payment_status:value}).eq("id",Number(id));
-        if(error)throw error;
-        p.payment_status=value;
-        renderProjectTracker();
-        renderDashboard();
-    }catch(error){
-        console.error(error);
-        alert("Unable to update payment status:\n\n"+error.message);
-    }
-}
-
-async function changeTrackerStatus(id,value){
-    const p=projectTracker.find(x=>Number(x.id)===Number(id));
-    if(!p)return;
-    if(!supabaseClient)initializeSupabase();
-    if(!supabaseClient){alert("Cloud database is not connected.");return;}
-
-    try{
-        const {error}=await supabaseClient.from("project_tracker")
-            .update({project_status:value}).eq("id",Number(id));
-        if(error)throw error;
-        p.project_status=value;
-        renderProjectTracker();
-        renderDashboard();
-    }catch(error){
-        console.error(error);
-        alert("Unable to update project status:\n\n"+error.message);
-    }
-}
-
-async function deleteProjectTracker(id){
-    if(!confirm("Delete this project from the tracker?"))return;
-    if(!supabaseClient)initializeSupabase();
-    if(!supabaseClient){alert("Cloud database is not connected.");return;}
-
-    try{
-        const {error}=await supabaseClient.from("project_tracker").delete().eq("id",Number(id));
-        if(error)throw error;
-        projectTracker=projectTracker.filter(p=>Number(p.id)!==Number(id));
-        renderProjectTracker();
-        renderDashboard();
-    }catch(error){
-        console.error(error);
-        alert("Unable to delete project:\n\n"+error.message);
-    }
-}
-
-function renderProjectTracker(){
-    const tbody=document.getElementById("projectTrackerBody");
-    if(!tbody)return;
-
-    const search=(document.getElementById("trackerSearch")?.value||"").trim().toLowerCase();
-    const payment=(document.getElementById("trackerPaymentFilter")?.value||"").trim();
-    const status=(document.getElementById("trackerStatusFilter")?.value||"").trim();
-
-    const filtered=projectTracker.filter(p=>{
-        const hay=[
-            p.client,p.quotation_size,p.materials,p.source,p.location,p.remarks,p.date
-        ].join(" ").toLowerCase();
-
-        return (!search || hay.includes(search)) &&
-               (!payment || p.payment_status===payment) &&
-               (!status || p.project_status===status);
-    });
-
-    const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
-    setText("trackerTotal",projectTracker.length);
-    setText("trackerPaid",projectTracker.filter(p=>p.payment_status==="Paid").length);
-    setText("trackerPartial",projectTracker.filter(p=>p.payment_status==="Partial").length);
-    setText("trackerProduction",projectTracker.filter(p=>p.project_status==="In Production" || p.project_status==="For Production").length);
-    setText("trackerCompleted",projectTracker.filter(p=>p.project_status==="Completed").length);
-
-    if(!filtered.length){
-        tbody.innerHTML=`<tr><td colspan="10" class="tracker-empty">${
-            projectTracker.length ? "No projects match the selected filters." : "No projects saved yet."
-        }</td></tr>`;
-        return;
-    }
-
-    tbody.innerHTML=filtered.map(p=>`
-        <tr>
-            <td class="tracker-date">${formatDate(p.date)}</td>
-            <td><strong>${escapeHTML(p.client)}</strong></td>
-            <td>${escapeHTML(p.quotation_size||"—")}</td>
-            <td>${escapeHTML(p.materials||"—")}</td>
-            <td>${escapeHTML(p.source||"—")}</td>
-            <td>${escapeHTML(p.location||"—")}</td>
-            <td>
-                <select class="tracker-status-select" onchange="changeTrackerPayment(${Number(p.id)},this.value)">
-                    <option value="Unpaid" ${p.payment_status==="Unpaid"?"selected":""}>Unpaid</option>
-                    <option value="Partial" ${p.payment_status==="Partial"?"selected":""}>Partial</option>
-                    <option value="Paid" ${p.payment_status==="Paid"?"selected":""}>Paid</option>
-                    <option value="For Collection" ${p.payment_status==="For Collection"?"selected":""}>For Collection</option>
-                    <option value="Cancelled" ${p.payment_status==="Cancelled"?"selected":""}>Cancelled</option>
-                </select>
-            </td>
-            <td>
-                <select class="tracker-status-select" onchange="changeTrackerStatus(${Number(p.id)},this.value)">
-                    ${TRACKER_PROJECT_STATUSES.map(s=>`<option value="${escapeHTML(s)}" ${p.project_status===s?"selected":""}>${escapeHTML(s)}</option>`).join("")}
-                </select>
-            </td>
-            <td style="max-width:220px;">${escapeHTML(p.remarks||"—")}</td>
-            <td class="tracker-actions">
-                <button class="btn btn-light" onclick="openTrackerForm(${Number(p.id)})">Edit</button>
-                <button class="btn btn-red" onclick="deleteProjectTracker(${Number(p.id)})">Delete</button>
-            </td>
-        </tr>
-    `).join("");
-}
-
-
-/* =========================================================
    INITIALIZATION
 ========================================================= */
 window.addEventListener("DOMContentLoaded",async()=>{
@@ -6070,9 +5208,6 @@ window.addEventListener("DOMContentLoaded",async()=>{
     const signageForm=document.getElementById("signageForm");
     if(signageForm)signageForm.style.display="none";
 
-    const trackerForm=document.getElementById("trackerForm");
-    if(trackerForm)trackerForm.style.display="none";
-
     const financialForm=document.getElementById("financialForm");
     if(financialForm)financialForm.style.display="none";
 
@@ -6081,7 +5216,6 @@ window.addEventListener("DOMContentLoaded",async()=>{
 
     setFinancialToday();
     populateFinancialCategoryOptions();
-    setTrackerToday();
 
     const rate=document.getElementById("productRate");
     const extra=document.getElementById("productExtraCharge");
@@ -6100,7 +5234,6 @@ window.addEventListener("DOMContentLoaded",async()=>{
     await loadFinancialData();
     await loadDailyReports();
     setDailyReportToday();
-    renderProjectTracker();
     renderItems();
     setToday();
 });

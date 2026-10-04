@@ -418,6 +418,38 @@
 /* =========================================================
    PROFESSIONAL FINANCIAL REPORT UI
 ========================================================= */
+/* Financial Report - keep the page aligned with the standard PrintArt feature layout */
+#finance{
+    width:100%;
+    box-sizing:border-box;
+}
+#finance .finance-commandbar,
+#finance .finance-kpi-board,
+#finance .finance-dashboard-grid,
+#finance .finance-filter-panel,
+#finance .finance-category-dashboard,
+#finance .finance-month-card,
+#finance .finance-ledger-card,
+#finance .finance-form-card{
+    width:100%;
+    box-sizing:border-box;
+}
+#finance .finance-commandbar{
+    margin-bottom:18px;
+    border-radius:14px;
+}
+#finance .finance-form-card{
+    margin-top:18px;
+    background:#fff;
+    border:1px solid #e5e5e5;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+#finance .finance-btn:disabled,
+#finance .btn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+
 #finance .panel{
     border-radius:16px;
 }
@@ -2324,7 +2356,7 @@
 <div class="signage-empty">No signage projects saved yet.</div>
 </div>
 </div>
-<div class="panel" id="signageForm" style="display: block;">
+<div class="panel" id="signageForm" style="display:none;">
 <div class="panel-header">
 <h2>Add / Edit Signage Project</h2>
 <button class="btn btn-light" onclick="closeSignageForm()">Close</button>
@@ -2364,7 +2396,7 @@
 </div>
 </div>
 <div class="button-row">
-<button class="btn btn-green" onclick="saveSignageProject()">Save Signage Project</button>
+<button class="btn btn-green" id="saveSignageBtn" onclick="saveSignageProject()">Save Signage Project</button>
 <button class="btn btn-light" onclick="closeSignageForm()">Cancel</button>
 </div>
 </div>
@@ -2390,8 +2422,8 @@
 <div class="field">
 <label>Formula Guide</label>
 <div style="font-size:13px;color:#666;line-height:1.7;">
-<strong>Area:</strong> L × W × Rate   •  
-          <strong>Area + Extra:</strong> L × W × Rate + Extra   •  
+<strong>Area:</strong> L × W × Rate × Quantity   •  
+          <strong>Area + Extra:</strong> L × W × Rate × Quantity + Extra   •  
           <strong>Quantity:</strong> Qty × Rate
         </div>
 </div>
@@ -2414,9 +2446,9 @@
 <div class="field">
 <label>Formula</label>
 <select id="productFormulaType" onchange="updateProductFormulaFields()">
-<option value="AREA_SQFT">L × W × Rate (SQ.FT)</option>
-<option value="AREA_SQFT_EXTRA">L × W × Rate + Extra (SQ.FT)</option>
-<option value="AREA_SQIN">L × W × Rate (SQ.IN)</option>
+<option value="AREA_SQFT">L × W × Rate × Quantity (SQ.FT)</option>
+<option value="AREA_SQFT_EXTRA">L × W × Rate × Quantity + Extra (SQ.FT)</option>
+<option value="AREA_SQIN">L × W × Rate × Quantity (SQ.IN)</option>
 <option value="QUANTITY">Quantity × Rate</option>
 <option value="QUANTITY_EXTRA">Quantity × Rate + Extra</option>
 <option value="FIXED">Fixed Price</option>
@@ -2450,7 +2482,7 @@
 </div>
 </div>
 <div class="price-display" id="productFormulaPreview" style="margin-top:15px;">
-    Formula: L × W × Rate
+    Formula: L × W × Rate × Quantity
   </div>
 <div class="button-row">
 <button class="btn btn-green" onclick="saveProduct()">Save Product</button>
@@ -2915,9 +2947,9 @@ let financialTransactions = [];
    PRODUCT FORMULA DEFINITIONS
 ========================================================= */
 const FORMULA_LABELS = {
-    AREA_SQFT: "L × W × Rate (SQ.FT)",
-    AREA_SQFT_EXTRA: "L × W × Rate + Extra (SQ.FT)",
-    AREA_SQIN: "L × W × Rate (SQ.IN)",
+    AREA_SQFT: "L × W × Rate × Quantity (SQ.FT)",
+    AREA_SQFT_EXTRA: "L × W × Rate × Quantity + Extra (SQ.FT)",
+    AREA_SQIN: "L × W × Rate × Quantity (SQ.IN)",
     QUANTITY: "Quantity × Rate",
     QUANTITY_EXTRA: "Quantity × Rate + Extra",
     FIXED: "Fixed Price"
@@ -3000,9 +3032,9 @@ function formulaText(product){
     const p = normalizeProduct(product);
     const rate = "₱" + money(p.rate);
     switch(p.formula_type){
-        case "AREA_SQFT": return `L × W × ${rate}/SQ.FT`;
-        case "AREA_SQFT_EXTRA": return `L × W × ${rate}/SQ.FT + ₱${money(p.extra_charge)} extra`;
-        case "AREA_SQIN": return `L × W × ${rate}/SQ.IN`;
+        case "AREA_SQFT": return `L × W × ${rate}/SQ.FT × Qty`;
+        case "AREA_SQFT_EXTRA": return `L × W × ${rate}/SQ.FT × Qty + ₱${money(p.extra_charge)} extra`;
+        case "AREA_SQIN": return `L × W × ${rate}/SQ.IN × Qty`;
         case "QUANTITY": return `Qty × ${rate}/PC`;
         case "QUANTITY_EXTRA": return `Qty × ${rate} + ₱${money(p.extra_charge)} extra`;
         case "FIXED": return `Fixed ₱${money(p.rate)}`;
@@ -3087,6 +3119,9 @@ function showPage(pageId,button){
     const title = document.getElementById("pageTitle");
     if(title)title.textContent = titles[pageId] || "PrintArt Quotation System";
 
+    const financialForm=document.getElementById("financialForm");
+    if(financialForm && pageId !== "finance")financialForm.style.display="none";
+
     if(pageId === "signages")loadSignageProjects();
     if(pageId === "products")renderProducts();
     if(pageId === "finance")renderFinancialTracker();
@@ -3170,9 +3205,9 @@ function updateProductFormulaFields(){
         const extraValue = Number(document.getElementById("productExtraCharge")?.value || 0);
         const rateText = "₱" + money(rate);
         switch(type){
-            case "AREA_SQFT": preview.textContent = `Formula: L × W × ${rateText} / SQ.FT`; break;
-            case "AREA_SQFT_EXTRA": preview.textContent = `Formula: L × W × ${rateText} / SQ.FT + ₱${money(extraValue)} extra`; break;
-            case "AREA_SQIN": preview.textContent = `Formula: L × W × ${rateText} / SQ.IN`; break;
+            case "AREA_SQFT": preview.textContent = `Formula: L × W × ${rateText} / SQ.FT × Quantity`; break;
+            case "AREA_SQFT_EXTRA": preview.textContent = `Formula: L × W × ${rateText} / SQ.FT × Quantity + ₱${money(extraValue)} extra`; break;
+            case "AREA_SQIN": preview.textContent = `Formula: L × W × ${rateText} / SQ.IN × Quantity`; break;
             case "QUANTITY": preview.textContent = `Formula: Quantity × ${rateText}`; break;
             case "QUANTITY_EXTRA": preview.textContent = `Formula: Quantity × ${rateText} + ₱${money(extraValue)} extra`; break;
             case "FIXED": preview.textContent = `Formula: Fixed Price ₱${money(rate)}`; break;
@@ -3455,9 +3490,11 @@ function calculateItem(product,length,width,qty){
         case "AREA_SQFT":
         case "AREA_SQFT_EXTRA":
         case "AREA_SQIN":
+            // Area products are priced per piece/size, then multiplied by Quantity.
+            // Formula: L × W × Rate × Quantity (+ Extra once, when applicable)
             base = L * W * p.rate;
-            amount = base + (p.formula_type === "AREA_SQFT_EXTRA" ? p.extra_charge : 0);
-            unitPrice = Q > 0 ? amount : 0;
+            amount = (base * Q) + (p.formula_type === "AREA_SQFT_EXTRA" ? p.extra_charge : 0);
+            unitPrice = base;
             break;
         case "QUANTITY":
             amount = Q * p.rate;
@@ -4637,7 +4674,11 @@ function openSignageForm(id){
 
     if(id){
         const p=signageProjects.find(x=>Number(x.id)===Number(id));
-        if(!p)return;
+        if(!p){
+            closeSignageForm();
+            alert("The selected signage project could not be found.");
+            return;
+        }
         document.getElementById("editingSignageId").value=p.id;
         document.getElementById("signageProjectName").value=p.project_name||"";
         document.getElementById("signageClient").value=p.client||"";
@@ -4648,6 +4689,9 @@ function openSignageForm(id){
             document.getElementById("signagePreview").style.display="block";
         }
     }
+
+    form.scrollIntoView({behavior:"smooth",block:"start"});
+    setTimeout(()=>document.getElementById("signageProjectName")?.focus(),250);
 }
 
 function closeSignageForm(){
@@ -4694,6 +4738,9 @@ async function saveSignageProject(){
     if(!supabaseClient)initializeSupabase();
     if(!supabaseClient){alert("Cloud database is not connected.");return;}
 
+    const saveBtn=document.getElementById("saveSignageBtn");
+    if(saveBtn?.disabled)return;
+
     const projectName=document.getElementById("signageProjectName").value.trim();
     const client=document.getElementById("signageClient").value.trim();
     const status=document.getElementById("signageStatus").value;
@@ -4708,6 +4755,7 @@ async function saveSignageProject(){
     }
 
     try{
+        if(saveBtn){saveBtn.disabled=true;saveBtn.textContent="Saving…";}
         if(editing){
             let fileData=null;
             if(file)fileData=await uploadSignageFile(file,editing);
@@ -4740,7 +4788,9 @@ async function saveSignageProject(){
         alert("Signage project saved successfully.");
     }catch(error){
         console.error("saveSignageProject:",error);
-        alert("Unable to save signage project:\n\n"+error.message);
+        alert("Unable to save signage project:\n\n"+(error.message||error));
+    }finally{
+        if(saveBtn){saveBtn.disabled=false;saveBtn.textContent="Save Signage Project";}
     }
 }
 
@@ -5040,6 +5090,10 @@ function openFinancialForm(idOrType){
     const requestedType=(idOrType==="Income" || idOrType==="Expense") ? idOrType : "";
     const id=requestedType ? "" : idOrType;
 
+    // Keep the financial entry form visually attached to the Financial Report page.
+    const financePage=document.getElementById("finance");
+    if(financePage && form.parentElement !== financePage)financePage.appendChild(form);
+    showPage("finance");
     form.style.display="block";
     document.getElementById("editingFinancialId").value="";
     document.getElementById("financialFormTitle").textContent="Add Financial Transaction";
@@ -5531,4 +5585,3 @@ window.addEventListener("DOMContentLoaded",async()=>{
     setToday();
 });
 </script></body></html>
-

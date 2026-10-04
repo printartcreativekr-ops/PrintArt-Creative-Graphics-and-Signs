@@ -305,139 +305,49 @@
 ========================================================= */
 .daily-report-toolbar{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr auto auto;
+    grid-template-columns:repeat(5,minmax(140px,1fr));
     gap:12px;
+    margin-top:18px;
     align-items:end;
-    padding:18px;
-    background:#fafafa;
-    border:1px solid #eee;
-    border-radius:12px;
-    margin-bottom:18px;
 }
 .daily-report-summary{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(4,minmax(0,1fr));
     gap:14px;
-    margin-bottom:18px;
+    margin-top:18px;
 }
 .daily-summary-card{
     background:#fff;
     border:1px solid #e7e7e7;
     border-radius:12px;
-    padding:16px;
+    padding:17px;
     box-shadow:0 4px 14px rgba(0,0,0,.05);
 }
-.daily-summary-card .label{
-    font-size:10px;
-    font-weight:800;
-    color:#777;
-    text-transform:uppercase;
-    letter-spacing:.4px;
+.daily-summary-card .label{font-size:10px;font-weight:800;letter-spacing:.6px;color:#777;}
+.daily-summary-card .value{font-size:28px;font-weight:800;color:#111;margin-top:7px;}
+#daily-report #dailyReportForm{background:#fff;border:1px solid #e6e6e6;box-shadow:0 5px 18px rgba(0,0,0,.06);}
+#daily-report #dailyReportForm .tracker-form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+#daily-report #dailyReportForm .tracker-form-grid .field.full{grid-column:1 / -1;}
+#daily-report .status-select{min-width:125px;height:34px;padding:6px 28px 6px 9px;border:1px solid #d7d7d7;border-radius:7px;font-size:11px;background:#fff;font-weight:700;}
+#daily-report .status-select:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.12);}
+#daily-report .payment-unpaid{background:#fff7e6;}
+#daily-report .payment-partial{background:#fffbe8;}
+#daily-report .payment-paid{background:#eaf8ee;}
+#daily-report .payment-collection{background:#fff0e8;}
+#daily-report .payment-cancelled{background:#f5f5f5;}
+#daily-report .project-quotation{background:#eef4ff;}
+#daily-report .project-design{background:#f5efff;}
+#daily-report .project-production{background:#fff5e5;}
+#daily-report .project-delivered{background:#eaf8ee;}
+@media(max-width:900px){
+    .daily-report-toolbar{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .daily-report-summary{grid-template-columns:repeat(2,minmax(0,1fr));}
+    #daily-report #dailyReportForm .tracker-form-grid{grid-template-columns:1fr 1fr;}
 }
-.daily-summary-card .value{
-    font-size:22px;
-    font-weight:800;
-    margin-top:5px;
+@media(max-width:600px){
+    .daily-report-toolbar,.daily-report-summary,#daily-report #dailyReportForm .tracker-form-grid{grid-template-columns:1fr;}
+    #daily-report #dailyReportForm .tracker-form-grid .field.full{grid-column:auto;}
 }
-.daily-report-wrap{
-    overflow-x:auto;
-    border:1px solid #ddd;
-    border-radius:10px;
-}
-.daily-report-table{
-    width:100%;
-    min-width:1350px;
-    border-collapse:collapse;
-    background:#fff;
-}
-.daily-report-table th{
-    position:sticky;
-    top:0;
-    z-index:2;
-    background:#111;
-    color:#fff;
-    padding:12px 10px;
-    font-size:10px;
-    text-align:center;
-    white-space:nowrap;
-    letter-spacing:.3px;
-}
-.daily-report-table td{
-    border-bottom:1px solid #e5e5e5;
-    border-right:1px solid #eee;
-    padding:10px;
-    font-size:12px;
-    vertical-align:middle;
-}
-.daily-report-table tbody tr.data-row:hover{background:#fffaf0;}
-.daily-report-date-group td{
-    background:#f28c28;
-    color:#fff;
-    font-weight:800;
-    padding:7px 12px;
-    text-transform:uppercase;
-    letter-spacing:.4px;
-}
-.daily-report-table .client-cell{font-weight:700;min-width:150px;}
-.daily-report-table .remarks-cell{min-width:150px;color:#555;}
-.daily-report-table .status-select{
-    width:100%;
-    min-width:125px;
-    border:0;
-    border-radius:7px;
-    padding:7px 9px;
-    font-size:11px;
-    font-weight:700;
-    cursor:pointer;
-}
-.daily-report-table .payment-paid{background:#43d000;color:#111;}
-.daily-report-table .payment-unpaid{background:#e9e9e9;color:#222;}
-.daily-report-table .payment-partial{background:#ffe58a;color:#111;}
-.daily-report-table .payment-collection{background:#ffd8a8;color:#111;}
-.daily-report-table .project-delivered{background:#16845a;color:#fff;}
-.daily-report-table .project-printing{background:#c90000;color:#fff;}
-.daily-report-table .project-pickup{background:#ffe082;color:#222;}
-.daily-report-table .project-quotation{background:#b8dfff;color:#174b73;}
-.daily-report-table .project-design{background:#d7c4ff;color:#4a287d;}
-.daily-report-table .project-production{background:#1976d2;color:#fff;}
-.daily-report-table .project-other{background:#e8e8e8;color:#222;}
-.daily-report-actions{
-    display:flex;
-    gap:5px;
-    white-space:nowrap;
-}
-.daily-report-actions .btn{padding:6px 8px;font-size:10px;}
-.daily-report-empty{
-    text-align:center;
-    padding:40px!important;
-    color:#999;
-}
-.daily-report-print{
-    display:none;
-}
-@media(max-width:1100px){
-    .daily-report-toolbar{grid-template-columns:repeat(2,1fr);}
-    .daily-report-summary{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:650px){
-    .daily-report-toolbar{grid-template-columns:1fr;}
-    .daily-report-summary{grid-template-columns:1fr;}
-}
-@media print{
-    body.daily-report-printing .sidebar,
-    body.daily-report-printing .topbar,
-    body.daily-report-printing .daily-report-toolbar,
-    body.daily-report-printing .daily-report-summary,
-    body.daily-report-printing .panel-header .button-row,
-    body.daily-report-printing .daily-report-actions{display:none!important;}
-    body.daily-report-printing .main{margin:0!important;}
-    body.daily-report-printing .content{padding:0!important;}
-    body.daily-report-printing .page{display:none!important;}
-    body.daily-report-printing #daily-report{display:block!important;}
-    body.daily-report-printing .daily-report-print{display:block!important;}
-}
-
-
 /* =========================================================
    FINANCIAL REPORT / TRACKER
 ========================================================= */
@@ -2447,6 +2357,76 @@
     #finance .finance-panel-header{align-items:flex-start;flex-direction:column;}
     #finance .finance-chart-legend{padding-top:0;}
 }
+
+/* =========================================================
+   DAILY REPORT — PREMIUM LAYOUT OVERRIDE
+========================================================= */
+.daily-report-page{max-width:1500px;margin:0 auto;}
+.daily-hero{
+    position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:25px;
+    padding:28px 30px;margin-bottom:20px;border-radius:18px;
+    background:linear-gradient(120deg,#101010 0%,#1c1c1c 65%,#272116 100%);
+    box-shadow:0 8px 24px rgba(0,0,0,.12);color:#fff;
+}
+.daily-hero:after{content:"";position:absolute;right:-80px;top:-120px;width:300px;height:300px;border-radius:50%;background:rgba(212,175,55,.10);pointer-events:none;}
+.daily-hero-copy{position:relative;z-index:1;max-width:760px;}
+.daily-eyebrow{font-size:10px;font-weight:900;letter-spacing:1.5px;color:var(--gold2);margin-bottom:7px;}
+.daily-hero h2{font-size:28px;margin:0 0 6px;letter-spacing:-.4px;}
+.daily-hero p{margin:0;color:#c7c7c7;font-size:13px;line-height:1.55;}
+.daily-hero-actions{position:relative;z-index:2;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.daily-action-btn{min-height:40px;padding:10px 14px;}
+.daily-add-btn{font-weight:900;box-shadow:0 5px 15px rgba(212,175,55,.18);}
+.daily-kpi-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0 0 20px;}
+.daily-summary-card{position:relative;min-height:132px;padding:18px 19px 15px;border:1px solid #e7e8ea;border-radius:14px;background:#fff;box-shadow:0 5px 16px rgba(0,0,0,.045);overflow:hidden;}
+.daily-summary-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#111;}
+.daily-summary-card.daily-kpi-unpaid:before{background:#e2a51b;}
+.daily-summary-card.daily-kpi-paid:before{background:#27ae60;}
+.daily-summary-card.daily-kpi-production:before{background:#d4af37;}
+.daily-kpi-icon{position:absolute;right:17px;top:14px;width:35px;height:35px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#f4f4f4;font-size:17px;}
+.daily-kpi-unpaid .daily-kpi-icon{background:#fff6df;}.daily-kpi-paid .daily-kpi-icon{background:#eaf8ee;}.daily-kpi-production .daily-kpi-icon{background:#fff8df;}
+.daily-summary-card .label{font-size:10px;font-weight:900;letter-spacing:.7px;color:#747474;padding-right:50px;}
+.daily-summary-card .value{font-size:30px;line-height:1;font-weight:900;color:#151515;margin-top:12px;}
+.daily-kpi-note{font-size:11px;color:#929292;margin-top:8px;}
+.daily-filter-panel,.daily-table-panel{background:#fff;border:1px solid #e5e6e8;border-radius:15px;box-shadow:0 5px 18px rgba(0,0,0,.045);margin-bottom:20px;}
+.daily-filter-panel{padding:20px;}
+.daily-section-heading,.daily-table-header{display:flex;align-items:center;justify-content:space-between;gap:15px;}
+.daily-section-heading{margin-bottom:15px;}
+.daily-section-heading h3,.daily-table-header h3{margin:0;font-size:15px;color:#171717;}
+.daily-section-heading span,.daily-table-header span{display:block;color:#8a8a8a;font-size:11px;margin-top:4px;}
+.daily-clear-btn{font-size:11px;padding:9px 13px;}
+.daily-report-toolbar{display:grid;grid-template-columns:1.1fr 1fr 1fr 1.2fr;gap:12px;margin-top:0;align-items:end;}
+.daily-report-toolbar .field label{font-size:10px;text-transform:uppercase;letter-spacing:.45px;color:#737373;margin-bottom:6px;}
+.daily-report-toolbar input,.daily-report-toolbar select{height:40px;border-color:#dfe1e4;border-radius:8px;font-size:12px;background:#fafafa;}
+.daily-report-toolbar input:focus,.daily-report-toolbar select:focus{background:#fff;}
+.daily-table-panel{overflow:hidden;}
+.daily-table-header{padding:18px 20px;border-bottom:1px solid #ececec;background:#fff;}
+.daily-live-badge{display:flex!important;align-items:center;gap:7px;color:#5f676d!important;font-size:9px!important;font-weight:900;letter-spacing:.6px;text-transform:uppercase;white-space:nowrap;}
+.daily-live-badge span{width:7px;height:7px;border-radius:50%;background:#27ae60;box-shadow:0 0 0 3px rgba(39,174,96,.12);}
+.daily-table-scroll{overflow-x:auto;}
+.daily-report-table{min-width:1250px!important;margin:0!important;}
+.daily-report-table th{height:44px!important;padding:11px 12px!important;font-size:9.5px!important;letter-spacing:.5px;background:#111!important;border-bottom:2px solid var(--gold)!important;}
+.daily-report-table td{padding:11px 12px!important;font-size:11.5px!important;vertical-align:middle!important;border-bottom:1px solid #eeeeee!important;background:#fff;}
+.daily-report-table tbody tr:hover td{background:#fffaf0!important;}
+.daily-report-table td:nth-child(2){min-width:150px;}.daily-report-table td:nth-child(3){min-width:145px;}.daily-report-table td:nth-child(4){min-width:135px;}
+.daily-report-table .status-select{height:32px!important;min-width:120px!important;font-size:10.5px!important;border-radius:7px!important;}
+.daily-report-table .tracker-actions .btn{padding:7px 9px;font-size:10px;}
+.daily-form-panel{padding:0!important;overflow:hidden;border:1px solid #dedfe1!important;}
+.daily-form-header{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 24px;background:linear-gradient(120deg,#111,#202020);color:#fff;border-bottom:3px solid var(--gold);}
+.daily-form-title-wrap{display:flex;align-items:center;gap:13px;}
+.daily-form-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold),var(--orange));color:#111;font-size:22px;font-weight:900;}
+.daily-form-header h2{margin:0 0 4px;font-size:18px;}.daily-form-header span{font-size:11px;color:#bdbdbd;}
+.daily-form-header .daily-eyebrow{margin-bottom:3px;}
+.daily-form-header .btn-light{background:#303030;color:#fff;border:1px solid #444;}
+.daily-form-grid{padding:22px 24px 4px;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;}
+.daily-form-grid .field.full{grid-column:1 / -1!important;}
+.daily-form-grid .field label{font-size:10px;text-transform:uppercase;letter-spacing:.45px;color:#6f6f6f;margin-bottom:6px;}
+.daily-form-grid input,.daily-form-grid select,.daily-form-grid textarea{border-color:#dfe1e4;border-radius:8px;font-size:12px;}
+.daily-form-grid input,.daily-form-grid select{height:40px;}
+.daily-form-grid textarea{min-height:80px;resize:vertical;}
+.daily-form-footer{display:flex;gap:9px;justify-content:flex-end;padding:16px 24px 20px;border-top:1px solid #ededed;margin-top:15px;background:#fafafa;}
+.daily-save-btn{min-width:145px;}
+@media(max-width:1100px){.daily-kpi-grid{grid-template-columns:repeat(2,1fr)}.daily-report-toolbar{grid-template-columns:repeat(2,1fr)}.daily-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+@media(max-width:700px){.daily-hero{align-items:flex-start;flex-direction:column;padding:22px}.daily-hero-actions{width:100%;justify-content:flex-start}.daily-action-btn{flex:1}.daily-kpi-grid,.daily-report-toolbar,.daily-form-grid{grid-template-columns:1fr!important}.daily-section-heading,.daily-table-header,.daily-form-header{align-items:flex-start;flex-direction:column}.daily-clear-btn{width:100%}.daily-form-grid .field.full{grid-column:auto!important}.daily-form-footer{justify-content:stretch}.daily-form-footer .btn{flex:1;}}
 </style> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2';"></script></head><body><!-- =======================================================     SIDEBAR======================================================= --><div class="sidebar">    <div class="logo-area">        <img id="sidebarLogo" src="data:image/png;base64,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" alt="PrintArt Creative Logo" style="display: block;">        <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">                   </div>        <h2></h2>    </div>    <button class="nav-btn" onclick="showPage('dashboard',this)">        <span class="nav-icon">▣</span>        Dashboard    </button>    <button class="nav-btn" onclick="showPage('quotation')">        <span class="nav-icon">📝</span>        New Quotation    </button>    <button class="nav-btn" onclick="showPage('quotations')">        <span class="nav-icon">📋</span>        Quotations    </button>    <button class="nav-btn" onclick="showPage('signages')">        <span class="nav-icon">🖼️</span>        Signage Projects    </button>    <button class="nav-btn" onclick="showPage('tracker',this)">        <span class="nav-icon">📊</span>        Project &amp; Sales Tracker    </button>    <button class="nav-btn" onclick="showPage('daily-report',this)">        <span class="nav-icon">📅</span>        Daily Report    </button>    <button class="nav-btn" onclick="showPage('finance',this)">        <span class="nav-icon">💰</span>        Financial Report    </button>    <button class="nav-btn" onclick="showPage('products')">        <span class="nav-icon">📦</span>        Product &amp; Price    </button>    <button class="nav-btn" onclick="showPage('settings',this)">        <span class="nav-icon">⚙</span>        Settings    </button></div><!-- =======================================================     MAIN======================================================= --><div class="main">    <div class="topbar">        <div>            <h1 id="pageTitle">Product &amp; Price Database</h1>            <span>                PrintArt Creative Graphics and Signs            </span>        </div>        <div style="display:flex;align-items:center;gap:15px;">            <span id="cloudStatus" class="cloud-status disconnected">☁ Cloud Disconnected</span>            <strong id="currentDate">September 28, 2026</strong>        </div>    </div>    <div class="content">
  <!-- =======================================================     DASHBOARD======================================================= --><section id="dashboard" class="page active">    <div class="dashboard-grid">        <div class="card">            <span class="card-icon">                📋            </span>            <div class="card-title">                TOTAL QUOTATIONS            </div>            <div class="card-value" id="dashTotalQuotes">0</div>        </div>        <div class="card orange">            <span class="card-icon">                ₱            </span>            <div class="card-title">                TOTAL QUOTATION VALUE            </div>            <div class="card-value" id="dashTotalValue">₱0.00</div>        </div>        <div class="card green">            <span class="card-icon">                ✓            </span>            <div class="card-title">                PENDING / APPROVED            </div>            <div class="card-value" id="dashPending">0</div>        </div>        <div class="card black">            <span class="card-icon">                ★            </span>            <div class="card-title">                COMPLETED            </div>            <div class="card-value" id="dashCompleted">0</div>        </div>    </div>    <div class="panel">        <div class="panel-header">            <h2>                Recent Quotations            </h2>            <button class="btn btn-primary" onclick="showPageByName('quotation')">                + New Quotation            </button>        </div>        <table class="data-table">            <thead>                <tr>                    <th>                        Quotation No.                    </th>                    <th>                        Date                    </th>                    <th>                        Client                    </th>                    <th>                        Total                    </th>                    <th>                        Status                    </th>                </tr>            </thead>            <tbody id="recentQuotes">            <tr>                <td colspan="5" style="text-align:center;color:#888;">                    No quotations saved yet.                </td>            </tr>        </tbody>        </table>    </div></section><!-- =======================================================     NEW QUOTATION======================================================= --><section id="quotation" class="page">
 <div class="panel">
@@ -2765,39 +2745,58 @@
 <!-- =======================================================
      DAILY REPORT
 ======================================================= -->
-<section id="daily-report" class="page">
-    <div class="panel">
-        <div class="panel-header">
-            <div>
-                <h2>Daily Report</h2>
-                <span style="color:#777;font-size:12px;">
-                    Daily project, payment and production monitoring — based on your Project & Sales Tracker.
-                </span>
-            </div>
-            <div class="button-row" style="margin-top:0;">
-                <button class="btn btn-dark" onclick="printDailyReport()">Print Report</button>
-                <button class="btn btn-light" onclick="exportDailyReportCSV()">Export CSV</button>
-                <button class="btn btn-primary" onclick="openTrackerForm()">+ Add Entry</button>
-            </div>
-        </div>
+<section id="daily-report" class="page daily-report-page">
 
-        <div class="daily-report-summary">
-            <div class="daily-summary-card">
-                <div class="label">Total Entries</div>
-                <div class="value" id="dailyTotal">0</div>
+    <!-- DAILY REPORT HEADER -->
+    <div class="daily-hero">
+        <div class="daily-hero-copy">
+            <div class="daily-eyebrow">CUSTOMER INQUIRY & QUOTATION LOG</div>
+            <h2>Daily Report</h2>
+            <p>Record every customer requesting a quotation before payment. Keep payment and project progress visible in one place.</p>
+        </div>
+        <div class="daily-hero-actions">
+            <button class="btn btn-light daily-action-btn" onclick="printDailyReport()">🖨 Print</button>
+            <button class="btn btn-light daily-action-btn" onclick="exportDailyReportCSV()">⇩ Export</button>
+            <button class="btn btn-primary daily-action-btn daily-add-btn" onclick="openDailyReportForm()">＋ New Customer</button>
+        </div>
+    </div>
+
+    <!-- DAILY KPI CARDS -->
+    <div class="daily-report-summary daily-kpi-grid">
+        <div class="daily-summary-card daily-kpi-request">
+            <div class="daily-kpi-icon">👥</div>
+            <div class="label">CUSTOMER REQUESTS</div>
+            <div class="value" id="dailyTotal">0</div>
+            <div class="daily-kpi-note">Total inquiries recorded</div>
+        </div>
+        <div class="daily-summary-card daily-kpi-unpaid">
+            <div class="daily-kpi-icon">⏳</div>
+            <div class="label">NOT YET PAID</div>
+            <div class="value" id="dailyUnpaid">0</div>
+            <div class="daily-kpi-note">Waiting for payment</div>
+        </div>
+        <div class="daily-summary-card daily-kpi-paid">
+            <div class="daily-kpi-icon">✓</div>
+            <div class="label">PARTIAL / PAID</div>
+            <div class="value" id="dailyPaid">0</div>
+            <div class="daily-kpi-note">Customers with payment</div>
+        </div>
+        <div class="daily-summary-card daily-kpi-production">
+            <div class="daily-kpi-icon">⚙</div>
+            <div class="label">FOR PRODUCTION</div>
+            <div class="value" id="dailyProduction">0</div>
+            <div class="daily-kpi-note">Production in progress</div>
+        </div>
+    </div>
+
+    <!-- FILTER / SEARCH PANEL -->
+    <div class="daily-filter-panel">
+        <div class="daily-section-heading">
+            <div>
+                <h3>Report Filters</h3>
+                <span>Filter customer requests by date, source, payment, or project status.</span>
             </div>
-            <div class="daily-summary-card">
-                <div class="label">Fully Paid</div>
-                <div class="value" id="dailyPaid">0</div>
-            </div>
-            <div class="daily-summary-card">
-                <div class="label">For Production / Printing</div>
-                <div class="value" id="dailyProduction">0</div>
-            </div>
-            <div class="daily-summary-card">
-                <div class="label">Ready / Delivered</div>
-                <div class="value" id="dailyDelivered">0</div>
-            </div>
+            <button class="btn btn-light daily-clear-btn" onclick="clearDailyReportFilters()">↻ Clear Filters</button>
         </div>
 
         <div class="daily-report-toolbar">
@@ -2809,73 +2808,124 @@
                 <label>Source</label>
                 <select id="dailyReportSource" onchange="renderDailyReport()">
                     <option value="">All Sources</option>
-                    <option value="Messenger">Messenger</option>
-                    <option value="Gmail">Gmail</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Walk-in">Walk-in</option>
-                    <option value="Phone">Phone</option>
-                    <option value="Referral">Referral</option>
-                    <option value="Other">Other</option>
+                    <option>Facebook</option><option>Messenger</option><option>Walk-in</option><option>Referral</option>
+                    <option>Google</option><option>Website</option><option>Repeat Customer</option><option>TikTok</option>
+                    <option>Phone</option><option>Gmail</option><option>Other</option>
                 </select>
             </div>
             <div class="field">
                 <label>Payment Status</label>
                 <select id="dailyReportPayment" onchange="renderDailyReport()">
-                    <option value="">All Payments</option>
-                    <option value="Paid">Fully Paid</option>
-                    <option value="Partial">Partial</option>
-                    <option value="Unpaid">Not Yet Paid</option>
-                    <option value="For Collection">For Collection</option>
+                    <option value="">All Payment Status</option>
+                    <option value="Not Yet Paid">Not Yet Paid</option><option>Partial</option><option>Paid</option>
+                    <option>For Collection</option><option>Cancelled</option>
                 </select>
             </div>
             <div class="field">
                 <label>Project Status</label>
                 <select id="dailyReportProjectStatus" onchange="renderDailyReport()">
-                    <option value="">All Projects</option>
-                    <option value="For Quotation">For Quotation</option>
-                    <option value="Done Quotation">Done Quotation</option>
-                    <option value="For Printing">For Printing</option>
-                    <option value="Ready for Pickup">Ready for Pickup</option>
-                    <option value="Received/Delivered">Received/Delivered</option>
-                    <option value="In Production">In Production</option>
-                    <option value="Completed">Completed</option>
-                    <option value="For Design">For Design</option>
-                    <option value="Design Approved">Design Approved</option>
-                    <option value="For Production">For Production</option>
-                    <option value="On Hold">On Hold</option>
-                    <option value="Cancelled">Cancelled</option>
+                    <option value="">All Project Status</option>
+                    <option>For Quotation</option><option>Quoted</option><option>Approved</option><option>For Design</option>
+                    <option>Design Approved</option><option>For Production</option><option>In Production</option>
+                    <option>Ready for Release</option><option>For Installation</option><option>Completed</option>
+                    <option>On Hold</option><option>Cancelled</option>
                 </select>
             </div>
-            <button class="btn btn-light" onclick="clearDailyReportFilters()">Clear</button>
-            <button class="btn btn-light" onclick="setDailyReportToday()">Today</button>
+        </div>
+    </div>
+
+    <!-- REPORT TABLE -->
+    <div class="daily-table-panel">
+        <div class="daily-table-header">
+            <div>
+                <h3>Customer Requests</h3>
+                <span>Update payment and project status directly from the table.</span>
+            </div>
+            <div class="daily-live-badge"><span></span> LIVE CLOUD DATA</div>
         </div>
 
-        <div class="daily-report-wrap">
-            <table class="daily-report-table">
-                <thead>
-                    <tr>
-                        <th>DATE</th>
-                        <th>CLIENT'S NAME</th>
-                        <th>QUOTATION / SIZE</th>
-                        <th>MATERIALS</th>
-                        <th>SOURCE</th>
-                        <th>LOCATION</th>
-                        <th>PAYMENT STATUS</th>
-                        <th>PROJECT STATUS</th>
-                        <th>REMARKS</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
+        <div class="daily-table-scroll">
+            <table class="tracker-table daily-report-table">
+                <thead><tr>
+                    <th>DATE</th><th>CLIENT</th><th>QUOTATION / SIZE</th><th>MATERIALS</th><th>SOURCE</th>
+                    <th>LOCATION</th><th>PAYMENT</th><th>PROJECT STATUS</th><th>REMARKS</th><th>ACTIONS</th>
+                </tr></thead>
                 <tbody id="dailyReportBody">
-                    <tr><td colspan="10" class="daily-report-empty">No daily report entries.</td></tr>
+                    <tr><td colspan="10" class="tracker-empty">No customer requests recorded yet.</td></tr>
                 </tbody>
             </table>
         </div>
+    </div>
 
-        <div class="daily-report-print">
-            <h2>PRINTART CREATIVE GRAPHICS AND SIGNS</h2>
-            <h3>DAILY REPORT</h3>
-            <p id="dailyPrintDate"></p>
+    <!-- CUSTOMER FORM -->
+    <div class="panel daily-form-panel" id="dailyReportForm" style="display:none;">
+        <div class="daily-form-header">
+            <div class="daily-form-title-wrap">
+                <div class="daily-form-icon">＋</div>
+                <div>
+                    <div class="daily-eyebrow">CUSTOMER RECORD</div>
+                    <h2 id="dailyReportFormTitle">New Customer Request</h2>
+                    <span>Encode the customer before payment. Actual payments are recorded separately in Financial Report.</span>
+                </div>
+            </div>
+            <button class="btn btn-light" onclick="closeDailyReportForm()">✕ Close</button>
+        </div>
+
+        <input type="hidden" id="editingDailyReportId">
+
+        <div class="daily-form-grid tracker-form-grid">
+            <div class="field">
+                <label>Date *</label>
+                <input type="date" id="dailyReportFormDate">
+            </div>
+            <div class="field">
+                <label>Client's Name *</label>
+                <input id="dailyReportClient" placeholder="Customer / company name">
+            </div>
+            <div class="field">
+                <label>Quotation / Size</label>
+                <input id="dailyReportQuotationSize" placeholder="PAQ-0001-2026 / 4ft × 8ft">
+            </div>
+            <div class="field">
+                <label>Materials</label>
+                <input id="dailyReportMaterials" placeholder="Acrylic, ACP, Tarpaulin, Sticker...">
+            </div>
+            <div class="field">
+                <label>Source</label>
+                <select id="dailyReportFormSource">
+                    <option value="">Select source...</option><option>Facebook</option><option>Messenger</option><option>Walk-in</option>
+                    <option>Referral</option><option>Google</option><option>Website</option><option>Repeat Customer</option>
+                    <option>TikTok</option><option>Phone</option><option>Gmail</option><option>Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Location</label>
+                <input id="dailyReportLocation" placeholder="Mabalacat / Angeles / Clark / project address">
+            </div>
+            <div class="field">
+                <label>Payment Status</label>
+                <select id="dailyReportFormPayment">
+                    <option value="Not Yet Paid">Not Yet Paid</option><option>Partial</option><option>Paid</option>
+                    <option>For Collection</option><option>Cancelled</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Project Status</label>
+                <select id="dailyReportFormProjectStatus">
+                    <option>For Quotation</option><option>Quoted</option><option>Approved</option><option>For Design</option>
+                    <option>Design Approved</option><option>For Production</option><option>In Production</option>
+                    <option>Ready for Release</option><option>For Installation</option><option>Completed</option>
+                    <option>On Hold</option><option>Cancelled</option>
+                </select>
+            </div>
+            <div class="field full">
+                <label>Remarks</label>
+                <textarea id="dailyReportRemarks" rows="3" placeholder="Customer request, quotation notes, delivery notes..."></textarea>
+            </div>
+        </div>
+        <div class="daily-form-footer">
+            <button class="btn btn-green daily-save-btn" onclick="saveDailyReport()">✓ Save Customer</button>
+            <button class="btn btn-light" onclick="closeDailyReportForm()">Cancel</button>
         </div>
     </div>
 </section>
@@ -4132,179 +4182,29 @@ function packQuotationNotes(notes,image){
 async function loadCloudData(){
     if(!supabaseClient)initializeSupabase();
     if(!supabaseClient)return;
-
     try{
-        const [productResult,quoteResult,settingsResult,trackerResult] = await Promise.all([
+        const [productResult,quoteResult,settingsResult,trackerResult,dailyResult]=await Promise.all([
             supabaseClient.from("products").select("*").order("id"),
             supabaseClient.from("quotations").select("*").order("created_at",{ascending:false}),
             supabaseClient.from("settings").select("*").eq("id",1).maybeSingle(),
-            supabaseClient.from("project_tracker").select("*").order("date",{ascending:false}).order("id",{ascending:false})
+            supabaseClient.from("project_tracker").select("*").order("date",{ascending:false}).order("id",{ascending:false}),
+            supabaseClient.from("daily_reports").select("*").order("report_date",{ascending:false}).order("id",{ascending:false})
         ]);
-
         if(productResult.error)throw productResult.error;
         if(quoteResult.error)throw quoteResult.error;
         if(settingsResult.error)throw settingsResult.error;
-        if(trackerResult.error)throw trackerResult.error;
-
-        products = (productResult.data || []).map(normalizeProduct);
-
-        quotations = (quoteResult.data || []).map(q=>{
-            const meta = unpackQuotationNotes(q.notes || "");
-            return {
-                ...q,
-                id:q.id,
-                number:q.number,
-                date:q.quote_date,
-                client:q.client || "",
-                contact:q.contact || "",
-                email:q.email || "",
-                address:q.address || "",
-                project:q.project || "",
-                items:Array.isArray(q.items) ? q.items : [],
-                subtotal:Number(q.subtotal || 0),
-                total:Number(q.total || 0),
-                downpayment:Number(q.downpayment || 0),
-                remaining:Number(q.remaining || 0),
-                status:q.status || "Pending",
-                notes:meta.notes,
-                image:meta.image,
-                createdAt:q.created_at
-            };
-        });
-
-        settings = settingsResult.data || {
-            id:1,
-            company_name:"PrintArt Creative Graphics and Signs",
-            tagline:"Creative Graphics & Signs",
-            address:"C' Arcade Building, Unit 9 2/F, Camachiles, Mabalacat City, Pampanga",
-            contact:"0961 517 9028",
-            email:"printartcreative.kr@gmail.com",
-            logo:""
-        };
-
-        projectTracker = (trackerResult.data || []).map(normalizeProjectTracker);
-        updateCloudStatus(true);
-        renderProducts();
-        populateProductSelect();
-        renderDashboard();
-        renderQuotations();
-        renderProjectTracker();
-        generateQuotationNumber();
-        loadSettings();
+        products=(productResult.data||[]).map(normalizeProduct);
+        quotations=(quoteResult.data||[]).map(q=>{const meta=unpackQuotationNotes(q.notes||"");return {...q,id:q.id,number:q.number,date:q.quote_date,client:q.client||"",contact:q.contact||"",email:q.email||"",address:q.address||"",project:q.project||"",items:Array.isArray(q.items)?q.items:[],subtotal:Number(q.subtotal||0),total:Number(q.total||0),downpayment:Number(q.downpayment||0),remaining:Number(q.remaining||0),status:q.status||"Pending",notes:meta.notes,image:meta.image,createdAt:q.created_at};});
+        settings=settingsResult.data||{id:1,company_name:"PrintArt Creative Graphics and Signs",tagline:"Creative Graphics & Signs",address:"C' Arcade Building, Unit 9 2/F, Camachiles, Mabalacat City, Pampanga",contact:"0961 517 9028",email:"printartcreative.kr@gmail.com",logo:""};
+        projectTracker=trackerResult.error?[]:(trackerResult.data||[]).map(normalizeProjectTracker);
+        dailyReports=dailyResult.error?[]:(dailyResult.data||[]).map(normalizeDailyReport);
+        if(trackerResult.error)console.warn("Project Tracker load warning:",trackerResult.error.message);
+        if(dailyResult.error)console.warn("Daily Report load warning. Create daily_reports table if needed:",dailyResult.error.message);
+        updateCloudStatus(true);renderProducts();populateProductSelect();renderDashboard();renderQuotations();renderProjectTracker();renderDailyReport();generateQuotationNumber();loadSettings();
     }catch(error){
-        console.error("Cloud database error:",error);
-        updateCloudStatus(false);
-        console.error("Supabase load error details:",error);
-        // If the Project Tracker table has not been created yet, the existing
-        // quotation/product system can still be used.
-        if(String(error?.message || "").toLowerCase().includes("project_tracker")){
-            projectTracker = [];
-            try{
-                const [productResult,quoteResult,settingsResult] = await Promise.all([
-                    supabaseClient.from("products").select("*").order("id"),
-                    supabaseClient.from("quotations").select("*").order("created_at",{ascending:false}),
-                    supabaseClient.from("settings").select("*").eq("id",1).maybeSingle()
-                ]);
-                if(!productResult.error)products=(productResult.data||[]).map(normalizeProduct);
-                if(!quoteResult.error){
-                    quotations=(quoteResult.data||[]).map(q=>{
-                        const meta=unpackQuotationNotes(q.notes||"");
-                        return {...q,id:q.id,number:q.number,date:q.quote_date,client:q.client||"",
-                            contact:q.contact||"",email:q.email||"",address:q.address||"",
-                            project:q.project||"",items:Array.isArray(q.items)?q.items:[],
-                            subtotal:Number(q.subtotal||0),total:Number(q.total||0),
-                            downpayment:Number(q.downpayment||0),remaining:Number(q.remaining||0),
-                            status:q.status||"Pending",notes:meta.notes,image:meta.image,createdAt:q.created_at};
-                    });
-                }
-                settings=settingsResult.data || settings;
-                updateCloudStatus(true);
-                renderProducts(); populateProductSelect(); renderDashboard();
-                renderQuotations(); generateQuotationNumber(); loadSettings();
-            }catch(recoveryError){
-                console.error("Cloud recovery error:",recoveryError);
-            }
-        }
+        console.error("Cloud database error:",error);updateCloudStatus(false);
+        alert("Unable to load cloud database.\n\n"+(error.message||error));
     }
-}
-
-/* =========================================================
-   SAVE QUOTATION
-========================================================= */
-async function saveQuotation(){
-    if(!supabaseClient)initializeSupabase();
-    if(!supabaseClient){
-        alert("Cloud database is not connected.");
-        return;
-    }
-    if(!currentItems.length){
-        alert("Please add at least one item.");
-        return;
-    }
-
-    const client = document.getElementById("clientName").value.trim();
-    if(!client){
-        alert("Please enter the client name.");
-        return;
-    }
-
-    const subtotal = currentItems.reduce((sum,item)=>{
-        return sum + Number(item.amount ?? (Number(item.qty||0)*Number(item.price||0)));
-    },0);
-
-    const quotation = {
-        number:document.getElementById("quotationNumber").innerText,
-        date:document.getElementById("quoteDate").value,
-        client,
-        contact:document.getElementById("clientContact").value.trim(),
-        email:document.getElementById("clientEmail").value.trim(),
-        address:document.getElementById("clientAddress").value.trim(),
-        project:document.getElementById("projectName").value.trim(),
-        items:JSON.parse(JSON.stringify(currentItems)),
-        subtotal,
-        total:subtotal,
-        downpayment:subtotal*0.60,
-        remaining:subtotal*0.40,
-        status:document.getElementById("quoteStatus").value,
-        notes:document.getElementById("quoteNotes").value,
-        image:quotationImageData
-    };
-
-    const row = {
-        number:quotation.number,
-        quote_date:quotation.date,
-        client:quotation.client,
-        contact:quotation.contact,
-        email:quotation.email,
-        address:quotation.address,
-        project:quotation.project,
-        items:quotation.items,
-        subtotal:quotation.subtotal,
-        total:quotation.total,
-        downpayment:quotation.downpayment,
-        remaining:quotation.remaining,
-        status:quotation.status,
-        notes:packQuotationNotes(quotation.notes,quotation.image)
-    };
-
-    try{
-        const {data,error} = await supabaseClient.from("quotations").insert([row]).select("*").single();
-        if(error)throw error;
-        quotation.id = data.id;
-        quotation.createdAt = data.created_at;
-        quotations.unshift(quotation);
-    }catch(error){
-        console.error(error);
-        alert("Unable to save quotation:\n\n" + error.message);
-        return;
-    }
-
-    renderDashboard();
-    renderQuotations();
-    generateQuotationNumber();
-    previewQuotation(quotation);
-    alert("Quotation " + quotation.number + " has been saved successfully.");
-    clearQuotation();
 }
 
 function clearQuotation(){
@@ -5243,209 +5143,135 @@ async function deleteSignageProject(id){
    FINANCIAL REPORT / TRACKER
 ========================================================= */
 /* =========================================================
-   DAILY REPORT
+   DAILY REPORT - CUSTOMER QUOTATION / INQUIRY LOG
 ========================================================= */
-function setDailyReportToday(){
-    const el=document.getElementById("dailyReportDate");
-    if(!el)return;
-    const d=new Date();
-    el.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-    renderDailyReport();
-}
+let dailyReports = [];
+const DAILY_PAYMENT_STATUSES=["Not Yet Paid","Partial","Paid","For Collection","Cancelled"];
+const DAILY_PROJECT_STATUSES=["For Quotation","Quoted","Approved","For Design","Design Approved","For Production","In Production","Ready for Release","For Installation","Completed","On Hold","Cancelled"];
 
-function clearDailyReportFilters(){
-    ["dailyReportDate","dailyReportSource","dailyReportPayment","dailyReportProjectStatus"].forEach(id=>{
-        const el=document.getElementById(id);
-        if(el)el.value="";
-    });
-    renderDailyReport();
+function normalizeDailyReport(row){
+    return {...row,id:row.id,report_date:row.report_date||row.date||"",client_name:row.client_name||row.client||"",quotation_size:row.quotation_size||"",materials:row.materials||"",source:row.source||"",location:row.location||"",payment_status:row.payment_status||"Not Yet Paid",project_status:row.project_status||"For Quotation",remarks:row.remarks||"",created_at:row.created_at||"",updated_at:row.updated_at||""};
 }
-
-function dailyPaymentClass(status){
-    if(status==="Paid")return "payment-paid";
-    if(status==="Partial")return "payment-partial";
-    if(status==="For Collection")return "payment-collection";
-    return "payment-unpaid";
+function getTodayString(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;}
+function setDailyReportToday(){const el=document.getElementById("dailyReportDate");if(el){el.value=getTodayString();renderDailyReport();}}
+function openDailyReportForm(id){
+    const form=document.getElementById("dailyReportForm");if(!form)return;
+    form.style.display="block";
+    document.getElementById("editingDailyReportId").value="";
+    document.getElementById("dailyReportFormTitle").textContent="New Customer Request";
+    document.getElementById("dailyReportFormDate").value=getTodayString();
+    document.getElementById("dailyReportClient").value="";
+    document.getElementById("dailyReportQuotationSize").value="";
+    document.getElementById("dailyReportMaterials").value="";
+    document.getElementById("dailyReportFormSource").value="";
+    document.getElementById("dailyReportLocation").value="";
+    document.getElementById("dailyReportFormPayment").value="Not Yet Paid";
+    document.getElementById("dailyReportFormProjectStatus").value="For Quotation";
+    document.getElementById("dailyReportRemarks").value="";
+    if(id){
+        const row=dailyReports.find(r=>Number(r.id)===Number(id));if(!row)return;
+        document.getElementById("editingDailyReportId").value=row.id;
+        document.getElementById("dailyReportFormTitle").textContent="Edit Customer Request";
+        document.getElementById("dailyReportFormDate").value=row.report_date||"";
+        document.getElementById("dailyReportClient").value=row.client_name||"";
+        document.getElementById("dailyReportQuotationSize").value=row.quotation_size||"";
+        document.getElementById("dailyReportMaterials").value=row.materials||"";
+        document.getElementById("dailyReportFormSource").value=row.source||"";
+        document.getElementById("dailyReportLocation").value=row.location||"";
+        document.getElementById("dailyReportFormPayment").value=row.payment_status||"Not Yet Paid";
+        document.getElementById("dailyReportFormProjectStatus").value=row.project_status||"For Quotation";
+        document.getElementById("dailyReportRemarks").value=row.remarks||"";
+    }
+    form.scrollIntoView({behavior:"smooth",block:"start"});
 }
-
-function dailyProjectClass(status){
-    if(status==="Received/Delivered" || status==="Completed")return "project-delivered";
-    if(status==="For Printing")return "project-printing";
-    if(status==="Ready for Pickup")return "project-pickup";
-    if(status==="For Quotation" || status==="Done Quotation")return "project-quotation";
-    if(status==="For Design" || status==="Design Approved")return "project-design";
-    if(status==="For Production" || status==="In Production")return "project-production";
-    return "project-other";
+function closeDailyReportForm(){const form=document.getElementById("dailyReportForm");if(form)form.style.display="none";}
+async function saveDailyReport(){
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){alert("Cloud database is not connected.");return;}
+    const payload={report_date:document.getElementById("dailyReportFormDate").value,client_name:document.getElementById("dailyReportClient").value.trim(),quotation_size:document.getElementById("dailyReportQuotationSize").value.trim(),materials:document.getElementById("dailyReportMaterials").value.trim(),source:document.getElementById("dailyReportFormSource").value,location:document.getElementById("dailyReportLocation").value.trim(),payment_status:document.getElementById("dailyReportFormPayment").value,project_status:document.getElementById("dailyReportFormProjectStatus").value,remarks:document.getElementById("dailyReportRemarks").value.trim()};
+    if(!payload.report_date){alert("Please select the date.");return;}
+    if(!payload.client_name){alert("Please enter the client's name.");return;}
+    const editingId=Number(document.getElementById("editingDailyReportId").value||0);
+    try{
+        if(editingId){
+            const {data,error}=await supabaseClient.from("daily_reports").update({...payload,updated_at:new Date().toISOString()}).eq("id",editingId).select("*").single();
+            if(error)throw error;
+            dailyReports=dailyReports.map(row=>Number(row.id)===editingId?normalizeDailyReport(data):row);
+        }else{
+            const {data,error}=await supabaseClient.from("daily_reports").insert([payload]).select("*").single();
+            if(error)throw error;
+            dailyReports.unshift(normalizeDailyReport(data));
+        }
+        closeDailyReportForm();renderDailyReport();
+        alert(editingId?"Customer request updated successfully.":"Customer request saved successfully.");
+    }catch(error){console.error("saveDailyReport:",error);alert("Unable to save customer request:\n\n"+(error.message||error));}
 }
-
-function dailyPaymentLabel(status){
-    return status==="Paid" ? "FULLY PAID"
-        : status==="Unpaid" ? "NOT YET PAID"
-        : status==="Partial" ? "PARTIAL"
-        : status==="For Collection" ? "FOR COLLECTION"
-        : status || "—";
+async function loadDailyReports(){
+    if(!supabaseClient)initializeSupabase();
+    if(!supabaseClient){dailyReports=[];renderDailyReport();return;}
+    try{
+        const {data,error}=await supabaseClient.from("daily_reports").select("*").order("report_date",{ascending:false}).order("id",{ascending:false});
+        if(error)throw error;
+        dailyReports=(data||[]).map(normalizeDailyReport);renderDailyReport();
+    }catch(error){console.error("loadDailyReports:",error);dailyReports=[];renderDailyReport();console.warn("Create the daily_reports table in Supabase if it does not exist yet.");}
 }
-
-function dailyProjectLabel(status){
-    const labels={
-        "For Quotation":"For Quotation",
-        "Done Quotation":"Done Quotation",
-        "For Printing":"For Printing",
-        "Ready for Pickup":"Ready for Pickup",
-        "Received/Delivered":"Received/Delivered"
-    };
-    return labels[status] || status || "—";
+function getFilteredDailyReports(){
+    const date=document.getElementById("dailyReportDate")?.value||"";
+    const source=document.getElementById("dailyReportSource")?.value||"";
+    const payment=document.getElementById("dailyReportPayment")?.value||"";
+    const projectStatus=document.getElementById("dailyReportProjectStatus")?.value||"";
+    return dailyReports.filter(row=>(!date||row.report_date===date)&&(!source||row.source===source)&&(!payment||row.payment_status===payment)&&(!projectStatus||row.project_status===projectStatus)).sort((a,b)=>String(b.report_date||"").localeCompare(String(a.report_date||""))||Number(b.id||0)-Number(a.id||0));
 }
-
+function dailyPaymentClass(status){if(status==="Paid")return "payment-paid";if(status==="Partial")return "payment-partial";if(status==="For Collection")return "payment-collection";if(status==="Cancelled")return "payment-cancelled";return "payment-unpaid";}
+function dailyProjectClass(status){if(status==="Completed")return "project-delivered";if(status==="For Production"||status==="In Production")return "project-production";if(status==="For Design"||status==="Design Approved")return "project-design";if(status==="For Quotation"||status==="Quoted")return "project-quotation";return "project-other";}
+function dailyPaymentLabel(status){if(status==="Paid")return "FULLY PAID";if(status==="Partial")return "PARTIAL";if(status==="For Collection")return "FOR COLLECTION";if(status==="Cancelled")return "CANCELLED";return "NOT YET PAID";}
 function renderDailyReport(){
-    const tbody=document.getElementById("dailyReportBody");
-    if(!tbody)return;
-
-    const date=document.getElementById("dailyReportDate")?.value||"";
-    const source=document.getElementById("dailyReportSource")?.value||"";
-    const payment=document.getElementById("dailyReportPayment")?.value||"";
-    const projectStatus=document.getElementById("dailyReportProjectStatus")?.value||"";
-
-    let rows=(Array.isArray(projectTracker)?projectTracker:[]).filter(p=>{
-        return (!date || p.date===date) &&
-               (!source || p.source===source) &&
-               (!payment || p.payment_status===payment) &&
-               (!projectStatus || p.project_status===projectStatus);
-    });
-
-    rows.sort((a,b)=>{
-        const da=String(a.date||"");
-        const db=String(b.date||"");
-        return db.localeCompare(da) || Number(b.id||0)-Number(a.id||0);
-    });
-
-    const setText=(id,value)=>{
-        const el=document.getElementById(id);
-        if(el)el.textContent=value;
-    };
-
+    const tbody=document.getElementById("dailyReportBody");if(!tbody)return;
+    const rows=getFilteredDailyReports();
+    const setText=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
     setText("dailyTotal",rows.length);
-    setText("dailyPaid",rows.filter(p=>p.payment_status==="Paid").length);
-    setText("dailyProduction",rows.filter(p=>["For Printing","For Production","In Production"].includes(p.project_status)).length);
-    setText("dailyDelivered",rows.filter(p=>["Ready for Pickup","Received/Delivered","Completed"].includes(p.project_status)).length);
-
-    if(!rows.length){
-        tbody.innerHTML='<tr><td colspan="10" class="daily-report-empty">No entries found for the selected filters.</td></tr>';
-        return;
-    }
-
-    const groups={};
-    rows.forEach(p=>{
-        const key=p.date||"No Date";
-        if(!groups[key])groups[key]=[];
-        groups[key].push(p);
-    });
-
-    let html="";
-    Object.keys(groups).sort((a,b)=>b.localeCompare(a)).forEach(dateKey=>{
-        const displayDate=dateKey==="No Date" ? "NO DATE" : formatDate(dateKey);
-        html+=`<tr class="daily-report-date-group"><td colspan="10">${escapeHTML(displayDate)} <span style="float:right;">${groups[dateKey].length} ENTRIES</span></td></tr>`;
-
-        groups[dateKey].forEach(p=>{
-            const paymentClass=dailyPaymentClass(p.payment_status);
-            const projectClass=dailyProjectClass(p.project_status);
-            html+=`
-                <tr class="data-row">
-                    <td style="white-space:nowrap;">${formatDate(p.date)}</td>
-                    <td class="client-cell">${escapeHTML(p.client||"—")}</td>
-                    <td>${escapeHTML(p.quotation_size||"—")}</td>
-                    <td>${escapeHTML(p.materials||"—")}</td>
-                    <td>${escapeHTML(p.source||"—")}</td>
-                    <td>${escapeHTML(p.location||"—")}</td>
-                    <td>
-                        <select class="status-select ${paymentClass}" onchange="changeTrackerPayment(${Number(p.id)},this.value)">
-                            <option value="Unpaid" ${p.payment_status==="Unpaid"?"selected":""}>NOT YET PAID</option>
-                            <option value="Partial" ${p.payment_status==="Partial"?"selected":""}>PARTIAL</option>
-                            <option value="Paid" ${p.payment_status==="Paid"?"selected":""}>FULLY PAID</option>
-                            <option value="For Collection" ${p.payment_status==="For Collection"?"selected":""}>FOR COLLECTION</option>
-                            <option value="Cancelled" ${p.payment_status==="Cancelled"?"selected":""}>CANCELLED</option>
-                        </select>
-                    </td>
-                    <td>
-                        <select class="status-select ${projectClass}" onchange="changeTrackerStatus(${Number(p.id)},this.value)">
-                            <option value="For Quotation" ${p.project_status==="For Quotation"?"selected":""}>For Quotation</option>
-                            <option value="Done Quotation" ${p.project_status==="Done Quotation"?"selected":""}>Done Quotation</option>
-                            <option value="For Printing" ${p.project_status==="For Printing"?"selected":""}>For Printing</option>
-                            <option value="Ready for Pickup" ${p.project_status==="Ready for Pickup"?"selected":""}>Ready for Pickup</option>
-                            <option value="Received/Delivered" ${p.project_status==="Received/Delivered"?"selected":""}>Received/Delivered</option>
-                            <option value="For Design" ${p.project_status==="For Design"?"selected":""}>For Design</option>
-                            <option value="Design Approved" ${p.project_status==="Design Approved"?"selected":""}>Design Approved</option>
-                            <option value="For Production" ${p.project_status==="For Production"?"selected":""}>For Production</option>
-                            <option value="In Production" ${p.project_status==="In Production"?"selected":""}>In Production</option>
-                            <option value="Completed" ${p.project_status==="Completed"?"selected":""}>Completed</option>
-                            <option value="On Hold" ${p.project_status==="On Hold"?"selected":""}>On Hold</option>
-                            <option value="Cancelled" ${p.project_status==="Cancelled"?"selected":""}>Cancelled</option>
-                        </select>
-                    </td>
-                    <td class="remarks-cell">${escapeHTML(p.remarks||"—")}</td>
-                    <td class="daily-report-actions">
-                        <button class="btn btn-light" onclick="openTrackerForm(${Number(p.id)})">Edit</button>
-                        <button class="btn btn-red" onclick="deleteProjectTracker(${Number(p.id)});setTimeout(renderDailyReport,200)">Delete</button>
-                    </td>
-                </tr>
-            `;
-        });
-    });
-
-    tbody.innerHTML=html;
+    setText("dailyUnpaid",rows.filter(r=>r.payment_status==="Not Yet Paid").length);
+    setText("dailyPaid",rows.filter(r=>r.payment_status==="Paid"||r.payment_status==="Partial").length);
+    setText("dailyProduction",rows.filter(r=>r.project_status==="For Production"||r.project_status==="In Production").length);
+    if(!rows.length){tbody.innerHTML='<tr><td colspan="10" class="tracker-empty">No customer requests found for the selected filters.</td></tr>';return;}
+    tbody.innerHTML=rows.map(row=>{
+        const paymentClass=dailyPaymentClass(row.payment_status),projectClass=dailyProjectClass(row.project_status);
+        return `<tr>
+            <td style="white-space:nowrap;">${formatDate(row.report_date)}</td>
+            <td><strong>${escapeHTML(row.client_name||"—")}</strong></td>
+            <td>${escapeHTML(row.quotation_size||"—")}</td>
+            <td>${escapeHTML(row.materials||"—")}</td>
+            <td>${escapeHTML(row.source||"—")}</td>
+            <td>${escapeHTML(row.location||"—")}</td>
+            <td><select class="status-select ${paymentClass}" onchange="changeDailyPayment(${Number(row.id)},this.value)">${DAILY_PAYMENT_STATUSES.map(status=>`<option value="${escapeHTML(status)}" ${row.payment_status===status?"selected":""}>${escapeHTML(dailyPaymentLabel(status))}</option>`).join("")}</select></td>
+            <td><select class="status-select ${projectClass}" onchange="changeDailyProjectStatus(${Number(row.id)},this.value)">${DAILY_PROJECT_STATUSES.map(status=>`<option value="${escapeHTML(status)}" ${row.project_status===status?"selected":""}>${escapeHTML(status)}</option>`).join("")}</select></td>
+            <td style="max-width:220px;">${escapeHTML(row.remarks||"—")}</td>
+            <td class="tracker-actions" style="white-space:nowrap;"><button class="btn btn-light" onclick="openDailyReportForm(${Number(row.id)})">Edit</button><button class="btn btn-red" onclick="deleteDailyReport(${Number(row.id)})">Delete</button></td>
+        </tr>`;
+    }).join("");
 }
-
-function printDailyReport(){
-    const printDate=document.getElementById("dailyPrintDate");
-    const selected=document.getElementById("dailyReportDate")?.value||"";
-    if(printDate){
-        printDate.textContent=selected
-            ? "Date: "+formatDate(selected)
-            : "Date: All Records";
-    }
-    document.body.classList.add("daily-report-printing");
-    setTimeout(()=>{
-        window.print();
-        document.body.classList.remove("daily-report-printing");
-    },100);
+async function changeDailyPayment(id,value){
+    if(!supabaseClient)initializeSupabase();if(!supabaseClient){alert("Cloud database is not connected.");return;}
+    try{const {data,error}=await supabaseClient.from("daily_reports").update({payment_status:value,updated_at:new Date().toISOString()}).eq("id",Number(id)).select("*").single();if(error)throw error;dailyReports=dailyReports.map(r=>Number(r.id)===Number(id)?normalizeDailyReport(data):r);renderDailyReport();}catch(error){console.error(error);alert("Unable to update payment status:\n\n"+(error.message||error));renderDailyReport();}
 }
-
+async function changeDailyProjectStatus(id,value){
+    if(!supabaseClient)initializeSupabase();if(!supabaseClient){alert("Cloud database is not connected.");return;}
+    try{const {data,error}=await supabaseClient.from("daily_reports").update({project_status:value,updated_at:new Date().toISOString()}).eq("id",Number(id)).select("*").single();if(error)throw error;dailyReports=dailyReports.map(r=>Number(r.id)===Number(id)?normalizeDailyReport(data):r);renderDailyReport();}catch(error){console.error(error);alert("Unable to update project status:\n\n"+(error.message||error));renderDailyReport();}
+}
+async function deleteDailyReport(id){
+    const row=dailyReports.find(r=>Number(r.id)===Number(id));if(!row)return;
+    if(!confirm(`Delete the customer request for "${row.client_name}"?`))return;
+    if(!supabaseClient)initializeSupabase();if(!supabaseClient){alert("Cloud database is not connected.");return;}
+    try{const {error}=await supabaseClient.from("daily_reports").delete().eq("id",Number(id));if(error)throw error;dailyReports=dailyReports.filter(r=>Number(r.id)!==Number(id));renderDailyReport();}catch(error){console.error(error);alert("Unable to delete customer request:\n\n"+(error.message||error));}
+}
+function clearDailyReportFilters(){["dailyReportDate","dailyReportSource","dailyReportPayment","dailyReportProjectStatus"].forEach(id=>{const el=document.getElementById(id);if(el)el.value="";});renderDailyReport();}
+function printDailyReport(){const printDate=document.getElementById("dailyPrintDate"),selected=document.getElementById("dailyReportDate")?.value||"";if(printDate)printDate.textContent=selected?"Date: "+formatDate(selected):"Date: All Records";document.body.classList.add("daily-report-printing");setTimeout(()=>{window.print();document.body.classList.remove("daily-report-printing");},100);}
 function exportDailyReportCSV(){
-    const date=document.getElementById("dailyReportDate")?.value||"";
-    const source=document.getElementById("dailyReportSource")?.value||"";
-    const payment=document.getElementById("dailyReportPayment")?.value||"";
-    const projectStatus=document.getElementById("dailyReportProjectStatus")?.value||"";
-
-    const rows=projectTracker.filter(p=>
-        (!date || p.date===date) &&
-        (!source || p.source===source) &&
-        (!payment || p.payment_status===payment) &&
-        (!projectStatus || p.project_status===projectStatus)
-    );
-
-    if(!rows.length){
-        alert("There are no daily report entries to export.");
-        return;
-    }
-
+    const rows=getFilteredDailyReports();if(!rows.length){alert("There are no customer requests to export.");return;}
     const headers=["Date","Client's Name","Quotation / Size","Materials","Source","Location","Payment Status","Project Status","Remarks"];
-    const csv=[headers,...rows.map(p=>[
-        p.date,p.client,p.quotation_size,p.materials,p.source,p.location,
-        dailyPaymentLabel(p.payment_status),dailyProjectLabel(p.project_status),p.remarks
-    ])].map(row=>row.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
-
-    const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement("a");
-    a.href=url;
-    a.download=`PrintArt_Daily_Report_${date||"All"}.csv`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
+    const csv=[headers,...rows.map(r=>[r.report_date,r.client_name,r.quotation_size,r.materials,r.source,r.location,r.payment_status,r.project_status,r.remarks])].map(row=>row.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
+    const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`PrintArt_Daily_Report_${document.getElementById("dailyReportDate")?.value||"All"}.csv`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
 }
-
-
 
 const FINANCIAL_INCOME_CATEGORIES = [
     "Sales",
@@ -6249,6 +6075,10 @@ window.addEventListener("DOMContentLoaded",async()=>{
 
     const financialForm=document.getElementById("financialForm");
     if(financialForm)financialForm.style.display="none";
+
+    const dailyReportForm=document.getElementById("dailyReportForm");
+    if(dailyReportForm)dailyReportForm.style.display="none";
+
     setFinancialToday();
     populateFinancialCategoryOptions();
     setTrackerToday();
@@ -6268,7 +6098,8 @@ window.addEventListener("DOMContentLoaded",async()=>{
     await loadCloudData();
     await loadSignageProjects();
     await loadFinancialData();
-    renderDailyReport();
+    await loadDailyReports();
+    setDailyReportToday();
     renderProjectTracker();
     renderItems();
     setToday();

@@ -2469,6 +2469,7 @@
 <label>Formula</label>
 <select id="productFormulaType" onchange="updateProductFormulaFields()">
 <option value="AREA_SQFT">L × W × Rate × Quantity (SQ.FT)</option>
+<option value="AREA_SQFT_144">L × W × Rate × Quantity ÷ 144 (SQ.IN)</option>
 <option value="AREA_SQFT_EXTRA">L × W × Rate × Quantity + Extra (SQ.FT)</option>
 <option value="AREA_SQIN">L × W × Rate × Quantity (SQ.IN)</option>
 <option value="QUANTITY">Quantity × Rate</option>
@@ -3021,6 +3022,7 @@ let financialTransactions = [];
 ========================================================= */
 const FORMULA_LABELS = {
     AREA_SQFT: "L × W × Rate × Quantity (SQ.FT)",
+    AREA_SQFT_144: "L × W × Rate × Quantity ÷ 144 (SQ.IN)",
     AREA_SQFT_EXTRA: "L × W × Rate × Quantity + Extra (SQ.FT)",
     AREA_SQIN: "L × W × Rate × Quantity (SQ.IN)",
     QUANTITY: "Quantity × Rate",
@@ -3029,19 +3031,19 @@ const FORMULA_LABELS = {
 };
 
 const DEFAULT_PRODUCTS = [
-    {name:"Tarpaulin 10 oz",category:"Tarpaulin",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:25,extra_charge:0,min_qty:1,dimension_unit:"ft"},
-    {name:"Tarpaulin 12 oz",category:"Tarpaulin",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:30,extra_charge:0,min_qty:1,dimension_unit:"ft"},
-    {name:"Blackout Tarp",category:"Tarpaulin",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:45,extra_charge:0,min_qty:1,dimension_unit:"ft"},
-    {name:"White Sticker",category:"Sticker",formula_type:"AREA_SQFT_EXTRA",unit:"SQ.FT",rate:60,extra_charge:40,min_qty:1,dimension_unit:"ft"},
-    {name:"Clear / Frosted",category:"Sticker",formula_type:"AREA_SQFT_EXTRA",unit:"SQ.FT",rate:80,extra_charge:40,min_qty:1,dimension_unit:"ft"},
+    {name:"Tarpaulin 10 oz",category:"Tarpaulin",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:25,extra_charge:0,min_qty:1,dimension_unit:"in"},
+    {name:"Tarpaulin 12 oz",category:"Tarpaulin",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:30,extra_charge:0,min_qty:1,dimension_unit:"in"},
+    {name:"Blackout Tarp",category:"Tarpaulin",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:45,extra_charge:0,min_qty:1,dimension_unit:"in"},
+    {name:"White Sticker",category:"Sticker",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:60,extra_charge:40,min_qty:1,dimension_unit:"in"},
+    {name:"Clear / Frosted",category:"Sticker",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:80,extra_charge:40,min_qty:1,dimension_unit:"in"},
     {name:"Decals (Primary Colors)",category:"Sticker",formula_type:"AREA_SQIN",unit:"SQ.IN",rate:5,extra_charge:0,min_qty:1,dimension_unit:"in"},
     {name:"Labels",category:"Sticker",formula_type:"QUANTITY",unit:"PC",rate:3,extra_charge:0,min_qty:10,dimension_unit:"none"},
     {name:"Value Light 3MM",category:"Sintra Board",formula_type:"AREA_SQIN",unit:"SQ.IN",rate:1.5,extra_charge:0,min_qty:1,dimension_unit:"in"},
     {name:"Value Light 5MM",category:"Sintra Board",formula_type:"AREA_SQIN",unit:"SQ.IN",rate:1.8,extra_charge:0,min_qty:1,dimension_unit:"in"},
-    {name:"Backlit",category:"Backlit Film",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:140,extra_charge:0,min_qty:1,dimension_unit:"ft"},
-    {name:"Acrylic 3MM",category:"Acrylic",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:400,extra_charge:0,min_qty:1,dimension_unit:"ft"},
-    {name:"Acrylic 5MM",category:"Acrylic",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:600,extra_charge:0,min_qty:1,dimension_unit:"ft"},
-    {name:"Panaflex Printing",category:"Panaflex",formula_type:"AREA_SQFT",unit:"SQ.FT",rate:120,extra_charge:0,min_qty:1,dimension_unit:"ft"}
+    {name:"Backlit",category:"Backlit Film",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:140,extra_charge:0,min_qty:1,dimension_unit:"in"},
+    {name:"Acrylic 3MM",category:"Acrylic",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:400,extra_charge:0,min_qty:1,dimension_unit:"in"},
+    {name:"Acrylic 5MM",category:"Acrylic",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:600,extra_charge:0,min_qty:1,dimension_unit:"in"},
+    {name:"Panaflex Printing",category:"Panaflex",formula_type:"AREA_SQFT_144",unit:"SQ.FT",rate:120,extra_charge:0,min_qty:1,dimension_unit:"in"}
 ];
 
 /* =========================================================
@@ -3090,7 +3092,7 @@ function normalizeProduct(p){
         min_qty: Math.max(1,Number(p.min_qty || 1)),
         dimension_unit: p.dimension_unit || (
             formula === "AREA_SQIN" ? "in" :
-            formula === "QUANTITY" || formula === "QUANTITY_EXTRA" || formula === "FIXED" ? "none" : "ft"
+            formula === "QUANTITY" || formula === "QUANTITY_EXTRA" || formula === "FIXED" ? "none" : "in"
         ),
         unit: p.unit || (
             formula === "AREA_SQIN" ? "SQ.IN" :
@@ -3106,7 +3108,8 @@ function formulaText(product){
     const rate = "₱" + money(p.rate);
     switch(p.formula_type){
         case "AREA_SQFT": return `L × W × ${rate}/SQ.FT × Qty`;
-        case "AREA_SQFT_EXTRA": return `L × W × ${rate}/SQ.FT × Qty + ₱${money(p.extra_charge)} extra`;
+        case "AREA_SQFT_144": return `L × W × ${rate}/SQ.FT × Qty ÷ 144`;
+        case "AREA_SQFT_EXTRA": return `L × W × ${rate}/SQ.FT × Qty ÷ 144 + ₱${money(p.extra_charge)} extra`;
         case "AREA_SQIN": return `L × W × ${rate}/SQ.IN × Qty`;
         case "QUANTITY": return `Qty × ${rate}/PC`;
         case "QUANTITY_EXTRA": return `Qty × ${rate} + ₱${money(p.extra_charge)} extra`;
@@ -3232,7 +3235,7 @@ function openProductForm(){
     document.getElementById("editingProductId").value = "";
     document.getElementById("productName").value = "";
     document.getElementById("productCategory").value = "";
-    document.getElementById("productFormulaType").value = "AREA_SQFT";
+    document.getElementById("productFormulaType").value = "AREA_SQFT_144";
     document.getElementById("productUnit").value = "SQ.FT";
     document.getElementById("productRate").value = "";
     document.getElementById("productExtraCharge").value = "0";
@@ -3254,7 +3257,7 @@ function updateProductFormulaFields(){
     const unit = document.getElementById("productUnit");
     const preview = document.getElementById("productFormulaPreview");
 
-    const isArea = type === "AREA_SQFT" || type === "AREA_SQFT_EXTRA" || type === "AREA_SQIN";
+    const isArea = type === "AREA_SQFT" || type === "AREA_SQFT_144" || type === "AREA_SQFT_EXTRA" || type === "AREA_SQIN";
     const needsExtra = type === "AREA_SQFT_EXTRA" || type === "QUANTITY_EXTRA";
 
     if(extra){
@@ -3264,6 +3267,7 @@ function updateProductFormulaFields(){
 
     if(dim){
         if(type === "AREA_SQIN")dim.value = "in";
+        else if(type === "AREA_SQFT_144")dim.value = "in";
         else if(type === "AREA_SQFT" || type === "AREA_SQFT_EXTRA")dim.value = "ft";
         else dim.value = "none";
         dim.disabled = !isArea;
@@ -3281,6 +3285,7 @@ function updateProductFormulaFields(){
         const rateText = "₱" + money(rate);
         switch(type){
             case "AREA_SQFT": preview.textContent = `Formula: L × W × ${rateText} / SQ.FT × Quantity`; break;
+            case "AREA_SQFT_144": preview.textContent = `Formula: L × W × ${rateText} × Quantity ÷ 144 (SQ.IN)`; break;
             case "AREA_SQFT_EXTRA": preview.textContent = `Formula: L × W × ${rateText} / SQ.FT × Quantity + ₱${money(extraValue)} extra`; break;
             case "AREA_SQIN": preview.textContent = `Formula: L × W × ${rateText} / SQ.IN × Quantity`; break;
             case "QUANTITY": preview.textContent = `Formula: Quantity × ${rateText}`; break;
@@ -3538,11 +3543,11 @@ function selectProduct(){
         return;
     }
 
-    const isArea = ["AREA_SQFT","AREA_SQFT_EXTRA","AREA_SQIN"].includes(product.formula_type);
+    const isArea = ["AREA_SQFT","AREA_SQFT_144","AREA_SQFT_EXTRA","AREA_SQIN"].includes(product.formula_type);
     if(lengthField)lengthField.style.display = isArea ? "" : "none";
     if(widthField)widthField.style.display = isArea ? "" : "none";
-    if(length)length.placeholder = product.dimension_unit === "in" ? "Length in inches" : "Length in feet";
-    if(width)width.placeholder = product.dimension_unit === "in" ? "Width in inches" : "Width in feet";
+    if(length)length.placeholder = product.dimension_unit === "in" ? "Length in inches" : "Length in inches";
+    if(width)width.placeholder = product.dimension_unit === "in" ? "Width in inches" : "Width in inches";
     if(qty)qty.min = product.min_qty;
 
     if(hint){
@@ -3563,12 +3568,28 @@ function calculateItem(product,length,width,qty){
 
     switch(p.formula_type){
         case "AREA_SQFT":
-        case "AREA_SQFT_EXTRA":
-        case "AREA_SQIN":
-            // Area products are priced per piece/size, then multiplied by Quantity.
-            // Formula: L × W × Rate × Quantity (+ Extra once, when applicable)
+            // Dimensions are in feet.
             base = L * W * p.rate;
-            amount = (base * Q) + (p.formula_type === "AREA_SQFT_EXTRA" ? p.extra_charge : 0);
+            amount = base * Q;
+            unitPrice = base;
+            break;
+        case "AREA_SQFT_144":
+            // Dimensions are in inches. Convert square inches to square feet.
+            // Formula: L × W × Rate × Quantity ÷ 144
+            base = (L * W * p.rate) / 144;
+            amount = base * Q;
+            unitPrice = base;
+            break;
+        case "AREA_SQFT_EXTRA":
+            // Dimensions are in feet; extra charge is added once.
+            base = L * W * p.rate;
+            amount = (base * Q) + p.extra_charge;
+            unitPrice = base;
+            break;
+        case "AREA_SQIN":
+            // Dimensions are in inches; rate is per square inch.
+            base = L * W * p.rate;
+            amount = base * Q;
             unitPrice = base;
             break;
         case "QUANTITY":
@@ -3612,7 +3633,7 @@ function updateQuotationPricePreview(){
     const width = Number(document.getElementById("itemWidth")?.value || 0);
     const qty = Number(document.getElementById("itemQty")?.value || 0);
 
-    const isArea = ["AREA_SQFT","AREA_SQFT_EXTRA","AREA_SQIN"].includes(product.formula_type);
+    const isArea = ["AREA_SQFT","AREA_SQFT_144","AREA_SQFT_EXTRA","AREA_SQIN"].includes(product.formula_type);
     let valid = true;
 
     if(isArea && (length <= 0 || width <= 0))valid = false;
@@ -3649,7 +3670,7 @@ function addItem(){
     const length = Number(document.getElementById("itemLength").value || 0);
     const width = Number(document.getElementById("itemWidth").value || 0);
     const qty = Number(document.getElementById("itemQty").value || 0);
-    const isArea = ["AREA_SQFT","AREA_SQFT_EXTRA","AREA_SQIN"].includes(product.formula_type);
+    const isArea = ["AREA_SQFT","AREA_SQFT_144","AREA_SQFT_EXTRA","AREA_SQIN"].includes(product.formula_type);
 
     if(isArea && (length <= 0 || width <= 0)){
         alert("Please enter a valid length and width.");

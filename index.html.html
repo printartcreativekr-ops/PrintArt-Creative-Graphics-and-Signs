@@ -2193,7 +2193,7 @@
 #finance .finance-quick-actions span{font-size:16px;margin-right:4px;}
 
 #finance .finance-filter-panel{margin-bottom:10px;}
-#finance .finance-simple-filter{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:8px;}
+#finance .finance-simple-filter{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:8px;}
 #finance .field label{display:block;font-size:7px;font-weight:900;color:#7d858d;letter-spacing:.6px;margin-bottom:4px;text-transform:uppercase;}
 #finance .field input,#finance .field select{height:36px;width:100%;box-sizing:border-box;border:1px solid #dfe3e7;border-radius:5px;background:#fff;padding:7px 9px;font-size:10px;color:#404850;outline:none;}
 #finance .field input:focus,#finance .field select:focus{border-color:#f0a51c;box-shadow:0 0 0 2px rgba(240,165,28,.10);}
@@ -3025,7 +3025,7 @@
 <div>
 <span class="finance-panel-kicker">REPORT CONTROLS</span>
 <h3>Find a transaction</h3>
-<p>Use the filters below to update the dashboard and reports.</p>
+<p>Select a specific date to view that day's income, expenses, net cash flow, and transactions.</p>
 </div>
 <button class="finance-btn finance-btn-secondary" onclick="clearFinancialFilters()">Reset</button>
 </div>
@@ -3033,6 +3033,10 @@
 <div class="field">
 <label>Search</label>
 <input id="financeSearch" oninput="renderFinancialTracker()" placeholder="Client, description, reference..."/>
+</div>
+<div class="field">
+<label>Specific Date</label>
+<input id="financeDateFilter" type="date" onchange="renderFinancialTracker()" aria-label="Select a date for the daily financial report"/>
 </div>
 <div class="field">
 <label>Month</label>
@@ -5433,6 +5437,7 @@ async function loadFinancialData(){
 
 function getFilteredFinancialTransactions(){
     const search=(document.getElementById("financeSearch")?.value||"").trim().toLowerCase();
+    const date=document.getElementById("financeDateFilter")?.value||"";
     const month=document.getElementById("financeMonthFilter")?.value||"";
     const type=document.getElementById("financeTypeFilter")?.value||"";
     const category=document.getElementById("financeCategoryFilter")?.value||"";
@@ -5444,6 +5449,7 @@ function getFilteredFinancialTransactions(){
         ].join(" ").toLowerCase();
 
         return (!search || hay.includes(search)) &&
+               (!date || String(t.transaction_date)===date) &&
                (!month || String(t.transaction_date).startsWith(month)) &&
                (!type || t.transaction_type===type) &&
                (!category || t.category===category);
@@ -5766,7 +5772,7 @@ async function deleteFinancialTransaction(id){
 }
 
 function clearFinancialFilters(){
-    ["financeSearch","financeMonthFilter","financeTypeFilter","financeCategoryFilter"].forEach(id=>{
+    ["financeSearch","financeDateFilter","financeMonthFilter","financeTypeFilter","financeCategoryFilter"].forEach(id=>{
         const el=document.getElementById(id);
         if(el)el.value="";
     });
@@ -5799,7 +5805,8 @@ function exportFinancialCSV(){
     const url=URL.createObjectURL(blob);
     const a=document.createElement("a");
     a.href=url;
-    a.download="PrintArt_Financial_Report.csv";
+    const selectedDate=document.getElementById("financeDateFilter")?.value||"";
+    a.download=selectedDate?`PrintArt_Daily_Financial_Report_${selectedDate}.csv`:"PrintArt_Financial_Report.csv";
     document.body.appendChild(a);
     a.click();
     a.remove();
